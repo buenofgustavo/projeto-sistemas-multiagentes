@@ -1,0 +1,7 @@
+Regra comercial de construtoras e Matcom
+
+Considerar os vendedores de televendas habilitados. Criar uma carteira livre de construtoras, com clientes fixos dos ramos 3, 6, 15 e 16, e outra carteira livre Matcom, com os clientes fixos dos demais ramos.
+
+Nas construtoras, não agendar clientes com compra nos últimos 30 dias. Agendar clientes sem venda com o vendedor a cada 30 dias. Agendar clientes com uma única compra com o vendedor e sem compra nos últimos 60 dias a cada 21 dias. Para clientes fora da faixa de recência com o vendedor de 31 a 60 dias, agendar a cada 28 dias; fora da faixa de 61 a 90 dias, a cada 14 dias. Agendar os demais clientes da carteira a cada 21 dias.
+
+Na carteira Matcom, agendar clientes sem venda com o vendedor a cada 7 dias; com uma única compra com ele e sem compra nos últimos 30 dias, a cada 14 dias. Para última compra entre 7 e 30 dias atrás, usar a frequência histórica com mínimo de 7 e máximo de 30 dias. Para clientes fora da faixa de recência com o vendedor de 31 a 60 dias, agendar a cada 14 dias; fora da faixa de 61 a 90 dias, a cada 7 dias. Para os demais clientes da carteira, agendar a cada 7 dias. Aplicar nessa ordem.

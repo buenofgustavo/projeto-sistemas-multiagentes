@@ -1,0 +1,11 @@
+Regra comercial para toda a empresa
+
+Todos os vendedores da empresa devem trabalhar com os clientes de suas próprias carteiras fixas.
+
+Para os clientes inativos em relação ao vendedor, utilizar a frequência média de atendimento dos clientes inativos da empresa.
+
+Para os clientes ativos em relação ao vendedor, utilizar a frequência média de atendimento dos clientes ativos da empresa.
+
+Para os clientes classificados como sem venda, utilizar a frequência média de atendimento dos clientes inativos da empresa.
+
+Aplicar essas condições na ordem apresentada.

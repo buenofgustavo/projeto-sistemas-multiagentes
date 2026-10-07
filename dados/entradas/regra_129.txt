@@ -1,0 +1,3 @@
+Regra comercial da Boa Praça
+
+Considerar todos os vendedores habilitados para gerar agendas. Não agendar clientes inadimplentes nem clientes filiais. Agendar clientes ativos para o vendedor a cada 7 dias e os demais clientes do time a cada 14 dias. Aplicar nessa ordem.

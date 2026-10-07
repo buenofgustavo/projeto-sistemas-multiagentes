@@ -1,0 +1,3 @@
+Regra comercial para toda a empresa
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Para clientes inativos cujo CNAE do ERP começa por 03, 47 ou 27, agendar mensalmente. Para os demais clientes inativos, agendar quinzenalmente. Para clientes ativos, agendar mensalmente. Há ainda uma segunda regra de frequência quinzenal para clientes inativos. Para clientes sem venda, agendar mensalmente. Em todos os casos, usar a preferência de dias definida pelo vendedor. Aplicar nessa ordem.

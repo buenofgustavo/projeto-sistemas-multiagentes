@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende empresas baixadas na Receita Federal. Para revenda, ramos 106, 139, 109, 143, 141 e 142 recebem 7 dias; 140, 146 e 148 recebem 14 dias; 138 recebe 28 dias. Para consumo, ramos 144, 147 e 108 recebem 7 dias; 111, 100, 110, 112, 145, 107 e 113 recebem 14 dias; 114 recebe 28 dias. Não agende outros ramos.

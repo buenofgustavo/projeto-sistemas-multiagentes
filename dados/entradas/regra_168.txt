@@ -1,0 +1,11 @@
+Regra comercial de rotas por cidade
+
+Considerar os vendedores de televendas habilitados e os clientes de suas carteiras fixas. Criar carteiras livres por cidades para rota diária, rota de terça, de quarta, de quinta e de sexta.
+
+Não agendar clientes baixados na Receita Federal nem bloqueados. Para a rota diária, agendar diariamente com programação fixa e maior preferência de segunda a sexta. Para a rota de terça, agendar diariamente com programação fixa e maior preferência na segunda; para a rota de quarta, na terça; para a rota de quinta, na quarta; e para a rota de sexta, na quinta.
+
+Não agendar os clientes restantes do time que não receberam regra anterior. Aplicar nessa ordem.
+
+A rota diária contém Balneário Camboriú, Bombinhas, Camboriú, Itajaí, Itapema e Porto Belo. A rota de terça contém Cascavel, Lages, Bom Retiro, São Joaquim, Biguaçu, Blumenau, Brusque, Florianópolis, Governador Celso Ramos, Guabiruba, Ibirama, Palhoça, Pomerode, Rio do Sul, São José, Tijucas, Luiz Alves, Gaspar, Indaial, Botuverá, Ilhota e Rio dos Cedros. A rota de quarta contém Irati, Ponta Grossa, Fernandes Pinheiro, Teixeira Soares, Araucária, Curitiba, São José dos Pinhais, Piraquara, Colombo, Pinhais, Campo Largo, Jaraguá do Sul, Balneário Barra do Sul, Balneário Piçarras, Campo Alegre, Joinville, Navegantes, Penha, Pouso Redondo, Corupá, Guaramirim, São Bento do Sul, Barra Velha, Schroeder, Rebouças e Rio Azul.
+
+A rota de quinta contém Bento Gonçalves, Cachoeirinha, Campo Bom, Canoas, Capão da Canoa, Caxias do Sul, Gramado, Novo Hamburgo, Porto Alegre, Torres, Três Coroas, Xangri-lá, Biguaçu, Blumenau, Cocal do Sul, Criciúma, Brusque, Forquilinhas, Garopaba, Florianópolis, Governador Celso Ramos, Guabiruba, Imbituba, Ibirama, Palhoça, Jaguaruna, Laguna, Pomerode, Rio do Sul, São José, Praia Grande, Tijucas, Luiz Alves, Gaspar, Tubarão, Indaial, Botuverá, Ilhota e Rio dos Cedros. A rota de sexta contém Guaratuba, Matinhos, Itapoá, Morretes, Paranaguá, Araucária, Curitiba, São José dos Pinhais, Piraquara, Colombo, Pinhais, Campo Largo, Balneário Barra do Sul, Balneário Piçarras, Campo Alegre, Joinville, São Francisco do Sul, Navegantes, Penha, Pouso Redondo, Corupá, Guaramirim, São Bento do Sul, Barra Velha, Schroeder, Biguaçu, Florianópolis, Governador Celso Ramos, Palhoça, São José e Tijucas.

@@ -1,0 +1,7 @@
+Regra comercial para televendas, campo capital e campo interior
+
+Criar um time de campo do interior com os vendedores de IDs 18, 212, 300, 376, 395, 421, 43, 449, 486, 488, 489, 490, 6 e 68. O time de campo da capital reúne os demais vendedores de campo. O terceiro time reúne todos os vendedores de televendas. Cada time usa sua carteira fixa.
+
+No televendas e no campo da capital, agendar clientes ativos e adimplentes semanalmente; ativos e inadimplentes a cada 14 dias; inativos a cada 30 dias; e sem venda a cada 30 dias.
+
+No campo do interior, agendar clientes ativos a cada 14 dias, inativos a cada 30 dias e sem venda a cada 30 dias. Preferir dias úteis em todos os agendamentos e aplicar as condições de cada time na ordem apresentada.

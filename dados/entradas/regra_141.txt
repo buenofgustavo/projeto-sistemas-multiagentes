@@ -1,0 +1,3 @@
+Regra comercial da Ever Limp
+
+Considerar todos os vendedores habilitados para gerar agendas. Para clientes da curva A da empresa, agendar os ativos para o vendedor a cada 15 dias e os demais a cada 7 dias. Para clientes da curva B, agendar os ativos a cada 21 dias e os demais a cada 14 dias. Para clientes da curva C, agendar os ativos a cada 30 dias e os demais a cada 21 dias. Para todos os clientes restantes do time, agendar a cada 21 dias. Aplicar nessa ordem.

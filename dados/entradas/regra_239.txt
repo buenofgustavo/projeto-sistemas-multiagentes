@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende empresas baixadas na Receita Federal nem clientes com rota nesta semana. Compra nos últimos 60 dias recebe frequência de 14 dias; nos últimos 90 dias, 7 dias; nos últimos 120 dias, 14 dias; nos últimos 150 dias, 21 dias; nos últimos 180 dias, 28 dias. Clientes restantes não são agendados.

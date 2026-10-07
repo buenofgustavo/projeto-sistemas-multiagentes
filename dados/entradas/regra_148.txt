@@ -1,0 +1,3 @@
+Regra comercial da Jumori
+
+Considerar os vendedores de televendas habilitados para gerar agendas. Não agendar inadimplentes. Agendar clientes ativos semanalmente e clientes inativos quinzenalmente. Agendar clientes sem venda também quinzenalmente. Aplicar nessa ordem.

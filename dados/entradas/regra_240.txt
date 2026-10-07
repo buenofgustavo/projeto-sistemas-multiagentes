@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende quem comprou nos últimos 7 dias. Compra nos últimos 30 dias ou nos últimos 60 dias leva à frequência de 14 dias. Compra nos últimos 90 dias leva a 7 dias. Demais inativos recebem 21 dias.

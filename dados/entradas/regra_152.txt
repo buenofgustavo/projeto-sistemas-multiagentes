@@ -1,0 +1,3 @@
+Regra comercial do televendas
+
+Considerar os vendedores de televendas habilitados para gerar agendas. Agendar prospects em relação ao vendedor e clientes com uma única compra com ele a cada 7 dias. Agendar clientes com compra nos últimos 7 dias a cada 14 dias; com última compra entre 7 e 30 dias, a cada 14 dias; entre 30 e 60 dias, a cada 14 dias; e entre 60 e 90 dias, a cada 7 dias. Para os demais clientes do time, agendar a cada 7 dias. Aplicar nessa ordem.

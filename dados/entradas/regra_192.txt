@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas e exclua empresas baixadas na Receita Federal. Clientes sem vendas na empresa recebem 14 dias. Para compra nos últimos 15 dias, agende a cada 7 dias; nos últimos 30 dias, a cada 3 dias; e para os demais, a cada 5 dias.

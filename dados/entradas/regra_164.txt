@@ -1,0 +1,9 @@
+Regra comercial da Isocom
+
+Criar um time com todos os vendedores habilitados e um time específico da vendedora Bruna, ID 10bruna.
+
+Para Bruna, agendar clientes com rótulo "condominio" cadastrados desde 03/10/2024 a cada 14 dias; os desse rótulo com compra global nos últimos 30 dias a cada 7 dias; e os do mesmo rótulo sem compra global nos últimos 90 dias a cada 30 dias.
+
+No time geral, agendar clientes sem venda cadastrados desde 01/08/2024 a cada 7 dias. Para clientes com rótulo "construtora", uma única compra na empresa e sem compra nos últimos 60 dias, agendar a cada 14 dias. Para construtoras no RJ com frequência histórica menor que 30 dias e sem compra nos últimos 14 dias, agendar as da curva A a cada 7 dias, da curva B a cada 10 dias e da curva C a cada 14 dias. Para as demais construtoras com as duas condições de frequência e recência, agendar a cada 14 dias. Para construtoras ativas na empresa sem compra global nos últimos 45 dias, agendar a cada 10 dias; sem compra nos últimos 60 dias, a cada 14 dias; cadastradas desde 03/10/2024, a cada 7 dias; e as demais construtoras, a cada 45 dias.
+
+Para clientes com rótulos shopping, supermercado, industria, estaleiro, clube, escolas, universidade, igreja, hotel, hospital, clinica, restaurantes ou condominio, agendar os cadastrados desde 03/10/2024 a cada 14 dias. Os que tiveram compra global nos últimos 30 dias são contemplados por duas regras sucessivas de 7 e 30 dias, nessa ordem. Não agendar os clientes restantes sem regra aplicada. Preservar a ordem apresentada.

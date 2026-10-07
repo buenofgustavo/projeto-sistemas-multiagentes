@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas e não agende pessoas físicas. Cliente sem compra na empresa recebe 14 dias. Compra nos últimos 14 dias usa a frequência histórica acrescida de 7 dias, limitada a 14 dias. Compra entre 14 e 30 dias recebe 14 dias; entre 30 e 45 dias, 21 dias; entre 45 e 90 dias, 14 dias. Cliente sem compra nos últimos 90 dias recebe 28 dias.

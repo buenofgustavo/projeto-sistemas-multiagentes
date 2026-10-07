@@ -1,0 +1,9 @@
+Regra comercial por segmento de clientes
+
+Considerar os vendedores de televendas habilitados e suas carteiras fixas. Criar carteiras livres de construtoras, Matcon e demais segmentos. Construtoras usam os códigos de ramo 10207004, 10301009, 10101016, 10301016, 10207001, 10301010, 10207002, 10301011, 10207003, 10301015, 10205001, 10205002 e 10204002. Matcon usa 10103004, 10202002, 10201004, 10201006, 10201009, 10201003, 10201011, 10201005, 10201002, 10201001, 10101013, 10103003, 10102004, 10202005, 10201007, 10205003, 10301001, 10101019, 10301019, 10301002, 10301007, 10301004, 10101006 e 10301006. Os demais ficam fora dessas duas listas.
+
+Para prospects em relação ao vendedor, agendar a cada 7 dias. Para clientes com uma única compra com o vendedor, agendar construtoras a cada 14 dias e os demais segmentos a cada 7 dias.
+
+Para não construtoras com última compra entre 7 e 30 dias atrás, usar a frequência histórica com mínimo de 7 e máximo de 30 dias. Para construtoras com compra nos últimos 30 dias, agendar a cada 7 dias; sem compra nos últimos 30 dias, a cada 14 dias.
+
+Para última compra global entre 30 e 60 dias, agendar Matcon a cada 7 dias e os demais a cada 14 dias. Entre 60 e 89 dias, agendar Matcon a cada 7 dias, construtoras a cada 14 dias e os demais a cada 21 dias. Entre 90 e 179 dias, agendar Matcon a cada 7 dias, construtoras a cada 21 dias e os demais a cada 14 dias. Sem compra global nos últimos 180 dias, agendar construtoras a cada 28 dias e os demais a cada 14 dias. Aplicar as condições na ordem apresentada.

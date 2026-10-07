@@ -1,0 +1,9 @@
+Regra comercial da Gesiane e dos times de venda
+
+Criar um time específico com a vendedora de ID 16, além dos times de todos os vendedores de campo e de todos os vendedores de televendas. Cada time trabalha com sua carteira fixa.
+
+Para a vendedora de ID 16, agendar clientes inativos, clientes sem venda e clientes ativos a cada 14 dias, nessa ordem.
+
+No campo, não agendar clientes inativos e inadimplentes. Agendar os demais clientes da carteira a cada 14 dias.
+
+No televendas, não agendar clientes inativos e inadimplentes nem clientes sem venda. Agendar os demais clientes da carteira a cada 14 dias. Aplicar nessa ordem.

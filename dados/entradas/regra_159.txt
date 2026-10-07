@@ -1,0 +1,9 @@
+Regra comercial da Brasgroup
+
+Criar um time geral com todos os vendedores, um time Baby com IDs 2095 e 2152 e um time Pet com IDs 2150 e 2151.
+
+No segmento Baby, agendar a cada 45 dias clientes com faturamento anual na empresa abaixo de R$ 10.000 ou sem faturamento definido; a cada 15 dias os que faturam acima de R$ 30.000; e os demais a cada 30 dias.
+
+No segmento Pet, agendar a cada 45 dias clientes com faturamento anual abaixo de R$ 5.000 ou indefinido; a cada 15 dias os que faturam acima de R$ 20.000; e os demais a cada 30 dias.
+
+No time geral, agendar clientes ativos para o vendedor a cada 7 dias e os demais a cada 15 dias. Aplicar nessa ordem.

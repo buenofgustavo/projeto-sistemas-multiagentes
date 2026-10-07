@@ -1,0 +1,3 @@
+Regra comercial da Taiken
+
+Considerar todos os vendedores e os clientes de suas carteiras fixas. Agendar clientes ativos e adimplentes a cada 10 dias; ativos e inadimplentes a cada 14 dias; inativos e adimplentes a cada 14 dias; inativos e inadimplentes a cada 90 dias; e clientes sem venda a cada 21 dias. Aplicar nessa ordem.

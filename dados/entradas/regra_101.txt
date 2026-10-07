@@ -1,0 +1,9 @@
+Regra comercial da Propec
+
+Separar os vendedores de televendas, os de campo da capital (todos os vendedores de campo, exceto IDs 17, 18 e 13) e os de campo do interior (IDs 17, 18 e 13).
+
+No televendas, agendar clientes ativos a cada 7 dias, inativos a cada 30 dias e sem venda a cada 7 dias.
+
+Na capital, agendar clientes ativos a cada 7 dias e inativos adimplentes a cada 14 dias. Não agendar inativos inadimplentes. Agendar clientes sem venda a cada 14 dias.
+
+No interior, agendar clientes ativos a cada 14 dias e inativos adimplentes a cada 30 dias. Não agendar inativos inadimplentes. Agendar clientes sem venda a cada 30 dias. Aplicar as condições de cada time na ordem apresentada.

@@ -1,0 +1,7 @@
+Regra comercial da Diferpan
+
+Considerar todos os vendedores habilitados para gerar agendas. Não agendar clientes inadimplentes.
+
+Agendar prospects em relação ao vendedor a cada 7 dias. Para clientes com uma única compra com o vendedor e ramo de atividade 37, agendar a cada 21 dias. Para os demais clientes com uma única compra com o vendedor, agendar a cada 7 dias. Agendar a cada 7 dias clientes cuja frequência histórica seja menor que 11 dias.
+
+Para clientes do ramo 37 fora da faixa de recência de compra com o vendedor entre 60 e 89 dias, agendar a cada 14 dias. Para os clientes do mesmo ramo fora da faixa de 11 a 59 dias, agendar a cada 21 dias. Agendar clientes no ciclo de vida inativo com o vendedor a cada 21 dias. Agendar a cada 7 dias os clientes sem compra com o vendedor nos últimos 90 dias. Para os demais clientes do time, agendar a cada 7 dias. Aplicar nessa ordem.

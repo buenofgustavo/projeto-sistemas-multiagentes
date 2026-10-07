@@ -1,0 +1,9 @@
+Regra comercial para televendas, saúde e campo
+
+Criar um time de televendas com todos os vendedores desse tipo, exceto ID 7027; um time de saúde de televendas somente com o vendedor ID 7027; e um time com todos os vendedores de campo.
+
+No televendas geral, agendar clientes ativos para o vendedor a cada 7 dias e os demais clientes a cada 15 dias.
+
+No televendas de saúde, agendar ativos do ramo de atividade 1 a cada 7 dias. Agendar os demais clientes desse ramo a cada 15 dias. Não agendar os demais clientes do time.
+
+No campo, agendar clientes ativos a cada 7 dias com programação fixa e os demais clientes a cada 15 dias, também com programação fixa. Aplicar nessa ordem.

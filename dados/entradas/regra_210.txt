@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende filiais, inadimplentes ou bloqueados. Cliente com uma única compra com o vendedor recebe 30 dias. Compra entre 181 e 365 dias leva a 30 dias; compra mais antiga que 365 dias também leva a 30 dias. Para todos os demais clientes ativos, use 30 dias.

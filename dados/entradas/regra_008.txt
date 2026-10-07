@@ -1,0 +1,7 @@
+Regra comercial da NB PI
+
+O time do interior reúne os vendedores com IDs 35 e 34. O time da capital reúne os demais vendedores de campo, excluindo os IDs 35 e 34. Cada time trabalha com os clientes de sua carteira fixa.
+
+Na capital, agendar clientes adimplentes a cada 14 dias. Agendar clientes sem venda a cada 14 dias. Agendar clientes inadimplentes a cada 30 dias.
+
+No interior, agendar todos os clientes da carteira fixa a cada 30 dias. Aplicar as condições na ordem apresentada.

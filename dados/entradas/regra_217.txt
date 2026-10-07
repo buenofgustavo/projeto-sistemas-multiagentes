@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Cliente com uma única compra com o vendedor recebe frequência de 7 dias. Para clientes com compra entre 7 e 30 dias, use a frequência histórica, limitada entre 14 e 28 dias.

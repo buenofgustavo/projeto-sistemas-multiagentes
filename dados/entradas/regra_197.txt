@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Exclua empresas baixadas na Receita Federal, inadimplentes e clientes cuja rota esteja marcada para esta semana. Prospects da empresa recebem frequência de 14 dias. Clientes com compra global nos últimos 60 dias, nos últimos 90 dias ou há mais tempo recebem 7 dias, conforme a ordem das regras.

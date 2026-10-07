@@ -1,0 +1,5 @@
+Regra comercial para todos os vendedores
+
+Considerar todos os vendedores da empresa. Para clientes ativos do ramo DISTRIBUIDOR sem compra nos últimos 60 dias, agendar quinzenalmente. Para clientes sem compra global nos últimos 10 dias e frequência histórica menor que 7 dias, agendar a cada 21 dias.
+
+Não agendar os demais clientes ativos do ramo DISTRIBUIDOR. Para os demais clientes ativos sem compra nos últimos 30 dias, agendar quinzenalmente; não agendar os demais ativos. Agendar todos os clientes restantes do time mensalmente. Aplicar nessa ordem.

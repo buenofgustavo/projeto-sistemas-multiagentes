@@ -1,0 +1,3 @@
+Regra comercial da Trenas
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Agendar todos esses clientes a cada 7 dias.

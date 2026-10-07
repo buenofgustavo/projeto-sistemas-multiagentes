@@ -1,0 +1,11 @@
+Regra comercial da Dispomed
+
+Criar um time geral com todos os vendedores habilitados, exceto IDs 10, 5 e 3. Criar times individuais para Yara (ID 10), Lúcia (ID 5) e Wanderson (ID 3).
+
+Para Yara, agendar clientes das curvas A, B e C da empresa a cada 3, 7 e 14 dias, respectivamente. Agendar os demais clientes do time a cada 14 dias.
+
+Para Lúcia, agendar clientes das curvas A, B e C da empresa a cada 2, 7 e 14 dias, respectivamente. Agendar os demais clientes do time a cada 7 dias.
+
+Para Wanderson, agendar clientes das curvas A, B e C da empresa a cada 4, 7 e 9 dias, respectivamente. Agendar os demais clientes do time a cada 14 dias.
+
+No time geral, não agendar inadimplentes. Agendar os ramos de atividade 001 e 002 a cada 14 dias, o ramo 003 a cada 7 dias e o ramo 004 a cada 21 dias. Não agendar os ramos 005, 006 e 100. Para os demais clientes ativos, agendar a cada 7 dias; para os demais clientes do time, a cada 15 dias. Aplicar nessa ordem.

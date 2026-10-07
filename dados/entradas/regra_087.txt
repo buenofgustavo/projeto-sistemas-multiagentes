@@ -1,0 +1,7 @@
+Regra comercial para televendas e campo
+
+Separar os vendedores de televendas e os de campo, cada time com sua carteira fixa. Preferir dias úteis para todos os agendamentos.
+
+No televendas, agendar clientes ativos e adimplentes a cada 14 dias; ativos e inadimplentes a cada 30 dias; inativos e adimplentes a cada 30 dias; inativos e inadimplentes a cada 60 dias; e sem venda a cada 30 dias.
+
+No campo, agendar clientes adimplentes a cada 14 dias; inadimplentes a cada 30 dias; e sem venda a cada 30 dias. Aplicar as condições de cada time na ordem apresentada.

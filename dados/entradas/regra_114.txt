@@ -1,0 +1,15 @@
+Regra comercial da Pet Nobre
+
+Criar seis times: campo interior (IDs 39, 16, 40, 6 e 45); campo capital (demais vendedores de campo, exceto também o ID 55); televendas (todos os vendedores de televendas, exceto IDs 4 e 54); Jamile (ID 4); ruptura Elizangela (ID 54); e ruptura Jamile (ID 55).
+
+Para Jamile, agendar todos os clientes do time a cada 15 dias, preferencialmente em dias úteis.
+
+Para o time ruptura Jamile, não agendar clientes com compra global entre 0 e 30 dias atrás. Agendar os demais clientes do time a cada 14 dias.
+
+Para o time ruptura Elizangela, não agendar clientes com compra global entre 0 e 30 dias atrás nem clientes bloqueados. Agendar os demais clientes do time a cada 14 dias.
+
+No campo interior, não agendar inativos e inadimplentes. Agendar os demais clientes do time a cada 30 dias, preferencialmente em dias úteis.
+
+No campo capital, não agendar inativos e inadimplentes. Agendar ativos e inadimplentes a cada 30 dias e os demais clientes do time a cada 14 dias, preferencialmente em dias úteis.
+
+No televendas, agendar ativos a cada 15 dias e os demais clientes a cada 7 dias, preferencialmente em dias úteis. Aplicar as regras na ordem apresentada.

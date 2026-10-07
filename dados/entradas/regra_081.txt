@@ -1,0 +1,3 @@
+Regra comercial para toda a empresa
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Agendar clientes ativos para o vendedor semanalmente. A regra seguinte também seleciona clientes ativos e inadimplentes, com frequência de 21 dias. Agendar clientes inativos a cada 30 dias. Há ainda uma regra posterior para não agendar inativos e inadimplentes. Agendar clientes sem venda a cada 30 dias. Preferir dias úteis nos agendamentos e aplicar as condições na ordem apresentada.

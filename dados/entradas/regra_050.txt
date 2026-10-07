@@ -1,0 +1,5 @@
+Regra comercial da Duferro
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas.
+
+Agendar clientes adimplentes a cada 7 dias. Agendar clientes ativos para o vendedor e inadimplentes a cada 14 dias. Não agendar clientes inativos para o vendedor e inadimplentes. Agendar clientes sem venda a cada 7 dias. Aplicar nessa ordem.

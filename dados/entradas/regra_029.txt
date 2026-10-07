@@ -1,0 +1,3 @@
+Regra comercial da Trilha
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Não agendar clientes que sejam ao mesmo tempo inativos para o vendedor e inadimplentes. Agendar todos os demais clientes da carteira a cada 14 dias. Aplicar nessa ordem.

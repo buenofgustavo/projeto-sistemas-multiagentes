@@ -1,0 +1,9 @@
+Regra comercial da NB Distribuidora
+
+Separar os vendedores em televendas, campo do interior (IDs 27, 35 e 34) e campo da capital (todos os vendedores de campo, exceto esses três IDs). Cada time usa sua carteira fixa.
+
+No televendas, agendar clientes adimplentes a cada 14 dias; ativos para o vendedor e inadimplentes a cada 30 dias; e clientes sem venda a cada 30 dias. Não agendar clientes inativos e inadimplentes.
+
+No campo da capital, agendar clientes sem venda a cada 30 dias; clientes inadimplentes a cada 30 dias; e os demais clientes a cada 14 dias. No campo do interior, agendar todos os clientes da carteira a cada 30 dias.
+
+Aplicar as condições na ordem apresentada.

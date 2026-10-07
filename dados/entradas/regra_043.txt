@@ -1,0 +1,3 @@
+Regra comercial para toda a empresa
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Agendar todos esses clientes a cada 14 dias.

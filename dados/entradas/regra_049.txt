@@ -1,0 +1,5 @@
+Regra comercial de televendas
+
+Considerar os vendedores de televendas habilitados para gerar agendas e os clientes de suas carteiras fixas. Não agendar clientes com situação baixada na Receita Federal.
+
+Agendar a cada 14 dias clientes que compraram nos últimos 30 dias. Agendar a cada 7 dias clientes cuja última compra ocorreu há mais de 30 e até 45 dias. Agendar a cada 14 dias clientes sem compra nos últimos 45 dias. Agendar prospects da empresa a cada 7 dias. Aplicar nessa ordem.

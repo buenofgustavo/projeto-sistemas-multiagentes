@@ -1,0 +1,5 @@
+Regra comercial de crédito para televendas
+
+Considerar todos os vendedores de televendas e os clientes de suas carteiras fixas. Não agendar clientes sem crédito disponível com tipo de cobrança DH. Não agendar clientes com menos de R$ 80 de crédito disponível e tipo de cobrança BK. Também não agendar inadimplentes.
+
+Agendar clientes ativos para o vendedor a cada 7 dias, inativos a cada 14 dias e sem venda a cada 14 dias. Aplicar nessa ordem.

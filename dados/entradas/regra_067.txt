@@ -1,0 +1,9 @@
+Regra comercial da NutriPet
+
+Criar um time de televendas, um time do interior com os vendedores de IDs 11, 3, 12 e 21, e um time da capital com os vendedores de IDs 2, 4, 5 e 6. A carteira explícita da capital contém os clientes fixos desses vendedores.
+
+No televendas, agendar clientes ativos a cada 14 dias, inativos a cada 30 dias e sem venda a cada 7 dias, sempre com preferência por dias úteis.
+
+Na capital, agendar clientes ativos e adimplentes a cada 20 dias; ativos e inadimplentes a cada 20 dias; inativos e adimplentes a cada 30 dias. Não agendar inativos e inadimplentes. Agendar clientes sem venda a cada 30 dias. Preferir dias úteis nos agendamentos.
+
+No interior, agendar clientes ativos a cada 21 dias, inativos e adimplentes a cada 21 dias, inativos e inadimplentes a cada 42 dias e sem venda a cada 14 dias, com preferência por dias úteis. Há ainda uma regra posterior para não agendar inativos inadimplentes da carteira da capital. Aplicar as regras na ordem apresentada.

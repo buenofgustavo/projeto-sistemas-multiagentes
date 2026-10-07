@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas e prefira dias úteis e sábado. Prospect da empresa recebe 10 dias. Cliente ativo para o vendedor e adimplente recebe 21 dias; ativo inadimplente, 10 dias. Cliente inativo adimplente recebe 14 dias; inativo inadimplente, 21 dias.

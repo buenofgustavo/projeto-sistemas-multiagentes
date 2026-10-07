@@ -1,0 +1,5 @@
+Regra comercial da STO
+
+Considerar todos os vendedores habilitados para gerar agendas e os clientes de suas carteiras fixas.
+
+Não agendar clientes pessoa física. Agendar clientes ativos e adimplentes a cada 7 dias. Agendar clientes ativos e inadimplentes a cada 14 dias. Agendar clientes inativos e adimplentes a cada 14 dias. Não agendar clientes inativos e inadimplentes. Agendar clientes sem venda a cada 14 dias. Aplicar nessa ordem.

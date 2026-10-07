@@ -1,0 +1,7 @@
+Regra comercial da Playpet
+
+Separar vendedores de campo e de televendas, cada time com sua carteira fixa.
+
+No campo, não agendar clientes do ramo de atividade 17 nem pessoas físicas. Agendar clientes ativos e adimplentes a cada 30 dias e clientes sem venda a cada 21 dias. Não agendar os demais clientes da carteira de campo.
+
+No televendas, não agendar clientes inadimplentes. Agendar clientes ativos e adimplentes a cada 14 dias, inativos e adimplentes a cada 30 dias, e sem venda a cada 14 dias. Aplicar nessa ordem.

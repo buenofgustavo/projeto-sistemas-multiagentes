@@ -1,0 +1,1 @@
+Configure todos os vendedores de televendas. Prospect para o vendedor recebe 7 dias. Cliente com uma única compra com o vendedor e sem compra nos últimos 20 dias recebe 7 dias. Compra com o vendedor nos últimos 30 dias, entre 31 e 60 dias, entre 60 e 90 dias ou há mais de 90 dias também leva à frequência de 7 dias, conforme as regras em ordem.

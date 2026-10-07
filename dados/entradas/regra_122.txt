@@ -1,0 +1,3 @@
+Regra comercial do televendas
+
+Considerar todos os vendedores de televendas e os clientes de suas carteiras fixas. Não agendar clientes inadimplentes. Agendar clientes ativos e adimplentes a cada 14 dias, inativos e adimplentes a cada 30 dias e sem venda a cada 14 dias. Aplicar nessa ordem.

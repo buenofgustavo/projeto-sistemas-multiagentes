@@ -1,0 +1,5 @@
+Regra comercial de prospecção e reativação
+
+Criar um time com todos os vendedores de televendas habilitados e outro time com o vendedor ID 48. Não agendar clientes baixados na Receita Federal, cadastrados há 7 dias nem clientes com compra nos últimos 39 dias.
+
+Agendar clientes cadastrados há 60 dias a cada 30 dias; cadastrados há 30 dias a cada 20 dias; cadastrados há 15 dias a cada 15 dias; e cadastrados há 8 dias a cada 15 dias. Para clientes cuja última compra ocorreu entre 40 e 89 dias atrás, agendar a cada 15 dias; entre 90 e 119 dias, a cada 7 dias; entre 120 e 359 dias, a cada 7 dias. Para clientes sem compra nos últimos 359 dias, agendar a cada 7 dias. Aplicar as condições na ordem apresentada.

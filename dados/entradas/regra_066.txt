@@ -1,0 +1,7 @@
+Regra comercial da Sul Frios
+
+Separar vendedores de televendas e de campo, cada grupo com sua carteira fixa.
+
+No televendas, agendar clientes ativos e adimplentes a cada 7 dias; ativos e inadimplentes a cada 14 dias; inativos e adimplentes a cada 30 dias. Não agendar clientes inativos e inadimplentes nem clientes sem venda. Preferir dias úteis para os agendamentos.
+
+No campo, agendar clientes ativos para o vendedor a cada 7 dias e clientes inativos e adimplentes a cada 30 dias, preferencialmente em dias úteis. Não agendar clientes inativos e inadimplentes nem clientes sem venda. Aplicar nessa ordem.

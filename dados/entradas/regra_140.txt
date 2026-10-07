@@ -1,0 +1,11 @@
+Regra comercial de rotas para televendas
+
+Considerar todos os vendedores de televendas e suas carteiras fixas. Separar os clientes pelas rotas de códigos 8, 9, 10 e 11 (dias variáveis), 3 e 4 (segunda), 5 (terça), 6 (quarta) e 7 (sexta).
+
+Não agendar pessoas físicas, clientes filiais nem inadimplentes. Também não agendar clientes dessas rotas que receberam visita nos últimos 3 dias.
+
+Para as rotas 8 a 11, agendar semanalmente os clientes sem venda com o vendedor; os que compraram com ele nos últimos 21 dias; os que compraram há 21 a 41 dias; os que compraram há 41 a 90 dias; e os que não compraram nos últimos 90 dias, nessa ordem.
+
+Aplicar as mesmas cinco faixas de compra com frequência semanal às rotas 3 e 4, 5, 6 e 7. Manter programação fixa e preferir, respectivamente, segunda, terça, quarta e sexta para essas quatro carteiras.
+
+Para os demais clientes de televendas que não receberam regra anterior, agendar semanalmente. Aplicar as condições na ordem apresentada.

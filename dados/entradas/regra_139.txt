@@ -1,0 +1,9 @@
+Regra comercial para os times Hunter e Farm
+
+Criar o time Hunter com todos os vendedores de televendas habilitados, exceto IDs 10185 e 1824, e o time Farm somente com esses dois vendedores.
+
+No time Farm, não agendar prospects da empresa. Nos dois times, não agendar clientes inadimplentes nem bloqueados.
+
+No Hunter, usar a frequência histórica para clientes cuja frequência histórica seja menor que 31 dias; agendar a cada 21 dias aqueles com frequência histórica entre 31 e 90 dias; e agendar os demais clientes do time a cada 30 dias.
+
+No Farm, agendar a cada 30 dias clientes cuja última compra com o vendedor ocorreu entre 45 e 90 dias atrás; a cada 25 dias, aqueles cuja última compra ocorreu entre 91 e 180 dias atrás; e a cada 21 dias, clientes inativos para o vendedor. Para clientes com frequência histórica menor que 45 dias, usar a frequência histórica com mínimo de 40 e máximo de 45 dias. Aplicar as regras na ordem apresentada.

@@ -1,0 +1,1 @@
+Configure todos os vendedores com carteira fixa, sem agendar clientes de filial. Agende clientes ativos e adimplentes semanalmente; ativos inadimplentes a cada 14 dias; inativos adimplentes a cada 14 dias; inativos inadimplentes a cada 30 dias; e clientes sem venda a cada 14 dias. Respeite os dias preferidos do vendedor, exceto para clientes sem vendas.

@@ -1,0 +1,9 @@
+Regra comercial da IdealPet
+
+Criar o time da vendedora Yasmim (ID 12), um time com todos os vendedores de televendas exceto ID 12, um time de interior com IDs 2, 3 e 12 e um time de capital com IDs 5, 17 e 18. Os três últimos times usam suas carteiras fixas.
+
+Não agendar clientes do time de Yasmim. No televendas, agendar clientes ativos a cada 14 dias, inativos a cada 30 dias e sem venda a cada 7 dias, preferencialmente em dias úteis.
+
+Na capital, agendar ativos e adimplentes a cada 20 dias; ativos e inadimplentes a cada 20 dias; inativos e adimplentes a cada 30 dias; e sem venda a cada 30 dias. Não agendar inativos e inadimplentes. Preferir dias úteis para os agendamentos.
+
+No interior, agendar ativos a cada 21 dias; inativos e adimplentes a cada 21 dias; inativos e inadimplentes a cada 42 dias; e sem venda a cada 38 dias. Há ainda uma regra posterior para não agendar inativos e inadimplentes. Preferir dias úteis para os agendamentos e aplicar as condições na ordem apresentada.

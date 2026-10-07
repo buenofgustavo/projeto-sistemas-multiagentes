@@ -1,0 +1,5 @@
+Regra comercial de ruptura de campo para televendas
+
+Criar um time de campo com os vendedores IDs 283 e 279 e um time de televendas com o vendedor ID 291. Criar uma segmentação auxiliar dos clientes fixos do campo que tiveram venda nos últimos 60 dias.
+
+Formar uma carteira para o televendas com clientes do campo em ruptura de positivação entre 7 e 60 dias. Nessa carteira, não agendar os clientes pertencentes à segmentação auxiliar de clientes de campo com venda nos últimos 60 dias.

@@ -1,0 +1,3 @@
+Regra comercial da Pérola
+
+Considerar todos os vendedores e os clientes de suas carteiras fixas. Agendar adimplentes semanalmente; ativos e inadimplentes a cada 14 dias; inativos e inadimplentes a cada 30 dias; e os demais clientes da carteira semanalmente, com preferência por dias úteis. Aplicar nessa ordem.

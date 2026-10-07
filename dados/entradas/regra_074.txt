@@ -1,0 +1,3 @@
+Regra comercial da Bela Forma
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Agendar clientes inativos para o vendedor a cada 45 dias, clientes ativos a cada 21 dias e clientes sem venda a cada 45 dias. Em todos os casos, usar a preferência de dias definida pelo vendedor. Aplicar nessa ordem.

@@ -1,0 +1,5 @@
+Regra comercial do televendas
+
+Considerar os vendedores de televendas habilitados para gerar agendas. Não agendar inadimplentes. Agendar clientes dos ramos 37, 43 e 15 a cada 7 dias. Para clientes dos ramos 41, 4 e 25 com frequência histórica de 7 dias, agendar a cada 7 dias.
+
+Agendar clientes sem venda com o vendedor a cada 30 dias. Agendar clientes com uma única compra com o vendedor e compra nos últimos 30 dias a cada 30 dias. Agendar clientes com frequência histórica menor que 21 dias a cada 21 dias. Para última compra com o vendedor entre 30 e 45 dias atrás, agendar a cada 21 dias; para clientes sem compra com o vendedor nos últimos 46 dias, a cada 45 dias. Aplicar nessa ordem.

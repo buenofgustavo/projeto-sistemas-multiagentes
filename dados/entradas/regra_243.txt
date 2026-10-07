@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Para pessoas jurídicas, cliente sem venda recebe 21 dias; compra nos últimos 20 dias leva a 3 dias; compra entre 20 e 33 dias usa a frequência histórica acrescida de 2 dias, limitada entre 20 e 33 dias. Os demais clientes PJ e todas as pessoas físicas não são agendados. Nas regras de frequência, prefira dias úteis e sábado.

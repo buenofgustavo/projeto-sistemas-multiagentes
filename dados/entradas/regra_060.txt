@@ -1,0 +1,5 @@
+Regra comercial para televendas e campo
+
+Separar os vendedores de televendas e de campo. No televendas, agendar clientes ativos para o vendedor a cada 7 dias e os demais clientes do time a cada 15 dias.
+
+No campo, agendar clientes ativos para o vendedor a cada 7 dias, com programação fixa; para os demais clientes do time, usar frequência de 15 dias, também fixa. Aplicar nessa ordem.

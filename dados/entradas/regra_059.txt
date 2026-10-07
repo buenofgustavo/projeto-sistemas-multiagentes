@@ -1,0 +1,11 @@
+Regra comercial da Hospidrogas
+
+Considerar todos os vendedores de televendas. Não agendar clientes cujos códigos de ramo de atividade sejam diferentes de 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 14, 15, 17, 18 e 19.
+
+Agendar prospects da empresa dos ramos 2, 7, 11, 12, 14 e 19 a cada 30 dias.
+
+Para clientes ativos para o vendedor, usar estas frequências por ramo: 3, 4, 6, 8, 15 e 18 a cada 30 dias; 7 e 17 a cada 15 dias; 10, 11, 14 e 19 a cada 7 dias; 2 e 12 a cada 5 dias.
+
+Para os demais clientes do time, aplicar por ramo: 3, 4, 6, 8, 15 e 18 a cada 30 dias; 17 a cada 20 dias; 10 a cada 15 dias; 11 e 19 a cada 10 dias. A regra final agenda a cada 5 dias os clientes ainda não contemplados, sem filtro explícito de ramo.
+
+Aplicar as regras na ordem apresentada.

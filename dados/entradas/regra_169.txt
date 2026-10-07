@@ -1,0 +1,9 @@
+Regra comercial de ruptura do fornecedor
+
+Criar um time fornecedor com vendedor ID 341, um time de televendas com IDs 203, 466, 314 e 291 e outro time de televendas com IDs 132, 232 e 145.
+
+Criar uma segmentação de clientes adimplentes do fornecedor em ruptura de positivação há 7 dias, incluindo prospects, destinada ao primeiro time de televendas. Criar uma carteira de clientes fixos desse time sem venda nos últimos 7 dias, adimplentes e fora dessa segmentação.
+
+Para clientes da segmentação de ruptura e da carteira de consumidores, agendar prospects da empresa a cada 14 dias. Agendar clientes com compra global nos últimos 30, 60 e 90 dias a cada 14 dias, em regras sucessivas. Para clientes cuja última compra global ocorreu entre 90 e 180 dias atrás, agendar a cada 14 dias.
+
+Nos dois times de televendas, não agendar clientes com compra global nos últimos 7 dias nem inadimplentes. Para os demais clientes do primeiro time, não agendar. Para os demais clientes do segundo time, agendar a cada 14 dias. Aplicar as regras na ordem apresentada.

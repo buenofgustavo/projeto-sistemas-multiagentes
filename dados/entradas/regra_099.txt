@@ -1,0 +1,3 @@
+Regra comercial da Elluc
+
+Separar vendedores de televendas e de campo. No televendas, agendar clientes sem venda a cada 7 dias; ativos e inadimplentes a cada 30 dias; não agendar inativos e inadimplentes; e agendar clientes adimplentes a cada 7 dias. No campo, agendar todos os clientes do time a cada 30 dias. Aplicar nessa ordem.

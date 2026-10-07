@@ -1,0 +1,3 @@
+Regra comercial da Lubrilages
+
+Considerar todos os vendedores habilitados para gerar agendas. Agendar clientes sem compra nos últimos 120 dias a cada 14 dias. Agendar os demais clientes sem compra nos últimos 30 dias a cada 7 dias. Para todos os clientes restantes, usar a frequência histórica com mínimo de 5 e máximo de 30 dias. Preferir dias úteis nos agendamentos e aplicar nessa ordem.

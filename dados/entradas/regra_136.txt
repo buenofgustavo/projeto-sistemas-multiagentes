@@ -1,0 +1,5 @@
+Regra comercial da Multisul
+
+Criar um time geral com todos os vendedores habilitados, um time de campo do interior com IDs 5, 9, 15, 16, 21, 31 e 33 e um time de campo da capital com os demais vendedores de campo. Os times de campo usam suas carteiras fixas.
+
+No time geral, não agendar clientes do ramo de atividade 19. Na capital, agendar ativos a cada 7 dias e não agendar os demais clientes da carteira. No interior, agendar ativos a cada 14 dias e não agendar os demais clientes da carteira. Aplicar nessa ordem.

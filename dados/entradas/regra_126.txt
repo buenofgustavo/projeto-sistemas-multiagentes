@@ -1,0 +1,9 @@
+Regra comercial da Femac
+
+Criar um time de ruptura global com os vendedores de IDs 73, 196, 254 e 313; um time de televendas com todos os vendedores habilitados desse tipo, exceto os quatro IDs; e um time com todos os vendedores de campo habilitados. Os dois últimos usam suas carteiras fixas.
+
+Para o time de ruptura global, agendar clientes com inatividade global maior que 31 dias a cada 14 dias, preferencialmente em dias úteis. Não agendar os demais clientes do time.
+
+No televendas, agendar ativos e adimplentes a cada 14 dias; ativos e inadimplentes a cada 21 dias; inativos e adimplentes a cada 30 dias. Não agendar inativos e inadimplentes. Agendar clientes sem venda a cada 30 dias. Preferir dias úteis nos agendamentos.
+
+No campo, agendar ativos a cada 7 dias com programação fixa e os demais clientes a cada 15 dias com programação fixa. Aplicar as regras na ordem apresentada.

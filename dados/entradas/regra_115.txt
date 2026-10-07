@@ -1,0 +1,3 @@
+Regra comercial da Frigoforte
+
+Criar um time de atacado com os vendedores de IDs 510, 617 e 596 e um time de salmão com os vendedores de IDs 613, 614 e 568. Agendar todos os clientes do time de atacado a cada 7 dias e todos os clientes do time de salmão a cada 2 dias.

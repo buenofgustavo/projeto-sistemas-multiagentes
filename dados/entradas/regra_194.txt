@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Exclua empresas baixadas na Receita Federal. Clientes sem vendas na empresa recebem 7 dias. Compra global nos últimos 60 dias leva a 14 dias; compra nos últimos 90 dias, a 7 dias; e clientes com compra mais antiga recebem 28 dias.

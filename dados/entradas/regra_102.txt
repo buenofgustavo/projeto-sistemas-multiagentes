@@ -1,0 +1,3 @@
+Regra comercial da Aliança Distribuidora
+
+Separar vendedores de campo e de televendas. No televendas, usar a carteira fixa: agendar clientes inativos e inadimplentes a cada 30 dias e os demais clientes da carteira a cada 14 dias. No campo, agendar todos os clientes do time a cada 30 dias. Preferir dias úteis nos três casos e aplicar nessa ordem.

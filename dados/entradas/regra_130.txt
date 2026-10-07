@@ -1,0 +1,7 @@
+Regra comercial da Macropac
+
+Separar vendedores de televendas (time interno) e vendedores de campo (time externo).
+
+No televendas, não agendar pessoas físicas. Agendar clientes ativos a cada 7 dias e inativos adimplentes a cada 15 dias. Não agendar inativos inadimplentes nem clientes sem venda que sejam pessoas físicas. Agendar clientes sem venda que sejam pessoas jurídicas a cada 20 dias.
+
+No campo, agendar clientes ativos a cada 7 dias com programação fixa e os demais clientes a cada 15 dias, também com programação fixa. Aplicar nessa ordem.

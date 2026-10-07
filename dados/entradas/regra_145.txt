@@ -1,0 +1,7 @@
+Regra comercial para toda a empresa
+
+Considerar todos os vendedores habilitados para gerar agendas. Não agendar clientes filiais.
+
+Agendar pessoas jurídicas prospects com o vendedor a cada 10 dias. Para pessoas jurídicas sem venda com o vendedor, agendar as do ramo 2 a cada 14 dias e as do ramo 1 a cada 7 dias.
+
+Para pessoas jurídicas adimplentes cuja última compra com o vendedor ocorreu entre 31 e 60 dias atrás, agendar a cada 14 dias. Para pessoas jurídicas adimplentes com atividade do vendedor de 30 dias, agendar a cada 21 dias. Para pessoas jurídicas adimplentes com última compra entre 61 e 90 dias atrás, agendar a cada 7 dias. Para as demais pessoas jurídicas, agendar a cada 21 dias. Aplicar nessa ordem.

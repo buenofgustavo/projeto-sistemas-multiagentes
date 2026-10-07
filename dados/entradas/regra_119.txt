@@ -1,0 +1,3 @@
+Regra comercial da Ultrax
+
+Considerar os vendedores de televendas habilitados para gerar agendas. Agendar clientes ativos e adimplentes a cada 15 dias; ativos e inadimplentes a cada 30 dias; inativos e adimplentes a cada 7 dias. Não agendar inativos e inadimplentes. Agendar clientes sem venda a cada 15 dias. Aplicar nessa ordem.

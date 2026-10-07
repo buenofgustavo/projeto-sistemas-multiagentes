@@ -1,0 +1,7 @@
+Regra comercial da Supergiro
+
+Separar vendedores de campo e de televendas. Os vendedores de campo trabalham com os clientes de suas carteiras fixas.
+
+No televendas, agendar todos os clientes a cada 14 dias, preferencialmente em dias úteis.
+
+No campo, não agendar clientes sem venda. Para os demais clientes da carteira, agendar a cada 14 dias, preferencialmente em dias úteis. Aplicar nessa ordem.

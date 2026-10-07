@@ -1,0 +1,3 @@
+Regra comercial da Linavet
+
+Considerar todos os vendedores habilitados para gerar agendas. Agendar todos os clientes do time a cada 15 dias.

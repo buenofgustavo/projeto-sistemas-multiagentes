@@ -1,0 +1,3 @@
+Regra comercial para toda a empresa
+
+Considerar todos os vendedores e os clientes de suas carteiras fixas. Agendar clientes ativos semanalmente, inativos a cada 14 dias e sem venda a cada 14 dias. Para todos os agendamentos, preferir segunda, terça, quarta, quinta, sexta e sábado. Aplicar nessa ordem.

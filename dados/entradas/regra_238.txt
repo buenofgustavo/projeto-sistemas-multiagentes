@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Cliente com compra global nos últimos 59 dias recebe frequência de 14 dias; nos últimos 89 dias, também 14 dias; todos os restantes recebem 14 dias.

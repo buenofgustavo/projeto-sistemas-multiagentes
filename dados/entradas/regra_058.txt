@@ -1,0 +1,7 @@
+Regra comercial da Ótima Atacado
+
+Separar os vendedores de televendas e de campo, cada time com sua carteira fixa.
+
+No televendas, agendar clientes inadimplentes a cada 14 dias. Para os demais clientes, usar a frequência calculada pelo histórico, limitada a no máximo 14 dias.
+
+No campo, agendar clientes adimplentes a cada 7 dias; ativos e inadimplentes a cada 14 dias; inativos e inadimplentes a cada 60 dias; e clientes sem venda a cada 14 dias. Aplicar nessa ordem.

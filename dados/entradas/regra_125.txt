@@ -1,0 +1,3 @@
+Regra comercial da Cavalo Marinho
+
+Considerar todos os vendedores e os clientes de suas carteiras fixas. Agendar clientes ativos para o vendedor a cada 7 dias. Agendar inativos e adimplentes a cada 15 dias. Não agendar inativos e inadimplentes. Agendar clientes sem venda a cada 20 dias. Aplicar nessa ordem.

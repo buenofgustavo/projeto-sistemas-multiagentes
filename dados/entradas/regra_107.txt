@@ -1,0 +1,3 @@
+Regra comercial da Higicop
+
+Considerar todos os vendedores e os clientes de suas carteiras fixas. Agendar clientes inativos quinzenalmente, clientes ativos quinzenalmente e clientes sem venda quinzenalmente. Para ativos e inativos, usar a preferência de dias definida pelo vendedor. Aplicar nessa ordem.

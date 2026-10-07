@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende cliente com compra nos últimos 7 dias. Compra entre 8 e 30 dias ou entre 31 e 60 dias leva a frequência de 14 dias. Compra entre 61 e 90 dias leva a 7 dias. Para clientes inativos restantes, use 21 dias.

@@ -1,0 +1,7 @@
+Regra comercial do televendas
+
+Considerar todos os vendedores de televendas. Não agendar inadimplentes nem clientes baixados na Receita Federal.
+
+Agendar prospects da empresa a cada 30 dias. Para clientes com uma única compra na empresa, compra global nos últimos 45 dias e cadastrados há 120 dias, agendar a cada 21 dias. Para clientes com compra global nos últimos 45 dias e frequência histórica menor que 30 dias, agendar a cada 14 dias. Para clientes com compra global nos últimos 120 dias e frequência histórica menor que 120 dias, agendar a cada 30 dias.
+
+Agendar clientes cuja última compra global ocorreu entre 45 e 70 dias atrás a cada 30 dias; entre 71 e 120 dias atrás, a cada 21 dias; e sem compra global nos últimos 120 dias, a cada 30 dias. Aplicar nessa ordem.

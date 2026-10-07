@@ -1,0 +1,3 @@
+Regra comercial da Tropical Color
+
+Considerar todos os vendedores habilitados para gerar agendas. Não agendar inadimplentes. Agendar prospects em relação ao vendedor a cada 14 dias; clientes com uma única compra com ele a cada 10 dias; clientes ativos para o vendedor a cada 7 dias; e todos os demais clientes do time a cada 14 dias. Aplicar nessa ordem.

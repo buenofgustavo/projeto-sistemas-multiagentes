@@ -1,0 +1,3 @@
+Regra comercial por curva de clientes
+
+Considerar todos os vendedores habilitados para gerar agendas. Agendar clientes ativos da curva A da empresa a cada 15 dias; ativos da curva B a cada 7 dias; ativos da curva C a cada 15 dias. Agendar todos os demais clientes do time a cada 7 dias. Aplicar nessa ordem.

@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Exclua pessoas físicas e empresas com situação baixada na Receita Federal. Agende clientes sem compras pela empresa a cada 14 dias; clientes ativos da empresa a cada 7 dias; e os demais a cada 14 dias.

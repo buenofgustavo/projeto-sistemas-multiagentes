@@ -1,0 +1,5 @@
+Regra comercial do Armazém Santa Maria
+
+Considerar todos os vendedores habilitados para gerar agendas e os clientes de suas carteiras fixas.
+
+Agendar semanalmente os clientes ativos para o vendedor e adimplentes. Agendar a cada 14 dias os clientes ativos e inadimplentes. Agendar a cada 14 dias os clientes inativos e adimplentes. Não agendar os clientes inativos e inadimplentes. Agendar a cada 14 dias os clientes sem venda. Para todos os agendamentos, preferir dias úteis e sábado. Aplicar nessa ordem.

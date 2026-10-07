@@ -1,0 +1,5 @@
+Regra comercial da Gomes
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas.
+
+Agendar clientes ativos para o vendedor a cada 7 dias. Agendar clientes inativos e adimplentes a cada 14 dias. Agendar clientes inativos e inadimplentes a cada 30 dias. Agendar os demais clientes da carteira a cada 14 dias. Aplicar nessa ordem.

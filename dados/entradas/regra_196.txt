@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende inadimplentes nem clientes de Fortaleza que compraram nos últimos 60 dias. Prospects da empresa recebem frequência de 40 dias. Clientes ativos para o vendedor recebem 15 dias. Para os demais adimplentes inativos, use 20 dias.

@@ -1,0 +1,1 @@
+Configure o time de ativação com os vendedores 965 e 945. Clientes que fizeram pedido nos últimos 30 dias recebem frequência de 21 dias; todos os demais recebem 15 dias.

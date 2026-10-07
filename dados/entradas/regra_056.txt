@@ -1,0 +1,9 @@
+Regra comercial da Destra
+
+Criar um time de prospecção com os vendedores de IDs 50 e 53. O outro time reúne todos os vendedores da empresa, exceto 50 e 53. Cada time atende sua própria carteira fixa.
+
+Para o time de prospecção, agendar clientes sem venda a cada 30 dias, usando a preferência de dias definida pelo vendedor. Não agendar os demais clientes dessa carteira.
+
+Para o restante da empresa, agendar clientes ativos e adimplentes a cada 14 dias; inativos e adimplentes a cada 30 dias; ativos e inadimplentes a cada 30 dias. Não agendar clientes inativos e inadimplentes. Agendar clientes sem venda a cada 30 dias. Nos agendamentos desse time, usar a preferência de dias definida pelo vendedor.
+
+Aplicar as condições na ordem apresentada.

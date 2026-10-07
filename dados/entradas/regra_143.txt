@@ -1,0 +1,5 @@
+Regra comercial do televendas
+
+Considerar os vendedores de televendas habilitados para gerar agendas. Não agendar clientes filiais nem clientes com compra global nos últimos 30 dias. Agendar prospects da empresa a cada 28 dias.
+
+Para clientes em ciclo de vida ativo na empresa que estejam fora da faixa de recência global de 30 a 45 dias, agendar a curva A a cada 7 dias, a curva B a cada 14 dias e os demais a cada 21 dias. Para ativos fora da faixa de recência global de 45 a 60 dias, agendar a cada 14 dias. Para os demais ativos, agendar a cada 7 dias. Para todos os clientes restantes do time, agendar a cada 7 dias. Aplicar nessa ordem.

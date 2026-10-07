@@ -1,0 +1,5 @@
+Regra comercial da Nutri Distribuidora
+
+Considerar todos os vendedores de televendas e os clientes de suas carteiras fixas.
+
+Agendar os clientes inativos em relação ao vendedor a cada 30 dias. Agendar os clientes ativos em relação ao vendedor a cada 14 dias. Agendar os clientes classificados como sem venda a cada 7 dias. Aplicar nessa ordem.

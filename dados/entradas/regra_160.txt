@@ -1,0 +1,7 @@
+Regra comercial para rotas e prospecção
+
+Separar vendedores de televendas habilitados em um time geral, excluindo os IDs 2136, 2179, 2134 e 1865, e um time de prospects com esses quatro IDs.
+
+No time geral, para pessoas jurídicas cuja rota ocorrerá no próximo dia e cuja última visita ocorreu entre 4 e 3000 dias atrás, usar frequência de 1 dia. Aplicar essa prioridade aos clientes sem venda com o vendedor; com última compra com ele entre 31 e 60 dias; entre 61 e 90 dias; com atividade do vendedor de 30 dias; aos inativos para o vendedor; e aos demais que atendam ao filtro de rota e visita, nessa ordem.
+
+No time de prospects, agendar pessoas jurídicas sem venda com o vendedor a cada 7 dias. No time geral, agendar pessoas jurídicas sem venda com o vendedor a cada 14 dias; com última compra entre 61 e 90 dias a cada 7 dias; entre 31 e 60 dias a cada 14 dias; com atividade do vendedor de 30 dias a cada 14 dias; e inativas para o vendedor a cada 21 dias. Agendar pessoas físicas a cada 14 dias e os demais clientes do time a cada 14 dias. Aplicar nessa ordem.

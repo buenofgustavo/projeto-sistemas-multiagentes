@@ -1,0 +1,5 @@
+Regra comercial da Nordil AL
+
+Considerar os vendedores de televendas e os clientes de suas carteiras fixas. Não agendar clientes sem crédito disponível e cobrança DH, nem clientes com menos de R$ 199 de crédito disponível e cobrança BK. Também não agendar inadimplentes.
+
+Agendar clientes ativos para o vendedor a cada 7 dias, inativos a cada 14 dias e sem venda a cada 14 dias. Aplicar nessa ordem.

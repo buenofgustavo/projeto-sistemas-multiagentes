@@ -1,0 +1,3 @@
+Regra comercial do televendas
+
+Considerar os vendedores de televendas habilitados. Não agendar filiais nem clientes com situação suspensa, inapta ou baixada na Receita Federal. Agendar clientes dos ramos de atividade 84, 73, 69, 85 e 22 a cada 7 dias. Agendar os demais clientes do time a cada 30 dias. Aplicar nessa ordem.

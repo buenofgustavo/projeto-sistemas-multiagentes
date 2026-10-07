@@ -1,0 +1,3 @@
+Regra comercial para toda a empresa
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Agendar clientes ativos e adimplentes semanalmente; ativos e inadimplentes a cada 14 dias; e inativos e adimplentes a cada 30 dias. Não agendar clientes inativos e inadimplentes. Agendar clientes sem venda a cada 30 dias. Preferir dias úteis nos agendamentos e aplicar as regras nessa ordem.

@@ -1,0 +1,11 @@
+Regra comercial da BSB Vet
+
+Criar três times: televendas de GYN, com os vendedores vinculados ao supervisor de ID 5178; televendas de DF, com todos os vendedores de televendas; e campo de DF, com todos os vendedores de campo. Usar as carteiras fixas de cada time.
+
+Para o televendas de GYN, agendar clientes sem venda a cada 7 dias. Agendar os demais clientes da carteira a cada 14 dias.
+
+Para o televendas de DF, agendar clientes adimplentes a cada 7 dias. Agendar clientes ativos para o vendedor e inadimplentes a cada 14 dias. Não agendar clientes inativos para o vendedor e inadimplentes. Agendar clientes sem venda a cada 7 dias.
+
+Para o campo de DF, agendar clientes ativos para o vendedor a cada 7 dias com programação fixa. Agendar os demais clientes do time a cada 15 dias com programação fixa.
+
+Aplicar as condições na ordem apresentada.

@@ -1,0 +1,7 @@
+Regra comercial da HospDrogas
+
+Criar os times: carteira (IDs 3597, 3598, 3603, 3602, 3599, 3600, 3601, 3555, 3530, 3560, 3557, 3533, 3511, 3528, 3512, 3529 e 3568); distribuidor (3516, 3556, 3531 e 3519); PetVet (3559); portal (3594, 3595, 3596, 3565, 3566, 3571, 3573, 3570, 3575, 3572, 3574, 3576, 3586, 3585, 3592, 3584, 3583, 3582, 3581 e 3580); e pré-venda (3621, 3622 e 3623).
+
+Nos times carteira, PetVet e portal, agendar diariamente clientes cadastrados desde 18/07/2023 que não receberam visita nos últimos 60 dias. Para os demais cadastrados desde essa data, agendar a cada 7 dias. Agendar clientes ativos a cada 5 dias, inativos a cada 10 dias e sem venda a cada 20 dias.
+
+No time distribuidor, agendar clientes das curvas A, B e C em relação ao vendedor a cada 2, 4 e 7 dias, respectivamente. Agendar os demais clientes do time a cada 15 dias. No time de pré-venda, agendar todos os clientes a cada 7 dias. Aplicar nessa ordem.

@@ -1,0 +1,7 @@
+Regra comercial da Casa Cardão
+
+Separar vendedores de televendas e de campo, cada time com sua carteira fixa.
+
+No televendas, não agendar inadimplentes; agendar ativos a cada 7 dias e os demais clientes do time a cada 14 dias.
+
+No campo, agendar ativos a cada 7 dias com programação fixa e os demais clientes da carteira a cada 15 dias, também com programação fixa. Aplicar nessa ordem.

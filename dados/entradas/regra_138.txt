@@ -1,0 +1,3 @@
+Regra comercial da American Farma
+
+Considerar todos os vendedores habilitados para gerar agendas. Não agendar clientes inadimplentes. Agendar todos os demais clientes do time a cada 7 dias. Aplicar nessa ordem.

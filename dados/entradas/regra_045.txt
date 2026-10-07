@@ -1,0 +1,7 @@
+Regra comercial da Milenium
+
+Separar a vendedora de ID 945 em um time próprio. O outro time reúne todos os vendedores da empresa, exceto a vendedora 945. Cada time trabalha com os clientes de sua carteira fixa.
+
+Para a carteira da vendedora 945, agendar todos os clientes semanalmente, preferencialmente em dias úteis.
+
+Para a carteira do restante da empresa, agendar clientes inativos e inadimplentes a cada 30 dias, preferencialmente em dias úteis. Agendar os demais clientes inativos a cada 7 dias, preferencialmente em dias úteis. Agendar os demais clientes a cada 14 dias, preferencialmente em dias úteis. Aplicar nessa ordem.

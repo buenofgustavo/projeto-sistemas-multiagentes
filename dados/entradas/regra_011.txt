@@ -1,0 +1,9 @@
+Regra comercial da VetVida
+
+Separar vendedores de televendas e vendedores de campo. Cada grupo atende os clientes de sua própria carteira fixa.
+
+No televendas, não agendar clientes ativos para o vendedor. Agendar clientes inativos para o vendedor a cada 14 dias, preferencialmente em dias úteis. Agendar clientes sem venda a cada 14 dias, preferencialmente em dias úteis.
+
+No campo, não agendar clientes simultaneamente inativos para o vendedor e inadimplentes. Agendar clientes ativos para o vendedor a cada 14 dias, preferencialmente em dias úteis. Agendar clientes inativos e adimplentes a cada 14 dias, preferencialmente em dias úteis. Agendar clientes sem venda a cada 14 dias, preferencialmente em dias úteis.
+
+Aplicar as condições na ordem apresentada.

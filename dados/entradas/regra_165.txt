@@ -1,0 +1,5 @@
+Regra comercial com segmentações por frequência histórica
+
+Criar um time de televendas habilitado e um time de campo. Da carteira fixa do campo, formar segmentações auxiliares de clientes com frequência histórica entre 1 e 7, 16 e 30, 31 e 45, e 61 e 90 dias.
+
+No televendas, não agendar clientes em ciclo de vida inativo com a empresa e inadimplentes. Agendar clientes sem compra nos últimos 90 dias a cada 7 dias. Para clientes da segmentação histórica de 1 a 7 dias que estejam fora da faixa de recência de 8 a 15 dias, agendar a cada 14 dias; da segmentação 16 a 30 dias e fora da faixa 31 a 45, a cada 28 dias; da segmentação 31 a 45 dias e fora da faixa 46 a 60, a cada 21 dias; da segmentação 61 a 90 dias e sem compra nos últimos 90 dias, a cada 15 dias. Não agendar os demais clientes do time. Aplicar nessa ordem.

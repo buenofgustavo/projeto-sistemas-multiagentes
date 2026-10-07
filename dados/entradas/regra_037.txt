@@ -1,0 +1,3 @@
+Regra comercial da Magnavet
+
+Considerar todos os vendedores da empresa e os clientes de suas carteiras fixas. Agendar todos esses clientes a cada 30 dias, preferencialmente em dias úteis.

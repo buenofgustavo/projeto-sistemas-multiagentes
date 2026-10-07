@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Prospect da empresa recebe frequência de 25 dias. Cliente com uma única compra na empresa e sem compra com o vendedor nos últimos 30 dias recebe 14 dias. Cliente com compra do vendedor nos últimos 30 dias segue sua frequência histórica. Outros clientes ativos da empresa recebem 14 dias; os restantes inativos, 21 dias.

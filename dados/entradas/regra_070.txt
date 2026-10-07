@@ -1,0 +1,7 @@
+Regra comercial da Tripet
+
+Separar vendedores de televendas e de campo. O televendas usa sua carteira fixa.
+
+No televendas, não agendar clientes inativos e inadimplentes. Agendar clientes ativos a cada 14 dias, inativos e adimplentes a cada 30 dias, e clientes sem venda a cada 30 dias. Preferir dias úteis para os agendamentos.
+
+No campo, agendar clientes ativos a cada 14 dias e inativos a cada 30 dias, preferencialmente em dias úteis. Não agendar clientes sem venda. Aplicar nessa ordem.

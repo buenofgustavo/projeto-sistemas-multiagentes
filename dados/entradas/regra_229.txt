@@ -1,0 +1,1 @@
+Configure o time farm com os vendedores 3, 4, 8, 9, 10, 12 e 16. Não agende quem comprou nos últimos 30 dias. Prospect da empresa recebe frequência de 14 dias. Cliente na condição de ausência de compra entre 31 e 60 dias recebe 14 dias; entre 61 e 90 dias, 21 dias; e demais clientes sem compra recente, 28 dias.

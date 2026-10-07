@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Prospect para o vendedor recebe frequência de 28 dias; cliente com uma única compra com ele, 21 dias. Compra nos últimos 90 dias leva a 7 dias para curva C da empresa e a 14 dias para demais curvas. Compra entre 91 e 180 dias leva a 28 dias. Demais inativos recebem 45 dias.

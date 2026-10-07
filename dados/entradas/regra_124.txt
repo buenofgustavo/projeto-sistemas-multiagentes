@@ -1,0 +1,5 @@
+Regra comercial da Roda Viva
+
+Separar vendedores de campo e de televendas. Para todos os clientes do campo, agendar a cada 30 dias.
+
+No televendas, agendar clientes ativos, inativos e adimplentes, inativos e inadimplentes, e sem venda a cada 25 dias. Para todos esses grupos de televendas, preferir dias úteis e evitar choque de atendimento com o time de campo. Aplicar nessa ordem.

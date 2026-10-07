@@ -1,0 +1,5 @@
+Regra comercial do televendas
+
+Considerar os vendedores de televendas habilitados para gerar agendas. Não agendar clientes baixados na Receita Federal nem clientes filiais.
+
+Agendar clientes reativados no ciclo de vida da empresa a cada 3 dias, e clientes com uma única compra na empresa também a cada 3 dias. Para clientes com compra nos últimos 30 dias, usar frequência histórica com mínimo de 3 e máximo de 21 dias. Para os demais clientes com compra nos últimos 60 dias, agendar a cada 14 dias; nos últimos 90 dias, a cada 21 dias; e nos últimos 120 dias, a cada 14 dias. Para os demais clientes do time, agendar a cada 7 dias. Aplicar nessa ordem.

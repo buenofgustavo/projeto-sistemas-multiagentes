@@ -1,0 +1,7 @@
+Regra comercial do televendas por ramo de atividade
+
+Considerar todos os vendedores de televendas. Não agendar inadimplentes nem clientes baixados na Receita Federal. Agendar prospects em relação ao vendedor a cada 14 dias. Agendar clientes com uma única compra com ele e cadastrados há 60 dias a cada 21 dias.
+
+Para clientes com compra com o vendedor nos últimos 30 dias e frequência histórica menor que 14 dias, usar a frequência histórica com mínimo de 10 e máximo de 14 dias. Para clientes com compra nos últimos 60 dias, frequência histórica menor que 30 dias e ramo 9 ou 18, usar a frequência histórica com mínimo de 14 e máximo de 21 dias; para os de outros ramos, agendar a cada 28 dias.
+
+Para última compra com o vendedor entre 21 e 60 dias atrás, agendar a cada 14 dias nos ramos 9 e 18 e a cada 21 dias nos demais. Para última compra entre 61 e 90 dias, agendar a cada 14 dias em qualquer ramo. Para clientes sem compra com o vendedor nos últimos 90 dias, agendar a cada 21 dias. Aplicar nessa ordem.

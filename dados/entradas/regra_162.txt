@@ -1,0 +1,3 @@
+Regra comercial para vendedores habilitados
+
+Considerar todos os vendedores habilitados para gerar agendas. Não agendar pessoas físicas nem inadimplentes. Agendar prospects a cada 14 dias e clientes inativos para o vendedor a cada 14 dias. Agendar clientes sem compra nos últimos 45 dias a cada 30 dias. Para os demais clientes, usar a frequência histórica com mínimo de 14 e máximo de 45 dias. Aplicar nessa ordem.

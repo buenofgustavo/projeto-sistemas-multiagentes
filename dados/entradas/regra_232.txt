@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende filiais nem inadimplentes. Prospect da empresa recebe 21 dias. Compra nos últimos 29 dias segue a frequência histórica, limitada entre 14 e 30 dias. Compra entre 30 e 59 dias ou entre 60 e 89 dias leva a 21 dias; demais clientes, também 21 dias.

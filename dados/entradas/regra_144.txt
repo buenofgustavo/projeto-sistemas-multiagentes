@@ -1,0 +1,7 @@
+Regra comercial por grupos de vendedores
+
+Criar um time geral com todos os vendedores habilitados; um time de fabricantes com IDs F, L e A; um time de revendas/manutenção com ID J; dois times de consumidor final, ambos com ID LC; e um time de consumidor final de grande porte com ID A.
+
+No time geral, agendar prospects da empresa a cada 14 dias; inadimplentes a cada 21 dias; clientes com uma única compra na empresa e cadastrados há 30 dias a cada 28 dias; clientes com última compra entre 31 e 60 dias atrás a cada 30 dias; entre 61 e 90 dias atrás a cada 10 dias; e clientes em ciclo de vida inativo com a empresa a cada 21 dias.
+
+Nos times de fabricantes e revendas/manutenção, agendar clientes com compra nos últimos 30 dias a cada 21 dias. Nos três times de consumidor final, agendar clientes com compra nos últimos 30 dias a cada 28 dias. Aplicar as condições na ordem apresentada.

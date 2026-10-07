@@ -1,0 +1,7 @@
+Regra comercial da Verteiler
+
+Separar os vendedores de campo e de televendas, cada time com sua carteira fixa.
+
+No campo, agendar clientes ativos, inativos e sem venda a cada 30 dias, preferencialmente em dias úteis.
+
+No televendas, agendar clientes ativos, inativos e sem venda a cada 30 dias, preferencialmente em dias úteis. Evitar conflito de atendimento com o time de campo para todos esses clientes. Aplicar as condições na ordem apresentada.

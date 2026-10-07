@@ -1,0 +1,11 @@
+Regra comercial da Palmed
+
+Criar times de televendas do Piauí (supervisor ID 2736), de televendas da Paraíba (supervisor ID 2731), de Tocantins (vendedores IDs 435, 261, 385, 276, 438, 63 e 164), de todos os vendedores de televendas e de todos os vendedores de campo. Os três primeiros times usam as respectivas carteiras fixas.
+
+Para as carteiras de televendas do Piauí e da Paraíba, agendar clientes inativos e inadimplentes a cada 14 dias, preferencialmente em dias úteis, evitando choque na rota com o time de campo. Para os demais clientes do Piauí, usar a frequência histórica com limite máximo semanal, preferindo dias úteis e sábado, sem choque com o campo. Para os demais da Paraíba, aplicar o mesmo limite semanal, preferindo dias úteis, sem choque com o campo.
+
+Em Tocantins, agendar inativos e inadimplentes a cada 14 dias, preferencialmente em dias úteis e sem choque com o campo. Para os demais clientes da carteira, usar frequência histórica limitada a 7 dias, preferir dias úteis e sábado e evitar choque com o campo.
+
+Para o time geral de televendas, usar frequência histórica limitada a 7 dias para ativos e adimplentes, com preferência por dias úteis. Agendar ativos e inadimplentes a cada 14 dias, com a mesma preferência. Para inativos e adimplentes, usar frequência histórica limitada a 7 dias, preferindo segunda a sexta. Para inativos e inadimplentes, agendar a cada 30 dias, preferindo segunda a sexta. Para os demais clientes, usar frequência histórica limitada a 7 dias, também preferindo segunda a sexta.
+
+Para o time de campo, agendar todos os clientes semanalmente. Aplicar as condições na ordem apresentada.

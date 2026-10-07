@@ -1,0 +1,1 @@
+Configure os vendedores ativados de televendas. Não agende inadimplentes, clientes com cobrança do tipo DH sem crédito disponível nem clientes com cobrança BK com menos de R$ 199 de crédito disponível. Para os restantes, cliente ativo para o vendedor recebe frequência de 7 dias; inativo para o vendedor, 14 dias; sem venda, 14 dias.
