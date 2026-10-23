@@ -1,0 +1,27 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa otimizar a gestão de clientes para vendedores e supervisores, garantindo que cada cliente seja atendido de acordo com as regras comerciais estabelecidas. Isso inclui a definição de frequências de contato, preferências de dias da semana, e a criação de carteiras de clientes personalizadas para diferentes contextos comerciais.
+2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e gestores, permitindo que eles parametrizem automaticamente a agenda de contato dos clientes de acordo com as regras estabelecidas. As regras são aplicadas de forma a garantir que cada cliente seja atendido de maneira eficiente e conforme as políticas comerciais do distribuidor.
+3. Condições de Aplicação
+
+As regras GoBR são aplicadas de acordo com as seguintes condições:
+
+- Vendedores: São definidos em blocos `time`, que especificam grupos de vendedores com as mesmas regras comerciais.
+- Carteiras: São definidas em blocos `carteira` que especificam a lista de clientes a serem atendidos.
+- Parametrizações: São definidas em blocos `parametros` que especificam como cada cliente deve ser atendido, incluindo frequência, preferência de dias da semana, roteirização, fixação, etc.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Não Agendamento: Determina que determinados clientes não devem ser agendados para contato.
+- Freq. de Contato: Define a frequência com que determinados clientes devem ser contatados.
+- Freq. de Histórico: Define a frequência com que o histórico de compra deve ser verificado.
+- Freq. de Recência: Define a frequência com que a recência de visita deve ser verificada.
+- Freq. de Inadimplência: Define a frequência com que clientes inadimplentes devem ser contatados.
+- Freq. de Histórico ou Recência: Define a frequência com que o histórico de compra ou a recência de visita deve ser verificado.
+- Freq. de Histórico ou Recência (14d): Define a frequência com que o histórico de compra ou a recência de visita deve ser verificado, com um intervalo de 14 dias.
+- Freq. de Histórico ou Recência (30d): Define a frequência com que o histórico de compra ou a recência de visita deve ser verificado, com um intervalo de 30 dias.
+- Freq. de Histórico ou Recência (45d): Define a frequência com que o histórico de compra ou a recência de visita deve ser verificado, com um intervalo de 45 dias.
+- Freq. do Histórico ou No Minimo de 14 Dias e No Maximo de 45 Dias: Define a frequência com que o histórico de compra ou a

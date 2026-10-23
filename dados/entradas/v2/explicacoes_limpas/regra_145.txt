@@ -1,0 +1,27 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e atendimento para clientes específicos, com base em suas atividades comerciais recentes. O objetivo principal é otimizar o tempo e recursos de vendas, garantindo que os clientes recebam o atendimento adequado conforme suas necessidades e histórico de compra.
+2. Público Afetado
+
+Este sistema afeta todos os clientes ativos da empresa, independentemente do ramo de atividade ou tipo de negócio. As regras são aplicadas de acordo com o histórico de compra e atividade dos clientes, bem como o histórico de vendas dos vendedores.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- Regras de Não Agendamento: Todas as filiais são automaticamente excluídas da agenda de vendas.
+- Regras de Agendamento:
+  - Ativação de Prospects: Clientes jurídicos que estão no ciclo de vida prospect são agendados com frequência de 10 dias.
+  - Primeira Compra: Clientes jurídicos que não fizeram compras com o vendedor há 14 dias e que atuam em setores específicos (ramo de atividade igual a 2 para indústria, igual a 1 para revenda) são agendados com frequência de 14 dias.
+  - Estimular Regularidade de Compra: Clientes adimplentes com recência de positivacao entre 31 e 60 dias são agendados com frequência de 14 dias.
+  - Compra Regularmente: Clientes adimplentes com atividade do vendedor de 30 dias são agendados com frequência de 21 dias.
+  - Risco de Inatividade: Clientes adimplentes com recência de positivacao entre 61 e 90 dias são agendados com frequência de 7 dias.
+  - Resgate de Clientes Sem Compra: Clientes que não fizeram compras com a empresa há 21 dias são agendados com frequência de 21 dias.
+4. Comportamento Configurado
+
+- Parametrização de Frequência: As regras definem a frequência com que os clientes devem ser agendados, podendo ser mensal, semanal, diária, etc.
+- Preferência de Dias da Semana: As regras também permitem definir a preferência de dias da semana para o atendimento, utilizando valores numéricos que variam de 0 a 3.
+- Exclusão de Conflição: Algumas regras evitam que dois times atendam o mesmo cliente no mesmo dia, garantindo que o cliente receba o atendimento adequado.
+5. Restrições, Exceções e Observações
+
+- Restrições de Tempo: Algumas regras têm prazos específicos, como a recência de positivacao mínima para determinadas ações.
+- Exceções: Algumas re

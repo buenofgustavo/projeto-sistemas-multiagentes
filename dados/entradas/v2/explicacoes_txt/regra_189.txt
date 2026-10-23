@@ -1,0 +1,116 @@
+ARQUIVO ORIGINAL: regra_189.gobr
+ID: regra_189
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/8941545704
+version 1.0
+
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+## Regras de agendamento
+
+parametros "Base de valor alto":
+    do time("televendas")
+    quando nao tem venda da empresa no ano
+        e com ticket medio maior que R$ 4999
+    frequencia semanal()
+    preferencia na segunda e na sexta
+    fixo
+
+parametros "Base de valor médio":
+    do time("televendas")
+    quando nao tem venda da empresa no ano
+        e com ticket medio menor que R$ 4999
+    frequencia semanal()
+    preferencia na terca e na sexta
+    fixo
+
+parametros "Última compra em 2024":
+    do time("televendas")
+    quando não tem venda da empresa no ano
+        e tem venda da empresa no ano passado
+    frequencia semanal()
+    preferencia na quarta e na quinta
+
+parametros "Ativação de um novo cliente em potencial":
+    do time("televendas")
+    quando sem venda do vendedor
+    frequencia de 7 dias
+
+parametros "Boas vindas a um novo cliente ativado":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 7 dias
+
+parametros "Clientes com bom histórico de compra":
+    do time("televendas")
+    quando frequencia historica entre 0 dias e 14 dias
+    frequencia do historico ou no minimo de 4 dias e no maximo de 6 dias
+
+parametros "Atenção!!! Cliente com RISCO de ficar inativo":
+    do time("televendas")
+    quando fora da recencia de positivacao do vendedor entre 25 dias e 30 dias
+    frequencia de 7 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. Isso permite que as equipes de vendas gerenciem eficientemente a agenda de visitas, garantindo que os clientes recebam atendimento adequado.
+
+### 2. Público Afetado
+
+Este sistema afeta diretamente os vendedores e supervisores responsáveis pela gestão de clientes, permitindo que eles definam estratégias de atendimento personalizadas para cada cliente.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente para clientes que ainda não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores. As regras são definidas em arquivos específicos, como `regra_189.gobr`, e são aplicadas conforme as condições definidas.
+
+### 4. Comportamento Configurado
+
+#### Base de Valor Alto
+- **Frequência**: Semanal
+- **Preferência**: Segunda e Sexta
+- **Condição**: Não há venda da empresa no ano e ticket médio maior que R$ 4999
+
+#### Base de Valor Médio
+- **Frequência**: Semanal
+- **Preferência**: Terça e Sexta
+- **Condição**: Não há venda da empresa no ano e ticket médio menor que R$ 4999
+
+#### Última Compra em 2024
+- **Frequência**: Semanal
+- **Preferência**: Quarta e Quinta
+- **Condição**: Não há venda da empresa no ano e há venda da empresa no ano anterior
+
+#### Ativação de Novo Cliente
+- **Frequência**: Diária
+- **Condição**: Sem venda do vendedor
+
+#### Boas Vindas a Novo Cliente Ativado
+- **Frequência**: Diária
+- **Condição**: Unica compra com o vendedor
+
+#### Clientes com Bom Histórico de Compra
+- **Frequência**: Histórico ou entre 4 a 6 dias
+- **Condição**: Frequência histórica entre 0 e 14 dias
+
+#### Atenção! Cliente com Risco de ficar Inativo
+- **Frequência**: Semanal
+- **Condição**: Fora da recência de positivacao do vendedor entre 25 e 30 dias
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**:
+  - As regras de parametrização GoBR não podem ser aplicadas sobre a remoção de agendamento. A remoção de agendamento é uma parametrização exclusiva e não pode incluir frequência ou preferência de dias.
+  - Um mesmo time pode ter múltiplas linhas vendedores, cada uma com suas próprias restrições, e eles são combinados de forma aditiva.
+  
+- **Exceções**:
+  - Não é possível sob

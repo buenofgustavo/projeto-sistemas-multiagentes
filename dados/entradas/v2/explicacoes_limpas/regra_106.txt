@@ -1,0 +1,36 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir regras de contato e frequência de vendas para diferentes carteiras de clientes, baseando-se em critérios de adimplemento, inadimplemento e recência de visita. As regras são personalizadas para diferentes segmentos de clientes (televendas e campo) e para diferentes vendedores (supervisores e vendedores avulsos).
+2. Público Afetado
+
+- Vendedores: Supervisores (Marcos e Maria), Vendedores Avulsos (ID 1020), Vendedores Televendas (todas).
+- Clientes: Adimplentes, Inadimplentes, Inativos, Prospectos, Clientes com Recência de Visita.
+3. Condições de Aplicação
+
+- Carteira de Televendas:
+  - Regra 10 Dias para Ativos Adimplentes: Clientes ativos e adimplentes recebem contato a cada 10 dias.
+  - Regra 21 Dias para Ativos Inadimplentes: Clientes ativos e inadimplentes recebem contato a cada 21 dias.
+  - Regra 14 Dias para Inativos Adimplentes: Clientes inativos e adimplentes recebem contato a cada 14 dias.
+  - Regra 60 Dias para Inativos Inadimplentes: Clientes inativos e inadimplentes recebem contato a cada 60 dias.
+  - Regra 30 Dias para Clientes Sem Venda: Clientes sem venda recebem contato a cada 30 dias.
+
+- Carteira de Campo:
+  - Regra 30 Dias para Ativos Adimplentes: Clientes ativos e adimplentes recebem contato a cada 30 dias.
+  - Regra 14 Dias para Inativos Adimplentes: Clientes inativos e adimplentes recebem contato a cada 14 dias.
+  - Regra Não Agendar Inadimplentes: Clientes inadimplentes não são agendados.
+  - Regra 30 Dias para Clientes Sem Venda: Clientes sem venda recebem contato a cada 30 dias.
+4. Comportamento Configurado
+
+- Carteira Livre de Televendas:
+  - Clientes em ruptura de visita da supervisora Maria são incluídos na carteira de televendas, mas permanecem disponíveis para outras carteiras também.
+
+- Carteira Livre de Campo:
+  - Clientes em ruptura de visita são incluídos na carteira de campo, mas permanecem disponíveis para outras carteiras também.
+
+- Corte de Carteira:
+  - Clientes em ruptura de visita são cortados da carteira de televendas e incluídos na carteira de campo.
+5. Restrições, Exceções e Observações
+
+- Restrições de Carteira:
+  - Somente uma segmentação pode ser usada como fonte de clientes para uma carteira.
+  -

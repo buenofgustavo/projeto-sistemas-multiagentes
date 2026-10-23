@@ -1,0 +1,68 @@
+ARQUIVO ORIGINAL: regra_026.gobr
+ID: regra_026
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de inativos":
+    da carteira("empresa toda")
+    quando inativos para o vendedor
+    frequencia de inativos da empresa
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de ativos":
+    da carteira("empresa toda")
+    quando ativos para o vendedor
+    frequencia de ativos da empresa
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de clientes sem vendas":
+    da carteira("empresa toda")
+    quando sem venda
+    frequencia de inativos da empresa
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir a frequência de atendimento e a preferência de dias para clientes inativos, ativos e sem vendas, conforme as regras padronizadas do sistema Govendas Assistente de Vendas Inteligente. Esta parametrização é aplicada automaticamente às carteiras de clientes, permitindo que as ações comerciais sejam otimizadas de acordo com as políticas estabelecidas.
+
+### 2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de vendas responsáveis por definir estratégias de atendimento e rotinas comerciais. As regras são aplicadas a clientes específicos, permitindo personalizações conforme a necessidade de cada carteira de vendas.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas às carteiras de clientes definidas no sistema, independentemente do período de tempo. Elas são ativadas quando um cliente atinge a condição de inatividade, ativação ou ausência de vendas, conforme definido nas regras.
+
+### 4. Comportamento Configurado
+
+#### 4.1. Frequência de Inativos
+
+- **Regra**: Quando um cliente atinge a inatividade de 90 dias, a carteira é parametrizada para uma frequência de visita mensal.
+- **Configuração**: A frequência de visita é definida como 30 dias, e a preferência de dias da semana é configurada com maior preferência para segunda e terça-feira, menor preferência para quarta-feira e domingo, e preferência normal para quinta e sexta-feira.
+
+#### 4.2. Frequência de Ativos
+
+- **Regra**: Quando um cliente atinge a ativação, a carteira é parametrizada para uma frequência de visita semanal.
+- **Configuração**: A frequência de visita é definida como 7 dias, e a preferência de dias da semana é configurada com maior preferência para segunda e terça-feira, menor preferência para quarta-feira e domingo, e preferência normal para quinta e sexta-feira.
+
+#### 4.3. Frequência de Clientes Sem Vendas
+
+- **Regra**: Quando um cliente atinge a inatividade de 90 dias, a carteira é parametrizada para uma frequência de visita mensal.
+- **Configuração**: A frequência de visita é definida como 30 dias, e a preferência de dias da semana é configurada com maior preferência para segunda e terça-feira, menor preferência para quarta-feira e domingo, e preferência normal para quinta e sexta-feira.
+
+### 5. Restrições, Exceções e Observações
+
+#### 5.1. Restrições
+
+- **Restrição de Tempo**: As regras são aplicadas apenas quando um cliente atinge a condição de inatividade, ativação ou ausência de vendas, conforme definido nas regras.
+- **Restrição de Cliente**: As regras são aplicadas a todos os clientes da carteira definida,

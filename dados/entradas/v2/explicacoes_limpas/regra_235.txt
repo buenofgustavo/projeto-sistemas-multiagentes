@@ -1,0 +1,27 @@
+Objetivo Comercial
+
+O objetivo principal desta parametrização GoBR é otimizar a rotina de visitas e agendamentos de vendedores, garantindo que eles atendam a clientes de maneira eficiente e estratégica. As regras definem quando e como os vendedores devem visitar seus clientes, considerando variáveis como recência de compra, status de inatividade, frequência de visitas e preferências de dias da semana.
+Público Afetado
+
+Este conjunto de regras afeta todos os vendedores e clientes que estão associados a um dos times definidos (felipe, paola_1, paola_2, temporario_2meses). Os clientes são classificados de acordo com as regras de parametrização e alerta, e os vendedores são direcionados para esses clientes com base nessas regras.
+Condições de Aplicação
+
+As regras de parametrização e alerta são aplicadas conforme as seguintes condições:
+
+- Parametrização de Clientes: São aplicadas a todos os clientes que estão associados a um dos times definidos.
+- Alertas: São aplicados a todos os clientes que estão associados a um dos times definidos, dependendo das condições específicas mencionadas nas regras de alerta.
+Comportamento Configurado
+Parametrização de Clientes
+
+- Clientes Baixados na Receita: Não são agendados se estiverem baixados na receita federal.
+- Clientes com Rota Futura em 7 Dias: Não são agendados se tiverem uma rota agendada para os próximos 7 dias.
+- Clientes com Recência de Posicionamento em 7 Dias: Não são agendados se tiverem uma recência de posicionamento de 7 dias.
+- Clientes Comprando em 30 Dias: Não são agendados se tiverem uma recência de positivacao de 30 dias.
+- Clientes Comprando entre 30 e 90 Dias: São agendados com frequência de 15 dias, preferindo dias úteis e sábado.
+- Clientes Sem Compra em 90 Dias: São agendados com frequência de 10 dias, preferindo dias úteis e sábado.
+- Clientes Comprando entre 7 e 30 Dias: São agendados com frequência de 14 dias, preferindo dias úteis e sábado.
+- Clientes Comprando entre 31 e 60 Dias: São agendados com frequência de 14 dias, preferindo dias úteis e sábado.
+- Clientes Comprando entre 61 e 89 Dias: São agendados com frequência de 7 dias, preferindo dias úteis e sábado.
+- Clientes Comprando entre 90 e 179 Dias: São agendados com frequência de 14 dias, preferindo dias úteis e sábado.
+- Clientes Sem Compra em 180 Dias: São agendados com frequência de 21 dias, preferindo dias úteis e sábado.
+-

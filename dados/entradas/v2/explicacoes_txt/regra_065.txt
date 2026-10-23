@@ -1,0 +1,71 @@
+ARQUIVO ORIGINAL: regra_065.gobr
+ID: regra_065
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras para Evermax
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+
+carteira "televendas":
+    clientes carteirafixa("time televendas")
+
+parametros "Regra Padrao da Empresa Customizavel: quinzenal para clientes que compram até 30 dias":
+    da carteira("televendas")
+    quando atividade de 30 dias
+    frequencia de 14 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Empresa Customizavel: mensal para clientes que não compram a mais de 30 dias":
+    da carteira("televendas")
+    quando inatividade de 30 dias
+    frequencia de 28 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Empresa Customizavel: mensal para clientes que nunca comprou":
+    da carteira("televendas")
+    frequencia de 28 dias
+    preferencia nos dias uteis
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento para clientes de diferentes segmentos, com foco em clientes que compram, não compram ou nunca compraram. As regras são personalizadas para diferentes frequências e preferências de dias úteis, visando otimizar o tempo de contato com os clientes.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores e supervisores responsáveis pela gestão de carteiras de clientes. Essas regras são direcionadas para a definição de estratégias de atendimento personalizadas para cada cliente, baseadas em seu histórico de compra.
+
+### 3. Condições de Aplicação
+
+As regras GoBR são aplicadas às carteiras de clientes definidas no sistema, onde os clientes são selecionados com base em critérios específicos. As condições de aplicação incluem:
+
+- **Clientes Inativos**: Regras são aplicadas a clientes que não compraram em um determinado período.
+- **Clientes Compradores**: Regras são aplicadas a clientes que compraram em um determinado período.
+- **Clientes Sem Compras**: Regras são aplicadas a clientes que nunca compraram.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Frequência de Visita**: As visitas são programadas com frequências variadas, como diária, semanal, quinzenal e mensal.
+- **Preferência de Dias Úteis**: As visitas são preferencialmente agendadas nos dias úteis, como segunda-feira, terça-feira, quinta-feira e sexta-feira.
+- **Remoção de Agendamento**: Algumas regras podem remover clientes da agenda, garantindo que eles não sejam marcados para visitas.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Choque**: As regras evitam que clientes recebam visitas simultaneamente de diferentes times de vendedores, garantindo que o cliente seja atendido apenas por um time.
+- **Configuração Dinâmica**: Algumas regras permitem que os vendedores complementem as parametrizações padrão, permitindo que as preferências sejam ajustadas conforme necessário.
+- **Exclusão de Vendedores**: Algumas regras podem excluir vendedores específicos de uma carteira, garantindo que eles não sejam incluídos na parametrização.
+- **Cenários Especiais**: Há cenários especiais como a criação de carteiras livres, onde clientes podem aparecer em várias carteiras, e a criação de segmentações, onde clientes são agrupados de acordo com certos critérios.
+
+### Observações Importantes
+
+- **Validação Sintática**: Antes de aplicar as regras, é importante validar a sintaxe do código GoBR para garantir que todas as regras estejam corretamente escritas.
+- **Flexibilidade**: As regras GoBR permitem uma grande flexibilidade na parametrização, permitindo que as estratégias de at

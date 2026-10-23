@@ -1,0 +1,53 @@
+ARQUIVO ORIGINAL: regra_043.gobr
+ID: regra_043
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de inativos":
+    da carteira("empresa toda")
+    frequencia de 14 dias
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir regras de atendimento para clientes específicos, com foco em clientes inativos e frequência de contato. Ela permite que as carteiras de clientes sejam personalizadas de acordo com diferentes critérios, como frequência de contato e preferência de dias da semana.
+
+### 2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e gestores, que precisam gerenciar estratégias de atendimento a clientes. As regras definidas aqui são aplicáveis a todas as carteiras de clientes, independentemente do tipo de negócio ou segmento.
+
+### 3. Condições de Aplicação
+
+As regras definidas nesta parametrização GoBR são aplicáveis a todas as carteiras de clientes que utilizam a parametrização "Regra Padronizada do goVendas Customizável: Frequência de Inativos". Essas carteiras incluem clientes inativos há pelo menos 90 dias, e a parametrização define uma frequência de contato de 14 dias.
+
+### 4. Comportamento Configurado
+
+Para clientes inativos há 90 dias na carteira "empresa toda", a parametrização "Regra Padronizada do goVendas Customizável: Frequência de Inativos" define uma frequência de contato de 14 dias. Isso significa que esses clientes serão contatados a cada 14 dias, conforme a frequência definida.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: As regras definidas aqui são aplicáveis apenas a clientes inativos há pelo menos 90 dias. Clientes ativos ou recentemente ativos não são afetados por esta parametrização.
+  
+- **Exceções**: Não há exceções mencionadas para esta parametrização específica. Todas as carteiras que atendem aos critérios definidos serão afetadas pela parametrização.
+
+- **Observações**: É importante notar que esta parametrização não altera a frequência de contato para clientes ativos ou recentemente ativos. Ela apenas aplica a frequência definida para clientes inativos há pelo menos 90 dias.
+
+- **Ambiguidades**: Não há ambiguidades mencionadas na parametrização fornecida. Todas as condições e critérios estão claramente definidos.
+
+- **Lacunas**: Não há lacunas mencionadas na parametrização fornecida. Todas as condições e regras estão bem definidas.
+
+### Resumo
+
+Esta parametrização GoBR define uma estratégia de contato para clientes inativos há pelo menos 90 dias, definindo uma frequência de contato de 14 dias. Ela é aplicável a todas as carteiras que atendem aos critérios definidos, mas não afeta clientes ativos ou recentemente ativos.

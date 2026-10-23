@@ -1,0 +1,29 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de agendamento e parametrização de clientes de acordo com diferentes critérios comerciais. As regras são direcionadas para vendedores de diferentes setores e contextos, visando otimizar a cobertura e a eficiência nas visitas e agendamentos.
+2. Público Afetado
+
+O público afetado são os vendedores e supervisores responsáveis pela gestão de clientes, bem como os sistemas que utilizam a linguagem gorules para gerar e parametrizar agendas de visitas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- Vendedores: São especificados através do uso do comando `do time(...)`, indicando que as regras se aplicam a um grupo de vendedores.
+- Frequência de Visita: As regras definem a frequência com que um cliente deve ser visitado, podendo ser diária, semanal, mensal ou conforme outras periodicidades.
+- Dias da Semana: As regras também especificam os dias da semana em que as visitas devem ser feitas, com preferência para dias úteis e, em alguns casos, para sábado.
+- Adimplemententes: As regras diferenciam entre clientes adimplemententes e inadimplemententes, aplicando estratégias diferentes para cada grupo.
+- Recência de Posicionamento: As regras consideram a recência de positivacao (ou seja, a data em que o cliente foi considerado adimplente) para definir a frequência de visita.
+- Ramo de Atividade: Algumas regras diferenciam entre diferentes ramos de atividade, aplicando estratégias específicas para cada ramo.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Agendamento: Determina a frequência e os dias da semana em que as visitas devem ser agendadas.
+- Parametrização: Define como cada cliente deve ser atendido, incluindo a frequência de visita, preferência de dias da semana, roteirização, fixação, etc.
+- Exclusão de Clientes: Algumas regras especificam que determinados clientes devem ser excluídos da agenda, como clientes inadimplentes ou inativos há mais de 90 dias.
+5. Restrições, Exceções e Observações
+
+- Restrições de Vendedores: Os vendedores devem estar cadastrados no Govendas para que as regras se apliquem a eles.
+- Unicidade de Vendedores: Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, mas será contabilizado apenas uma vez.
+- Referências Únicas: Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+- Exclusividade de Carteiras: As carteiras podem ser separadas para controlar a exclusividade de clientes, garantindo que

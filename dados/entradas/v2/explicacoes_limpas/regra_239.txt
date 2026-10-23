@@ -1,0 +1,24 @@
+Objetivo Comercial
+
+O objetivo principal desta parametrização é controlar a frequência e o comportamento de atendimento de clientes por parte dos vendedores, garantindo que os clientes recebam visitas adequadas conforme suas necessidades comerciais.
+Público Afetado
+
+Este sistema afeta todos os vendedores ativos na equipe de Telemarketing e Televendas, bem como supervisores e gestores responsáveis por esses vendedores.
+Condições de Aplicação
+
+As condições de aplicação deste sistema são definidas para diferentes grupos de clientes e dependem de vários fatores, como a recência de visita, a situação comercial do cliente (ativo, inativo, etc.), e a frequência de atendimento.
+Comportamento Configurado
+
+1. Não Agendar Clientes Baixados na Receita Federal: Clientes cuja situação na Receita Federal seja "Baixada" não serão agendados.
+2. Não Agendar Clientes com Data da Rota na Semana: Clientes cuja data da próxima rota esteja na semana corrente não serão agendados.
+3. Clientes Ativos: Clientes cuja recência de positivação esteja entre 1 e 60 dias serão agendados com frequência semanal (7 dias).
+4. Clientes com Recência de Positivação entre 61 e 90 Dias: Clientes cuja recência de positivação esteja entre 61 e 90 dias serão agendados com frequência mensal (30 dias).
+5. Clientes com Recência de Positivação entre 91 e 120 Dias: Clientes cuja recência de positivação esteja entre 91 e 120 dias serão agendados com frequência de 14 dias.
+6. Clientes com Recência de Positivação entre 121 e 150 Dias: Clientes cuja recência de positivação esteja entre 121 e 150 dias serão agendados com frequência de 21 dias.
+7. Clientes com Recência de Positivação entre 151 e 180 Dias: Clientes cuja recência de positivação esteja entre 151 e 180 dias serão agendados com frequência de 28 dias.
+8. Clientes Não Mapeados: Clientes que não se enquadram em nenhuma das categorias acima não serão agendados.
+Restrições, Exceções e Observações
+
+1. Restrições de Tempo: As regras de parametrização são aplicadas apenas durante o horário de trabalho (úteis) e às horas específicas (de 7h às 23h).
+2. Exceções: Não há exceções para clientes que já tenham sido parametrizados manualmente no Govendas.
+3. Ambiguidades: Algumas regras podem parecer ambíguas, especialmente quando combinadas com outras regras. Por exemplo, a regra "Clientes não mapeados" pode ser interpretada de várias maneiras dependendo da ordem de aplicação das re

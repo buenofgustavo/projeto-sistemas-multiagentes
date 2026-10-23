@@ -1,0 +1,83 @@
+ARQUIVO ORIGINAL: regra_080.gobr
+ID: regra_080
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras para Makro Services
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao da Empresa Customizavel: mensal para inativos com cnae do erp que inicia com ("03","47","27")":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e cnae do erp inicia com("03","47","27")
+    frequencia mensal()
+    preferencia do vendedor
+
+parametros "Regra Padrao da Empresa Customizavel: 15 dias para inativos":
+    da carteira("empresa toda")
+    quando inativos para o vendedor
+    frequencia quinzenal()
+    preferencia do vendedor
+
+parametros "Regra Padrao da Empresa Customizavel: mensal para ativos":
+    da carteira("empresa toda")
+    quando ativos para o vendedor
+    frequencia mensal()
+    preferencia do vendedor
+
+parametros "Regra Padrao da Empresa Customizavel: 15 dias para inativos":
+    da carteira("empresa toda")
+    quando inativos para o vendedor
+    frequencia quinzenal()
+    preferencia do vendedor
+    
+parametros "Regra Padrao da Empresa Customizavel: mensal para clientes sem venda":
+    da carteira("empresa toda")
+    quando sem vendas
+    frequencia mensal()
+    preferencia do vendedor
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento para clientes específicos, com foco em clientes inativos, ativos, sem vendas e clientes com certos CNES (Classificação Nacional de Estabelecimentos de Saúde). As regras são personalizáveis para diferentes perfis de clientes e são aplicadas periodicamente (mensal ou quinzenal).
+
+### 2. Público Afetado
+
+Este sistema afeta todas as carteiras de clientes da empresa, independentemente do vendedor ou time específico. As regras são aplicadas a todos os clientes que atendem aos critérios definidos nas parametrizações.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas conforme as seguintes condições:
+
+- **Carteira:** A parametrização é aplicada a todas as carteiras de clientes da empresa (`da carteira("empresa toda")`).
+- **Vendedores:** A parametrização é aplicada para todos os vendedores (`vendedores todos`).
+- **Cliente:** A parametrização é aplicada para clientes que atendem aos critérios definidos nas parametrizações.
+- **Frequência:** A parametrização pode ser aplicada mensalmente ou quinzenalmente (`frequencia mensal()` ou `frequencia quinzenal()`).
+- **Preferência de Dia da Semana:** A parametrização pode especificar preferência de dias da semana para a visita (`preferencia do vendedor`).
+
+### 4. Comportamento Configurado
+
+As parametrizações GoBR configuram o comportamento de atendimento para os clientes conforme as regras definidas:
+
+- **Regra Padronizada Mensal para Inativos:** Clientes inativos com CNES iniciando com "03", "47", ou "27" recebem parametrização mensal.
+- **Regra Padronizada Mensal para Ativos:** Clientes ativos recebem parametrização mensal.
+- **Regra Padronizada Quinzenal para Inativos:** Clientes inativos recebem parametrização quinzenal.
+- **Regra Padronizada Mensal para Clientes Sem Venda:** Clientes que nunca compraram recebem parametrização mensal.
+- **Regra Padronizada Mensal para Inativos:** Clientes inativos recebem parametrização mensal.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Tempo:** As parametrizações são aplicadas periodicamente (mensal ou quinzenal), mas não há restrições específicas de tempo para a aplicação das parametrizações.
+- **Exceções:** Não há exceções mencionadas no código fornecido para a aplicação das parametrizações.
+- **Observações:** As parametrizações são aplicadas automaticamente após a definição, mas podem ser sobrescritas pelos ajustes finais dos vendedores e supervisores quando necessário.
+- **Ambiguidades:** Não há ambiguidades mencionadas no código fornecido, mas é importante not

@@ -1,0 +1,27 @@
+1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. Isso permite que as equipes de vendas geriem automaticamente a agenda de visitas de acordo com as regras estabelecidas.
+2. Público Afetado
+
+Este sistema afeta todas as equipes de vendas, tanto televendas quanto de campo, bem como supervisores e vendedores individuais. Ele também afeta os clientes, determinando como eles serão atendidos conforme as regras estabelecidas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente às carteiras de clientes conforme as condições estabelecidas. As condições de aplicação incluem:
+
+- Tempo: A parametrização é aplicada durante o horário de "televendas".
+- Status do Cliente: Determina se o cliente deve ser agendado ou não com base em seu status na Receita Federal (ativa, suspensa, inapta, baixada).
+- Ramo de Atividade: Define a frequência de agendamento para diferentes ramos de atividade.
+- Inatividade do Cliente: Determina se o cliente deve ser agendado com base em sua inatividade (90 dias ou mais).
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Não Agendar Filiais: Clientes filiais não são agendados.
+- Não Agendar Suspensos, Inapto ou Baixado na Receita Federal: Clientes com status suspenso, inapto ou baixado na Receita Federal não são agendados.
+- Freq. de 7d para ramos de atividade 84, 73, 69, 85 e 22: Clientes desses ramos têm uma frequência de agendamento de 7 dias.
+- Freq. de 30d para todos os clientes fora dos ramos de atividade 84, 73, 69, 85 e 22: Clientes de outros ramos têm uma frequência de agendamento de 30 dias.
+- Freq. de 35d para clientes inativos há 90 dias: Clientes inativos há 90 dias têm uma frequência de agendamento de 35 dias.
+- Freq. de 7d para clientes inativos há 90 dias: Clientes inativos há 90 dias têm uma frequência de agendamento de 7 dias.
+- Freq. de 30d para clientes inativos há 90 dias: Clientes inativos há 90 dias têm uma frequência de agendamento de 30 dias.
+- Freq. de 35d para clientes inativos há 90 dias: Clientes inativos há 90 dias têm uma frequência de agendamento de 35 dias.
+- Freq. de 7d para clientes inativos

@@ -1,0 +1,96 @@
+ARQUIVO ORIGINAL: regra_058.gobr
+ID: regra_058
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+
+time "time campo":
+    vendedores todosdecampo
+
+carteira "televendas":
+    clientes carteirafixa("time televendas")
+
+carteira "campo":
+    clientes carteirafixa("time campo")
+
+
+##############################
+#	REGRAS
+#
+
+parametros "Regra Padrao da Otima Atacado: 14 dias para clientes inadimplentes (televendas)":
+    da carteira("televendas")
+    quando inadimplentes
+    frequencia de 14 dias
+
+parametros "Regra Padrao da Otima Atacado: Frequência de atendimento baseada no histórico de vendas, ou até de 14 dias (televendas)":
+    da carteira("televendas")
+    frequencia do historico ou no maximo de 14 dias
+
+parametros "Regra Padrao da Otima Atacado: 7 dias para clientes adimplentes":
+    da carteira("campo")
+    quando adimplentes
+    frequencia de 7 dias
+
+parametros "Regra Padrao da Otima Atacado: 14 dias para clientes ativos inadimplentes":
+    da carteira("campo")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+
+parametros "Regra Padrao dda Otima Atacado: 60 dias para clientes inativos inadimplentes":
+    da carteira("campo")
+    quando inativos para o vendedor e inadimplentes
+    frequencia de 60 dias
+
+parametros "Regra Padrao dda Otima Atacado: 14 dias para clientes sem venda (campo)":
+    da carteira("campo")
+    quando sem venda
+    frequencia de 14 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir as condições de atendimento para diferentes carteiras de clientes, com foco em clientes inadimplentes, adimplentes, ativos e inativos. As regras definem a frequência de contato e o comportamento de atendimento para cada grupo de clientes, garantindo uma estratégia comercial eficaz.
+
+### 2. Público Afetado
+
+Este sistema afeta diretamente os vendedores e supervisores responsáveis pela gestão de carteiras de clientes. Também afeta os clientes, pois as regras definem como eles serão atendidos e quando receberão contatos comerciais.
+
+### 3. Condições de Aplicação
+
+As regras GoBR são aplicadas automaticamente conforme as condições definidas nas cartas e segmentações. Elas são ativadas automaticamente quando os clientes atendem aos critérios estabelecidos pelas regras. As condições de aplicação incluem:
+
+- **Carteira de Televendas**: Regras específicas para clientes inadimplentes e adimplentes.
+- **Carteira de Campo**: Regras para clientes ativos e inativos, incluindo regras para clientes inativos inadimplentes e sem venda.
+
+### 4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento de atendimento de acordo com as seguintes condições:
+
+- **Regra Padronizada da Otima Atacado**:
+  - **Televendas**: Inadimplentes: 14 dias; Adimplentes: 7 dias; Ativos inadimplentes: 14 dias; Inativos inadimplentes: 60 dias; Sem venda: 14 dias.
+  - **Campo**: Adimplentes: 7 dias; Ativos inadimplentes: 14 dias; Inativos inadimplentes: 60 dias; Sem venda: 14 dias.
+
+- **Parametrização de Frequência**:
+  - **Frequência de 14 dias**: Usada para clientes inadimplentes e sem venda.
+  - **Frequência de 7 dias**: Usada para clientes adimplentes.
+  - **Frequência de 14 dias**: Usada para clientes ativos inadimplentes.
+  - **Frequência de 60 dias**: Usada para clientes inativos inadimplentes.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**:
+  - **Vendedores**: As regras são aplicadas apenas aos vendedores ativos e ativados no Govendas.
+  - **Clientes**: As regras são aplicadas apenas aos clientes que estão na carteira fixa ou na ruptura definida.
+  
+- **Exceções**:
+  - **Sem Choque entre Times**: A regra `sem choque na carteira("carteira campo")` evita que o mesmo cliente receba contatos simultaneamente de televendas e campo.
+  - **Configuração de Semana Pivot**: A regra `pivot segunda semana` restringe a inclusão de clientes na agenda a partir da segunda segunda-feira do mês

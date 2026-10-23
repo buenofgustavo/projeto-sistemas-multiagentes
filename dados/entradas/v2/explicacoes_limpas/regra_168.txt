@@ -1,0 +1,24 @@
+Objetivo Comercial
+
+O objetivo principal desta parametrização é otimizar a rotina de vendas para vendedores de diferentes setores, garantindo que eles atendam a uma variedade de clientes conforme suas respectivas carteiras de rotas. As regras definem a frequência, preferência de dias e outros parâmetros de atendimento para cada cliente, ajudando a maximizar o tempo de contato e a eficiência do trabalho.
+Público Afetado
+
+Este sistema afeta diretamente os vendedores de televendas, supervisores, e os vendedores de campo. Também afeta os clientes que são incluídos nessas carteiras de rotas, garantindo que eles sejam atendidos de acordo com as regras estabelecidas.
+Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todos os clientes que estão na carteira de rotas definida. Elas são específicas para cada carteira de rotas e são aplicadas automaticamente, podendo ser sobrescritas pelos vendedores e supervisores conforme necessário.
+Comportamento Configurado
+
+1. Parametros "Não agendar baixados na Receita": Nenhum agendamento será feito para clientes cuja situação na Receita Federal seja "baixada".
+2. Parametros "Não agendar bloqueados": Nenhum agendamento será feito para clientes bloqueados.
+3. Parametros "Rota todo dia -> Agendamento todo dia": Todos os clientes da carteira "rota_todo_dia" serão agendados diariamente, com maior preferência na segunda, terça, quarta, quinta e sexta-feira.
+4. Parametros "Rota de terça -> Agendamento segunda": Todos os clientes da carteira "rota_terca" serão agendados na segunda-feira, com maior preferência na segunda-feira.
+5. Parametros "Rota de quarta -> Agendamento terça": Todos os clientes da carteira "rota_quarta" serão agendados na terça-feira, com maior preferência na terça-feira.
+6. Parametros "Rota de quinta -> Agendamento quarta": Todos os clientes da carteira "rota_quinta" serão agendados na quarta-feira, com maior preferência na quarta-feira.
+7. Parametros "Rota de sexta -> Agendamento quinta": Todos os clientes da carteira "rota_sexta" serão agendados na quinta-feira, com maior preferência na quinta-feira.
+8. Parametros "Não agendar clientes que não se enquadraram nas regras hoje": Nenhum agendamento será feito para clientes que não se enquadram nas regras definidas para o dia atual.
+Restrições, Exceções e Observações
+
+1. Restrições:
+   - As regras de parametrização são aplicáveis apenas a clientes que ainda não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+   - As regras de parametrização não sob

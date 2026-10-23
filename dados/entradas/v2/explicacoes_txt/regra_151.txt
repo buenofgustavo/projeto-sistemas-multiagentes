@@ -1,0 +1,66 @@
+ARQUIVO ORIGINAL: regra_151.gobr
+ID: regra_151
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+
+time "de campo":
+    vendedores porid("283","279")
+    
+time "televendas":
+    vendedores porid("291")
+
+## Parâmetros de não agendamento
+
+segmentacao "cliente de ruptura":
+    clientes carteirafixa("de campo")
+    quando tem venda em 60 dias
+    
+
+carteira "televendas fixa com ruptura de campo":
+    clientes ruptura("de campo" para "televendas") de positivacao(entre 7 dias e 60 dias)
+
+parametros "Não agendar Ativos de campo com vendas em 60 dias":
+    da carteira("televendas fixa com ruptura de campo")
+    na ultima semana
+    quando contido na segmentacao("cliente de ruptura")
+    nao agendar
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa criar e gerenciar múltiplas carteiras de clientes para vendedores, com foco em segmentar e agendar visitas de acordo com critérios específicos. As carteiras são criadas para atender a diferentes necessidades comerciais, como visitas de televendas, visitas de campo, e alertas de ruptura de positivação.
+
+### 2. Público Afetado
+
+Este sistema afeta diretamente os vendedores, supervisores, e a equipe de marketing. Ele permite que eles gerenciem suas respectivas carteiras de clientes de forma eficiente, agendando visitas e alertas conforme as necessidades comerciais.
+
+### 3. Condições de Aplicação
+
+As condições de aplicação são definidas pelas regras especificadas no arquivo `regra_151.gobr`. Essas regras são aplicadas de acordo com o horário e o tempo de campo ou televendas, dependendo do vendedor. As carteiras são gerenciadas de acordo com a segmentação de clientes adimplentes e em ruptura de visita.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado inclui:
+
+- **Criação de Carteiras**: As carteiras são criadas com base em clientes adimplentes e em ruptura de visita. Por exemplo, a carteira "televendas fixa com ruptura de campo" inclui clientes fixos dos televendas e clientes em ruptura de visita dos vendedores de campo.
+  
+- **Parametrização de Clientes**: Clientes são parametrizados com base em suas atividades recentes, como adimplência e recência de visita. Isso permite que as visitas sejam agendadas de acordo com esses critérios.
+
+- **Alertas de Clientes**: Alertas são disparados para clientes em ruptura de positivação, informando sobre a situação e indicando ações a serem tomadas.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Carteiras**: Somente uma segmentação pode ser usada como fonte de clientes em uma única carteira. Isso impede que clientes sejam incluídos em múltiplas carteiras ao mesmo tempo.
+
+- **Exceções de Carteiras**: É possível criar cartas separadas para clientes em ruptura, garantindo que eles sejam incluídos apenas em uma carteira específica. Por exemplo, a carteira "vendedor 1020" inclui apenas clientes em ruptura de visita do campo.
+
+- **Observações**: Algumas regras podem ser combinadas com outras, como a inclusão de clientes adimplentes e a recência de visita. Além disso, a ordem das carteiras importa, pois a inclusão de clientes em uma carteira pode afetar a disponibilidade de outros clientes em outras carteiras.
+
+- **Ambiguidades**: Há algumas regras que podem ser interpretadas de maneiras diferentes, especialmente quando combinadas com outras. Por exemplo, a inclusão de clientes em ruptura pode ocorrer em várias carteiras, dependendo da ordem das re

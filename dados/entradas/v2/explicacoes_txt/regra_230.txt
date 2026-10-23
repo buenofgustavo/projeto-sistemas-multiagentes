@@ -1,0 +1,96 @@
+ARQUIVO ORIGINAL: regra_230.gobr
+ID: regra_230
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7690005808
+version 1.0
+
+##Definição de times:
+
+time "televendas":
+    vendedores todostelevendas
+
+## Regras de não agendamento:
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+## Regras de agendamento:
+
+parametros "Freq. de 14d para 'Prospect: Cliente potencial'":
+    do time("televendas")
+    quando no ciclo de vida prospect com o vendedor
+    frequencia de 14 dias
+
+parametros "Freq. de 7d para 'Ativado: fez um pedido e ainda não comprou mais'":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 7 dias
+
+parametros "Freq. de 14d para 'Ativo: compra regularmente'":
+    do time("televendas")
+    quando ativos para o vendedor
+        e frequencia historica menor que 16 dias
+    frequencia de 14 dias
+
+parametros "Freq. de 14d para 'Ativo: estimular a regularidade de compra'":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 16 dias e 45 dias
+    frequencia de 14 dias
+
+parametros "Freq. de 7d para 'Em ruptura: risco de ficar inativo'":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 60 dias e 89 dias
+    frequencia de 7 dias
+
+parametros "Freq. de 21d para 'Inativo: reativar cliente sem compra'":
+    do time("televendas")
+    quando fora da recencia de positivacao do vendedor em 60 dias
+    frequencia de 21 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para diferentes tipos de clientes, com base em suas situações comerciais específicas. As regras são direcionadas para vendedores, classificando-os em diferentes grupos de clientes com base em seu ciclo de vida e histórico de compra.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores, que são classificados em diferentes grupos com base em suas funções (televendas, campo) e em seus respectivos supervisores. Além disso, os clientes são classificados em diferentes grupos com base em suas situações comerciais (ativos, inativos, prospect, etc.), e cada grupo tem regras específicas para agendamento e contato.
+
+### 3. Condições de Aplicação
+
+As regras de agendamento e contato são aplicadas de acordo com o status do cliente e o vendedor. Por exemplo, clientes ativos têm uma frequência de contato diferente dos inativos. As regras são aplicadas de acordo com o ciclo de vida do cliente e o histórico de compra do vendedor.
+
+### 4. Comportamento Configurado
+
+- **Regras de Não Agendamento**: Clientes inadimplentes não são agendados.
+- **Regras de Agendamento**:
+  - Clientes ativos com ciclo de vida de 14 dias.
+  - Clientes que fizeram uma única compra com o vendedor.
+  - Clientes ativos com frequência histórica menor que 16 dias.
+  - Clientes que tiveram recência de positivação entre 16 e 45 dias.
+  - Clientes em ruptura com recência de positivação entre 60 e 89 dias.
+  - Clientes inativos com recência de positivação entre 60 e 89 dias.
+  - Clientes inativos com recência de positivação entre 90 e 180 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**:
+  - Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, cada uma com suas próprias regras.
+  - Um mesmo cliente pode aparecer em múltiplas carteiras, dependendo das regras aplicáveis.
+  - As regras de parametrização não sobrepõem as parametrizações manualmente feitas pelo usuário no Govendas.
+  - As regras de cartear e segmentação garantem que os clientes não sejam excluídos de carteiras subsequentes, exceto em casos específicos.
+
+- **Exceções**:
+  - Algumas regras de parametrização podem ser combinadas com outras, permitindo flexibilidade na definição de frequência e dias de contato.
+  - As regras de cartear e segmentação garantem que os clientes não sejam excluídos de carteiras subsequentes, exceto em casos específicos.
+
+- **Observações**:
+  - É importante notar que algumas regras podem ser combinadas, permitindo que o comportamento do sistema seja mais flex

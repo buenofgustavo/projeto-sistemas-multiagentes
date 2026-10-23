@@ -1,0 +1,28 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir perfis de clientes e vendedores com base em suas atividades comerciais, como compras, inadimplências, visitas e outros comportamentos. Essas regras são utilizadas para gerar parametrizações de frequência de contato, alertas e carteiras de clientes específicas.
+2. Público Afetado
+
+- Vendedores: Os vendedores são classificados em diferentes grupos com base em suas atividades e histórico de relacionamento com os clientes.
+- Clientes: Os clientes são classificados com base em seu histórico de compra, inadimplência, recência de visita e outros comportamentos.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a diferentes grupos de clientes e vendedores, conforme descrito abaixo:
+
+- Todos: Regras aplicáveis a todos os vendedores e clientes.
+- Fabricantes: Regras aplicáveis a vendedores específicos com ID "F", "L", "A".
+- Segmentos de Revenda/Manutenção: Regras aplicáveis a vendedores específicos com ID "J".
+- Consumidor Final Recorrente: Regras aplicáveis a vendedores específicos com ID "LC".
+- Compras Expõrdicas: Regras aplicáveis a vendedores específicos com ID "LC".
+- Consumidor Final Grão-Porte: Regras aplicáveis a vendedores específicos com ID "A".
+4. Comportamento Configurado
+
+As regras configuram comportamentos específicos para diferentes grupos de clientes e vendedores, como:
+
+- Freq. de 14d para 'PROSPECT: FAZER O PRIMEIRO PEDIDO' (Todos): Cliente recebe parametrização de frequência de contato após 14 dias de contato prospectivo.
+- Freq. de 21d para 'INADIMPLENTES' (Todos): Cliente recebe parametrização de frequência de contato após 21 dias de inadimplemento.
+- Freq. de 28d para 'BOAS VINDAS A CLIENTE COM O PRIMEIRO PEDIDO' (Todos): Cliente recebe parametrização de frequência de contato após 28 dias de sua primeira compra.
+- Freq. de 30d para 'COM COMPRA ENTRE 31 E 60 DIAS' (Todos): Cliente recebe parametrização de frequência de contato após 30 dias de compra entre 31 e 60 dias.
+- Freq. de 10d para 'EM RUPTURA: RISCO DE INATIVIDADE' (Todos): Cliente recebe parametrização de frequência de contato após 10 dias de recência de inadimplemento entre 61 e 90 dias.
+- Freq. de 21d 'INATIVOS: RESGATE DE CLIENTES SEM COMPRA' (Todos): Cliente recebe parametrização de frequência de contato após 21 dias de inadimplemento.
+- Freq. de 21d para '

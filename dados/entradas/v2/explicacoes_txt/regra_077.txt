@@ -1,0 +1,84 @@
+ARQUIVO ORIGINAL: regra_077.gobr
+ID: regra_077
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/8373100030
+version 1.0
+
+## Definição de times:
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+## Regras de não agendamento:
+
+parametros "Não agendar bloqueados":
+    do time("televendas")
+    quando bloqueados
+    nao agendar
+
+parametros "Não agendar clientes inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+parametros "Não agendar clientes com compra nos últimos 30d":
+    do time("televendas")
+    quando recencia de positivacao em 30 dias
+    nao agendar
+
+## Parâmetros de agendamento:
+
+parametros "Freq. de 14d para clientes prospects":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 14 dias
+
+parametros "Freq. de 7d para clientes ativos":
+    do time("televendas")
+    quando no ciclo de vida ativo com a empresa
+    frequencia de 7 dias
+    
+parametros "Freq. de 14d para clientes inativos":
+    do time("televendas")
+    frequencia de 14 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa definir estratégias de atendimento para clientes de acordo com critérios comerciais específicos. Isso inclui a definição de frequência de visitas, dias da semana para visitas, preferências de dias e outras configurações de atendimento personalizadas para cada cliente.
+
+### 2. Público Afetado
+
+Este sistema afeta diretamente os vendedores e supervisores, permitindo que eles definam estratégias de atendimento personalizadas para seus clientes. Também afeta os gestores e supervisores, que podem receber alertas sobre clientes em situação crítica.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todos os clientes que estão em uma carteira definida. As condições de aplicação incluem:
+
+- **Vendedores**: São definidos através de times, que podem incluir vendedores específicos ou grupos de vendedores.
+- **Clientes**: São definidos através de segmentações, carteiras ou times. As segmentações podem ser usadas para criar carteiras virtuais, enquanto as carteiras definem a carteira final de clientes para o atendimento.
+- **Frequência e Dias da Semana**: São definidos através de parâmetros que especificam a frequência de visitas e os dias da semana para visitas.
+- **Adimplemento e Recência de Visita**: São usados para filtrar clientes com base em seu histórico de pagamento e recência de visita.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Não Agendar**: Clientes que atendem a determinadas condições (como inadimplentes, clientes com compra recente, clientes inativos há mais de 30 dias) são automaticamente excluídos da agenda.
+- **Parametrização Dinâmica**: Clientes podem ser parametrizados com frequências de visitas, preferências de dias da semana e outros parâmetros de atendimento.
+- **Alertas**: Clientes que atendem a certas condições (como inadimplência, recência de visita) podem receber alertas automáticos.
+
+### 5. Restrições, Exceções e Observações
+
+- **Unicidade de Vendedores**: Um mesmo vendedor só pode aparecer uma vez em um time, mesmo que apareça em múltiplas linhas de vendedores.
+- **Referências Únicas**: Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+- **Frequência de Visitas**: A frequência de visitas pode ser definida para 7 dias, 14 dias ou 30 dias, dependendo do contexto.
+- **Filtragem de Clientes**: Clientes podem ser filtrados com base em condições comerciais, como adimplemento, recência de visita e outros.
+- **Remoção de Agendamento**: Clientes podem ser marcados para não aparecerem na agenda usando a regra `nao agendar`.
+- **Ambiguidade**: Algumas regras podem ser ambíguas ou não serem completamente implementadas, como regras como "cada

@@ -1,0 +1,23 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento e agendamento de clientes de acordo com diferentes critérios comerciais. As regras são aplicadas a clientes específicos, definindo como eles devem ser atendidos, com qual frequência e em quais dias da semana. 
+2. Público Afetado
+
+Este sistema afeta diretamente os vendedores e supervisores responsáveis por definir estratégias de atendimento, bem como os clientes que serão atendidos conforme essas estratégias. 
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- Não Agendamento: Clientes filiais, inadimplentes e bloqueados não são agendados.
+- Freq. de 30d: Clientes com recência de positivação entre 181 e 365 dias, clientes inativos há mais de 365 dias e clientes que fizeram uma única compra com um vendedor são agendados com uma frequência de 30 dias.
+- Freq. de 30d para 'Ativado: fez um pedido e ainda não comprou mais': Clientes que fizeram uma única compra com um vendedor são agendados com uma frequência de 30 dias.
+- Freq. de 30d para 'Esquecido': Clientes com recência de positivação entre 181 e 365 dias são agendados com uma frequência de 30 dias.
+- Freq. de 30d para 'Inativo: Reativar cliente sem compra': Clientes inativos há mais de 365 dias são agendados com uma frequência de 30 dias.
+- Freq. de 30d para 'Ativo fidelizado': Clientes ativos são agendados com uma frequência de 30 dias.
+4. Comportamento Configurado
+
+- Não Agendamento: Clientes filiais, inadimplentes e bloqueados não são incluídos em nenhuma carteira ou agendamento.
+- Freq. de 30d: Clientes com recência de positivação entre 181 e 365 dias, clientes inativos há mais de 365 dias e clientes que fizeram uma única compra com um vendedor são incluídos em carteiras com uma frequência de 30 dias.
+- Freq. de 30d para 'Ativado: fez um pedido e ainda não comprou mais': Clientes que fizeram uma única compra com um vendedor são incluídos em carteiras com uma frequência de 30 dias.
+- Freq. de 30d para 'Esquecido': Clientes com recência de positivação entre 181 e 365 dias são incluídos em carteiras com uma frequência de 30 dias.
+- Freq. de 30d para 'Inativo: Reativar cliente sem compra': Clientes inativos há mais de

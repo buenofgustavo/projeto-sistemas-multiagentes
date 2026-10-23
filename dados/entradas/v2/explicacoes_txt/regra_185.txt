@@ -1,0 +1,79 @@
+ARQUIVO ORIGINAL: regra_185.gobr
+ID: regra_185
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7375203530
+version 1.0
+
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+## Regras de não agendamento
+
+parametros "Não agendar Pessoa Física":
+    do time("televendas")
+    quando pessoa fisica
+    nao agendar
+    
+parametros "Não agendar baixados na Receita":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+## Regras de agendamento
+
+parametros "Freq. de 14d para Prospects":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 14 dias
+
+parametros "Freq. de 7d para Ativos":
+    do time("televendas")
+    quando no ciclo de vida ativo com a empresa
+    frequencia de 7 dias
+
+parametros "Freq. de 14 dias para Inativos":
+    do time("televendas")
+    frequencia de 14 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento para clientes de acordo com diferentes critérios comerciais. O objetivo é otimizar o tempo e a eficiência do contato com os clientes, garantindo que eles sejam atendidos conforme as necessidades e prazos estabelecidos.
+
+### 2. Público Afetado
+
+Este sistema afeta diretamente os vendedores e supervisores, permitindo que eles definam estratégias de atendimento personalizadas para seus clientes. As pessoas envolvidas incluem:
+
+- **Vendedores**: Responsáveis pela gestão de clientes e definição de estratégias de atendimento.
+- **Supervisores**: Supervisionam os vendedores e podem definir estratégias para grupos de vendedores.
+- **Gerentes e Gestores**: Analisam os resultados e podem ajustar as estratégias conforme necessário.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- **Vendedores**: São definidos através de times, que podem incluir todos os vendedores televendas, todos os vendedores de campo, supervisores específicos, dentre outros.
+- **Clientes**: São filtrados através de várias condições, como status na receita federal, ciclo de vida do cliente, recência de visita, entre outras.
+- **Frequência e Preferência de Dias**: São definidos de acordo com as necessidades comerciais, podendo variar de 7 dias para clientes ativos a 14 dias para clientes inativos.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Não Agendar**: Determina que determinados clientes não devem ser agendados.
+- **Freq. de 14d para Prospects**: Define que clientes novos (Prospects) devem ser agendados com uma frequência de 14 dias.
+- **Freq. de 7d para Ativos**: Define que clientes ativos devem ser agendados com uma frequência de 7 dias.
+- **Freq. de 14 dias para Inativos**: Define que clientes inativos devem ser agendados com uma frequência de 14 dias.
+- **Freq. de 35 dias para Inativos**: Define que clientes inativos há mais de 35 dias devem ser agendados com uma frequência de 35 dias.
+- **Freq. de 90 dias para Inativos**: Define que clientes inativos há mais de 90 dias devem ser agendados com uma frequência de 90 dias.
+- **Freq. de 14 dias para Inativos com Preferência**: Define que clientes inativos há mais de 14 dias devem ser agendados com uma frequência de 14 dias e preferência de visita.
+- **Freq. de 35 dias para Inativos com Preferência**: Define que clientes inativos há mais de 35 dias devem ser agendados com uma frequência de 35 dias e preferência de visita.
+- **Freq. de 90 dias para Inativos

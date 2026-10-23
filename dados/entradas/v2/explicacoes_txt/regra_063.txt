@@ -1,0 +1,99 @@
+ARQUIVO ORIGINAL: regra_063.gobr
+ID: regra_063
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras padrão
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+    
+time "time campo":
+    vendedores todosdecampo
+    
+carteira "carteira televendas":
+    clientes carteirafixa("time televendas")
+    
+carteira "carteira campo":
+    clientes carteirafixa("time campo")
+    
+## campo
+parametros "Regra Padrao da Verteiler - Customizavel: 30 dias para clientes ativos (campo)":
+    da carteira("carteira campo")
+    quando ativos para o vendedor
+    frequencia de 30 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Verteiler - Customizavel: 30 dias para clientes inativos (campo)":
+    da carteira("carteira campo")
+    quando inativos para o vendedor
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Verteiler - Customizavel: 30 dias para clientes sem venda (campo)":
+    da carteira("carteira campo")
+    quando sem venda
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+## televendas
+parametros "Regra Padrao da Verteiler - Customizavel: 30 dias para clientes ativos (televendas)":
+    da carteira("carteira televendas")
+    quando ativos para o vendedor
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    sem choque no time("time campo")
+    
+parametros "Regra Padrao da Verteiler - Customizavel: 30 dias para clientes inativos(televendas)":
+    da carteira("carteira televendas")
+    quando inativos para o vendedor
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    sem choque no time("time campo")
+    
+parametros "Regra Padrao da Verteiler - Customizavel: 30 dias para clientes sem venda (televendas)":
+    da carteira("carteira televendas")
+    quando sem venda
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    sem choque no time("time campo")
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para clientes de diferentes carteiras, com foco em clientes ativos, inativos e sem vendas. O objetivo é otimizar o tempo de contato dos vendedores, garantindo que eles atendam a todas as necessidades dos clientes de maneira eficiente.
+
+### 2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de vendas. As regras são aplicadas a clientes específicos, definindo como e quando esses clientes devem ser contatados. O público-alvo inclui tanto clientes ativos quanto inativos, bem como aqueles que não realizaram vendas recentemente.
+
+### 3. Condições de Aplicação
+
+As regras são aplicadas às seguintes carteiras:
+
+- **Carteira Televendas**: Define as regras para clientes que são atendidos pelos vendedores de televendas.
+- **Carteira Campo**: Define as regras para clientes que são atendidos pelos vendedores de campo.
+
+As regras são aplicadas de acordo com o status dos clientes (ativos, inativos, sem vendas) e o tempo desde a última ação (venda, visita).
+
+### 4. Comportamento Configurado
+
+#### Regras para Clientes Ativos
+
+- **Regra Padronizada da Vertieler - Customizável: 30 dias para clientes ativos (campo)**: Define que clientes ativos há 30 dias ou mais devem receber uma parametrização de contato com frequência de 30 dias, preferindo dias úteis.
+- **Regra Padronizada da Vertieler - Customizável: 30 dias para clientes ativos (televendas)**: Similar à anterior, mas com a condição de que os clientes ativos devem receber uma parametrização de contato com frequência de 30 dias, preferindo dias úteis, sem choque no time de campo.
+
+#### Regras para Clientes Inativos
+
+- **Regra Padronizada da Vertieler - Customizável: 30 dias para clientes inativos (campo)**: Define que clientes inativos há 30 dias ou mais devem receber uma parametrização de contato com frequência de 30 dias, preferindo dias úteis.
+- **Regra Padronizada da Vertieler - Customizável: 30 dias para clientes inativos (televendas)**: Similar à anterior, mas com a condição de que os clientes inativos devem receber uma parametrização de contato com frequência de 30 dias, preferindo dias úteis, sem choque no time de campo.
+
+#### Regras para Clientes Sem Venda
+
+- **Regra Padronizada da Vertieler - Customizável: 30 dias para clientes sem venda (campo)**: Define que clientes sem vendas há 30 dias ou mais devem receber uma parametrização de contato com frequência de 30 dias, preferindo dias úteis.
+- **Regra Padronizada da Vertieler - Customizável:

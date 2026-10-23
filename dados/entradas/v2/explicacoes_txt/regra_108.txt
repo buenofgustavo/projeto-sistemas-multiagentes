@@ -1,0 +1,99 @@
+ARQUIVO ORIGINAL: regra_108.gobr
+ID: regra_108
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Card da aplicação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7693814273
+version 1.0
+
+# Definição de times
+time "televendas":
+    vendedores todos ativados
+
+parametros "Diferpan: Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+    
+parametros "Diferpan: Freq. de 7d para cliente que nunca tirou com o vendedor":
+    do time("televendas")
+    quando no ciclo de vida prospect com o vendedor
+    frequencia de 7 dias
+    
+parametros "Diferpan: Freq. de 21d para construtora que comprou uma unica vez com o vendedor":
+    do time("televendas")
+    quando unica compra com o vendedor e ramo de atividade igual("37")
+    frequencia de 21 dias
+    
+parametros "Diferpan: Freq. de 7d para cliente que comprou uma unica vez com o vendedor":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 7 dias
+
+parametros "Diferpan: Freq. de 7d para clientes com frequência histórica menor do que 11 dias":
+    do time("televendas")
+    quando frequencia historica menor que 11 dias
+    frequencia de 7 dias
+
+parametros "Diferpan: Freq. de 14d para construtora que comprou com o vendedor entre 60 dias e 89 dias":
+    do time("televendas")
+    quando fora da recencia de positivacao do vendedor entre 60 dias e 89 dias e ramo de atividade igual("37")
+    frequencia de 14 dias
+
+parametros "Diferpan: Freq. de 21d para construtora que comprou com o vendedor entre 11 dias e 59 dias":
+    do time("televendas")
+    quando fora da recencia de positivacao do vendedor entre 11 dias e 59 dias e ramo de atividade igual("37")
+    frequencia de 21 dias
+    
+parametros "Diferpan: Freq. de 21d para clientes que comprou ultima vez com o vendedor a mais de 90 dias":
+    do time("televendas")
+    quando no ciclo de vida inativo com o vendedor
+    frequencia de 21 dias
+
+parametros "Diferpan: Freq. de 7d para clientes que comprou com o vendedor entre 11 dias e 89 dias":
+    do time("televendas")
+    quando fora da recencia de positivacao do vendedor em 90 dias
+    frequencia de 7 dias
+
+parametros "Diferpan: Freq. de 7d para demais clientes":
+    do time("televendas")
+    frequencia de 7 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, especificando a frequência de contato, dias da semana, roteirização, fixação, etc. Isso permite que os vendedores tenham diretrizes claras sobre quando e como atender seus clientes, otimizando o tempo e a eficiência nas vendas.
+
+### 2. Público Afetado
+
+Este sistema afeta todos os vendedores e supervisores que utilizam o Govendas Assistente de Vendas Inteligente. As regras são aplicadas automaticamente aos clientes conforme as parametrizações definidas.
+
+### 3. Condições de Aplicação
+
+As regras GoBR são aplicadas automaticamente aos clientes conforme as parametrizações definidas. Elas são ativadas automaticamente para todos os vendedores e supervisores que fazem parte dos times especificados. As regras são aplicadas de acordo com as condições comerciais definidas, como inadimplentes, clientes ativos, inativos, clientes que comprou uma única vez, clientes com frequência histórica, etc.
+
+### 4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento de atendimento dos clientes de acordo com as seguintes condições:
+
+- **Inadimplentes**: Não agendam contatos com esses clientes.
+- **Freq. de 7d para clientes que nunca tiraram com o vendedor**: Frequência de contato de 7 dias.
+- **Freq. de 21d para construtora que comprou uma unica vez com o vendedor**: Frequência de contato de 21 dias.
+- **Freq. de 7d para clientes que comprou uma unica vez com o vendedor**: Frequência de contato de 7 dias.
+- **Freq. de 7d para clientes com frequência histórica menor do que 11 dias**: Frequência de contato de 7 dias.
+- **Freq. de 14d para construtora que comprou com o vendedor entre 60 dias e 89 dias**: Frequência de contato de 14 dias.
+- **Freq. de 21d para construtora que comprou com o vendedor entre 11 dias e 59 dias**: Frequência de contato de 21 dias.
+- **Freq. de 21d para clientes que comprou ultima vez com o vendedor a mais de 90 dias**: Frequência de contato de 21 dias.
+- **Freq. de 7d para clientes que comprou com o vendedor entre 11 dias e 89 dias**: Frequência de contato de 7 dias.
+- **Freq. de 7d para demais clientes**: Frequência de contato de 7 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: 
+  - Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, cada uma com suas próprias restrições.
+  - Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+  - Os vendedores referenciados devem estar cadastrados no Govendas.

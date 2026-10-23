@@ -1,0 +1,127 @@
+ARQUIVO ORIGINAL: regra_131.gobr
+ID: regra_131
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras para Labtech
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas ativados
+
+time "time campo":
+    vendedores todosdecampo ativados
+
+parametros "Labtech: Não agendar inadimplentes":
+    do time("time televendas","time campo")
+    quando inadimplentes
+    nao agendar
+
+parametros "Labtech: Não agendar 'Administração pública em geral' e 'Segurança e ordem pública'":
+    do time("time televendas","time campo")
+    quando cnae é igual("8411600","8424800")
+    nao agendar
+
+parametros "Labtech: Frequência de 7 dias para clientes sem crédito":
+    do time("time televendas","time campo")
+    quando nao tem crédito
+    frequencia de 7 dias
+
+############################
+## TIME TELEVENDAS
+
+parametros "Labtech: Frequência de 7 dias para clientes ativos - Modelo 1 - Televendas":
+    do time("time televendas")
+    quando ativos para o vendedor e cnae é igual("8630501","8610101","8630502","7500100","8610102","8630503","8640201","8690901","8630501")
+    frequencia de 7 dias
+
+parametros "Labtech: Frequência de 14 dias para clientes inativos - Modelo 1 - Televendas":
+    do time("time televendas")
+    quando cnae é igual("8630501","8610101","8630502","7500100","8610102","8630503","8640201","8690901","8630501")
+    frequencia de 14 dias
+
+parametros "Labtech: Frequência de 21 dias para clientes ativos - Modelo 2 - Televendas":
+    do time("time televendas")
+    quando ativos para o vendedor e cnae é igual("8533300","8532500","4645101","3250705","4773300")
+    frequencia de 21 dias
+
+parametros "Labtech: Frequência de 30 dias para clientes inativos - Modelo 2 - Televendas":
+    do time("time televendas")
+    quando cnae é igual("8533300","8532500","4645101","3250705","4773300")
+    frequencia de 30 dias
+
+parametros "Labtech: Frequência de 30 dias - Modelo 3 - Televendas":
+    do time("time televendas")
+    frequencia de 30 dias
+
+############################
+## TIME CAMPO
+
+parametros "Labtech: Frequência de 7 dias para clientes ativos - Modelo 1 - Externos":
+    do time("time campo")
+    quando ativos para o vendedor e cnae é igual("8630501","8610101","8630502","7500100","8610102","8630503","8640201","8690901","8630501")
+    frequencia de 7 dias
+    preferencia na segunda e na quarta e na sexta
+
+parametros "Labtech: Frequência de 14 dias para clientes inativos - Modelo 1 - Externos":
+    do time("time campo")
+    quando cnae é igual("8630501","8610101","8630502","7500100","8610102","8630503","8640201","8690901","8630501")
+    frequencia de 14 dias
+    preferencia na segunda e na quarta e na sexta
+
+parametros "Labtech: Frequência de 21 dias para clientes ativos - Modelo 2 - Externos":
+    do time("time campo")
+    quando ativos para o vendedor e cnae é igual("8533300","8532500","4645101","3250705","4773300")
+    frequencia de 21 dias
+    preferencia na segunda e na quarta e na sexta
+
+parametros "Labtech: Frequência de 30 dias para clientes inativos - Modelo 2 - Externos":
+    do time("time campo")
+    quando cnae é igual("8533300","8532500","4645101","3250705","4773300")
+    frequencia de 30 dias
+    preferencia na segunda e na quarta e na sexta
+
+parametros "Labtech: Frequência de 30 dias - Modelo 3 - Externos":
+    do time("time campo")
+    frequencia de 30 dias
+    preferencia na segunda e na quarta e na sexta
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de agendamento e frequência de contato com clientes, com foco em regras específicas para diferentes grupos de vendedores e clientes. As regras são direcionadas para otimizar o tempo e recursos de vendas, garantindo que os vendedores atendam aos clientes de maneira eficiente e estratégica.
+
+### 2. Público Afetado
+
+As regras afetam diretamente os vendedores e clientes. Os vendedores são definidos como televendas, campo, supervisores e vendedores avulsos. Os clientes são definidos por seu status de inadimplência, frequência de visita, tipo de CNAB (Classe de Atividade Monetária e Bancária) e outros critérios específicos.
+
+### 3. Condições de Aplicação
+
+As regras são aplicáveis em dois contextos principais: **Time Televendas** e **Time Campo**. Em ambos os casos, as regras são ativadas para vendedores específicos e clientes determinados. As condições de aplicação incluem:
+
+- **Vendedores**: Todos os vendedores televendas e campo, bem como supervisores específicos.
+- **Clientes**: Clientes que atendem a certos critérios de inadimplência, frequência de visita, CNAB e outros.
+
+### 4. Comportamento Configurado
+
+As regras configuram comportamentos específicos para os clientes, incluindo:
+
+- **Não Agendar Inadimplentes**: Clientes inadimplentes não são agendados.
+- **Frequência de Visita**: Definem a frequência de visita para clientes ativos e inativos, variando de 7 a 30 dias.
+- **Preferência de Dia da Semana**: Determinam a preferência de dia da semana para visitas, com valores específicos para segunda, terça, quarta, quinta, sexta e sábado.
+- **Remoção de Agendamento**: Clientes inadimplentes são removidos da agenda.
+- **Segmentação de Clientes**: Criam carteiras de clientes separadas para controle de exclusividade e melhor gestão de tempo.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: Algumas regras são mutuamente exclusivas, como a remoção de agendamento que impede a definição de frequência ou preferência de dias.
+- **Exceções**: Há exceções para alguns clientes, como aqueles com recência de visita entre 10 e 90 dias, que são incluídos em um filtro adicional.
+- **Observações**: É importante notar que algumas regras podem ser complexas e inter-relacionadas, exigindo cuidado na interpretação e aplicação.
+
+### Resumo
+
+As regras GoBR fornecidas permitem uma gestão detalhada e personalizada de vendas, permitindo que os vendedores atendam eficientemente aos clientes de acordo com suas necessidades e disponibilidade. No entanto, a complexidade das regras requer atenção

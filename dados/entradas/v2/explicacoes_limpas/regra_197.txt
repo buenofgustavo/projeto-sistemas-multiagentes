@@ -1,0 +1,29 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato com clientes de acordo com diferentes perfis e situações comerciais. As regras são direcionadas para vendedores de televendas, visando otimizar o tempo e recursos de maneira eficiente.
+2. Público Afetado
+
+O público afetado são os vendedores de televendas, assim como os clientes que estão sendo atendidos por esses vendedores. As regras são aplicadas diretamente aos clientes, mas também influenciam a rotina de trabalho dos vendedores.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas conforme as seguintes condições:
+
+- Status na Receita Federal: Se o cliente estiver marcado como "baixada" na receita federal, não será agendado.
+- Inadimplentes: Clientes inadimplentes não serão agendados.
+- Data da Rota na Semana: Clientes cuja data da próxima rota esteja na semana atual não serão agendados.
+- Clientes Prospect: Clientes no ciclo de vida prospect com a empresa, com recência de positivacao de 14 dias, serão agendados com frequência de 14 dias.
+- Clientes Ativos: Clientes com recência de positivacao global de 60 dias, com frequência de 7 dias.
+- Risco de Inatividade: Clientes com recência de positivacao global de 90 dias, com frequência de 7 dias.
+- Inativos + 90d: Clientes com recência de positivacao global de 90 dias ou mais, com frequência de 7 dias.
+4. Comportamento Configurado
+
+- Não Agendamento: Quando uma das condições definidas nas regras for atendida, o cliente não será agendado.
+- Frequência de Agenda: Dependendo da condição, a frequência de agenda pode variar entre 7 dias (sempre) e 30 dias (mensal).
+- Preferência de Dia da Semana: Algumas regras permitem a definição de preferência de dia da semana para a agenda, como segunda e terça-feira.
+5. Restrições, Exceções e Observações
+
+- Restrições de Vendedores: As regras podem ser aplicadas a um grupo específico de vendedores, como definido em `menos("id1", "id2", ...)`.
+- Unicidade de Times: Um mesmo vendedor pode aparecer em múltiplos times, mas será contabilizado apenas uma vez.
+- Referências Únicas: Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+- Ambiguidades e Possíveis Lacunas: Não há informações sobre regras específicas como "cadastrados no Govendas", "não cadastrados no Govendas", "com muitos clientes", "com poucos clientes", "junto a supervisor com poucos vendedores", etc.
+- Exceções:

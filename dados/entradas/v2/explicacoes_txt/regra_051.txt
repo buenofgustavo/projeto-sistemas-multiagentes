@@ -1,0 +1,92 @@
+ARQUIVO ORIGINAL: regra_051.gobr
+ID: regra_051
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+
+# Regras para Armazém Santa Maria
+version 1.0
+
+time "empresa toda":
+    vendedores todos ativados
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao da Empresa Customizavel: semanal para clientes ativos e adimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor e adimplentes
+    frequencia semanal()
+    preferencia nos dias uteis e no sabado
+
+parametros "Regra Padrao da Empresa Customizavel: 14 dias para clientes ativos e inadimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Regra Padrao da Empresa Customizavel: 14 dias para clientes inativos e adimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Regra Padrao da Empresa Customizavel: nao agendar clientes inativos e inadimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+
+parametros "Regra Padrao da Empresa Customizavel: 14 dias para clientes sem venda":
+    da carteira("empresa toda")
+    quando sem venda
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+    
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato com clientes de acordo com diferentes condições, como ativos e adimplentes, inativos e inadimplentes, sem venda, etc. O objetivo é personalizar as parametrizações de contato para maximizar a eficiência e o retorno do investimento em vendas.
+
+### 2. Público Afetado
+
+Este sistema é direcionado para vendedores, supervisores e administradores de vendas. As parametrizações são aplicadas a carteiras de clientes, permitindo que diferentes estratégias de contato sejam definidas para diferentes grupos de clientes.
+
+### 3. Condições de Aplicação
+
+As parametrizações GoBR são aplicadas a carteiras de clientes específicas, dependendo das condições definidas. As condições podem incluir:
+
+- **Ativos e Adimplentes**: Clientes que compraram recentemente e estão pagando regularmente.
+- **Inativos e Adimplentes**: Clientes que não compraram recentemente e estão pagando regularmente.
+- **Inativos e Inadimplentes**: Clientes que não compraram recentemente e estão em atraso.
+- **Sem Venda**: Clientes que nunca compraram.
+- **Clientes Inativos**: Clientes que não compraram há algum tempo.
+- **Clientes Sem Venda ou Prospects**: Clientes que nunca compraram.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado varia conforme as condições definidas:
+
+- **Frequência**: Pode ser diária, semanal, quinzenal ou mensal.
+- **Preferência de Dia da Semana**: Pode ser definida para dias úteis ou sábado.
+- **Não Agendar**: Clientes podem ser marcados para não aparecerem na agenda.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Tempo**: Algumas parametrizações têm prazos específicos, como 90 dias, 14 dias, etc.
+- **Exclusividade**: Não é possível combinar parametrizações que definem frequência e dias úteis com parametrizações que definem não agendamento.
+- **Ambiguidade**: Algumas parametrizações podem ser interpretadas de maneira diferente dependendo da interpretação do usuário.
+- **Limitações**: Não é possível combinar parametrizações que definem frequência e dias úteis com parametrizações que definem não agendamento.
+- **Configurações Dinâmicas**: Algumas parametrizações permitem que sejam complementadas, mas não substituídas.
+
+### Observações Adicionais
+
+- **Flexibilidade**: As parametrizações GoBR permitem uma grande flexibilidade na definição de estratégias de contato, permitindo que diferentes grupos de clientes sejam tratados de maneira diferente.
+- **Personalização**: As parametrizações podem ser personalizadas para atender às necessidades específicas de cada carteira de clientes.
+- **Integração**: As parametrizações GoBR podem ser integradas com outros recursos do sistema, como alertas e rotas de visitas presenciais.
+
+Esta param

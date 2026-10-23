@@ -1,0 +1,31 @@
+1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, especificando a frequência, dias da semana e outros comportamentos relacionados à agenda de vendas. Isso permite que as estratégias comerciais sejam personalizadas de acordo com as necessidades específicas de cada cliente e vendedor.
+2. Público Afetado
+
+Este sistema afeta principalmente os vendedores, supervisores e administradores de vendas. As regras são aplicadas automaticamente ao sistema de gerenciamento de vendas, impactando diretamente a agenda de visitas e a parametrização de clientes.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas conforme as seguintes condições:
+
+- Vendedores: São definidas para atender a clientes específicos, podendo ser ativados ou desativados.
+- Carteira de Clientes: As regras são aplicadas a clientes específicos, podendo ser filtrados por segmentos, atividade, inatividade, recência de visita, etc.
+- Frequência e Preferência de Dias: As regras definem a frequência de visitas e a preferência de dias da semana para cada cliente.
+4. Comportamento Configurado
+
+As regras GoBR permitem configurar diversos comportamentos, como:
+
+- Frequência de Visita: Pode ser definida em dias, semanas ou meses.
+- Preferência de Dias da Semana: Define a preferência de visitas para cada dia da semana.
+- Sem Choque: Evita que dois times atendam o mesmo cliente no mesmo dia.
+- Pivô da Semana: Restringe a partir de qual semana do mês o cliente pode aparecer na agenda.
+5. Restrições, Exceções e Observações
+
+- Restrições de Cliente: Uma carteira de clientes pode ter apenas uma fonte de clientes definida (por exemplo, carteira fixa).
+- Exceções de Agendamento: A remoção de agendamento é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias.
+- Ambiguidades: Algumas regras podem ser ambíguas, especialmente quando combinadas com outras regras. É importante verificar a ordem de aplicação das regras.
+- Limitações de Implementação: Algumas funcionalidades, como a configuração de semana pivot, ainda estão em desenvolvimento e podem não funcionar corretamente.
+- Configuração de Vendedores: A configuração de vendedores pode ser feita em múltiplas linhas, mas cada vendedor deve aparecer apenas uma vez em um mesmo time.
+Resumo
+
+A parametrização GoBR é uma ferramenta poderosa para personalizar a estratégia de vendas, permitindo que as regras sejam aplicadas de maneira flexível e personalizada. É crucial entender as condições de aplicação e os comportamentos configurados para garantir que as estratégias comerciais sejam eficazes e consistentes.

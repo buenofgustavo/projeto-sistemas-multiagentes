@@ -1,0 +1,22 @@
+1. Objetivo Comercial
+
+O objetivo principal dessa parametrização GoBR é definir estratégias de atendimento e rotina de visitas para clientes de acordo com diferentes critérios de ativação e inativação. As regras definem quando e como os vendedores devem visitar seus clientes, garantindo que os clientes ativos recebam atenção regularmente, enquanto os inativos recebem menos contato.
+2. Público Afetado
+
+As regras afetam todos os clientes que estão associados a um time específico, como televendas, campo, supervisores, etc. Elas definem como esses clientes devem ser atendidos, considerando fatores como recência de compra, recência de visita, e outros indicadores de ativação.
+3. Condições de Aplicação
+
+As regras de aplicação são definidas de acordo com o tempo relativo à data da rota de visita. Por exemplo, a regra "Freq. de 7 dias para clientes ativos" afeta os clientes que foram visitados há exatamente 7 dias. Outras regras definem intervalos de tempo mais longos, como 30 dias, 60 dias, 90 dias, e 15 dias.
+4. Comportamento Configurado
+
+- Freq. de 7 dias para clientes ativos: Clientes que foram visitados há exatamente 7 dias recebem uma parametrização de frequência diária.
+- Freq. de 30 dias para clientes inativos: Clientes que não fizeram compras há mais de 30 dias recebem uma parametrização de frequência mensal.
+- Freq. de 60 dias para clientes inativos: Clientes que não fizeram compras há mais de 60 dias recebem uma parametrização de frequência semanal.
+- Freq. de 15 dias para clientes inativos: Clientes que não fizeram compras há mais de 15 dias recebem uma parametrização de frequência quinzenal.
+- Freq. de 10 dias para clientes inativos: Clientes que não fizeram compras há mais de 10 dias recebem uma parametrização de frequência diária.
+- Nao agendar clientes inativos: Clientes que não fizeram compras há mais de 90 dias não são agendados para visitas.
+5. Restrições, Exceções e Observações
+
+- Restrições: As regras de aplicação são definidas de acordo com o tempo relativo à data da rota de visita. Não há restrições específicas mencionadas que afetem a aplicação direta das regras.
+- Exceções: Não há exceções explícitas mencionadas no código fornecido. Todas as regras são aplicadas de acordo com o tempo relativo à data da rota de visita.
+- Observações: É importante notar que algumas regras podem ser aplicadas simultaneamente. Por exemplo, a regra "Freq. de 60 dias para clientes inativos" pode

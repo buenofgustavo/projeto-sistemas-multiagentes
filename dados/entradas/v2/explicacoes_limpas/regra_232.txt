@@ -1,0 +1,42 @@
+1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. Isso permite que as equipes de vendas trabalhem de forma mais eficiente e personalizada, otimizando o tempo e a energia dos vendedores.
+2. Público Afetado
+
+Este sistema afeta diretamente os vendedores, supervisores e gestores, permitindo que eles definam estratégias de atendimento personalizadas para cada cliente. Também afeta os clientes, que podem receber atendimento de acordo com as regras estabelecidas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente e podem ser sobrescritas pelos ajustes finos dos vendedores e supervisores quando necessário. As regras são aplicadas a clientes que ainda não possuem parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+4. Comportamento Configurado
+4.1. Não Agendar Filiais
+
+Para clientes filiais, não há agendamento.
+4.2. Não Agendar Clientes Inadimplentes
+
+Para clientes inadimplentes, não há agendamento.
+4.3. Freq. de 21d para Clientes Prospects
+
+Para clientes no ciclo de vida prospect com a empresa, a frequência de contato é de 21 dias.
+4.4. Freq. do Histórico para Clientes com Compra entre 1 e 29 Dias
+
+Para clientes com recência de positivacao entre 1 e 29 dias, a frequência de contato é de 14 a 30 dias.
+4.5. Freq. de 21d para Clientes com Compra entre 30 e 59 Dias
+
+Para clientes com recência de positivacao entre 30 e 59 dias, a frequência de contato é de 21 dias.
+4.6. Freq. de 21d para Clientes Sem Compra em 90 Dias
+
+Para clientes sem compra há mais de 90 dias, a frequência de contato é de 21 dias.
+4.7. Sem Choque entre Televendas e Campo
+
+A preferência de dias dos televendas não deve coincidir com a dos vendedores de campo para os mesmos clientes, evitando que o cliente receba ligação e visita presencial no mesmo dia.
+5. Restrições, Exceções e Observações
+
+- Restrições: 
+  - Um mesmo time pode ter múltiplas linhas vendedores, cada uma com suas próprias restrições.
+  - Vendedores cadastrados devem estar no Govendas.
+  
+- Exceções:
+  - Não há regras específicas para clientes com muitos ou poucos clientes, junto a supervisor com poucos vendedores, etc.
+  
+- Observações:
+  - A parametrização Go

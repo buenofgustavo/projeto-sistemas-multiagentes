@@ -1,0 +1,39 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e parametrização de clientes para diferentes carteiras e segmentações. Ela permite que as carteiras de televendas e campo sejam personalizadas de acordo com as necessidades comerciais específicas, garantindo que os vendedores tenham uma visão clara de quem deve ser contatado e quando.
+2. Público Afetado
+
+Este sistema afeta diretamente os vendedores, supervisores e administradores de carteira. As decisões tomadas com base nessas parametrizações influenciam diretamente a eficiência e a produtividade das vendas.
+3. Condições de Aplicação
+
+As parametrizações GoBR são aplicadas de acordo com as seguintes condições:
+
+- Time: Definidos por grupos de vendedores, como televendas, campo, supervisores, etc.
+- Carteira: Define os clientes que serão incluídos na carteira de contato.
+- Segmentação: Agrupa clientes de maneira a facilitar a parametrização e a gestão.
+- Frequência e Preferência: Determinam a periodicidade e a prioridade das visitas ou contatos.
+4. Comportamento Configurado
+
+O comportamento configurado pelas parametrizações GoBR inclui:
+
+- Parametrização de Frequência: Define a periodicidade das visitas ou contatos, podendo ser diária, semanal, mensal, etc.
+- Preferência de Dias da Semana: Determina quais dias da semana as visitas ou contatos devem ocorrer.
+- Remoção de Agendamento: Define que clientes devem ser removidos da agenda.
+- Parametrização de Admissibilidade: Define que clientes devem ser incluídos ou excluídos da carteira.
+5. Restrições, Exceções e Observações
+
+- Restrições: 
+  - A remoção de agendamento é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias.
+  - A parametrização de frequência e preferência de dias não pode ser usada juntas na mesma regra que usa `nao agendar`.
+  
+- Exceções:
+  - É possível combinar diferentes parametrizações, como frequência e preferência de dias, em diferentes carteiras ou segmentações.
+  - É possível usar a parametrização de frequência e preferência de dias em diferentes carteiras ou segmentações, mas não na mesma regra que usa `nao agendar`.
+
+- Observações:
+  - A parametrização de frequência e preferência de dias não pode ser usada juntas na mesma regra que usa `nao agendar`.
+  - É importante manter a unicidade dos nomes dos times para evitar conflitos.
+  - A parametrização de frequência e preferência de dias não pode ser usada juntas na mesma regra que usa `nao agendar`.
+Resumo
+
+Esta parametrização GoBR permite uma grande flexibilidade na gestão de carteiras e clientes, permitindo que as estratégias

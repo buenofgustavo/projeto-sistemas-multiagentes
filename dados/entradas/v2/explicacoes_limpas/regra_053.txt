@@ -1,0 +1,34 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para clientes de diferentes carteiras, com foco em clientes adimplentes, inadimplentes, inativos e sem vendas. As regras permitem personalizar a frequência e a preferência de contato para diferentes grupos de clientes, conforme a situação atual de cada cliente.
+2. Público Afetado
+
+- Vendedores: Os vendedores são os principais destinatários das parametrizações. Elas definem quem deve ser contatado e quando.
+- Supervisores: Supervisores e supervisoras têm a responsabilidade de definir as carteiras e parametrizações para seus respectivos times.
+- Gerentes de Vendas: Gerentes de vendas podem revisar e ajustar as carteiras e parametrizações conforme necessário.
+3. Condições de Aplicação
+
+- Carteira de Televendas: As parametrizações são aplicadas à carteira de televendas, que inclui clientes adimplentes, inadimplentes e inativos.
+- Carteira Livre: As carteiras livres permitem que clientes em ruptura sejam incluídos em várias carteiras, mantendo a flexibilidade de contato.
+- Segmentações: Segmentações auxiliam na definição de grupos de clientes específicos, permitindo personalizações mais precisas.
+4. Comportamento Configurado
+
+- Parametrizações de Frequência:
+  - Adimplentes: Clientes adimplentes recebem parametrizações com frequências variáveis (7, 14, 30 dias).
+  - Inadimplentes: Clientes inadimplentes recebem parametrizações com frequências de 30 dias.
+  - Inativos Adimplentes: Clientes inativos adimplentes recebem parametrizações com frequências de 7 dias.
+  - Inativos Inadimplentes: Clientes inativos inadimplentes não são agendados.
+  - Sem Vendas: Clientes sem vendas recebem parametrizações com frequências de 7 dias.
+
+- Parametrizações de Preferência:
+  - Preferência de Dia da Semana: Clientes inativos há 90+ dias recebem parametrizações com preferência de visita nos dias úteis.
+  - Remoção de Agendamento: Clientes inativos há 90+ dias são marcados para não aparecerem na agenda.
+  - Preferência com Intensidades Diferentes: Clientes recebem preferências com intensidades diferentes por dia.
+5. Restrições, Exceções e Observações
+
+- Restrições de Carteira:
+  - Somente uma segmentação pode ser incluída como fonte de clientes em uma única carteira.
+  - Segmentações podem ser incluídas em várias carteiras, mas não podem ser usadas para exclusão mútua.
+
+- Exceções:
+  - A remoção de agendamento é uma parametrização exclus

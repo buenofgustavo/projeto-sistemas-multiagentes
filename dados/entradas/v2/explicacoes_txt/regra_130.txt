@@ -1,0 +1,103 @@
+ARQUIVO ORIGINAL: regra_130.gobr
+ID: regra_130
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time interno":
+    vendedores todostelevendas
+
+time "time externo":
+    vendedores todosdecampo
+
+### Parametrização time interno
+
+parametros "Regra Padrao da Macropac: Não agendar clientes CPF (Televendas)":
+    do time("time interno")
+    quando pessoa fisica
+    não agendar
+
+parametros "Regra Padrao da Macropac: Frequencia de 7 dias para ativos (Televendas)":
+    do time("time interno")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+
+parametros "Regra Padrao da Macropac: Frequencia de 15 dias para inativos adimplentes (Televendas)":
+    do time("time interno")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 15 dias
+
+parametros "Regra Padrao da Macropac: Não agendar clientes inativos inadimplentes (Televendas)":
+    do time("time interno")
+    quando inativos para o vendedor e inadimplentes
+    não agendar
+
+parametros "Regra Padrao da Macropac: Não agendar clientes sem compra e CPF (Televendas)":
+    do time("time interno")
+    quando sem vendas e pessoa fisica
+    não agendar
+
+parametros "Regra Padrao da Macropac: Frequencia de 20 dias para clientes sem compra e CNPJ (Televendas)":
+    do time("time interno")
+    quando sem vendas e pessoa juridica
+    frequencia de 20 dias
+
+
+### Parametrização time externo
+
+parametros "Regra Padrao da Macropac: Frequencia de 7 dias para clientes ativos (campo)":
+	do time("time externo")
+	quando ativos para o vendedor
+	frequencia de 7 dias
+	fixo
+
+parametros "Regra Padrao da Macropac: Frequencia de 14 dias para clientes inativos (campo)":
+	do time("time externo")
+	frequencia de 15 dias
+	fixo
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal desta parametrização é definir as regras de agendamento e frequência de contato para diferentes tipos de clientes, tanto para vendedores de campo quanto para televendas. As regras são direcionadas para clientes ativos, inativos adimplentes, inativos inadimplentes, sem vendas e sem compra.
+
+### Público Afetado
+
+Este pacote de regras afeta todos os clientes que estão em carteiras de televendas ou de campo, dependendo das regras específicas aplicadas. O público-alvo inclui clientes ativos, inativos adimplentes, inativos inadimplentes, sem vendas e sem compra.
+
+### Condições de Aplicação
+
+As regras de parametrização são aplicáveis em dois contextos temporais distintos:
+
+1. **Time Interno**: Aplica-se a clientes televendas.
+2. **Time Externo**: Aplica-se a clientes de campo.
+
+### Comportamento Configurado
+
+#### Time Interno
+
+- **Regra Padronizada da Macropac: Não Agendar Clientes CPF (Televendas)**: Não agendará clientes físicos.
+- **Regra Padronizada da Macropac: Frequência de 7 Dias para Ativos (Televendas)**: Define uma frequência de 7 dias para clientes ativos.
+- **Regra Padronizada da Macropac: Frequência de 15 Dias para Inativos Adimplentes (Televendas)**: Define uma frequência de 15 dias para inativos adimplentes.
+- **Regra Padronizada da Macropac: Não Agendar Clientes Inativos Inadimplentes (Televendas)**: Não agendará inativos inadimplentes.
+- **Regra Padronizada da Macropac: Não Agendar Clientes Sem Compra e CPF (Televendas)**: Não agendará clientes sem vendas e físicos.
+- **Regra Padronizada da Macropac: Frequência de 20 Dias para Clientes Sem Compra e CNPJ (Televendas)**: Define uma frequência de 20 dias para clientes sem vendas e jurídicos.
+
+#### Time Externo
+
+- **Regra Padronizada da Macropac: Frequência de 7 Dias para Clientes Ativos (Campo)**: Define uma frequência de 7 dias para clientes ativos.
+- **Regra Padronizada da Macropac: Frequência de 14 Dias para Clientes Inativos (Campo)**: Define uma frequência de 14 dias para clientes inativos.
+
+### Restrições, Exceções e Observações
+
+1. **Restrições de Cliente**:
+   - **Não é permitido** usar a mesma segmentação como fonte de clientes em mais de uma carteira livre.
+   - **É permitido** usar múltiplas segmentações em uma única carteira livre, mas cada segmentação deve ser usada de forma exclusiva.
+
+2. **Exceções**:
+   - **Não há** regras específicas como "cadastrados no Govendas", "não cadastrados no Govendas", "com muitos clientes", "com poucos clientes",

@@ -1,0 +1,35 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir regras comerciais específicas para diferentes carteiras e segmentações de clientes. Elas permitem personalizar a estratégia de vendas e atendimento de acordo com diferentes critérios, como o ramo de atividade, a situação financeira do cliente, a frequência de visitas e outros parâmetros.
+2. Público Afetado
+
+Essas regras afetam diretamente os vendedores, os times de vendas e as carteiras de clientes. Elas são especialmente relevantes para:
+
+- Vendedores: Determinam quem deve ser incluído em suas carteiras e qual a frequência de contato.
+- Times de Vendas: Definem quem deve ser incluído em suas carteiras e como essas carteiras devem ser organizadas.
+- Carteiras de Clientes: Determinam quem deve ser incluído nessas carteiras e como essas carteiras devem ser organizadas.
+3. Condições de Aplicação
+
+As regras GoBR são aplicáveis a diferentes carteiras e segmentações de clientes, conforme definido no arquivo. As condições de aplicação incluem:
+
+- Carteira Campo: Regras aplicadas a clientes da carteira fixa do campo.
+- Carteira Televendas: Regras aplicadas a clientes da carteira fixa dos televendas.
+- Carteira Livre: Regras aplicadas a clientes que estão em ruptura de visita.
+- Segmentações de Clientes: Regras aplicadas a clientes que pertencem a uma segmentação específica.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Não Agendar Plano Veterinário: Não agendar planos veterinários para clientes do ramo de atividade 17.
+- Não Agendar Clientes Pessoa Física: Não agendar clientes que sejam pessoas físicas.
+- 30 Dias para Ativos Adimplentes: Agendar visitas a clientes ativos e adimplentes a cada 30 dias.
+- 21 Dias para Clientes Sem Venda: Agendar visitas a clientes sem venda a cada 21 dias.
+- Não Agendar Inadimplentes ou Inativos: Não agendar clientes inadimplentes ou inativos.
+- Nao Agendar Inadimplentes: Não agendar clientes inadimplentes.
+- 14 Dias para Ativos Adimplentes: Agendar visitas a clientes ativos e adimplentes a cada 14 dias.
+- 30 Dias para Inativos Adimplentes: Agendar visitas a clientes inativos e adimplentes a cada 30 dias.
+- 14 Dias para Sem Venda: Agendar visitas a clientes sem venda a cada 14 dias.
+5. Restrições, Exceções e Observações
+
+- Restrições de Carteira: Somente os clientes adimplentes são incluídos na carteira fixa do campo. O vendedor 1020 usa ruptura da segmentação para pegar clientes em ruptura de visita.
+-

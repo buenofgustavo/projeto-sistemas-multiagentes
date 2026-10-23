@@ -1,0 +1,26 @@
+1. Objetivo Comercial
+
+A parametrização GoBR especificada visa definir a frequência e o comportamento de atendimento para diferentes grupos de clientes, com foco em otimizar o tempo e a eficiência das visitas e chamadas telefônicas. Isso inclui clientes novos, ativos, que estão regularmente comprando, clientes que precisam ser estimulados a comprar mais, e clientes que estão em risco de inatividade.
+2. Público Afetado
+
+O público afetado são os vendedores e supervisores responsáveis por definir e aplicar as parametrizações. Essa parametrização é direcionada principalmente para vendedores de telemarketing (televendas) e supervisores de campo.
+3. Condições de Aplicação
+
+As parametrizações GoBR são aplicadas a clientes específicos, dependendo das condições de ciclo de vida e recência de compra. As condições de aplicação incluem:
+
+- Freq. de 7d para 'Primeira compra': Aplica-se a clientes que fizeram sua primeira compra no último 7 dias.
+- Freq. de 7d para 'Prospect ativado': Aplica-se a clientes que fizeram sua primeira compra com um vendedor específico e que estão fora da recência de positivacao em 20 dias.
+- Freq. de 7d para 'Compra regularmente': Aplica-se a clientes cuja recência de positivacao é de 30 dias ou mais.
+- Freq. de 7d para 'Ativo: estimular a regularidade de compra': Aplica-se a clientes cuja recência de positivacao está entre 31 e 60 dias.
+- Freq. de 7d para 'Risco de inatividade': Aplica-se a clientes cuja recência de positivacao está entre 61 e 90 dias.
+- Freq. de 7d para 'Resgate de cliente sem compra': Aplica-se a clientes cuja recência de positivacao está acima de 90 dias.
+4. Comportamento Configurado
+
+O comportamento configurado varia conforme a condição de aplicação:
+
+- Freq. de 7d para 'Primeira compra': A parametrização é de frequência semanal (7 dias).
+- Freq. de 7d para 'Prospect ativado': A parametrização é de frequência semanal, com preferência de visita nos dias 2 e 3 da semana.
+- Freq. de 7d para 'Compra regularmente': A parametrização é de frequência semanal.
+- Freq. de 7d para 'Ativo: estimular a regularidade de compra': A parametrização é de frequência semanal, com preferência de visita nos dias 2 e 3 da semana.
+- Freq. de 7d para 'Risco de inatividade': A parametrização é de frequência semanal, com preferência de visita nos dias 2 e 3 da semana.
+- Freq. de 7d para 'Resgate de cliente sem compra

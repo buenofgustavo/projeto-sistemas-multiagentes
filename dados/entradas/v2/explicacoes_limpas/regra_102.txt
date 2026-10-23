@@ -1,0 +1,35 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para clientes de acordo com diferentes critérios de inadimplência e ativação. Ela permite que as carteiras de clientes sejam personalizadas de acordo com as necessidades específicas de cada vendedor ou grupo de vendedores.
+2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de vendas. Ele visa otimizar o tempo e a eficiência das visitas e contatos, garantindo que os clientes recebam o contato necessário de acordo com suas situações financeiras e de ativação.
+3. Condições de Aplicação
+
+As condições de aplicação dessas parametrizações são definidas pelas seguintes regras:
+
+- Regra Padronizada: Define uma parametrização padrão de contato para clientes inativos e inadimplentes, com uma frequência de 30 dias e preferência nos dias úteis. Também define uma parametrização padrão para clientes ativos ou adimplentes, com uma frequência de 14 dias e preferência nos dias úteis.
+  
+- Caso Especial para Televendas: Define uma parametrização específica para clientes em ruptura de positivação, com uma frequência de 30 dias e preferência nos dias úteis, para clientes que estão na carteira de televendas.
+
+- Caso Especial para Campo: Define uma parametrização específica para clientes em ruptura de positivação, com uma frequência de 30 dias e preferência nos dias úteis, para clientes que estão na carteira de campo.
+4. Comportamento Configurado
+
+- Frequência de Contato: 
+  - Clientes inativos e inadimplentes recebem contatos com uma frequência de 30 dias.
+  - Clientes ativos ou adimplentes recebem contatos com uma frequência de 14 dias.
+  - Clientes em ruptura de positivação recebem contatos com uma frequência de 30 dias.
+
+- Preferência de Dia da Semana:
+  - Todos os contatos são preferenciais nos dias úteis.
+5. Restrições, Exceções e Observações
+
+- Restrições de Cliente:
+  - As parametrizações não permitem que clientes sejam incluídos em múltiplas carteiras simultaneamente. Por exemplo, um cliente não pode estar na carteira de televendas e na carteira de campo ao mesmo tempo.
+
+- Exceções:
+  - Clientes em ruptura de positivação podem aparecer em múltiplas carteiras, desde que sejam categorizados corretamente. Por exemplo, um cliente em ruptura de positivação pode estar na carteira de televendas e na carteira de campo.
+
+- Observações:
+  - A parametrização de contatos deve ser combinada com outras estratégias de gestão de clientes, como a criação de segmentações e carteiras livres.
+  - A parametrização de contatos

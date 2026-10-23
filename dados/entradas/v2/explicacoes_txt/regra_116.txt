@@ -1,0 +1,120 @@
+ARQUIVO ORIGINAL: regra_116.gobr
+ID: regra_116
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7800816311
+version 1.0
+
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas
+
+time "campo":
+    vendedores todosdecampo
+
+## Regras de não agendamento
+
+parametros "Não agendar filiais":
+    do time("televendas","campo")
+    quando e o cliente filial
+    nao agendar
+
+## Regras de agendamento
+
+# Time televendas
+
+parametros "Freq. de 7d para todos os clientes (televendas)":
+    do time("televendas")
+    frequencia de 7 dias
+    preferencia nos dias uteis e no sabado
+    sem choque no time("campo")
+
+# Time Campo
+
+parametros "Freq. de 7d para Ativos Adimplentes (campo)":
+    do time("campo")
+    quando ativos para o vendedor e adimplentes
+    frequencia de 7 dias
+
+parametros "Freq. de 14d para Ativos Inadimplentes (campo)":
+    do time("campo")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+    
+parametros "Freq. de 30d para Inativos Adimplentes (campo)":
+    do time("campo")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 30 dias
+
+parametros "Freq. de 60d para Inativos Inadimplentes (campo)":
+    do time("campo")
+    quando inativos para o vendedor e inadimplentes
+    frequencia de 60 dias
+
+parametros "Freq. de 7d para sem vendas (campo)":
+    do time("campo")
+    quando sem venda
+    frequencia de 7 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de agendamento e contato comercial para vendedores de diferentes times (televendas e campo) e clientes específicos. As regras permitem personalizar a frequência de visitas, preferências de dias e ações de alerta para clientes ativos, adimplentes, inadimplentes e inativos.
+
+### 2. Público Afetado
+
+- **Vendedores**: Televendas e campo
+- **Clientes**: Ativos, adimplentes, inadimplentes e inativos
+
+### 3. Condições de Aplicação
+
+- **Televendas**:
+  - Visitar todos os clientes ativos dentro do mês.
+  - Visitar clientes visitados pelos vendedores de campo no dia seguinte à visita, se houver venda.
+  - Não agendar clientes filiais.
+  
+- **Campo**:
+  - Visitar clientes ativos dentro do mês.
+  - Visitar clientes adimplentes com frequência de 7 dias.
+  - Visitar clientes inadimplentes com frequência de 14 dias.
+  - Visitar clientes inativos adimplentes com frequência de 30 dias.
+  - Visitar clientes inativos inadimplentes com frequência de 60 dias.
+  - Não agendar clientes sem vendas.
+
+### 4. Comportamento Configurado
+
+- **Parametrização de Frequência**:
+  - Televendas: Visitas a todos os clientes ativos dentro do mês, preferindo dias úteis e sábado.
+  - Campo: Visitas a clientes ativos, adimplentes, inadimplentes e inativos, com frequências variáveis.
+  
+- **Parametrização de Alertas**:
+  - Alerta de ruptura de positivação: Informa clientes inativos há mais de 21 dias, com detalhes específicos.
+  
+- **Parametrização de Não Agendamento**:
+  - Não agendar clientes filiais.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**:
+  - Um mesmo vendedor pode aparecer em múltiplos times, mas será contabilizado apenas uma vez.
+  - As carteiras de clientes são segmentadas e podem ser usadas para agrupar clientes de maneira específica.
+  - As regras de não agendamento aplicam-se apenas a clientes filiais.
+  
+- **Exceções**:
+  - Não há regras específicas para clientes cadastrados ou não cadastrados no Govendas.
+  - Não há regras para clientes com muitos ou poucos clientes.
+  
+- **Observações**:
+  - As preferências de dias são configuradas de forma a evitar choques entre televendas e campo.
+  - As carteiras livres permitem que clientes apareçam em múltiplas carteiras.
+  - As segmentações auxiliam na criação de agrupamentos de clientes específicos.
+  
+- **Ambiguidades e Possíveis Lacunas**:
+  - Não há regras específicas para clientes com muitos ou poucos clientes.
+  - Não há regras para clientes com supervisores específicos.

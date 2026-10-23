@@ -1,0 +1,168 @@
+ARQUIVO ORIGINAL: regra_142.gobr
+ID: regra_142
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras padrão
+version 1.0
+
+time "todos":
+    vendedores todos ativados menos ("10","5","3")
+    
+# time "Larissa":
+#    vendedores porid ("12")
+    
+time "Yara":
+    vendedores porid ("10")
+
+time "Lúcia":
+    vendedores porid ("5")
+    
+time "Wanderson":
+    vendedores porid ("3")
+
+# Regras da Yara
+
+parametros "Dispomed: Frequência de 3 dias para clientes curva A (Yara)":
+    do time("Yara")
+    quando curva A com a empresa
+    frequência de 3 dias
+    
+parametros "Dispomed: Frequência de 7 dias para clientes curva B (Yara)":
+    do time("Yara")
+    quando curva B com a empresa
+    frequência de 7 dias
+    
+parametros "Dispomed: Frequência de 14 dias para clientes curva C (Yara)":
+    do time("Yara")
+    quando curva C com a empresa
+    frequência de 14 dias
+    
+parametros "Dispomed: Frequência de 14 dias para clientes sem classificação de curva (Yara)":
+    do time("Yara")
+    frequência de 14 dias
+    
+# Regras da Lúcia
+
+parametros "Dispomed: Frequência de 2 dias para clientes curva A (Lúcia)":
+    do time("Lúcia")
+    quando curva A com a empresa
+    frequência de 2 dias
+    
+parametros "Dispomed: Frequência de 7 dias para clientes curva B (Lúcia)":
+    do time("Lúcia")
+    quando curva B com a empresa
+    frequência de 7 dias
+    
+parametros "Dispomed: Frequência de 14 dias para clientes curva C (Lúcia)":
+    do time("Lúcia")
+    quando curva C com a empresa
+    frequência de 14 dias
+    
+parametros "Dispomed: Frequência de 7 dias para clientes sem classificação de curva (Lúcia)":
+    do time("Lúcia")
+    frequência de 7 dias
+    
+# Regras do Wanderson
+
+parametros "Dispomed: Frequência de 4 dias para clientes curva A (Wanderson)":
+    do time("Wanderson")
+    quando curva A com a empresa
+    frequência de 4 dias
+    
+parametros "Dispomed: Frequência de 7 dias para clientes curva B (Wanderson)":
+    do time("Wanderson")
+    quando curva B com a empresa
+    frequência de 7 dias
+    
+parametros "Dispomed: Frequência de 9 dias para clientes curva C (Wanderson)":
+    do time("Wanderson")
+    quando curva C com a empresa
+    frequência de 9 dias
+
+parametros "Dispomed: Frequência de 14 dias para clientes sem classificação de curva (Wanderson)":
+    do time("Wanderson")
+    frequência de 14 dias
+
+# Código dentro de Ramo de atividades
+# 001 Hospital/Home Care/OS
+# 002 Clínicas
+# 003 Distribuidora
+# 004 Farmácia/Drogaria
+# 005 ORGAO Público
+# 006 REPRESENTANTES (MEI)
+# 100 FORNECEDOR DE USO E CONSUMO
+
+
+parametros "Regra Padrão da Dispomed: Não liguar para inadimplente":
+    do time("todos")
+    quando inadimplentes
+    nao agendar
+
+parametros "Regra Padrão da Dispomed: Frequência de 14 dias para Hospitais e Clínicas":
+    do time("todos")
+    quando ramo de atividade igual("001","002")
+    frequencia de 14 dias
+
+parametros "Regra Padrão da Dispomed: Frequência de 7 dias para Distribuidora":
+    do time("todos")
+    quando ramo de atividade igual("003")
+    frequencia de 7 dias
+    
+parametros "Regra Padrão da Dispomed: Frequência de 21 dias para Farmácias":
+    do time("todos")
+    quando ramo de atividade igual("004")
+    frequencia de 21 dias
+
+parametros "Regra Padrão da Dispomed: Não liguar para Fornecedor de uso e consumo, Orgão público e Representantes":
+    do time("todos")
+    quando ramo de atividade igual("005","006","100")
+    nao agendar
+
+###############
+## Regras padrão
+
+parametros "Regra Padrão da Dispomed: Frequência semanal para clientes ativos":
+    do time("todos")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+
+parametros "Regra Padrao do goVendas: Frequência quinzenal para clientes inativos":
+    do time("todos")
+    frequencia de 15 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. Isso ajuda a otimizar a rotina de visitas dos vendedores, garantindo que eles atendam aos clientes de maneira eficiente e estratégica.
+
+### 2. Público Afetado
+
+Esta parametrização afeta todos os clientes que estão na carteira de vendas do Govendas, independentemente do ramo de atividade. As regras são aplicadas de acordo com o status do cliente (ativos, inativos, curvas A/B/C), o ramo de atividade do cliente e o status do vendedor (ativado/inativo).
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- **Time**: As regras são aplicadas para diferentes times de vendedores, como "Yara", "Lúcia", "Wanderson", "supervisor marcos", etc.
+- **Ramos de Atividade**: As regras são aplicadas para diferentes ramos de atividade, como "Hospital/Home Care/OS", "Clínicas", "Distribuidora", "Farmácia/Drogaria", "Orgão Público", "Representantes (MEI)" e "Fornecedores de Uso e Consumo".
+- **Status do Cliente**: As regras são aplicadas para clientes ativos, inativos, com curvas A/B/C, e clientes sem classificação de curva.
+- **Status do Vendedor**: As regras são aplicadas para vendedores ativos e inativos.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Frequência de Visita**: As regras definem a frequência com que os clientes devem ser visitados, variando de 1 dia a 21 dias.
+- **Dia da Semana**: As regras definem a preferência de dia da semana para visitas, com valores de 0 a 3, onde 0 significa não visitar no dia, 1 é menor preferência, 2 é preferência normal e 3 é maior preferência.
+- **Rota Presencial**: As regras definem se os clientes devem ser incluídos em rota presencial ou não.
+- **Não Agendar**: As regras definem quando os clientes devem ser marcados para não aparecerem na agenda.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: As regras GoBR não sobrepõem a parametrização manual realizada pelo usuário no Govendas. São aplicadas apenas a clientes que ainda não possuem parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+- **Exceções**: Algumas regras têm exceções, como a regra que remove clientes inativos da agenda, que não pode combinar com outras regras que definem frequência ou preferência

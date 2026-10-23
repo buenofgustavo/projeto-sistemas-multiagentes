@@ -1,0 +1,110 @@
+ARQUIVO ORIGINAL: regra_173.gobr
+ID: regra_173
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://gogeo.proofhub.com/bapplite/#app/todos/project-9548242112/list-270761555428/task-542415248107
+version 1.0
+
+
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+
+## Parâmetros de não agendamento
+
+parametros "Não agendar clientes baixados na receita":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+parametros "Não agendar clientes com data da rota na semana":
+    do time ("televendas")
+    quando data da rota na semana
+    nao agendar
+
+
+## Parâmetros de agendamento
+
+parametros "Clientes prospects":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 14 dias
+
+parametros "Clientes ativos":
+    do time("televendas")
+    quando recencia de positivacao em 60 dias
+    frequencia de 14 dias
+
+parametros "Risco de inatividade":
+    do time("televendas")
+    quando recencia de positivacao em 90 dias
+    frequencia de 7 dias
+
+parametros "Inativos (90 dias)":
+    do time("televendas")
+    quando recencia de positivacao em 120 dias
+    frequencia de 14 dias
+
+parametros "Inativos (120 dias)":
+    do time("televendas")
+    quando recencia de positivacao em 150 dias
+    frequencia de 21 dias
+
+parametros "Inativos (150 dias)":
+    do time("televendas")
+    quando recencia de positivacao em 180 dias
+    frequencia de 28 dias
+
+
+## REGRA FALLBACK
+
+parametros "Clientes que não se enquadraram nas regras padrão":
+    do time("televendas")
+    nao agendar
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal desta parametrização é organizar a agenda de vendas para os vendedores de campo e televendas, definindo a frequência e a preferência de visitas para diferentes grupos de clientes. Isso visa otimizar o tempo de cada vendedor, garantindo que eles atendam a todos os clientes necessários e relevantes.
+
+### Público Afetado
+
+Este sistema afeta diretamente os vendedores de campo e televendas, permitindo que eles tenham uma visão clara de quem deve ser visitado e quando. Também afeta os supervisores e os administradores do Govendas, que podem ajustar as regras conforme necessário.
+
+### Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todos os vendedores de campo e televendas que estão ativos no Govendas. As condições de aplicação incluem:
+
+- **Não agendar clientes baixados na receita**: Clientes que foram baixados na receita federal não serão agendados.
+- **Não agendar inadimplentes**: Clientes inadimplentes não serão agendados.
+- **Não agendar clientes com data da rota na semana**: Clientes cuja data da rota está na semana corrente não serão agendados.
+- **Clientes prospects**: Clientes que estão no ciclo de vida prospect com a empresa serão agendados com frequência de 14 dias.
+- **Clientes ativos**: Clientes que têm recência de positivacao de 60 dias ou menos serão agendados com frequência de 14 dias.
+- **Risco de inatividade**: Clientes com recência de positivacao entre 90 e 120 dias serão agendados com frequência de 7 dias.
+- **Inativos (90 dias)**: Clientes com recência de positivacao entre 120 e 150 dias serão agendados com frequência de 14 dias.
+- **Inativos (120 dias)**: Clientes com recência de positivacao entre 150 e 180 dias serão agendados com frequência de 21 dias.
+- **Inativos (150 dias)**: Clientes com recência de positivacao superior a 180 dias serão agendados com frequência de 28 dias.
+- **Clientes que não se enquadraram nas regras padrão**: Clientes que não se enquadram nas regras padrão serão agendados com frequência semanal.
+
+### Comportamento Configurado
+
+- **Clientes baixados na receita**: Não serão agendados.
+- **Inadimplentes**: Não serão agendados.
+- **Clientes com data da rota na semana**: Não serão agendados.
+- **Prospects**: Serão agendados com frequência de 14 dias.
+- **Clientes ativos**: Serão agendados com frequência de 14 dias.
+- **Risco de inatividade**: Serão agendados com frequência de 7 dias.
+- **Inativos (90 dias)**: Serão agendados com frequência de 14 dias.
+- **

@@ -1,0 +1,32 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir a frequência de atendimento e a preferência de dias para clientes inativos, ativos e sem vendas, conforme as regras padronizadas do sistema Govendas Assistente de Vendas Inteligente. Esta parametrização é aplicada automaticamente às carteiras de clientes, permitindo que as ações comerciais sejam otimizadas de acordo com as políticas estabelecidas.
+2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de vendas responsáveis por definir estratégias de atendimento e rotinas comerciais. As regras são aplicadas a clientes específicos, permitindo personalizações conforme a necessidade de cada carteira de vendas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas às carteiras de clientes definidas no sistema, independentemente do período de tempo. Elas são ativadas quando um cliente atinge a condição de inatividade, ativação ou ausência de vendas, conforme definido nas regras.
+4. Comportamento Configurado
+4.1. Requisitos de Atividade e Inatividade
+
+- Ativos: Clientes que compraram nos últimos 90 dias.
+- Inativos: Clientes que não compraram há pelo menos 90 dias.
+- Sem Venda: Clientes que nunca compraram.
+4.2. Frequência de Atendimento
+
+- Frequência de Inativos: 7 dias (semanal) ou 30 dias (mensal).
+- Frequência de Ativos: 7 dias (semanal) ou 30 dias (mensal).
+- Frequência de Sem Venda: 7 dias (semanal) ou 30 dias (mensal).
+4.3. Preferência de Dias da Semana
+
+- Preferência de Dia: Um valor numérico atribuído a cada dia da semana, onde 0 significa não visitar, 1 é a menor preferência, 2 é a preferência normal e 3 é a maior preferência.
+5. Restrições, Exceções e Observações
+5.1. Restrições
+
+- Unicidade de Clientes: Uma vez que um cliente seja parametrizado, ele não pode ser parametrizado novamente com diferentes regras sem sobrescrever a anterior.
+- Conflitos de Horários: As regras de parametrização evitam que dois clientes sejam atendidos no mesmo dia, evitando conflitos de horários.
+- Remoção de Agendamento: A remoção de agendamento é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias.
+5.2. Exceções
+
+- Parametrização Dinâmica: É possível combinar regras de parametrização com outras configurações, como a preferência de dias úteis, sem sobrescrever completamente as regras padrão

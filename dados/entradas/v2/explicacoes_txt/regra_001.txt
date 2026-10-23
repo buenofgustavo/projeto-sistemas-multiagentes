@@ -1,0 +1,66 @@
+ARQUIVO ORIGINAL: regra_001.gobr
+ID: regra_001
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de inativos":
+    da carteira("empresa toda")
+    quando inativos para o vendedor
+    frequencia de inativos da empresa
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de ativos":
+    da carteira("empresa toda")
+    quando ativos para o vendedor
+    frequencia de ativos da empresa
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de clientes sem vendas":
+    da carteira("empresa toda")
+    quando sem venda
+    frequencia de inativos da empresa
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento e frequência de contato com clientes, especialmente focando em clientes inativos e ativos. As regras permitem que as carteiras de clientes sejam parametrizadas de acordo com o histórico de compra e visitas, além de definir preferências de dia da semana para visitas.
+
+### 2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e equipes de vendas. As regras são aplicadas a clientes específicos, definindo como esses clientes devem ser atendidos e quando.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todas as carteiras de clientes definidas no sistema, independentemente do tipo de cliente (ativos, inativos, sem vendas, etc.). As condições de aplicação incluem:
+
+- **Carteira**: A parametrização é aplicada a todas as carteiras de clientes definidas.
+- **Tempo**: As regras são aplicadas para clientes que atingiram um certo período de inatividade.
+- **Vendedor**: As regras são aplicadas para clientes atendidos por um determinado vendedor.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Frequência de Ativos**: Define a frequência com que clientes ativos devem ser visitados.
+- **Frequência de Inativos**: Define a frequência com que clientes inativos devem ser visitados.
+- **Frequência de Clientes Sem Vendas**: Define a frequência com que clientes sem vendas devem ser visitados.
+- **Preferência de Dia da Semana**: Define a preferência de dia da semana para visitas, com valores numéricos correspondendo a diferentes níveis de prioridade.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: As regras GoBR são aplicáveis apenas a clientes que ainda não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+- **Exceções**: Não é possível combinar a remoção de agendamento com a definição de frequência ou preferência de dias na mesma regra.
+- **Observações**: As regras GoBR são aplicadas automaticamente e podem ser sobrescritas pelos ajustes finos dos vendedores e supervisores quando necessário.
+
+### Resumo
+
+As regras GoBR permitem uma parametrização eficiente e personalizada de carteiras de clientes, definindo estratégias de atendimento e frequência de contato com base no histórico de compra e visitas. Elas são aplicáveis a todas as carteiras de clientes definidas no sistema, com restrições e exceções claras.

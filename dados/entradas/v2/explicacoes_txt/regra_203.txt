@@ -1,0 +1,116 @@
+ARQUIVO ORIGINAL: regra_203.gobr
+ID: regra_203
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://gogeo.proofhub.com/bappswift/#app/todos/project-9580562790/list-270894162472/task-524707004035
+version 1.0
+
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+## Parâmetros de não agendamento
+
+parametros "Não agendar baixados na receita":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Não agendar filiais":
+    do time("televendas")
+    quando cliente filial
+           e id do cliente principal é diferente("36979")
+    nao agendar
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+parametros "Não agendar prospects":
+    do time("televendas")
+    quando sem venda
+    nao agendar
+
+parametros "Não agendar clientes sem compra em 95 dias":
+    do time("televendas")
+    quando fora da recencia de positivacao em 95 dias
+    nao agendar
+
+## Parâmetros de agendamento
+
+parametros "Clientes que compraram apenas uma vez":
+    do time("televendas")
+    quando unica compra com a empresa
+    frequencia de 28 dias
+
+parametros "Clientes freq. hist. média de pedidos entre 0 e 7 dias":
+    do time("televendas")
+    quando frequencia historica entre 0 dias e 7 dias
+    frequencia de 6 dias
+
+parametros "Clientes com freq. hist. média de pedidos entre 8 e 14 dias":
+    do time("televendas")
+    quando frequencia historica entre 8 dias e 14 dias
+    frequencia de 9 dias
+
+parametros "Clientes com freq. hist. média de pedidos entre 15 e 21 dias":
+    do time("televendas")
+    quando frequencia historica entre 15 dias e 21 dias
+    frequencia de 16 dias
+
+parametros "Clientes com freq. hist. média de pedidos entre 22 e 28 dias":
+    do time("televendas")
+    quando frequencia historica entre 22 dias e 28 dias
+    frequencia de 23 dias
+
+parametros "Clientes com freq. hist. média de pedidos entre 29 e 38 dias":
+    do time("televendas")
+    quando frequencia historica entre 29 dias e 38 dias
+    frequencia de 29 dias
+
+parametros "Clientes com freq. hist. média de pedidos entre 39 e 60 dias":
+    do time("televendas")
+    quando frequencia historica entre 39 dias e 60 dias
+    frequencia de 35 dias
+
+parametros "Clientes com freq. hist. média de pedidos entre 61 e 95 dias":
+    do time("televendas")
+    frequencia de 55 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+O objetivo principal desta parametrização GoBR é definir condições específicas para a agendamento e não-agendamento de clientes, de acordo com diferentes parâmetros e regras comerciais. Isso visa otimizar o uso do tempo dos vendedores, garantindo que eles atendam a clientes mais relevantes e necessários.
+
+### 2. Público Afetado
+
+Este conjunto de regras afeta todos os vendedores e clientes ativos da empresa, definindo condições para a agendabilidade e não-agendabilidade de cada cliente. O público-alvo inclui tanto clientes ativos quanto inativos, bem como prospects e clientes que já fizeram uma única compra.
+
+### 3. Condições de Aplicação
+
+As condições de aplicação dessas regras são definidas de acordo com o status do cliente na Receita Federal, a frequência de visitas, a recência de visitas, a recência de positivação, a frequência histórica de compras, entre outros. As regras são aplicadas de acordo com o status do cliente e o tempo desde a última ação relevante.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR varia conforme as condições de aplicação. Algumas regras agendam clientes, enquanto outras não agendam. Por exemplo:
+
+- **Não agendar baixados na receita**: Clientes cuja situação na Receita Federal é "Baixada" não são agendados.
+- **Não agendar filiais**: Clientes que são filiais e cujo cliente principal não é "36979" não são agendados.
+- **Não agendar inadimplentes**: Clientes inadimplentes não são agendados.
+- **Não agendar prospects**: Clientes que nunca compraram não são agendados.
+- **Não agendar clientes sem compra em 95 dias**: Clientes que não fizeram compras em 95 dias não são agendados.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: As regras GoBR são aplicadas de forma exclusiva a clientes que ainda não possuem parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+- **Exceções**: Não há regras que excluam completamente clientes de carteiras, mas sim que definem condições para a sua agendabilidade ou não-agendabilidade.
+- **Observações**: É importante notar que algumas regras podem ser combinadas, e o comportamento final pode variar dependendo da interseção dessas condições. Além disso, a parametrização GoBR permite que os vendedores e supervisores ajustem as regras conforme necessário, garantindo flexibilidade na gestão de clientes.
+
+Essas regras GoBR são essenciais para a otimização do tempo dos vendedores, garantindo que eles atendam a clientes mais relevantes e necessários, enquanto mantêm um controle eficaz sobre a carteira de clientes.

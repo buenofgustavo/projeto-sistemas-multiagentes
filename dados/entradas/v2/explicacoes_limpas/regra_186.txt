@@ -1,0 +1,19 @@
+1. Objetivo Comercial
+
+As regras comerciais GoBR visam organizar a agenda de visitas e a parametrização de clientes de acordo com as necessidades comerciais específicas. Elas permitem que as equipes de vendas tenham uma visão clara sobre quem deve ser visitado e quando, garantindo que os clientes recebam o atendimento adequado.
+2. Público Afetado
+
+As regras GoBR afetam diretamente os vendedores, supervisores e a equipe de televendas. Elas também afetam os clientes, pois determinam quando e como eles serão visitados.
+3. Condições de Aplicação
+
+As regras GoBR são aplicadas automaticamente conforme o cronograma definido. Elas são ativadas por um time específico (como "televendas", "campo e televendas", etc.) e são ativadas em um determinado período de tempo (como "7 dias", "14 dias", "15 dias", "30 dias", "45 dias", "60 dias", "7 dias atras", "14 dias atras", "15 dias atras", "30 dias atras", "45 dias atras", "60 dias atras", "7 dias à frente", "14 dias à frente", "15 dias à frente", "30 dias à frente", "45 dias à frente", "60 dias à frente", "7 dias atrás", "14 dias atrás", "15 dias atrás", "30 dias atrás", "45 dias atrás", "60 dias atrás", "7 dias no futuro", "14 dias no futuro", "15 dias no futuro", "30 dias no futuro", "45 dias no futuro", "60 dias no futuro", "7 dias no passado", "14 dias no passado", "15 dias no passado", "30 dias no passado", "45 dias no passado", "60 dias no passado").
+4. Comportamento Configurado
+
+As regras GoBR configuram comportamentos específicos para diferentes tipos de clientes e situações comerciais. Por exemplo:
+
+- Não agendar clientes que compraram com o televendas em 7 dias: Evita agendar clientes que compraram com a equipe de televendas nos últimos 7 dias.
+- Não agendar clientes que tem rota em 7 dias à frente: Evita agendar clientes que têm uma rota marcada para os próximos 7 dias.
+- Ative este cliente! (Nunca tirou pedido): Ativa um cliente que não recebeu pedido nos últimos 14 dias.
+- Ative este cliente!: Ativa um cliente que fez compras no ano anterior e tem recência de positivação entre 180 e 360 dias.
+- Restabeleça relacionamento com este cliente que foi ativado!: Restabelece o relacionamento com um cliente que foi ativado e que tem compras recentes.
+- Mantenha a regularidade de compra do cliente que teve pedido detectado nos últimos 30 dias e foi visitado na

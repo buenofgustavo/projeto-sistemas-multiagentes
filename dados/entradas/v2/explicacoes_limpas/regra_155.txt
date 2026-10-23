@@ -1,0 +1,12 @@
+Objetivo Comercial
+
+O objetivo principal dessas regras é otimizar a agenda de vendas, garantindo que as visitas sejam eficientes e direcionadas para clientes com maior probabilidade de compra. As regras buscam identificar clientes que estão ativos, inativos, com bom histórico de compra, ou que estão em situação crítica, para agendar visitas adequadas.
+Público Afetado
+
+Essas regras afetam todos os vendedores e clientes do sistema, especialmente aqueles que estão em situação de alta probabilidade de compra ou que estão em risco de inatividade. Elas são direcionadas para a equipe de vendas, supervisores e tomadores de decisões comerciais.
+Condições de Aplicação
+
+As regras de não agendamento são aplicadas automaticamente para clientes que se enquadram nos critérios definidos, independentemente do horário ou dia da semana. As regras de agendamento são ativadas quando os vendedores atendem a um cliente que se enquadra nos critérios definidos.
+Comportamento Configurado
+
+- Não Agendar: As regras de não agendamento são ativadas automaticamente para clientes que se enquadram nos critérios definidos, como pessoas físicas, clientes filiais, clientes baixados na Receita Federal, clientes inadimplentes, clientes com compras recentes, clientes com recência de positivação inferior a 30 dias, clientes com recência de positivação superior a 45 dias, clientes com recência de positivação entre 30 e 45 dias, clientes com compras em 30 dias, clientes com compras em 60 dias, clientes com compras em 90 dias, clientes com compras em 120 dias, clientes com compras em 150 dias, clientes com compras em 180 dias, clientes com compras em 210 dias, clientes com compras em 240 dias, clientes com compras em 270 dias, clientes com compras em 300 dias, clientes com compras em 330 dias, clientes com compras em 360 dias, clientes com compras em 390 dias, clientes com compras em 420 dias, clientes com compras em 450 dias, clientes com compras em 480 dias, clientes com compras em 510 dias, clientes com compras em 540 dias, clientes com compras em 570 dias, clientes com compras em 600 dias, clientes com compras em 630 dias, clientes com compras em 660 dias, clientes com compras em 690 dias, clientes com compras em 720 dias, clientes com compras em 750 dias, clientes com compras em 780 dias, clientes com compras em 810 dias, clientes com compras em 840 dias, clientes com compras em 870 dias, clientes com compras em 900 dias, clientes com compras em 930 dias,

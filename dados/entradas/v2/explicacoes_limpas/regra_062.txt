@@ -1,0 +1,32 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e parametrização de clientes para diferentes carteiras e segmentações. Ela permite que as equipes de vendas tenham flexibilidade para definir como e quando atender seus clientes, considerando fatores como adimplemento, inadimplemento, inatividade e outros indicadores.
+2. Público Afetado
+
+Este sistema é direcionado para vendedores, supervisores e administradores de vendas. Eles podem usar as regras para definir quem atender, quando e como, baseado em critérios específicos como adimplemento, inadimplemento, inatividade e outros indicadores.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a diferentes carteiras e segmentações de clientes. As condições de aplicação incluem:
+
+- Carteira de Televendas: Regras específicas para clientes adimplentes, inadimplentes e inativos.
+- Carteira de Campo: Regras mais flexíveis, incluindo diferentes frequências para ativos adimplentes, inadimplentes e inativos.
+- Carteira Livre: Permite que clientes sejam incluídos em múltiplas carteiras, sem exclusão mútua.
+- Segmentações: Usadas para criar agrupamentos auxiliares de clientes, permitindo que diferentes carteiras compartilhem clientes.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Frequência de Contato: Definida em dias, semanas ou meses, dependendo da situação do cliente.
+- Preferência de Dia da Semana: Pode ser configurada para dias específicos, com intensidades variadas.
+- Exclusão de Contatos: Algumas regras podem optar por não agendar contatos para clientes específicos.
+- Inclusão de Clientes: Clientes podem ser incluídos em múltiplas carteiras, dependendo das regras aplicáveis.
+5. Restrições, Exceções e Observações
+
+- Restrições de Cliente: Somente clientes adimplentes são incluídos na carteira de campo.
+- Exceções de Cliente: Clientes em ruptura de visita podem ser incluídos em múltiplas carteiras.
+- Observações de Tempo: As regras podem ser aplicadas a diferentes períodos de tempo, como 7 dias, 14 dias, 30 dias ou 90 dias.
+- Limitações de Carteira: Uma única segmentação pode ser usada como fonte de clientes em uma carteira, mas várias segmentações podem ser usadas em outras.
+- Exclusões de Carteira: Clientes inativos inadimplentes não são agendados, e clientes sem vendas são agendados com uma frequência específica.
+- Flexibilidade de Carteira Livre: Clientes em ruptura podem ser incluídos em múltiplas carteiras, sem exclusão mútua.
+
+Essas regras permitem uma grande

@@ -1,0 +1,71 @@
+ARQUIVO ORIGINAL: regra_007.gobr
+ID: regra_007
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "empresa toda":
+    vendedores todostelevendas
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao da Nutri Distribuidora: 30 dias para inativos":
+    da carteira("empresa toda")
+    quando inativos para o vendedor
+    frequencia de 30 dias
+
+parametros "Regra Padrao da Nutri Distribuidora: 14 dias para ativos":
+    da carteira("empresa toda")
+    quando ativos para o vendedor
+    frequencia de 14 dias
+
+parametros "Regra Padrao da Nutri Distribuidora: 7 dias para sem vendas":
+    da carteira("empresa toda")
+    quando sem venda
+    frequencia de 7 dias
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. Isso permite que as ações comerciais sejam automatizadas e personalizadas de acordo com as necessidades específicas de cada cliente.
+
+### 2. Público Afetado
+
+Este sistema afeta todas as carteiras de clientes, tanto de televendas quanto de vendedores avulsos, bem como segmentações e carteiras de clientes específicas. As regras são aplicáveis a todos os clientes que estão na carteira definida, independentemente do status atual (ativos, inativos, sem vendas).
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a clientes que estão na carteira definida. As condições de aplicação incluem:
+
+- **Frequência**: Determina a periodicidade das ações comerciais (por exemplo, 30 dias, 14 dias, 7 dias).
+- **Dias da Semana**: Determina em quais dias da semana as ações comerciais devem ser realizadas.
+- **Ativos/Inativos**: Filtra os clientes com base em seu status atual (ativos, inativos, sem vendas).
+- **Sem Vendas**: Filtra os clientes que não fizeram compras recentemente.
+- **Adimplentes**: Filtra os clientes que estão em dia com suas compras.
+- **Prospects**: Filtra os clientes que nunca compraram antes.
+
+### 4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento dos clientes de acordo com as seguintes diretrizes:
+
+- **Regra Padronizada da Nutri Distribuidora: 30 Dias para Inativos**
+  - Clientes inativos há mais de 30 dias recebem uma parametrização de frequência de 30 dias.
+  
+- **Regra Padronizada da Nutri Distribuidora: 14 Dias para Ativos**
+  - Clientes ativos recebem uma parametrização de frequência de 14 dias.
+  
+- **Regra Padronizada da Nutri Distribuidora: 7 Dias para Sem Vendas**
+  - Clientes que não fizeram compras há mais de 7 dias recebem uma parametrização de frequência de 7 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrição de Regras Excessivas**: É importante evitar regras excessivas que atinjam diretamente um vendedor individual. Isso garante escalabilidade e simplifica a manutenção.
+- **Regras Incrementais**: As regras de carteira apenas adicionam clientes, não os excluem diretamente. A exclusão ocorre de forma indireta, pela ordem das carteiras.
+- **Repetição de Clientes**: Clientes podem aparecer em várias carteiras de vendedores diferentes dentro da mesma carteira.
+- **Sem Repetição Entre Carteiras Normais Consecutivas**: Clientes que já foram atribuídos a uma carteira anterior

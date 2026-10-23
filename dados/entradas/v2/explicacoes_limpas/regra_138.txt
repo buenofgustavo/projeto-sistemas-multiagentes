@@ -1,0 +1,33 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa controlar a frequência e a preferência de visitas a clientes, além de remover clientes inadimplentes da agenda. O objetivo principal é otimizar o tempo e recursos dos vendedores, garantindo que eles se concentrem em clientes mais promissores.
+2. Público Afetado
+
+Este sistema afeta todos os vendedores e clientes da empresa. As regras são aplicadas de acordo com o status dos vendedores (ativados/inativos) e o histórico de compra dos clientes.
+3. Condições de Aplicação
+
+As regras são aplicadas de acordo com o status dos vendedores e o histórico de compra dos clientes. As condições específicas incluem:
+
+- Inadimplentes: Clientes que não pagaram suas faturas.
+- Inativos: Clientes que não compraram nos últimos 90 dias.
+- Freq. 7d: Frequência de visitas a clientes adimplentes.
+- Remover inativos da agenda: Marcar clientes inativos para não aparecerem na agenda.
+- Preferência de dias: Definir preferência de visitas para determinados dias da semana.
+- Freq. 35d: Frequência de visitas a clientes inativos há mais de 35 dias.
+- Freq. 90d: Frequência de visitas a clientes inativos há mais de 90 dias.
+4. Comportamento Configurado
+
+- Freq. 7d: Clientes adimplentes são visitados com frequência de 7 dias.
+- Freq. 35d: Clientes inativos há mais de 35 dias são visitados com frequência de 35 dias.
+- Freq. 90d: Clientes inativos há mais de 90 dias são visitados com frequência de 90 dias.
+- Remover inativos da agenda: Clientes inativos são marcados para não aparecerem na agenda.
+- Preferência de dias: Clientes recebem preferência de visitas em determinados dias da semana.
+5. Restrições, Exceções e Observações
+
+- Restrições: As regras são aplicadas de acordo com o status dos vendedores e o histórico de compra dos clientes.
+- Exceções: Não é possível combinar a remoção de agendamento com frequência ou preferência de dias na mesma regra.
+- Observações: 
+  - Clientes inativos há mais de 90 dias recebem parametrização de frequência semanal (7 dias).
+  - Clientes inativos há mais de 90 dias recebem parametrização de frequência mensal (30 dias) com preferência nas segunda e terça-feira.
+  - Clientes inativos há mais de 90 dias recebem parametrização de frequência mensal (30 dias) com preferência nas segunda e terça-feira.
+  - Clientes inativos há mais de 90 dias recebem parametrização de frequência mensal (30 dias) com preferência nas segunda e terça-feira.

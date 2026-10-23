@@ -1,0 +1,102 @@
+ARQUIVO ORIGINAL: regra_212.gobr
+ID: regra_212
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://gogeo.proofhub.com/bapplite/#app/todos/project-9587835621/list-270919671655/task-541817668361
+version 1.0
+
+#
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+#
+## Parâmetros de planejamento
+
+parametros "Não agendar clientes que tem rota em 7 dias à frente.":
+    do time("televendas")
+    quando data da rota futura nos proximos 7 dias
+    nao agendar
+
+parametros "Não agendar clientes que compraram com o televendas em 14d.":
+    do time("televendas")
+    quando recencia de positivacao global em 14 dias
+    nao agendar
+
+parametros "Mantenha a regularidade de compra do cliente que teve pedido detectado nos últimos 30d e foi visitado na semana anterior!":
+    do time("televendas")
+    quando data da rota ha 7 dias atras
+        e tem visita da empresa na semana anterior
+        e recencia de positivacao global entre 14 dias e 30 dias
+    frequencia de 7 dias
+
+parametros "Garanta regularidade de compra e relacionamento com este cliente! Seu último pedido foi entre 30d e 60d atrás.":
+    do time("televendas")
+    quando data da rota ha 7 dias atras
+        e tem visita da empresa na semana anterior
+        e recencia de positivacao global entre 31 dias e 60 dias
+    frequencia de 20 dias
+
+parametros "Ative este cliente! (Nunca tirou pedido)":
+    do time("televendas")
+    quando sem venda
+    frequencia de 14 dias
+
+parametros "Ative este cliente!":
+    do time("televendas")
+    quando recencia de positivacao global no ano passado
+        e recencia de positivacao global entre 180 dias e 360 dias
+    frequencia de 14 dias
+
+parametros "Cliente caminhando para INATIVIDADE! Seu último pedido foi entre 60d e 90d atrás.":
+    do time("televendas")
+    quando recencia de positivacao global entre 61 dias e 90 dias
+    frequencia de 7 dias
+
+parametros "Resgaste este cliente! Seu último pedido foi entre 90d e 180d atrás.":
+    do time("televendas")
+    quando recencia de positivacao global entre 91 dias e 180 dias
+    frequencia de 7 dias
+
+parametros "Atendimento ao cliente que não se enquadrou nas demais regras.":
+    do time("televendas")
+    frequencia de 7 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+As regras comerciais GoBR visam automatizar a parametrização de clientes de acordo com suas condições comerciais. O objetivo principal é otimizar o tempo e recursos de vendas, garantindo que os clientes recebam a atenção adequada conforme suas necessidades e histórico de compra.
+
+### 2. Público Afetado
+
+As regras afetam todos os clientes que estão em algum tipo de rotina de vendas, incluindo televendas, vendedores de campo e supervisores. Elas são aplicadas automaticamente, mas podem ser alteradas pelos vendedores e supervisores conforme necessário.
+
+### 3. Condições de Aplicação
+
+As regras GoBR são aplicadas automaticamente para clientes que atendem a determinadas condições comerciais. As condições incluem:
+
+- **Não agendar clientes com rota próxima:** Se um cliente tem uma rota agendada nos próximos 7 dias, eles não serão agendados.
+- **Não agendar clientes recentemente comprados:** Se um cliente comprou com a equipe de televendas em 14 dias atrás, eles não serão agendados.
+- **Manter frequência de compra:** Se um cliente teve um pedido detectado nos últimos 30 dias e foi visitado na semana anterior, eles serão agendados com frequência de 7 dias.
+- **Garantir frequência de compra:** Se um cliente teve um pedido entre 31 e 60 dias atrás, eles serão agendados com frequência de 20 dias.
+- **Ativar clientes:** Se um cliente não teve venda nos últimos 14 dias, eles serão agendados com frequência de 14 dias.
+- **Ativar clientes:** Se um cliente teve venda no ano anterior e há 180 a 360 dias, eles serão agendados com frequência de 14 dias.
+- **Cliente em ruptura de compra:** Se um cliente não teve pedido nos últimos 61 a 90 dias, eles serão agendados com frequência de 7 dias.
+- **Resgatar clientes:** Se um cliente não teve pedido nos últimos 91 a 180 dias, eles serão agendados com frequência de 7 dias.
+- **Atendimento a clientes que não se enquadram nas regras anteriores:** Se um cliente não se enquadra nas outras regras, eles serão agendados com frequência de 7 dias.
+
+### 4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento de agendamento de clientes de acordo com as condições comerciais. Por exemplo:
+
+- **Não agendar:** Se um cliente atende a alguma condição de não agendamento, eles não serão incluídos na rota.
+- **Agendar com frequência:** Se um cliente atender a uma condição de frequência, eles serão incluídos na rota com a frequência especificada.
+- **Ativar:** Se um cliente não teve venda nos últimos 14 dias, eles serão incluídos na rota com frequência de 14 dias.
+
+### 5. Restrições, Exceções

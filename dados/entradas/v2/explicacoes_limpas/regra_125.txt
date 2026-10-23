@@ -1,0 +1,32 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para clientes de acordo com suas condições atuais (ativos, inativos, adimplentes, inadimplentes, prospects) e histórico de compra. As regras são aplicadas de forma a otimizar o tempo e recursos de vendas, garantindo que os clientes recebam o contato adequado conforme suas necessidades e status.
+2. Público Afetado
+
+Este sistema afeta todas as carteiras de clientes da empresa, incluindo carteiras livres e segmentações, e é aplicado a todos os vendedores e supervisores. O objetivo é garantir que cada cliente receba o contato ideal, independentemente de sua situação atual.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- Carteira "empresa toda": Aplica-se a todas as carteiras de clientes da empresa.
+- Frequência de 7 dias: Para clientes ativos.
+- Frequência de 15 dias: Para clientes inativos adimplentes.
+- Não agendar: Para clientes inativos inadimplentes.
+- Frequência de 20 dias: Para clientes prospects.
+4. Comportamento Configurado
+
+- Regra Padronizada da Cavalo Marinho:
+  - 7 dias para clientes ativos: Clientes ativos recebem uma parametrização de frequência de 7 dias.
+  - 15 dias para clientes inativos adimplentes: Clientes inativos adimplentes recebem uma parametrização de frequência de 15 dias.
+  - Não agendar para clientes inativos inadimplentes: Clientes inativos inadimplentes não são agendados.
+  - 20 dias para clientes prospects: Clientes prospects recebem uma parametrização de frequência de 20 dias.
+5. Restrições, Exceções e Observações
+
+- Remoção de Agendamento: A parametrização "nao agendar" é uma exclusividade e não pode ser combinada com frequência ou preferência de dias.
+- Cadeia de Carteiras: A ordem das carteiras é crucial. Por exemplo, se a carteira dos televendas está antes da carteira do campo, clientes inativos do campo podem ser removidos da carteira dos televendas, resultando em uma carteira vazia para os televendas.
+- Exclusão de Carteiras: Carteiras livres não excluem clientes de outras carteiras, mas permitem que os mesmos clientes apareçam em múltiplas carteiras.
+- Segmentações: Segmentações auxiliam na criação de agrupamentos de clientes, permitindo que clientes adimplentes sejam incluídos em carteiras específicas.
+- Limitações de Regras: Não é possível combinar "nao agendar" com frequência ou preferência de dias.
+Conclusão
+
+Esta parametrização GoBR permite uma gestão eficaz dos contatos com clientes, garantindo que cada cliente receba

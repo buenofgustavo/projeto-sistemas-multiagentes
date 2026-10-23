@@ -1,0 +1,29 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento e frequência de contato com clientes, especialmente focando em clientes inativos e ativos. As regras permitem que as carteiras de clientes sejam parametrizadas de acordo com o histórico de compra e visitas, além de definir preferências de dia da semana para visitas.
+2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de vendas. Ele permite que eles parametrizem automaticamente a frequência de contato com clientes, definindo preferências de dia da semana e restringindo a parametrização a clientes específicos com base em seu histórico de compra e inatividade.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todas as carteiras de clientes, independentemente do tipo de cliente (ativos, inativos, sem vendas, etc.). As condições de aplicação incluem:
+
+- Carteira: A parametrização é aplicada a todas as carteiras de clientes definidas.
+- Vendedores: A parametrização é aplicada a todos os vendedores associados à carteira.
+- Tempo de Inatividade: A parametrização é aplicada a clientes que não fizeram compras há um certo período de tempo.
+- Frequência de Atendimento: A parametrização define a frequência de contato com os clientes.
+- Preferência de Dia da Semana: A parametrização define a preferência de dia da semana para visitas.
+4. Comportamento Configurado
+
+O comportamento configurado pela parametrização GoBR inclui:
+
+- Frequência de Atendimento: Define a quantidade de visitas ou contatos que os vendedores devem realizar com os clientes.
+- Preferência de Dia da Semana: Define a preferência de dia da semana para visitas, com valores numéricos correspondendo a diferentes níveis de prioridade.
+- Remoção de Agendamento: Permite remover clientes inativos da agenda de contatos.
+5. Restrições, Exceções e Observações
+
+- Restrições de Tempo de Inatividade: A parametrização só é aplicada a clientes que não fizeram compras há um certo período de tempo, definido pelo usuário.
+- Preferência de Dia da Semana: A preferência de dia da semana é configurada por um valor numérico, onde 0 significa não visitar, 1 é uma preferência baixa, 2 é normal, 3 é uma preferência alta e 4 é não visitar.
+- Exclusão de Clientes Inativos: A parametrização pode ser usada para remover clientes inativos da agenda de contatos.
+- Mutuamente Exclusivas: As regras de parametrização GoBR são mutuamente exclusivas, ou seja, uma vez que uma regra é aplicada, ela não pode ser substituída por outra.
+- Ambiguidades: Algumas regras podem ser ambíguas, dependendo da interpretação do usuário. É

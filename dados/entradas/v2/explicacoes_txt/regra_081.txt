@@ -1,0 +1,86 @@
+ARQUIVO ORIGINAL: regra_081.gobr
+ID: regra_081
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+
+# Regras para Recife Doces
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao da Empresa Customizavel: semanal para clientes ativos e adimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor
+    frequencia semanal()
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Empresa Customizavel: 21 dias para clientes ativos e inadimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 21 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Empresa Customizavel: 30 dias para clientes inativos e adimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor
+    frequencia de 30 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Empresa Customizavel: nao agendar inativos e inadimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+
+parametros "Regra Padrao da Empresa Customizavel: 30 dias para clientes sem vendas":
+    da carteira("empresa toda")
+    quando sem vendas
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento aos clientes de forma personalizada, considerando diversos fatores como frequência, dias da semana e preferências. O objetivo principal é otimizar o tempo e recursos de vendas, garantindo que os vendedores atendam eficientemente aos clientes conforme suas necessidades e rotinas.
+
+### 2. Público Afetado
+
+Este sistema de parametrização afeta diretamente os vendedores e supervisores responsáveis por atender os clientes. Também impacta os clientes, que receberão visitas de acordo com as regras estabelecidas. Além disso, os administradores do sistema também são afetados, pois têm a responsabilidade de configurar e monitorar as parametrizações.
+
+### 3. Condições de Aplicação
+
+As parametrizações GoBR são aplicadas a clientes específicos, definidos por carteira, segmentação ou time. As condições de aplicação incluem:
+
+- **Carteira**: A parametrização é aplicada a todos os clientes da carteira especificada.
+- **Segmentação**: A parametrização é aplicada a clientes que atendem aos critérios definidos na segmentação.
+- **Time**: A parametrização é aplicada a todos os clientes dos vendedores especificados no time.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas parametrizações GoBR inclui:
+
+- **Frequência**: Define quantas vezes por semana ou mês o cliente deve ser visitado.
+- **Dias da Semana**: Determina quais dias da semana o cliente deve ser visitado.
+- **Preferência de Dias da Semana**: Define a importância relativa de cada dia da semana para a visita.
+- **Roteirização**: Determina se o cliente deve ser incluído na rota de visita presencial.
+- **Fixação**: Determina se a parametrização é fixa, criando restrições mais rígidas no uso de frequência e preferência.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**:
+  - **Exclusão Indireta**: A exclusão de clientes ocorre de forma indireta, pela ordem das carteiras.
+  - **Sem Repetição**: Clientes que já foram atribuídos a uma carteira anterior não são incluídos nas carteiras seguintes, exceto em carteiras livres.
+  - **Sem Repetição Entre Carteiras Normais Consecutivas**: Clientes que já foram atribuídos a uma carteira anterior não são incluídos nas carteiras seguintes, exceto em carteiras livres.
+  - **Carteiras Livres**: Não causam exclusão de clientes para carteiras subsequentes.
+  - **Dependências**: Uma segmentação pode ser criada a partir de vários times e/ou várias segmentações. Uma carteira pode ser criada a partir de vários times ou de uma única segmentação.
+
+- **Exceções**:
+  - **Remoção de Agendamento**: Algumas parametrizações podem incluir a remoção de agendamento, marcando

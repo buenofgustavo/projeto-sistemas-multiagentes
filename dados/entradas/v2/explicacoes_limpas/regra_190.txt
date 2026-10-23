@@ -1,0 +1,33 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e frequência de vendas para diferentes tipos de clientes, baseando-se em seu ciclo de vida e comportamento. As regras são direcionadas para vendedores e clientes específicos, visando otimizar o uso do tempo e recursos para maximizar as chances de fechar novos negócios.
+2. Público Afetado
+
+As regras afetam principalmente clientes ativos, inativos, prospectos e que realizaram compras específicas. Elas também envolvem vendedores, especificamente aqueles que atuam nas funções de televendas e supervisão.
+3. Condições de Aplicação
+
+As regras são aplicadas conforme as seguintes condições:
+
+- Vendedores: São especificados em várias linhas, permitindo que diferentes regras se apliquem a diferentes grupos de vendedores.
+- Clientes: São filtrados com base em vários critérios, como ciclo de vida, recência de compra, frequência de visita e outros.
+- Horários: As regras são ativadas nos dias úteis e a partir das 7h, garantindo que as ações sejam realizadas durante o horário comercial.
+4. Comportamento Configurado
+
+As regras configuram o comportamento de contato e frequência de vendas de acordo com o tipo de cliente e o vendedor:
+
+- Prospect: Clientes que ainda não fizeram compras com a empresa.
+- Ativado: Clientes que fizeram sua primeira compra.
+- Em Ruptura: Clientes que não fizeram compras há mais de 60 dias.
+- Inativo: Clientes que não fizeram compras há mais de 30 dias.
+- Curva A: Clientes que compraram no mês corrente.
+- Curva B: Clientes que compraram no mês anterior.
+- Curva C: Clientes que compraram há mais de um mês.
+5. Restrições, Exceções e Observações
+
+- Restrições de Vendedores: Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, permitindo que diferentes regras se apliquem a ele.
+- Unicidade de Vendedores: Um vendedor só é contabilizado uma vez por time, mesmo que apareça em várias linhas.
+- Referências de Times: Os nomes dos times devem ser únicos entre si.
+- Parametrização Manual: Algumas regras permitem que o usuário faça parametrizações manuais, diferentemente das regras automáticas.
+- Frequência de Contato: A frequência de contato varia de 7 dias a 35 dias, dependendo do tipo de cliente e do comportamento.
+- Cadeia de Dependência: Algumas regras dependem de outras, como a parametrização de frequência que pode ser baseada em frequência histórica ou em parâmetros específicos.
+- Exclusão de Vendedores: Há regras

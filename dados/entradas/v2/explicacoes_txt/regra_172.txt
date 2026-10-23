@@ -1,0 +1,79 @@
+ARQUIVO ORIGINAL: regra_172.gobr
+ID: regra_172
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7780508981
+version 1.0
+
+## Definição de times:
+
+time "televendas":
+    vendedores todostelevendas
+
+## Regras de não agendamento:
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+parametros "Não agendar filiais":
+    do time("televendas")
+    quando é o cliente filial
+    nao agendar
+
+## Regras de agendamento:
+
+parametros "Ativo:'Freq. de 7 dias'":
+    do time("televendas")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+
+parametros "Inativo:'Freq. de 14 dias'":
+    do time("televendas")
+    frequencia de 14 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa otimizar a gestão de clientes para vendedores, permitindo que eles atendam a clientes de maneira eficiente e personalizada. As regras definidas permitem que os vendedores tenham uma visão clara de quem deve ser atendido e quando, além de evitar agendamentos desnecessários.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores e supervisores responsáveis por gerenciar a agenda de clientes. Essas regras ajudam a definir estratégias de atendimento, garantindo que os clientes sejam atendidos de acordo com as necessidades comerciais e as disponibilidades dos vendedores.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente quando os vendedores e supervisores definem a agenda de clientes. Elas são aplicadas às carteiras de clientes, definindo como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, etc.
+
+### 4. Comportamento Configurado
+
+As regras configuradas no arquivo `regra_172.gobr` definem comportamentos específicos para diferentes grupos de clientes e vendedores. Por exemplo:
+
+- **Regras de Não Agendamento**: Clientes inadimplentes e clientes filiais não são agendados.
+- **Regras de Agendamento**: Clientes ativos têm uma frequência de 7 dias, enquanto clientes inativos têm uma frequência de 14 dias.
+- **Exemplos de Parametrização**: Clientes com inadimplência de 90 dias são removidos da agenda, e clientes ativos são agendados com frequência mensal.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: 
+  - Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, cada uma com suas próprias regras.
+  - Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+  - A parametrização feita pelo GoBR não sobrepõe a parametrização manual realizada pelo usuário no Govendas.
+  
+- **Exceções**:
+  - A remoção de agendamento (`nao agendar`) é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias.
+  - A regra de evitar conflitos entre diferentes times (`sem choque`) é aplicada apenas quando especificada.
+
+- **Observações**:
+  - É importante notar que a parametrização de clientes pode ser complexa e deve ser cuidadosamente planejada para evitar conflitos entre diferentes regras.
+  - A linguagem Gorules permite expressar regras comerciais complexas, mas também requer atenção para combinar corretamente as diferentes regras e filtros.
+
+### Conclusão
+
+As regras de parametrização GoBR são essenciais para a otimização da gestão de clientes, permitindo que os vendedores atendam eficientemente aos clientes de acordo com as necessidades comerc

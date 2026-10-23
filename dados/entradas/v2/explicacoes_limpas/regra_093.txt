@@ -1,0 +1,27 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de vendas para diferentes grupos de clientes, utilizando diferentes carteiras e regras de frequência e preferência de visitas. Ela permite que os vendedores tenham carteiras personalizadas com base em critérios específicos, como adimplemento, inadimplemento, inatividade e outros fatores.
+2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de vendas. Ele define as carteiras de clientes para cada vendedor, determinando quando e como esses clientes devem ser visitados. O público-alvo inclui tanto vendedores ativos quanto supervisores responsáveis por gerenciar as estratégias de vendas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a diferentes grupos de clientes, dependendo do time de vendedor e da carteira definida. As condições de aplicação incluem:
+
+- Cadeia de Vendas: As carteiras são definidas para diferentes times de vendedores, como televendas, campo interior e campo capital.
+- Adimplemento e Inadimplemento: As carteiras podem ser definidas para clientes adimplentes ou inadimplentes, com diferentes frequências e preferências de visitas.
+- Inatividade: As carteiras podem ser definidas para clientes inativos, com diferentes prazos e preferências de visitas.
+- Ruptura de Visita: As carteiras podem ser definidas para clientes em ruptura de visita, com diferentes prazos e preferências de visitas.
+4. Comportamento Configurado
+
+O comportamento configurado inclui:
+
+- Crie Carteiras: Criar carteiras de clientes com base em diferentes critérios, como adimplemento, inadimplemento, inatividade e ruptura de visita.
+- Defina Regras de Frequência e Preferência: Definir regras de frequência (semanal, mensal, etc.) e preferência de visitas (dias úteis, etc.) para cada carteira.
+- Use Segmentações: Utilizar segmentações para agrupar clientes de maneira mais eficiente, permitindo que eles apareçam em várias carteiras.
+- Crie Carteiras Livres: Criar carteiras livres que permitem que os mesmos clientes apareçam em várias carteiras, sem exclusão mútua.
+5. Restrições, Exceções e Observações
+
+- Restrições de Cliente: Somente os clientes adimplentes são incluídos na carteira fixa de campo. Para o vendedor 1020, usa-se ruptura da segmentação para pegar os clientes do segmento que estão em ruptura de visita.
+- Exclusão de Carteiras: Não é possível incluir múltiplas segmentações como fonte de clientes em uma única carteira.
+- Ordenação de Carteiras: Quando múltiplas carteiras são criadas, elas são combinadas de forma aditiva. Portanto, a ordem

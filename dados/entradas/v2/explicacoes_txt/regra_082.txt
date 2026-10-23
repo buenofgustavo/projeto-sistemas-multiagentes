@@ -1,0 +1,78 @@
+ARQUIVO ORIGINAL: regra_082.gobr
+ID: regra_082
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+
+# Regras para Rede EPI
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao da Empresa Customizavel: semanal para clientes ativos adimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor e adimplentes
+    frequencia semanal()
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Empresa Customizavel: 14 dias para clientes ativos inadimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Empresa Customizavel: 30 dias para clientes inativos adimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Empresa Customizavel: nao agendar inativos inadimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+    
+parametros "Regra Padrao da Empresa Customizavel: 30 dias para clientes sem vendas":
+    da carteira("empresa toda")
+    quando sem vendas
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento aos clientes de acordo com suas características comerciais. O objetivo principal é otimizar o tempo e o esforço dos vendedores, garantindo que eles atendam aos clientes de maneira eficaz e personalizada.
+
+### 2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de vendas. Ele permite que estes profissionais definam estratégias de atendimento personalizadas para seus clientes, baseadas em critérios como ativação, adimplemento, inatividade e frequência de visitas.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todas as carteiras de clientes, independentemente do tipo de cliente (ativos, inativos, adimplentes, inadimplentes, sem vendas, prospects, etc.). As regras são definidas em termos de frequência de visitas, dias da semana e preferências de dias, e podem ser aplicadas a clientes específicos ou a grupos de clientes.
+
+### 4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento dos clientes de acordo com as seguintes condições:
+
+- **Frequência de Visitas**: As regras definem a frequência com que os clientes devem ser visitados. Por exemplo, uma regra pode definir que clientes ativos devem ser visitados semanalmente, enquanto outros podem ser visitados mensalmente.
+  
+- **Dias da Semana**: As regras também definem quais dias da semana os clientes devem ser visitados. Por exemplo, uma regra pode preferir visitar os clientes nos dias úteis, enquanto outra pode optar por visitar apenas nos dias uteis.
+
+- **Preferência de Dias da Semana**: As regras podem atribuir uma preferência numérica a cada dia da semana, indicando qual dia é mais prioritário para a visita. Por exemplo, uma regra pode atribuir uma preferência de 3 ao sábado, indicando que o sábado é o dia prioritário para a visita.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Regras Mutuamente Exclusivas**: Não é possível combinar duas regras que definem a mesma condição de visitas para o mesmo cliente no mesmo dia. Por exemplo, uma regra que define que um cliente deve ser visitado diariamente não pode ser combinada com outra regra que define que o mesmo cliente deve ser visitado apenas nos dias úteis.
+
+- **Exclusão de Clientes**: As regras GoBR não excluem automaticamente clientes de carteiras. Elas apenas definem novas parametrizações para os clientes. Portanto, clientes que já têm parametrizações anteriores não são excluídos automaticamente.
+
+- **Configuração Dinâmica**: As regras GoBR são parametrizáveis e podem ser alteradas conforme necessário. Isso permite que as estratégias de atendimento se adaptem às mudanças comerciais e às necessidades específicas de cada

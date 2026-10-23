@@ -1,0 +1,82 @@
+ARQUIVO ORIGINAL: regra_094.gobr
+ID: regra_094
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+
+time "time campo":
+    vendedores todosdecampo
+
+carteira "carteira televendas":
+    clientes carteirafixa("time televendas")
+    
+carteira "carteira campo":
+    clientes carteirafixa("time campo")
+
+parametros "Regra Padrao da AHL Customizavel: 30 dias para clientes adimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando adimplentes
+    frequencia de 30 dias
+
+parametros "Regra Padrao da AHL Customizavel: 60 dias para clientes inadimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando inadimplentes
+    frequencia de 60 dias
+
+parametros "Regra Padrao da AHL Customizavel: 30 dias para clientes sem venda (televendas)":
+    da carteira("carteira televendas")
+    quando sem venda
+    frequencia de 30 dias
+    
+parametros "Regra Padrao da AHL Customizavel: 30 dias para todos os clientes (campo)":
+    da carteira("carteira campo")
+    frequencia de 30 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir regras de frequência e prioridades para a entrega de comunicações comerciais (como visitas e vendas) aos clientes. As regras são aplicadas de acordo com o status adimplente ou inadimplente do cliente, além de considerar a frequência de visita e a situação de ruptura de venda.
+
+### 2. Público Afetado
+
+Este sistema é direcionado para vendedores e supervisores, especialmente aqueles envolvidos na gestão de carteiras de clientes. As regras são aplicadas a clientes em diferentes carteiras (televendas e campo), dependendo das especificações de cada time.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas às seguintes condições:
+
+- **Cadeira de Televendas**: Regras específicas para clientes adimplentes, inadimplentes e sem venda são aplicadas.
+- **Cadeira de Campo**: Uma regra padrão de 30 dias para todos os clientes é aplicada.
+- **Cadeira Livre**: Permite que clientes em ruptura sejam incluídos em várias carteiras.
+- **Segmentações**: Criam agrupamentos auxiliares de clientes para aplicações específicas.
+- **Parametrização de Frequência**: Define a frequência de entrega de comunicações comerciais.
+
+### 4. Comportamento Configurado
+
+Os comportamentos configurados incluem:
+
+- **Frequência de Visita**: Adapta a frequência de visitas de acordo com o status adimplente ou inadimplente do cliente.
+- **Prioridade de Dia da Semana**: Define preferências de dia da semana para a entrega de comunicações.
+- **Ruptura de Visita**: Define regras para clientes que não realizaram visitas recentemente.
+- **Cadeira Livre**: Permite que clientes em ruptura sejam incluídos em várias carteiras.
+- **Alertas**: Define regras para alertas de ruptura de positivação.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Carteira**: Uma carteira não pode incluir múltiplas segmentações como fonte de clientes.
+- **Prioridade de Dia da Semana**: Filtra os clientes com base na recência de visita e prioriza visitas em determinados dias da semana.
+- **Ruptura de Visita**: Define regras para clientes que não realizaram visitas recentemente.
+- **Cadeira Livre**: Permite que clientes em ruptura sejam incluídos em várias carteiras.
+- **Alertas**: Define regras para alertas de ruptura de positivação.
+- **Ordem das Carteiras**: A ordem das carteiras importa para evitar conflitos de entrega.
+- **Referências de Times**: Um mesmo time pode ter múltiplas linhas vendedores, cada uma com suas próprias restrições.
+- **Filtragem de Clientes**: Filtra os clientes com base em condições específicas, como recência de visita e adimplência.
+- **Sem Choque

@@ -1,0 +1,32 @@
+1. Objetivo Comercial
+
+O objetivo principal é definir estratégias comerciais para atender eficientemente os clientes, utilizando regras personalizadas para cada cliente e vendedor. As regras são parametrizadas para garantir que os vendedores atendam aos clientes conforme as políticas comerciais do distribuidor.
+2. Público Afetado
+
+O público afetado são os vendedores, supervisores e gestores, bem como os clientes. As regras são aplicadas para definir o comportamento de atendimento dos vendedores, gerar alertas e parametrizar as carteiras de clientes.
+3. Condições de Aplicação
+
+As regras são aplicadas de acordo com as seguintes condições:
+
+- Time "televendas": As regras são aplicadas a todos os vendedores televendas.
+- Pessoa Jurídica (PJ): As regras são aplicadas a clientes jurídicos.
+- Dias Úteis e Sabado: As regras são aplicadas preferencialmente nos dias úteis e sábado.
+- Recência de Posicionamento: As regras são aplicadas com base na recência de posicionamento do cliente.
+- Inatividade de 90 Dias: As regras são aplicadas quando o cliente estiver inativo por 90 dias.
+- Inatividade de 20 Dias: As regras são aplicadas quando o cliente estiver inativo por 20 dias.
+- Inatividade de 33 Dias: As regras são aplicadas quando o cliente estiver inativo por 33 dias.
+- Pessoas Jurídicas (PJ): As regras são aplicadas apenas a clientes jurídicos.
+- Não Agendar: As regras não agendam clientes quando o cliente for pessoa jurídica.
+4. Comportamento Configurado
+
+As regras configuram o comportamento de atendimento dos clientes de acordo com as seguintes condições:
+
+- Ative Este Cliente!: Os vendedores são incentivados a entrar em contato com clientes inativos.
+- Faça Seu Pós-Vendas!: Os vendedores são incentivados a entrar em contato com clientes que tiveram recência de positivacao em 20 dias.
+- Mantenha o Cliente Engajado!: Os vendedores são incentivados a entrar em contato com clientes que tiveram recência de positivacao entre 20 e 33 dias.
+- Não Agendar Clientes Sem Compra em 33 Dias: Os vendedores não são agendados para clientes que não fizeram compras em 33 dias.
+- Não Agendar Se Não For PJ: Os vendedores não são agendados para clientes que não forem jurídicos.
+5. Restrições, Exceções e Observações
+
+- Restrições: As regras não aplicam-se a clientes que não forem jurídicos (PJs).
+- Exceções: As regras podem ser sobrescritas pelos ajustes finos dos vendedores e

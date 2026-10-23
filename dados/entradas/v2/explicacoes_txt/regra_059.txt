@@ -1,0 +1,111 @@
+ARQUIVO ORIGINAL: regra_059.gobr
+ID: regra_059
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Card: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/6912506739
+version 1.0
+
+time "televendas":
+    vendedores todostelevendas
+
+## Parâmetros de não agendamento:
+
+parametros "Hospidrogas: Não agendar ramos de atividade específicos":
+    do time("televendas")
+    quando ramo de atividade diferente("2","3","4","5","6","7","8","10","11","12","14","15","17","18","19")
+    nao agendar
+
+## Parâmetros de agendamento para Prospects:
+
+parametros "Hospidrogas: Freq. 30d para prospects e ramos de atividade igual 2, 7, 11, 12, 14 ou 19":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa e ramo de atividade igual("2","7","11","12","14","19")
+    frequencia de 30 dias
+
+## Parâmetros de agendamento para Ativos:
+
+parametros "Hospidrogas: Freq. 30d para ativos e ramos de atividade igual 3, 4, 6, 8, 15 ou 18":
+    do time("televendas")
+    quando ativos para o vendedor e ramo de atividade igual("3","4","6","8","15","18")
+    frequencia de 30 dias
+
+parametros "Hospidrogas: Freq. 15d para ativos e ramos de atividade igual 7 ou 17":
+    do time("televendas")
+    quando ativos para o vendedor e ramo de atividade igual("7","17")
+    frequencia de 15 dias
+
+parametros "Hospidrogas: Freq. 7d para ativos e ramos de atividade igual 10, 11, 14 ou 19":
+    do time("televendas")
+    quando ativos para o vendedor e ramo de atividade igual("10","11","14","19")
+    frequencia de 7 dias
+
+parametros "Hospidrogas: Freq. 5d para ativos e ramos de atividade igual 2 ou 12":
+    do time("televendas")
+    quando ativos para o vendedor e ramo de atividade igual("2","12")
+    frequencia de 5 dias
+
+## Parâmetros de agendamento para Inativos:
+
+parametros "Hospidrogas: Freq. 30d para inativos e ramos de atividade igual 3, 4, 6, 8, 15 ou 18":
+    do time("televendas")
+    quando ramo de atividade igual("3","4","6","8","15","18")
+    frequencia de 30 dias
+
+parametros "Hospidrogas: Freq. 20d para inativos e ramos de atividade igual 17":
+    do time("televendas")
+    quando ramo de atividade igual("17")
+    frequencia de 20 dias
+
+parametros "Hospidrogas: Freq. 15d para inativos e ramos de atividade igual 10":
+    do time("televendas")
+    quando ramo de atividade igual("10")
+    frequencia de 15 dias
+
+parametros "Hospidrogas: Freq. 10d para inativos e ramos de atividade igual 11 ou 19":
+    do time("televendas")
+    quando ramo de atividade igual("11","19")
+    frequencia de 10 dias
+
+parametros "Hospidrogas: Freq. 5d para inativos e ramos de atividade igual 2, 7, 12 ou 14":
+    do time("televendas")
+    frequencia de 5 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+O objetivo principal desta parametrização é definir as condições de atendimento para diferentes tipos de clientes (inativos, prospects, ativos) e garantir que as agendas sejam geradas de acordo com as preferências e necessidades comerciais. As regras definem a frequência de contato, os dias da semana e a preferência de atendimento para cada tipo de cliente.
+
+### 2. Público Afetado
+
+Este sistema afeta todas as carteiras de clientes, tanto televendas quanto de campo, e todos os vendedores associados a essas carteiras. As regras são aplicadas automaticamente e podem ser sobrescritas pelos vendedores e supervisores conforme necessário.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas às carteiras de clientes definidas no Govendas. Elas são ativadas ou desativadas através do sistema, e as regras são executadas de acordo com o tipo de execução definido (por exemplo, diariamente, a cada hora, etc.).
+
+### 4. Comportamento Configurado
+
+As regras configuram o comportamento de atendimento para diferentes tipos de clientes:
+
+- **Clientes Inativos**: São marcados para não aparecerem na agenda se estiverem inativos há mais de 90 dias. As regras definem a frequência de contato (30 dias, 15 dias, 7 dias, 5 dias) dependendo do ramo de atividade.
+  
+- **Prospects**: São marcados para receberem contato a cada 30 dias, com uma frequência de preferência nos dias úteis.
+  
+- **Ativos**: São marcados para receberem contato a cada 30 dias, com uma frequência de preferência nos dias úteis, exceto para alguns ramos de atividade que têm uma frequência de 15 dias ou 7 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Cliente**: As regras de parametrização não podem ser aplicadas simultaneamente com a regra de não agendamento para o mesmo cliente. Por exemplo, se um cliente estiver marcado para não aparecer na agenda, as regras de frequência e preferência não podem ser aplicadas.
+
+- **Restrições de Horário**: As regras de agendamento podem ser aplicadas apenas nos dias úteis e a partir de certas horas (geralmente após 7h da manhã).
+
+- **Exceções**: Algumas regras específicas podem ser aplicadas em situações excepcionais, como a configuração de roteirização fixa para clientes do campo.
+
+- **Observações**: É importante notar que algumas regras podem ser aplicadas em conjunto, mas a ordem de aplicação é crucial. Por exemplo, se houver uma regra que exclui determinados vendedores, ela deve ser aplicada antes das regras que definem a frequência de atendimento.
+
+- **Limitações**: Não é possível definir simultaneamente uma regra de não agendamento e uma regra de frequência ou preferência

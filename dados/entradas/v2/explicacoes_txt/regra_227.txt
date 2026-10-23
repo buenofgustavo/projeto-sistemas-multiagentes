@@ -1,0 +1,76 @@
+ARQUIVO ORIGINAL: regra_227.gobr
+ID: regra_227
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Copiado da contas SIM Lubrificantes
+### Solicitação: 
+version 1.0
+
+## Definição de times
+
+time "felipe":
+    vendedores todostelevendas ativados menos("518", "519", "521", "626", "503", "624", "623")
+
+## Regras de planejamento
+
+parametros "Cobertura de rota de visita exatamente 7 dias depois":
+    do time("felipe")
+    quando data da rota ha 7 dias atras
+    frequencia de 1 dia
+    fixo
+    
+parametros "Não agendar clientes com compra em 30 dias (Ativos)":
+    do time("felipe")
+    quando recencia de positivacao global em 30 dias
+    nao agendar
+ 
+parametros "Freq. de 60d para clientes que nunca compraram (Prospects)":
+    do time("felipe")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 60 dias
+
+parametros "Freq. de 15d para clientes com compra entre 30 e 90 dias (Ativos)":
+    do time("felipe")
+    quando recencia de positivacao global entre 30 dias e 90 dias
+    frequencia de 15 dias
+
+parametros "Freq. de 10d para clientes sem compra em 90 dias (Inativos)":
+    do time("felipe")
+    frequencia de 10 dias
+
+parametros "Nao agendar clientes nao cobertos pelas regras":
+    do time("felipe")
+    nao agendar
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+O objetivo principal dessa parametrização GoBR é definir estratégias de atendimento e rotina de visitas para clientes de acordo com diferentes critérios de ativação e inativação. As regras definem quando e como os vendedores devem visitar seus clientes, garantindo que os clientes ativos recebam atenção regularmente, enquanto os inativos recebem menos contato.
+
+### 2. Público Afetado
+
+As regras afetam todos os clientes que estão associados a um time específico, como televendas, campo, supervisores, etc. Elas definem como esses clientes devem ser atendidos, considerando fatores como recência de compra, recência de visita, e outros indicadores de ativação.
+
+### 3. Condições de Aplicação
+
+As regras de aplicação são definidas de acordo com o tempo relativo à data da rota de visita. Por exemplo, a regra "Freq. de 7 dias para clientes ativos" afeta os clientes que foram visitados há exatamente 7 dias. Outras regras definem intervalos de tempo mais longos, como 30 dias, 60 dias, 90 dias, e 15 dias.
+
+### 4. Comportamento Configurado
+
+- **Freq. de 7 dias para clientes ativos**: Clientes que foram visitados há exatamente 7 dias recebem uma parametrização de frequência diária.
+- **Freq. de 30 dias para clientes inativos**: Clientes que não fizeram compras há mais de 30 dias recebem uma parametrização de frequência mensal.
+- **Freq. de 60 dias para clientes inativos**: Clientes que não fizeram compras há mais de 60 dias recebem uma parametrização de frequência semanal.
+- **Freq. de 15 dias para clientes inativos**: Clientes que não fizeram compras há mais de 15 dias recebem uma parametrização de frequência quinzenal.
+- **Freq. de 10 dias para clientes inativos**: Clientes que não fizeram compras há mais de 10 dias recebem uma parametrização de frequência diária.
+- **Nao agendar clientes inativos**: Clientes que não fizeram compras há mais de 90 dias não são agendados para visitas.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: As regras de aplicação são definidas de acordo com o tempo relativo à data da rota de visita. Não há restrições específicas mencionadas que afetem a aplicação direta das regras.
+- **Exceções**: Não há exceções explícitas mencionadas no código fornecido. Todas as regras são aplicadas de acordo com o tempo relativo à data da rota de visita.
+- **Observações**: É importante notar que algumas regras podem ser aplicadas simultaneamente. Por exemplo, a regra "Freq. de 60 dias para clientes inativos" pode

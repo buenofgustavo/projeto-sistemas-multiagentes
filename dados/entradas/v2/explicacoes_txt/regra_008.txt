@@ -1,0 +1,80 @@
+ARQUIVO ORIGINAL: regra_008.gobr
+ID: regra_008
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time interior":
+    vendedores porid("35", "34")
+
+time "time capital":
+    vendedores todosdecampo menos("35", "34")
+    
+carteira "carteira capital":
+    clientes carteirafixa("time capital")
+
+carteira "carteira interior":
+    clientes carteirafixa("time interior")
+
+## REGRAS TIME EXTERNO CAPITAL
+parametros "Regra Padrao da NB PI Customizavel: 14 dias para adimplentes (Capital)":
+    da carteira("carteira capital")
+    quando adimplentes
+    frequencia de 14 dias
+    
+parametros "Regra Padrao da NB PI Customizavel: 14 dias para clientes sem venda (Capital)":
+    da carteira("carteira capital")
+    quando sem venda
+    frequencia de 14 dias
+
+parametros "Regra Padrao da NB PI Customizavel: 30 dias para inadimplentes (Capital)":
+    da carteira("carteira capital")
+    quando inadimplentes
+    frequencia de 30 dias
+    
+## REGRAS TIME EXTERNO INTERIOR
+parametros "Regra Padrao da NB PI Customizavel: 30 dias para todos os clientes (Interior)":
+    da carteira("carteira interior")
+    frequencia de 30 dias
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento para diferentes carteiras de clientes, com foco em clientes adimplentes e inadimplentes, além de clientes em ruptura de visita. As regras são aplicadas de acordo com o tempo de inadimplência e a frequência de visita, garantindo que os vendedores tenham uma rotina de trabalho eficiente.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores, supervisores e administradores do sistema, que utilizam as carteiras e segmentações para planejar e executar campanhas de vendas e promoções.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todas as carteiras e segmentações definidas no sistema, independentemente do tipo de cliente (adimplentes, inadimplentes, em ruptura de visita) e do período de tempo (tempo interno, tempo externo).
+
+### 4. Comportamento Configurado
+
+- **Cadeia de Carteiras**: 
+  - **Cadeia de tempo interno**: Os clientes adimplentes são incluídos na carteira "carteira interior". 
+  - **Cadeia de tempo externo**: Os clientes adimplentes são incluídos na carteira "carteira capital". 
+  - **Cadeia de tempo externo com ruptura**: Os clientes em ruptura de visita são incluídos na carteira "vendedor 1020".
+
+- **Parametrização de Frequência**:
+  - **Adimplentes**: Adimplentes recebem parametrizações com frequência de 14 dias para o período de 14 dias e 30 dias para o período de 30 dias.
+  - **Inadimplentes**: Inadimplentes recebem parametrizações com frequência de 30 dias.
+  - **Clientes em Ruptura de Visita**: Clientes em ruptura de visita recebem parametrizações com frequência de 1 mês.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Cliente**:
+  - **Unicidade de Cliente**: Um mesmo cliente não pode aparecer em mais de uma carteira de forma exclusiva. Por exemplo, um cliente em ruptura não pode estar na carteira dos televendas e na carteira do vendedor avulso ao mesmo tempo.
+  
+- **Exceções**:
+  - **Cadeia de Carteiras**: A cadeia de carteiras permite que clientes em ruptura sejam incluídos em várias carteiras, mas não em todas ao mesmo tempo. Por exemplo, um cliente em ruptura pode estar na carteira dos televendas e na carteira do vendedor avulso, mas não na carteira do campo.
+  
+- **Observações**:
+  - **Segmentação Auxiliar**: A segmentação auxiliar é usada para agrupar clientes adimplentes, permitindo que eles sejam incluídos em várias carteiras.
+  - **Cadeia de Times**: Os times podem ter múltiplas linhas de v

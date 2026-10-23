@@ -1,0 +1,40 @@
+Objetivo Comercial
+
+O objetivo principal desta parametrização é definir prazos de contato e preferências de dias para diferentes tipos de clientes, dependendo do vendedor e da carteira. Isso visa otimizar o tempo de contato e melhorar a eficiência das ações de vendas.
+Público Afetado
+
+- Vendedores: Todas as carteiras de televendas e campo.
+- Clientes: Todos os clientes incluídos nas carteiras definidas.
+Condições de Aplicação
+
+- As regras são aplicáveis a clientes adimplentes, inadimplentes, inativos adimplentes e inativos inadimplentes.
+- As regras são específicas para carteiras de televendas e carteiras de campo.
+- As regras são personalizadas para cada vendedor, podendo variar dependendo do time de supervisão.
+Comportamento Configurado
+
+- Televendas:
+  - Adimplentes: Ativos para o vendedor e adimplentes recebem parametrizações de 14 dias.
+  - Inadimplentes: Ativos para o vendedor e inadimplentes recebem parametrizações de 30 dias.
+  - Inativos Adimplentes: Inativos para o vendedor e adimplentes recebem parametrizações de 30 dias.
+  - Inativos Inadimplentes: Inativos para o vendedor e inadimplentes recebem parametrizações de 60 dias.
+  - Sem Venda: Sem venda recebem parametrizações de 30 dias.
+  
+- Campo:
+  - Adimplentes: Adimplentes recebem parametrizações de 14 dias.
+  - Inadimplentes: Inadimplentes recebem parametrizações de 30 dias.
+  - Sem Venda: Sem venda recebem parametrizações de 30 dias.
+Restrições, Exceções e Observações
+
+- Restrições:
+  - Unicidade de Fonte de Clientes: Uma carteira só pode ser alimentada por uma única segmentação.
+  - Separação de Carteiras: Para evitar conflitos, as carteiras de televendas e campo podem ser separadas.
+  - Filtragem de Clientes: É possível combinar múltiplos filtros para restringir a aplicação das regras.
+  - Parametrização Dinâmica: É possível ajustar a frequência e preferência de dias com base no histórico do vendedor.
+  - Alertas: Alertas podem ser configurados para notificar sobre clientes em ruptura de positivação.
+
+- Exceções:
+  - Clientes em Ruptura: Clientes em ruptura podem aparecer em várias carteiras, dependendo da configuração.
+  - Parametrização Personalizada: As parametrizações podem ser personalizadas para cada vendedor e carteira.
+
+- Observações:
+  - Segurança de Contato: As parametrizações garantem que os clientes recebam contatos em dias úteis, evitando

@@ -1,0 +1,47 @@
+1. Objetivo Comercial
+
+O objetivo principal desta parametrização é definir estratégias de agendamento e atendimento para clientes de diferentes ramos e situações comerciais. As regras são direcionadas para vendedores e visam otimizar o tempo de contato com os clientes, garantindo que os vendedores atendam a clientes ativos, inativos, com vendas recentes ou sem vendas em um período específico.
+2. Público Afetado
+
+As regras afetam todos os vendedores que fazem parte do time "todos os vendedores". Elas são aplicadas a clientes de diferentes ramos, como Distribuidor, e a clientes ativos, inativos, com vendas recentes ou sem vendas em um período específico.
+3. Condições de Aplicação
+
+As regras são aplicadas conforme as seguintes condições:
+
+- Parametros "Ramo distribuidor sem vendas em 60 dias": 
+  - Aplica-se a todos os vendedores.
+  - Filtra clientes ativos no ramo de Distribuidor.
+  - Filtra clientes que não fizeram vendas nos últimos 60 dias.
+  - Frequência de agendamento é quinzenal.
+
+- Parametros "Compra com regularidade":
+  - Aplica-se a todos os vendedores.
+  - Filtra clientes que não fizeram compras há 10 dias e têm frequência histórica menor que 7 dias.
+  - Frequência de agendamento é de 21 dias.
+
+- Parametros "Não agendar ramo distribuidor com vendas em 60 dias":
+  - Aplica-se a todos os vendedores.
+  - Filtra clientes ativos no ramo de Distribuidor.
+  - Não agendam clientes que fizeram vendas nos últimos 60 dias.
+
+- Parametros "Ativos e sem vendas em 30 dias":
+  - Aplica-se a todos os vendedores.
+  - Filtra clientes ativos que não fizeram vendas nos últimos 30 dias.
+  - Frequência de agendamento é quinzenal.
+
+- Parametros "Não agendar ativos com vendas em 30 dias":
+  - Aplica-se a todos os vendedores.
+  - Filtra clientes ativos que fizeram vendas nos últimos 30 dias.
+  - Não agendam esses clientes.
+
+- Parametros "Clientes inativos e prospects":
+  - Aplica-se a todos os vendedores.
+  - Filtra clientes inativos ou prospects.
+  - Frequência de agendamento é mensal.
+4. Comportamento Configurado
+
+- Parametros "Ramo distribuidor sem vendas em 60 dias": 
+  - Os vendedores são agendados para visitar clientes ativos no ramo de Distribuidor que não fizeram vendas nos últimos 60 dias, com uma frequência de quinzenal.
+
+- Parametros "Compra com regularidade": 
+  - Os vendedores são agendados para visitar clientes que não fizeram

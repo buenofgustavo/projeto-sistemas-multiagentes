@@ -1,0 +1,31 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir regras de frequência e prioridades para ações de vendas, tanto para clientes ativos quanto inativos, bem como para clientes sem vendas. As regras são aplicadas de acordo com o tempo de inatividade do cliente e a frequência de contato desejada. Além disso, há regras específicas para clientes adimplentes e inadimplentes, além de regras de preferência de dia da semana.
+2. Público Afetado
+
+As regras de parametrização GoBR afetam principalmente os vendedores e as carteiras de clientes. Elas são direcionadas a vendedores de televendas e de campo, bem como a carteiras de clientes adimplentes e inadimplentes. 
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com o tempo de inatividade do cliente e a frequência de contato desejada. As regras são específicas para clientes ativos e inativos, além de clientes sem vendas. As regras também permitem a configuração de preferência de dia da semana.
+4. Comportamento Configurado
+Regras de Frequência
+
+- Regra Padronizada: 
+  - Televendas: Ativos para 14 dias, Inativos para 60 dias, Sem Vendas para 14 dias.
+  - Campo: Ativos Adimplentes para 7 dias, Ativos Inadimplentes para 14 dias, Inativos Adimplentes para 30 dias, Inativos Inadimplentes para 60 dias, Sem Vendas para 14 dias.
+
+- Parametrização Personalizada:
+  - Televendas: Ativos para 14 dias, Inativos para 60 dias, Sem Vendas para 14 dias.
+  - Campo: Ativos Adimplentes para 7 dias, Ativos Inadimplentes para 14 dias, Inativos Adimplentes para 30 dias, Inativos Inadimplentes para 60 dias, Sem Vendas para 14 dias.
+Preferência de Dia da Semana
+
+- Televendas: Preferência de visita nos dias úteis.
+- Campo: Preferência de visita nos dias úteis.
+Carteiras Livres
+
+- Carteira Livre de Ruptura: Clientes em ruptura podem aparecer em várias carteiras, como carteira fixa de televendas ou carteira de campo.
+5. Restrições, Exceções e Observações
+
+- Restrição de Carteira Livre: Clientes em ruptura podem aparecer em várias carteiras, mas não podem ser excluídos de uma carteira para serem incluídos em outra.
+- Exclusão de Vendedores: Um mesmo vendedor pode aparecer em múltiplos times, mas será contabilizado apenas uma vez.
+- Sem Choque de Carteira: A preferência de dias de televendas não deve coincidir com a dos vendedores de

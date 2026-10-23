@@ -1,0 +1,113 @@
+ARQUIVO ORIGINAL: regra_178.gobr
+ID: regra_178
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://govendas-team.atlassian.net/jira/software/c/projects/CS/boards/356?selectedIssue=CS-94
+version 1.0
+
+## Definição de times
+
+time "televendas_1":
+    vendedores todostelevendas ativados
+
+time "televendas_2":
+    vendedores porid("48")
+
+
+# BLOQUEIO INICIAL
+############################################################
+
+parametros "Não agendar clientes baixados na receita":
+    do time("televendas_1")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Clientes que nunca compraram com a empresa":
+    do time("televendas_2")
+    quando cadastrado faz 7 dias
+    nao agendar
+
+parametros "Não agendar clientes com compra recente":
+    do time("televendas_1")
+    quando recencia de positivacao em 39 dias
+    nao agendar
+
+# PARAMETRIZAÇÕES
+############################################################
+
+parametros "Tentativa final":
+    do time("televendas_2")
+    quando cadastrado faz 60 dias
+    frequencia de 30 dias
+
+parametros "Lead frio":
+    do time("televendas_2")
+    quando cadastrado faz 30 dias
+    frequencia de 20 dias
+
+parametros "Lead morno":
+    do time("televendas_2")
+    quando cadastrado faz 15 dias
+    frequencia de 15 dias
+
+parametros "Follow-up":
+    do time("televendas_2")
+    quando cadastrado faz 8 dias
+    frequencia de 15 dias
+
+parametros "Estimular recompra":
+    do time("televendas_1")
+    quando recencia de positivacao entre 40 dias e 89 dias
+    frequencia de 15 dias
+
+parametros "Reativação moderada":
+    do time("televendas_1")
+    quando recencia de positivacao entre 90 dias e 119 dias
+    frequencia de 7 dias
+
+parametros "Reativação intensa":
+    do time("televendas_1")
+    quando recencia de positivacao entre 120 dias e 359 dias
+    frequencia de 7 dias
+
+parametros "Resgate crítico":
+    do time("televendas_1")
+    quando fora da recencia de positivacao em 359 dias
+    frequencia de 7 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de vendas e agendamentos para diferentes tipos de clientes, baseando-se em diversos critérios como recência de compra, recência de visita, status de adimplemento e outros. Ela é direcionada para vendedores específicos e tem como objetivo otimizar o tempo e recursos de vendas, garantindo que os clientes recebam a atenção adequada.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores e supervisores envolvidos na gestão de clientes, bem como os sistemas de agendamento e alertas de vendas. As regras são aplicadas a clientes específicos, dependendo do vendedor e do time de supervisão.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- **Vendedores**: São especificados em cada bloco de regras, podendo ser todos os vendedores de um time ou específicos.
+- **Times**: São definidos por nomes, como "televendas_1", "televendas_2", "supervisor marcos", "supervisor maria", "vendedor avulso", etc.
+- **Clientes**: São filtrados com base em critérios como recência de compra, recência de visita, status de adimplemento, etc.
+- **Frequência e Preferência**: São definidos para cada grupo de clientes, indicando quantas vezes devem ser agendados e em quais dias da semana.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Não Agendar**: Quando uma condição específica é atendida, como clientes baixados na Receita Federal, clientes que nunca compraram, clientes com compra recente, clientes com recência de positivacao entre 40 e 89 dias, entre outros.
+- **Parametrização de Frequência e Preferência**: Define a frequência com que os clientes devem ser agendados e em quais dias da semana, como "semanal", "mensal", "trimestral", etc., com preferências específicas para certos dias da semana.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: As regras GoBR permitem que um mesmo vendedor apareça em múltiplos times, mas deve ser contabilizado apenas uma vez. Além disso, os nomes dos times devem ser únicos.
+- **Exceções**: Algumas regras podem não ser mutuamente exclusivas. Por exemplo, um cliente pode ser classificado como "Lead frio" e "Lead morno" simultaneamente, dependendo das condições específicas.
+- **Observações**: É importante notar que algumas regras ainda estão em desenvolvimento, como "cadastrados no Govendas", "não cadastrados no Govendas", "com muitos clientes", "com poucos clientes", "junto a supervisor com poucos vendedores", etc.
+- **Ambiguidades**: Há ambiguid

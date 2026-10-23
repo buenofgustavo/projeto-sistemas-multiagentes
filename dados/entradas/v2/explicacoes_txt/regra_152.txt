@@ -1,0 +1,100 @@
+ARQUIVO ORIGINAL: regra_152.gobr
+ID: regra_152
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Regras para Br Distribuidora
+### Última atualização: 2026-02-02
+### Solicitação: https://govendas-team.atlassian.net/browse/IMP-380
+version 1.0
+
+#
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+
+parametros "Nunca fez pedido com o vendedor (prospect)":
+    do time("televendas")
+    quando no ciclo de vida prospect com o vendedor
+    frequencia de 7 dias
+
+
+parametros "Tirou o primeiro pedido com o vendedor":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 7 dias
+
+
+parametros "Teve pedido entre 0 e 7 dias":
+    do time("televendas")
+    quando recencia de positivacao em 7 dias
+    frequencia de 14 dias
+
+parametros "Teve pedido entre 7 e 30 dias":
+    do time("televendas")
+    quando recencia de positivacao entre 7 dias e 30 dias
+    frequencia de 14 dias
+
+
+parametros "Teve pedido entre 30 e 60 dias":
+    do time("televendas")
+    quando recencia de positivacao entre 30 dias e 60 dias
+    frequencia de 14 dias
+
+
+parametros "Teve pedido entre 60 e 90 dias":
+    do time("televendas")
+    quando recencia de positivacao entre 60 dias e 90 dias
+    frequencia de 7 dias
+
+parametros "Teve pedido há 90 dias ou mais":
+    do time("televendas")
+    frequencia de 7 dias 
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal desta parametrização é definir estratégias de vendas e contato com clientes de acordo com o histórico de compra e visita. As regras são direcionadas para vendedores específicos, clientes e carteiras de vendas, visando otimizar o tempo e recursos de vendas.
+
+### Público Afetado
+
+As regras afetam principalmente os vendedores, clientes e carteiras de vendas. Elas são direcionadas para:
+
+- **Vendedores**: Televendas, Supervisores, Vendedores Avulsos.
+- **Clientes**: Ativos, Inativos, Prospectos.
+- **Carteiras de Vendas**: Televendas Fixa com Ruptura de Campo, Carteira Livre, Carteira do Vendedor Avulso.
+
+### Condições de Aplicação
+
+As regras são aplicáveis a clientes que atendem a uma série de condições, como:
+
+- **Recência de Posicionamento**: Intervalos de tempo entre compras.
+- **Recência de Visita**: Intervalos de tempo entre visitas.
+- **Status de Adimplemento**: Ativos, Inativos, Prospectos.
+- **Tempo de Inatividade**: Intervalos de tempo desde a última compra ou visita.
+
+### Comportamento Configurado
+
+As regras configuram comportamentos específicos para diferentes grupos de clientes e vendedores, como:
+
+- **Parametrização de Frequência**: Define a frequência com que clientes devem ser contatados.
+- **Criação de Carteiras**: Organiza clientes em diferentes carteiras com base em regras específicas.
+- **Alertas**: Dispara alertas para casos de inadimplemento ou ruptura de positivação.
+
+### Restrições, Exceções e Observações
+
+- **Restrições de Vendedores**: Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, mas será contabilizado apenas uma vez.
+- **Unicidade de Clientes**: Clientes não podem ser repetidos em diferentes carteiras.
+- **Referências de Times**: Os nomes dos times devem ser únicos.
+- **Exclusão de Clientes**: Clientes inativos há mais de 90 dias são excluídos de carteiras fixas.
+- **Combinação de Filtros**: Filtros como `ativos`, `recencia de visita` e `inativos` podem ser combinados.
+- **Segmentação**: É possível criar segmentações intermediárias para incluir clientes em diferentes carteiras.
+- **Limitações de Regras**: Não é possível aplicar regras diretamente a um vendedor individual; elas devem ser aplicadas a um time.
+
+Essas regras permitem uma gestão eficiente e personalizada de vendas, garantindo que os vendedores estejam focados em clientes relevantes e que os clientes recebam contatos adequados.

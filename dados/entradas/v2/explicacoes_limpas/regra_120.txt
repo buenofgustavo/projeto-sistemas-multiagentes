@@ -1,0 +1,22 @@
+1. Objetivo Comercial
+
+O objetivo principal desta parametrização GoBR é otimizar a rotina de visitas e ligações dos vendedores, garantindo que eles atendam a um conjunto diversificado de clientes conforme suas respectivas carteiras. As regras definem a frequência e os dias específicos em que os vendedores devem realizar visitas ou ligações, garantindo que nenhum cliente fique sem atendimento por muito tempo.
+2. Público Afetado
+
+As regras afetam diretamente os vendedores e os clientes. Os vendedores são responsáveis por cumprir essas parametrizações, enquanto os clientes são os beneficiários dessa otimização, recebendo visitas e ligações de acordo com as regras estabelecidas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas às carteiras de clientes de acordo com o tempo em que o vendedor atua. Por exemplo, vendedores ativos em "Yasmim" têm regras diferentes do que os vendedores ativos em "televendas". Além disso, as regras são aplicadas às carteiras de clientes "televendas", "interior" e "capital", cada uma com suas próprias especificidades.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR varia significativamente. Algumas regras determinam que certos clientes não devem ser agendados (por exemplo, clientes da própria carteira do vendedor em "Yasmim"). Outras regras definem a frequência e a preferência de dias para visitas e ligações, como "14 dias para clientes ativos (televendas)" e "21 dias para clientes ativos adimplentes (capital)". 
+5. Restrições, Exceções e Observações
+
+- Restrições: As regras GoBR são aplicadas apenas aos clientes que ainda não possuem parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores. Portanto, clientes que já tenham sido configurados manualmente não serão afetados por essas regras.
+  
+- Exceções: Algumas regras GoBR podem ser sobrescritas pelos ajustes finos dos vendedores e supervisores quando necessário. Por exemplo, a regra "Regra Padrao da IdealPet: Nao agendar clientes de carteira propria para RCA 12" pode ser alterada pelo vendedor ou supervisor.
+
+- Observações: As regras GoBR são aplicadas após a definição do time ou carteira de clientes. Elas podem ser filtradas por dias do mês, dia da semana, semana do mês, mês do ano e horário. Além disso, algumas regras GoBR podem evitar conflitos entre diferentes times de vendedores, garantindo que nenhum cliente receba visitas ou ligações simultaneamente de vários times.
+Resumo
+
+As regras GoBR são uma ferramenta poderosa para otimizar

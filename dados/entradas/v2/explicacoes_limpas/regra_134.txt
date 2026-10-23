@@ -1,0 +1,24 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir uma frequência de contato para clientes inativos, com a intenção de reativar vendas e manter relacionamentos comerciais. Esta regra é aplicada a todas as empresas, independentemente do vendedor ou carteira específica.
+2. Público Afetado
+
+Este regra afeta todos os clientes inativos das carteiras de todas as empresas. As regras são aplicadas independentemente do vendedor ou carteira específica, abrangendo todos os clientes inativos.
+3. Condições de Aplicação
+
+- Time: Todas as empresas.
+- Público: Clientes inativos.
+- Frequência: A regra aplica-se a todos os clientes inativos há pelo menos 90 dias.
+- Parametrização: A frequência de contato é definida como 15 dias.
+4. Comportamento Configurado
+
+- Cliente Inativo: Todos os clientes que não realizaram compras há pelo menos 90 dias são considerados inativos.
+- Frequência de Contato: Os clientes inativos recebem uma parametrização de frequência de contato de 15 dias.
+5. Restrições, Exceções e Observações
+
+- Restrição: A regra não define exceções para clientes específicos ou carteiras individuais.
+- Exceção: Não há exceções mencionadas para clientes que já tenham sido reativados ou que estejam em processos de reativação.
+- Observação: A regra é aplicada de forma uniforme a todos os clientes inativos, independentemente de sua carteira ou vendedor.
+Resumo
+
+Esta parametrização GoBR define uma política de contato para clientes inativos, garantindo que todos os clientes inativos há pelo menos 90 dias recebam uma parametrização de frequência de contato de 15 dias. A aplicação é universal, abrangendo todas as empresas e carteiras, sem exceções.

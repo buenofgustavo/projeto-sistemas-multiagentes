@@ -1,0 +1,123 @@
+ARQUIVO ORIGINAL: regra_214.gobr
+ID: regra_214
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7712865010
+version 1.0
+
+## Definição de times:
+
+time "televendas":
+    vendedores todostelevendas
+
+## Regras de não agendamento:
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+## Regras de agendamento:
+
+parametros "Freq. de 14d para 'Cliente sem pedido com o vendedor'":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 21d para 'Ativado: fez um pedido e ainda não comprou mais'":
+    do time("televendas")
+    quando unica compra com o vendedor
+        e recencia de positivacao em 30 dias
+        e ramo de atividade igual("29")
+    frequencia de 21 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 14d para 'Ativado: fez um pedido e ainda não comprou mais'":
+    do time("televendas")
+    quando unica compra com o vendedor
+        e recencia de positivacao em 30 dias
+        e ramo de atividade diferente("29")
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 10d para 'Ativo: compra regularmente'":
+    do time("televendas")
+    quando ativos para o vendedor 
+        e frequencia historica menor que 14 dias
+    frequencia de 10 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 30d para 'Ativo: estimular a regularidade de compra'":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 21 dias e 59 dias
+        e ramo de atividade igual("29")
+    frequencia de 30 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 14d para 'Ativo: estimular a regularidade de compra'":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 21 dias e 59 dias
+        e ramo de atividade diferente("29")
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 14d para 'Em ruptura: risco de ficar inativo' (RA 29)":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 60 dias e 89 dias
+        e ramo de atividade igual("29")
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 14d para 'Em ruptura: risco de ficar inativo'":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 60 dias e 89 dias
+        e ramo de atividade diferente("29")
+    frequencia de 14 dias
+    preferencia nos dias uteis e no sabado
+
+parametros "Freq. de 10d para 'Resgate de cliente sem compra'":
+    do time("televendas")
+    quando fora da recencia de positivacao do vendedor em 90 dias
+    frequencia de 10 dias
+    preferencia nos dias uteis e no sabado
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de agendamento e parametrização de clientes de acordo com diferentes critérios comerciais. As regras são direcionadas para vendedores de diferentes setores e contextos, visando otimizar a cobertura e a eficiência nas visitas e agendamentos.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores e supervisores responsáveis pela gestão de clientes, bem como os sistemas que utilizam a linguagem gorules para gerar e parametrizar agendas de visitas.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- **Vendedores**: São especificados através do uso do comando `do time(...)`, indicando que as regras se aplicam a um grupo de vendedores.
+- **Frequência de Visita**: As regras definem a frequência com que um cliente deve ser visitado, podendo ser diária, semanal, mensal ou conforme outras periodicidades.
+- **Dias da Semana**: As regras também especificam os dias da semana em que as visitas devem ser feitas, com preferência para dias úteis e, em alguns casos, para sábado.
+- **Adimplemententes**: As regras diferenciam entre clientes adimplemententes e inadimplemententes, aplicando estratégias diferentes para cada grupo.
+- **Recência de Posicionamento**: As regras consideram a recência de positivacao (ou seja, a data em que o cliente foi considerado adimplente) para definir a frequência de visita.
+- **Ramo de Atividade**: Algumas regras diferenciam entre diferentes ramos de atividade, aplicando estratégias específicas para cada ramo.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Agendamento**: Determina a frequência e os dias da semana em que as visitas devem ser agendadas.
+- **Parametrização**: Define como cada cliente deve ser atendido, incluindo a frequência de visita, preferência de dias da semana, roteirização, fixação, etc.
+- **Exclusão de Clientes**: Algumas regras especificam que determinados clientes devem ser excluídos da agenda, como clientes inadimplentes ou inativos há mais de 90 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Vendedores**: Os vendedores devem estar cadastrados no Govendas para que as regras se apliquem a eles.
+- **Unicidade de Vendedores**: Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, mas será contabilizado apenas uma vez.
+- **Referências Únicas**: Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+- **Exclusividade de Carteiras**: As carteiras podem ser separadas para controlar a exclusividade de clientes, garantindo que

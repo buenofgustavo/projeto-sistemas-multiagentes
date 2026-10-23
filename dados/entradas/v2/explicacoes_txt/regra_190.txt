@@ -1,0 +1,109 @@
+ARQUIVO ORIGINAL: regra_190.gobr
+ID: regra_190
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Última atualização: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/6755764186
+version 1.0
+
+time "Televendas":
+    vendedores todos ativados
+
+# Regras do time "Televendas":
+
+parametros "Ases: Freq. de 21d para 'PROSPECT: FAZER O PRIMEIRO PEDIDO'":
+    do time("Televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequência de 21 dias
+
+parametros "Ases: Freq. de 10d para 'ATIVADO: BOAS VINDAS AO CLIENTE COM O PRIMEIRO PEDIDO'":
+    do time("Televendas")
+    quando unica compra com a empresa
+        e cadastrado faz 30 dias
+    frequência de 10 dias
+
+parametros "Ases: Freq. de 7d para 'EM RUPTURA: RISCO DE INATIVIDADE'":
+    do time("Televendas")
+    quando adimplentes
+        e recencia de positivacao entre 61 dias e 90 dias
+    frequência de 7 dias
+
+parametros "Ases: Freq. de 14d 'INATIVOS: RESGATE DE CLIENTES SEM COMPRA'":
+    do time("Televendas")
+    quando adimplentes
+        e no ciclo de vida inativo com a empresa
+    frequência de 14 dias
+
+parametros "Ases: Freq. do histórico para 'ATIVO: COMPRA REGULARMENTE Curva A (com compra no mês)'":
+	do time("Televendas")
+	quando curva A com a empresa
+	    e tem venda no mês
+	frequencia do historico ou no maximo de 30 dias
+
+parametros "Ases: Freq. de 7d para 'ATIVO: COMPRA REGULARMENTE Curva A (sem compra no mês)'":
+	do time("Televendas")
+	quando curva A com a empresa
+	frequencia de 7 dias
+
+parametros "Ases: Freq. do histórico para 'ATIVO: COMPRA REGULARMENTE Curva B (com compra no mês)'":
+	do time("Televendas")
+	quando curva B com a empresa
+	    e tem venda no mês
+	frequencia do historico ou no maximo de 30 dias
+
+parametros "Ases: Freq. de 14d para 'ATIVO: COMPRA REGULARMENTE Curva B (sem compra no mês)'":
+	do time("Televendas")
+	quando curva B com a empresa
+	frequencia de 14 dias
+
+parametros "Ases: Freq. do histórico para 'ATIVO: COMPRA REGULARMENTE Curva C (com compra no mês)'":
+	do time("Televendas")
+	quando tem venda no mês
+	frequencia do historico ou no maximo de 30 dias
+
+parametros "Ases: Freq. de 21d para 'ATIVO: COMPRA REGULARMENTE Curva C (sem compra no mês)'":
+	do time("Televendas")
+	frequencia de 21 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e frequência de vendas para diferentes tipos de clientes, baseando-se em seu ciclo de vida e comportamento. As regras são direcionadas para vendedores e clientes específicos, visando otimizar o uso do tempo e recursos para maximizar as chances de fechar novos negócios.
+
+### 2. Público Afetado
+
+As regras afetam principalmente clientes ativos, inativos, prospectos e que realizaram compras específicas. Elas também envolvem vendedores, especificamente aqueles que atuam nas funções de televendas e supervisão.
+
+### 3. Condições de Aplicação
+
+As regras são aplicadas conforme as seguintes condições:
+
+- **Vendedores**: São especificados em várias linhas, permitindo que diferentes regras se apliquem a diferentes grupos de vendedores.
+- **Clientes**: São filtrados com base em vários critérios, como ciclo de vida, recência de compra, frequência de visita e outros.
+- **Horários**: As regras são ativadas nos dias úteis e a partir das 7h, garantindo que as ações sejam realizadas durante o horário comercial.
+
+### 4. Comportamento Configurado
+
+As regras configuram o comportamento de contato e frequência de vendas de acordo com o tipo de cliente e o vendedor:
+
+- **Prospect**: Clientes que ainda não fizeram compras com a empresa.
+- **Ativado**: Clientes que fizeram sua primeira compra.
+- **Em Ruptura**: Clientes que não fizeram compras há mais de 60 dias.
+- **Inativo**: Clientes que não fizeram compras há mais de 30 dias.
+- **Curva A**: Clientes que compraram no mês corrente.
+- **Curva B**: Clientes que compraram no mês anterior.
+- **Curva C**: Clientes que compraram há mais de um mês.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Vendedores**: Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, permitindo que diferentes regras se apliquem a ele.
+- **Unicidade de Vendedores**: Um vendedor só é contabilizado uma vez por time, mesmo que apareça em várias linhas.
+- **Referências de Times**: Os nomes dos times devem ser únicos entre si.
+- **Parametrização Manual**: Algumas regras permitem que o usuário faça parametrizações manuais, diferentemente das regras automáticas.
+- **Frequência de Contato**: A frequência de contato varia de 7 dias a 35 dias, dependendo do tipo de cliente e do comportamento.
+- **Cadeia de Dependência**: Algumas regras dependem de outras, como a parametrização de frequência que pode ser baseada em frequência histórica ou em parâmetros específicos.
+- **Exclusão de Vendedores**: Há regras

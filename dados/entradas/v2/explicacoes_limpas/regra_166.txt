@@ -1,0 +1,25 @@
+1. Objetivo Comercial
+
+A parametrização GoBR visa definir estratégias de atendimento para clientes específicos, garantindo que os vendedores tenham uma rotina eficiente e focada. As regras definem quando e como os clientes devem ser visitados, evitando agendamentos desnecessários e garantindo que os vendedores estejam sempre preparados para atender seus clientes.
+2. Público Afetado
+
+Este sistema afeta diretamente os vendedores e supervisores responsáveis por gerenciar a rotina de visitas aos clientes. Também afeta os clientes, pois as regras definem quando e como eles serão atendidos.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente para clientes que ainda não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores. Elas são aplicadas para clientes da carteira "carteira televendas".
+4. Comportamento Configurado
+Regras de Não Agendamento
+
+- Nordil PB: Não agendar clientes DH com crédito igual ou menor que R$0,00 (televendas): Se o cliente for do tipo de cobrança "DH" e tiver crédito igual ou menor a zero, não será agendado.
+- Nordil PB: Não agendar clientes BK com crédito menor que R$200,00 (televendas): Se o cliente for do tipo de cobrança "BK" e tiver menos de R$199 de crédito disponível, não será agendado.
+- Nordil PB: Não agendar clientes inadimplentes (televendas): Se o cliente estiver inadimplente, não será agendado.
+Regras de Agendamento
+
+- Nordil PB: Frequência de 7d para clientes ativos/adimplentes (televendas): Se o cliente for ativo e adimplente, será agendado com frequência de 7 dias.
+- Nordil PB: Frequência de 14d para clientes inativos/adimplentes (televendas): Se o cliente for inativo e adimplente, será agendado com frequência de 14 dias.
+- Nordil PB: Frequência de 14d para clientes sem venda (televendas): Se o cliente não tiver realizado vendas em 21 dias, será agendado com frequência de 14 dias.
+5. Restrições, Exceções e Observações
+
+- Restrições: As regras de não agendamento aplicam-se apenas a clientes com tipos de cobrança específicos ("DH" e "BK"). Clientes inadimplentes também são excluídos.
+- Exceções: As regras de agendamento permitem que clientes ativos e adimplentes sejam agendados com frequências variadas (7 dias, 14 dias) dependendo de sua situação.
+- Observações: As regras de parametrização GoBR não sobrepõem parametriza

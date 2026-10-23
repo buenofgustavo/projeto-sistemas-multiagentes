@@ -1,0 +1,33 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa otimizar o atendimento comercial, definindo estratégias de frequência, preferência de dias e outros parâmetros de atendimento para diferentes grupos de clientes. Isso permite que as equipes de vendas atendam de maneira eficiente e personalizada, maximizando o retorno sobre investimento (ROI).
+2. Público Afetado
+
+Este sistema afeta diretamente os vendedores, supervisores e gestores responsáveis por atender a carteira de clientes. Também afeta os clientes, que serão atendidos de acordo com as regras definidas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente às carteiras de clientes conforme as definições de tempo, segmentação e carteira. As condições de aplicação incluem:
+
+- Tempo: Definidas por grupos de vendedores (como televendas, campo, etc.) e podem ser ativadas ou desativadas dependendo do ramo de atividade do cliente.
+- Carteira: Definidas por grupos de clientes (como carteira fixa, ruptura de campo, etc.) e podem ser filtradas por inatividade, positivação, visita, etc.
+- Segmentação: Usadas para agrupar clientes de maneira auxiliar, permitindo que eles sejam tratados de maneira similar.
+4. Comportamento Configurado
+
+O comportamento configurado inclui:
+
+- Não Agendamento: Clientes cujo ramo de atividade não está entre 12, 13, 14, 15, 16, 17, 18 e 19 não são agendados.
+- Agendamento: Clientes cujo ramo de atividade é 12 são agendados com frequência de 7 dias; clientes cujo ramo de atividade é 13, 14, 15, 16, 17, 18 ou 19 são agendados com frequência de 14 dias.
+5. Restrições, Exceções e Observações
+
+- Restrições: 
+  - Um mesmo vendedor pode aparecer em múltiplos times, mas só será contabilizado uma vez.
+  - Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+  - Os vendedores referenciados devem estar cadastrados no Govendas.
+  
+- Exceções:
+  - Algumas regras específicas, como "cadastrados no Govendas", "não cadastrados no Govendas", "com muitos clientes", "com poucos clientes", "junto a supervisor com poucos vendedores", etc., ainda não foram implementadas.
+  
+- Observações:
+  - As regras de parametrização podem ser sobrescritas pelos ajustes finos dos vendedores e supervisores quando necessário.
+  - A remoção de agendamento é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias.
+  - A semana pivot

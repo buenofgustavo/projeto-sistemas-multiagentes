@@ -1,0 +1,100 @@
+ARQUIVO ORIGINAL: regra_222.gobr
+ID: regra_222
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7846202946
+version 1.0
+
+# Definição dos times:
+
+time "ruptura_global":
+    vendedores porid("8506","8507","8508","8509","8512")
+
+time "carteira":
+    vendedores porid("602","607","8406")
+    
+# Regras do time "ruptura_global":
+
+parametros "Freq. de 14d para 'Sem venda há mais de 30d'":
+    do time("ruptura_global")
+    quando adimplentes
+        e nao tem venda em 30 dias
+        e ramo de atividade igual("6","7","8","10","28","32","33","37","38","40","41","42")
+    frequencia de 14 dias
+
+parametros "Freq. de 14d para 'Sem venda há mais de 45d'":
+    do time("ruptura_global")
+    quando adimplentes
+        e fora da recencia de positivacao em 45 dias
+        e ramo de atividade igual("1","2","3","4","11","12","13","14","15","16","17","18","19","20","21","22",
+                                    "23","24","25","26","27","29","30","31","34","35","36","39","50","99")
+    frequencia de 14 dias
+
+# Regras do time "carteira":
+
+parametros "Freq. de 14d para curva A e com compra em 90 dias":
+    do time("carteira")
+    quando recencia de positivacao em 90 dias
+        e curva A com a empresa
+    frequencia de 14 dias
+
+parametros "Freq. de 21d para curva B e com compra em 90 dias":
+    do time("carteira")
+    quando recencia de positivacao em 90 dias
+        e curva B com a empresa
+    frequencia de 21 dias
+
+parametros "Freq. de 28d para curva C e com compra em 90 dias":
+    do time("carteira")
+    quando recencia de positivacao em 90 dias
+        e curva C com a empresa
+    frequencia de 28 dias
+
+parametros "Freq. de 21d para sem classificação de curva e com compra em 90 dias":
+    do time("carteira")
+    quando recencia de positivacao em 90 dias
+    frequencia de 21 dias
+
+parametros "Freq. de 21d para sem compra há mais de 90 dias":
+    do time("carteira")
+    frequencia de 21 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+Este sistema de parametrização GoBR visa enviar alertas e regras de atendimento a clientes específicos, dependendo de suas condições comerciais. Os objetivos principais incluem:
+
+- Alertar vendedores e supervisores sobre clientes em situação crítica (ruptura de positivação, sem vendas há mais de 30 ou 45 dias).
+- Organizar clientes em carteiras específicas (ruptura, carteira fixa, ruptura de visita, etc.) para facilitar o gerenciamento de rotas e visitas.
+- Garantir que clientes com características comerciais específicas (como curvas ABC, tipos de pagamento, etc.) sejam tratados adequadamente.
+
+### 2. Público Afetado
+
+O público afetado são:
+
+- Vendedores e supervisores responsáveis por gerenciar clientes.
+- Sistema Govendas Assistente de Vendas Inteligente, que processa e aplica as regras de parametrização.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas conforme as seguintes condições:
+
+- **Time "ruptura_global"**: Aplica-se a clientes cujo ramo de atividade está entre uma lista específica.
+- **Time "carteira"**: Aplica-se a clientes cujo ramo de atividade está em uma lista diferente.
+- **Caso de uso**: Alerta de ruptura de positivação (14 dias) para clientes ativos, adimplentes e com recência de visita entre 10 e 90 dias.
+- **Caso de uso**: Alerta de ruptura de positivação (14 dias) para clientes com recência de visita entre 10 e 90 dias, que não têm compras há mais de 45 dias.
+- **Caso de uso**: Alerta de ruptura de positivação (14 dias) para clientes com recência de visita entre 10 e 90 dias, que não têm compras há mais de 30 dias.
+- **Caso de uso**: Alerta de ruptura de positivação (21 dias) para clientes com recência de visita entre 10 e 90 dias, que não têm compras há mais de 90 dias.
+- **Caso de uso**: Alerta de ruptura de positivação (28 dias) para clientes com recência de visita entre 10 e 90 dias, que não têm compras há mais de 90 dias.
+- **Caso de uso**: Alerta de ruptura de positivação (21 dias) para clientes com recência de visita entre 10 e 90 dias, que não têm compras há mais de 90 dias.
+
+### 4. Comportamento Configurado
+
+- **Alerta de ruptura de positivação**: Envio de alertas para vendedores e supervisores quando clientes apresentarem ruptura de positivação (sem vendas há mais de 30 ou 45 dias).
+- **Configuração de carteiras**: Organização de clientes em carteiras específicas com base em suas características comerciais.
+- **Parametrização de frequência

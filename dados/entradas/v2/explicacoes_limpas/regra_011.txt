@@ -1,0 +1,32 @@
+Objetivo Comercial
+
+O objetivo principal é organizar e personalizar a agenda de vendas para vendedores, definindo regras específicas para diferentes grupos de clientes e horários. As regras permitem que os vendedores tenham uma visão clara de quem deve ser visitado e quando, baseando-se em critérios como ativos, inativos, adimplentes, inadimplentes, sem venda, recência de visita e outros.
+Público Afetado
+
+- Vendedores: Todos os vendedores, tanto do time de televendas quanto do campo, que precisam ser guiados pela agenda de vendas.
+- Supervisores: Responsáveis por definir as regras e segmentações para os vendedores.
+- Clientes: Os clientes que serão atendidos pelas visitas, dependendo das regras definidas.
+Condições de Aplicação
+
+- Cadeira de Televendas: Regras são aplicadas aos clientes da carteira de televendas.
+- Cadeira de Campo: Regras são aplicadas aos clientes da carteira de campo.
+- Cadeira Livre: Regras são aplicadas aos clientes que estão em ruptura de visita e que não fazem parte das carteiras fixas.
+- Cadeira Fixa: Regras são aplicadas aos clientes que estão na carteira fixa de cada time.
+Comportamento Configurado
+
+- Não Agendar: Clientes ativos, inativos inadimplentes, inativos adimplentes, sem venda.
+- Frequência Mensal: Clientes inativos há mais de 90 dias.
+- Frequência Semanal: Clientes inativos há mais de 90 dias.
+- Preferência nos Dias Úteis: Clientes inativos há mais de 90 dias.
+- Frequência de 14 Dias: Clientes inativos, inativos adimplentes, sem venda.
+- Remoção de Agenda: Clientes inativos há mais de 90 dias.
+- Frequência do Vendedor: Clientes inativos há mais de 90 dias.
+- Preferência nos Dias Úteis: Clientes inativos há mais de 90 dias.
+- Frequência do Historico: Clientes inativos há mais de 90 dias.
+- Sem Choque na Carteira: Evitar conflitos entre televendas e campo.
+- Pivot da Semana: Restringir a agenda a partir da segunda semana do mês.
+Restrições, Exceções e Observações
+
+- Restrições de Cliente: A regra de não agendar clientes ativos, inativos inadimplentes, inativos adimplentes, sem venda, é aplicada apenas aos clientes da carteira de televendas.
+- Restrições de Vendedor: A regra de não agendar clientes ativos, inativos inadimplentes, inativos adimplentes, sem venda, é aplicada apenas aos clientes da carteira de televendas.
+- Restrições de Horário: A regra de não agendar clientes ativos, inativos inad

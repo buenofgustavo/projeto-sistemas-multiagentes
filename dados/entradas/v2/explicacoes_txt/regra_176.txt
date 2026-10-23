@@ -1,0 +1,64 @@
+ARQUIVO ORIGINAL: regra_176.gobr
+ID: regra_176
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Card da última aplicação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/6549423950
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+
+carteira "carteira televendas":
+    clientes carteirafixa("time televendas")
+    
+# Regras de não agendamento:
+
+parametros "Nordil AL: Não agendar clientes DH com crédito igual ou menor que R$0,00 (televendas)":
+    da carteira("carteira televendas")
+    quando nao tem credito e tipo de cobranca igual("DH")
+    nao agendar
+
+parametros "Nordil AL: Não agendar clientes BK com crédito menor que R$200,00 (televendas)":
+    da carteira("carteira televendas")
+    quando com menos de R$ 199 de credito disponivel e tipo de cobranca igual("BK")
+    nao agendar
+
+parametros "Nordil AL: Não agendar clientes inadimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando inadimplentes
+    nao agendar
+
+# Regras de agendamento:
+
+parametros "Nordil AL: Frequência de 7d para clientes ativos/adimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+
+parametros "Nordil AL: Frequência de 14d para clientes inativos/adimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando inativos para o vendedor
+    frequencia de 14 dias
+
+parametros "Nordil AL: Frequência de 14d para clientes sem venda (televendas)":
+    da carteira("carteira televendas")
+    quando sem venda
+    frequencia de 14 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa facilitar a gestão de clientes para vendedores, automatizando a definição de como cada cliente deve ser atendido. Isso inclui a frequência de visitas, preferências de dias da semana, e outros comportamentos configurados. O objetivo principal é otimizar o tempo e recursos dos vendedores, garantindo que eles se concentrem em clientes mais relevantes e ativos.
+
+### 2. Público Afetado
+
+Este sistema é direcionado principalmente para vendedores e supervisores da área comercial. Ele permite que eles configurem automaticamente as parametrizações de atendimento para seus clientes, reduzindo o trabalho manual e garantindo consistência nas estratégias de vendas.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente para clientes que ainda não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores. As regras são definidas para clientes específicos, como televendas, clientes de campo, clientes em ruptura, clientes adimplentes, clientes inadimplentes, clientes ativos, clientes inativos, clientes com recência de visita entre 10 e 90 dias, clientes com recência de visita entre 90 e 180 dias, clientes com recência de visita entre 180 e 365 dias, clientes com recência de visita entre 365 e 730 dias, clientes com recência de visita entre 730 e 1095 dias, clientes com recência de visita entre 1095 e 1460 dias, clientes com recência de visita entre 1460 e 1825 dias, clientes com recência de visita entre 1825 e 2190 dias, clientes com recência de visita entre 2190 e 2555 dias, clientes com recência de visita entre 2555 e 2920 dias, clientes com recência de visita entre 2920 e 3285 dias, clientes com recência de visita entre 3285 e 3650 dias, clientes com recência de visita entre 3650 e 4015 dias, clientes com recência de visita entre 4015 e 4380 dias, clientes com recência de visita entre 4380 e 4745 dias, clientes com recência de visita entre 4745 e 5110 dias, clientes com recência de visita entre 5110 e 5475 dias, clientes com recência de visita entre 5475 e 5840 dias, clientes com recência de visita entre 5840 e 6205 dias, clientes com recência de visita entre 6205 e 6570 dias, clientes com recência de visita entre 6570 e 6935 dias, clientes com recência de visita entre 6935 e 7300 dias, clientes com recência

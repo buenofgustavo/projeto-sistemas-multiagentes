@@ -1,0 +1,109 @@
+ARQUIVO ORIGINAL: regra_144.gobr
+ID: regra_144
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação:https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7399971842
+version 1.0
+
+time "todos":
+    vendedores todos ativados
+
+time "fabricantes":
+    vendedores porid ("F","L","A")
+    
+time "segmentos de revendas/manutencao":
+    vendedores porid ("J")
+    
+time "consumidor final recorrente":
+    vendedores porid ("LC")
+
+time "compra exporadica":
+    vendedores porid ("LC")
+    
+time "consumidor final - grande porte":
+    vendedores porid ("A")
+
+# Regras do time "todos":
+
+parametros "Freq. de 14d para 'PROSPECT: FAZER O PRIMEIRO PEDIDO' (Todos)":
+    do time("todos")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 14 dias
+
+parametros "Freq. de 21d para 'INADIMPLENTES' (Todos)":
+    do time("todos")
+    quando inadimplentes
+    frequencia de 21 dias
+
+parametros "Freq. de 28d para 'BOAS VINDAS A CLIENTE COM O PRIMEIRO PEDIDO' (Todos)":
+    do time("todos")
+    quando unica compra com a empresa
+    e cadastrado faz 30 dias
+    frequencia de 28 dias
+
+parametros "Freq. de 30d para 'COM COMPRA ENTRE 31 E 60 DIAS' (Todos)":
+    do time("todos")
+    quando recencia de positivacao entre 31 dias e 60 dias
+    frequencia de 30 dias
+
+parametros "Freq. de 10d para 'EM RUPTURA: RISCO DE INATIVIDADE' (Todos)":
+    do time("todos")
+    quando recencia de positivacao entre 61 dias e 90 dias
+    frequencia de 10 dias
+    
+parametros "Freq. de 21d 'INATIVOS: RESGATE DE CLIENTES SEM COMPRA' (Todos)":
+    do time("todos")
+    quando no ciclo de vida inativo com a empresa
+    frequencia de 21 dias
+
+# Regra específica dos times "Fabricantes" e "Segmentos de Revendas/Manutenção":
+
+parametros "Freq. de 21d para 'ATIVO: COMPRA REGULARMENTE' (Fabricantes e Segmentos de Revendas/Manutenção)":
+    do time("fabricantes","segmentos de revendas/manutencao")
+    quando recencia de positivacao em 30 dias
+    frequencia de 21 dias
+
+# Regra específica dos times "Consumidor final recorrente", "Compra exporádica" e "Consumidor final - Grande porte":
+
+parametros "Freq. de 28d para 'ATIVO: COMPRA REGULARMENTE' (Consumidor final recorrente, Compra exporádica e Consumidor final - Grande porte)":
+    do time("consumidor final recorrente", "compra exporadica","consumidor final - grande porte")
+    quando recencia de positivacao em 30 dias
+    frequencia de 28 dias
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir perfis de clientes e vendedores com base em suas atividades comerciais, como compras, inadimplências, visitas e outros comportamentos. Essas regras são utilizadas para gerar parametrizações de frequência de contato, alertas e carteiras de clientes específicas.
+
+### 2. Público Afetado
+
+- **Vendedores**: Os vendedores são classificados em diferentes grupos com base em suas atividades e histórico de relacionamento com os clientes.
+- **Clientes**: Os clientes são classificados com base em seu histórico de compra, inadimplência, recência de visita e outros comportamentos.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a diferentes grupos de clientes e vendedores, conforme descrito abaixo:
+
+- **Todos**: Regras aplicáveis a todos os vendedores e clientes.
+- **Fabricantes**: Regras aplicáveis a vendedores específicos com ID "F", "L", "A".
+- **Segmentos de Revenda/Manutenção**: Regras aplicáveis a vendedores específicos com ID "J".
+- **Consumidor Final Recorrente**: Regras aplicáveis a vendedores específicos com ID "LC".
+- **Compras Expõrdicas**: Regras aplicáveis a vendedores específicos com ID "LC".
+- **Consumidor Final Grão-Porte**: Regras aplicáveis a vendedores específicos com ID "A".
+
+### 4. Comportamento Configurado
+
+As regras configuram comportamentos específicos para diferentes grupos de clientes e vendedores, como:
+
+- **Freq. de 14d para 'PROSPECT: FAZER O PRIMEIRO PEDIDO' (Todos)**: Cliente recebe parametrização de frequência de contato após 14 dias de contato prospectivo.
+- **Freq. de 21d para 'INADIMPLENTES' (Todos)**: Cliente recebe parametrização de frequência de contato após 21 dias de inadimplemento.
+- **Freq. de 28d para 'BOAS VINDAS A CLIENTE COM O PRIMEIRO PEDIDO' (Todos)**: Cliente recebe parametrização de frequência de contato após 28 dias de sua primeira compra.
+- **Freq. de 30d para 'COM COMPRA ENTRE 31 E 60 DIAS' (Todos)**: Cliente recebe parametrização de frequência de contato após 30 dias de compra entre 31 e 60 dias.
+- **Freq. de 10d para 'EM RUPTURA: RISCO DE INATIVIDADE' (Todos)**: Cliente recebe parametrização de frequência de contato após 10 dias de recência de inadimplemento entre 61 e 90 dias.
+- **Freq. de 21d 'INATIVOS: RESGATE DE CLIENTES SEM COMPRA' (Todos)**: Cliente recebe parametrização de frequência de contato após 21 dias de inadimplemento.
+- **Freq. de 21d para '

@@ -1,0 +1,36 @@
+Objetivo Comercial
+
+O objetivo principal desta parametrização é definir estratégias de vendas e contato com clientes de acordo com o histórico de compra e visita. As regras são direcionadas para vendedores específicos, clientes e carteiras de vendas, visando otimizar o tempo e recursos de vendas.
+Público Afetado
+
+As regras afetam principalmente os vendedores, clientes e carteiras de vendas. Elas são direcionadas para:
+
+- Vendedores: Televendas, Supervisores, Vendedores Avulsos.
+- Clientes: Ativos, Inativos, Prospectos.
+- Carteiras de Vendas: Televendas Fixa com Ruptura de Campo, Carteira Livre, Carteira do Vendedor Avulso.
+Condições de Aplicação
+
+As regras são aplicáveis a clientes que atendem a uma série de condições, como:
+
+- Recência de Posicionamento: Intervalos de tempo entre compras.
+- Recência de Visita: Intervalos de tempo entre visitas.
+- Status de Adimplemento: Ativos, Inativos, Prospectos.
+- Tempo de Inatividade: Intervalos de tempo desde a última compra ou visita.
+Comportamento Configurado
+
+As regras configuram comportamentos específicos para diferentes grupos de clientes e vendedores, como:
+
+- Parametrização de Frequência: Define a frequência com que clientes devem ser contatados.
+- Criação de Carteiras: Organiza clientes em diferentes carteiras com base em regras específicas.
+- Alertas: Dispara alertas para casos de inadimplemento ou ruptura de positivação.
+Restrições, Exceções e Observações
+
+- Restrições de Vendedores: Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, mas será contabilizado apenas uma vez.
+- Unicidade de Clientes: Clientes não podem ser repetidos em diferentes carteiras.
+- Referências de Times: Os nomes dos times devem ser únicos.
+- Exclusão de Clientes: Clientes inativos há mais de 90 dias são excluídos de carteiras fixas.
+- Combinação de Filtros: Filtros como `ativos`, `recencia de visita` e `inativos` podem ser combinados.
+- Segmentação: É possível criar segmentações intermediárias para incluir clientes em diferentes carteiras.
+- Limitações de Regras: Não é possível aplicar regras diretamente a um vendedor individual; elas devem ser aplicadas a um time.
+
+Essas regras permitem uma gestão eficiente e personalizada de vendas, garantindo que os vendedores estejam focados em clientes relevantes e que os clientes recebam contatos adequados.

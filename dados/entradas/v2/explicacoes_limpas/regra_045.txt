@@ -1,0 +1,35 @@
+1. Objetivo Comercial
+
+A parametrização GoBR visa definir como os clientes devem ser atendidos, especificando a frequência de contato, dias da semana, preferência de dias, roteirização e fixação. Isso permite que as ações comerciais sejam planejadas de forma eficiente, garantindo que os vendedores atendam aos clientes conforme as necessidades comerciais e estratégicas da empresa.
+2. Público Afetado
+
+Este sistema afeta todos os vendedores ativos da empresa, exceto a vendedora Sandra. As regras são aplicadas de acordo com o status de cada vendedor e cliente, definindo como esses clientes devem ser atendidos.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com o status de cada vendedor e cliente. As condições de aplicação incluem:
+
+- Vendedores: São definidos através de `time` e `vendedores`.
+- Clientes: São definidos através de `carteira` e `clientes`.
+4. Comportamento Configurado
+
+O comportamento configurado varia dependendo das regras específicas aplicadas:
+
+- Regra Padronizada da Empresa: Define uma frequência semanal para clientes da vendedora Sandra.
+- Regra Padronizada da Empresa: Define uma frequência de 30 dias para clientes inativos e inadimplentes.
+- Regra Padronizada da Empresa: Define uma frequência de 7 dias para clientes inativos e adimplentes.
+- Regra Padronizada da Empresa: Define uma frequência de 14 dias para clientes ativos ou adimplentes ou sem venda.
+5. Restrições, Exceções e Observações
+
+- Restrições:
+  - Regra de Exclusão: Não é possível definir frequência ou preferência de dias na mesma regra que usa `nao agendar`.
+  - Repetição de Clientes: Clientes podem aparecer em carteiras de vendedores diferentes dentro da mesma carteira.
+  - Sem Repetição: Clientes que já foram atribuídos a uma carteira anterior não são incluídos nas carteiras seguintes, exceto em carteiras livres.
+  - Carteiras Livres: Não causam exclusão de clientes para carteiras subsequentes.
+  - Dependências: Uma segmentação pode ser criada a partir de vários times e/ou várias segmentações. Uma carteira pode ser criada a partir de vários times ou de uma única segmentação.
+
+- Exceções:
+  - Remoção de Agendamento: Clientes inativos podem ser marcados para não aparecerem na agenda.
+  - Parametrização Dinâmica: Clientes podem ser parametrizados com frequência e preferência de dias, além de serem incluídos na otimização de rota de visita presencial.
+
+- Observações:
+  - Cláusulas e Restrições: É importante evitar regras em excesso, garantir que as regras sejam aplicadas a um time e não diretamente a

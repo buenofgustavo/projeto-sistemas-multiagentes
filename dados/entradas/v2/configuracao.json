@@ -1,0 +1,6 @@
+{
+  "modelo": "Qwen/Qwen2.5-3B-Instruct",
+  "upload": "6a1ea5e229bdb5f813b68f78e59b71081b016c30ee4bf185ece9e4693666863e",
+  "versao": "qwen-upload-v1",
+  "max_new_tokens": 700
+}

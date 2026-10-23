@@ -1,0 +1,79 @@
+ARQUIVO ORIGINAL: regra_129.gobr
+ID: regra_129
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Card: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/6888246016
+version 1.0
+
+time "todos":
+    vendedores todos ativados
+
+# Regras de não agendamento:
+
+parametros "Boa Praça: Não agendar clientes inadimplentes":
+    do time("todos")
+    quando inadimplentes
+    nao agendar
+
+parametros "Boa Praça: Não agendar clientes filial":
+    do time("todos")
+    quando é o cliente filial
+    nao agendar
+
+# Regras de agendamento:
+
+parametros "Boa Praça: Freq. de 7 dias para clientes ativos":
+    do time("todos")
+    quando ativos para o vendedor 
+    frequencia de 7 dias
+    
+parametros "Boa Praça: Freq. de 14 dias para clientes inativos":
+    do time("todos")
+    frequencia de 14 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, incluindo a frequência, dias da semana e outros parâmetros de atendimento. Isso ajuda os vendedores a gerenciar melhor suas agendas e garantir que os clientes recebam atendimento adequado.
+
+### 2. Público Afetado
+
+Este sistema afeta principalmente os vendedores e supervisores responsáveis por gerenciar as agendas e as parametrizações de clientes. Também afeta os clientes, pois as parametrizações definem como eles são incluídos na agenda.
+
+### 3. Condições de Aplicação
+
+As parametrizações GoBR são aplicadas automaticamente conforme as regras definidas no arquivo. Elas são ativadas automaticamente e podem ser sobrescritas pelos ajustes finais dos vendedores e supervisores.
+
+### 4. Comportamento Configurado
+
+#### Exemplos de Parametrização
+
+1. **Parametrização Básica**
+   - **Exemplo:** `parametros "semanal para o alberto":` Define que todos os clientes inativos há 90 dias na carteira fixa dos televendas ativados recebem uma parametrização de frequência semanal (7 dias).
+
+2. **Parametrização com Preferência de Dia da Semana**
+   - **Exemplo:** `parametros "mensal alberto com preferencia":` Define que clientes inativos há 90+ dias recebem frequência mensal (30 dias) e preferência de visita com valor 2 na segunda e na terça.
+
+3. **Configuração de Semana Pivot**
+   - **Exemplo:** `parametros "pivot segunda semana":` Define que o cliente só poderá aparecer na agenda a partir da segunda segunda-feira do mês.
+
+4. **Configuração de Roteirização e Parâmetros Fixos**
+   - **Exemplo:** `parametros "campo roteirizavel fixo":` Define que os clientes são incluídos na otimização de rota de visita presencial e a parametrização é marcada como fixa, criando uma restrição mais rígida no uso de frequência e preferência pelo gerador de agendas.
+
+### 5. Restrições, Exceções e Observações
+
+1. **Restrições de Vendedores**
+   - Um mesmo vendedor pode aparecer em múltiplos times, mas só será contabilizado uma vez.
+   - O mesmo vendedor não pode estar em múltiplos times com restrições diferentes.
+
+2. **Exclusão de Vendedores**
+   - É possível excluir vendedores específicos de um time usando a cláusula `menos("id1", "id2", ...)`.
+   - Ativados e inativos referem-se ao status cadastral do vendedor no Govendas, não ao status de clientes.
+
+3. **Conflitos entre Times**
+   - A cláusula `sem choque na carteira("carteira campo")` garante que a preferência de dias dos televendas não coincida com a dos vendedores de campo para os mes

@@ -1,0 +1,152 @@
+ARQUIVO ORIGINAL: regra_071.gobr
+ID: regra_071
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras dinâmicas para Palmed
+version 1.0
+
+# time televendas da paraiba e do piaui
+
+time "televendas pi":
+    vendedores todostelevendas dos supervisores("2736")
+
+time "televendas pb":
+    vendedores todostelevendas dos supervisores("2731")
+
+
+time "tocantins":
+    vendedores porid("435", "261", "385", "276", "438", "63", "164")
+
+time "televendas":
+    vendedores todostelevendas
+ 
+time "campo":
+    vendedores todosdecampo
+
+carteira "carteira televendas pi":
+    clientes carteirafixa("televendas pi")
+
+carteira "carteira televendas pb":
+    clientes carteirafixa("televendas pb")
+
+carteira "carteira tocantins":
+    clientes carteirafixa("tocantins")
+
+carteira "carteira televendas":
+    clientes carteirafixa("televendas")
+
+## Time Paraiba e Piaui
+
+# parametrizacao dos televendas da paraiba e piaui com 14 dias para inadimplentes
+
+parametros "Regra Padrao da Palmed: 14 dias para inativos e inadimplentes":
+    da carteira("carteira televendas pi","carteira televendas pb")
+    quando inativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+    sem choque na rota com time("campo")
+
+# parametrizacao dos televendas da paraiba e piaui com no máximo 7 dias
+
+parametros "Regra Padrao da Palmed: Maximo 7 dias - PI":
+    da carteira("carteira televendas pi")
+    frequencia do historico ou no maximo semanal()
+    preferencia nos dias uteis e no sabado
+    sem choque na rota com time("campo")
+    
+parametros "Regra Padrao da Palmed: maximo 7 dias - PB":
+    da carteira("carteira televendas pb")
+    frequencia do historico ou no maximo semanal()
+    preferencia nos dias uteis
+    sem choque na rota com time("campo")
+
+## Time Tocantins
+
+parametros "Regra Padrao da Palmed: 14 dias para inativos e inadimplentes - Tocantins":
+    da carteira("carteira tocantins")
+    quando inativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+    sem choque na rota com time("campo")
+
+parametros "Regra Padrao da Palmed: semanal para ativos":
+    da carteira("carteira tocantins")
+    frequencia do historico ou no maximo semanal()
+    preferencia nos dias uteis e no sabado
+    sem choque na rota com time("campo")
+    
+### Time Televendas
+
+parametros "Regra Padrao da Palmed: semanal para ativos e adimplentes (segunda a sexta) - Time Televendas":
+    do time("televendas")
+    quando ativos para o vendedor e adimplentes
+    frequencia do historico ou no maximo semanal()
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Palmed: quinzenal para ativos e inadimplente (segunda a sexta) - Time Televendas":
+    do time("televendas")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Palmed: semanal exceto na segunda para inativos adimplentes (terca a sexta) - Time Televendas":
+    do time("televendas")
+    quando inativos para o vendedor e adimplentes
+    frequencia do historico ou no maximo semanal()
+#   preferencia na terca e na quarta e na quinta e na sexta
+    preferencia na segunda e na terca e na quarta e na quinta e na sexta
+
+parametros "Regra Padrao da Palmed: 30 dias para inativos e inadimplentes (terca a sexta) - Time Televendas":
+    do time("televendas")
+    quando inativos para o vendedor e inadimplentes
+    frequencia de 30 dias
+#    preferencia na terca e na quarta e na quinta e na sexta
+    preferencia na segunda e na terca e na quarta e na quinta e na sexta
+    
+parametros "Regra Padrao da Palmed: 7 dias de terca a sexta - Time Televendas":
+    do time("televendas")
+    frequencia do historico ou no maximo semanal()
+#   preferencia na terca e na quarta e na quinta e na sexta
+    preferencia na segunda e na terca e na quarta e na quinta e na sexta
+    
+## Time campo
+parametros "Regra Padrao da Palmed: 7 dias para todos os clientes - Time de Campo":
+    do time("campo")
+    frequencia semanal()
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de visitas e contato com clientes de acordo com diferentes contextos comerciais, como televendas, campo, supervisores e clientes em ruptura. As regras permitem que os vendedores tenham uma rotina de trabalho mais eficiente, reduzindo o tempo gasto em escolha de clientes e priorizando quem realmente precisa de atenção.
+
+### 2. Público Afetado
+
+Este sistema afeta diretamente os vendedores, supervisores e clientes. Os vendedores têm suas rotinas personalizadas, enquanto os supervisores podem definir estratégias para diferentes grupos de clientes. Os clientes beneficiam-se com uma abordagem mais direcionada e eficiente, minimizando a inadimplência e aumentando a frequência de contato.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- **Time Paraiba e Piaui**: Visitas com 14 dias para inativos e inadimplentes, com preferência nos dias úteis. Não há choque na rota com o time de campo.
+- **Time Tocantins**: Visitas com 14 dias para inativos e inadimplentes, com preferência nos dias úteis. Não há choque na rota com o time de campo.
+- **Time Televendas**: Visitas com frequência semanal para ativos e adimplentes, e com frequência quinzenal para ativos e inadimplentes.
+- **Time Campo**: Visitas com frequência semanal para todos os clientes.
+- **Carteira Televendas Pi** e **Carteira Televendas PB**: Visitas com 14 dias para inativos e inadimplentes, com preferência nos dias úteis. Não há choque na rota com o time de campo.
+- **Carteira Tocantins**: Visitas com 14 dias para inativos e inadimplentes, com preferência nos dias úteis. Não há choque na rota com o time de campo.
+- **Carteira Televendas**: Visitas com frequência semanal para ativos e adimplentes, e com frequência quinzenal para ativos e inadimplentes. Não há choque na rota com o time de campo.
+
+### 4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento dos vendedores de acordo com as seguintes características:
+
+- **Frequência de Visita**: Variam de diária a quinzenal, dependendo do contexto e da situação do cliente.
+- **Dias da Semana**: Há preferência por dias úteis, com algumas exceções para dias específicos como segunda-feira e terça-feira.
+- **Roteirização**: Algumas regras garantem que não haja choque na rota com outros times, garantindo que o cliente não seja visitado por mais de um time no mesmo dia.
+- **Adaptabilidade**: As regras podem ser sobrescritas pelos supervisores e vendedores conforme necessário.
+
+###

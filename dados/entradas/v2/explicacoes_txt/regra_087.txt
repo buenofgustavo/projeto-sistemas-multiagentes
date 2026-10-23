@@ -1,0 +1,118 @@
+ARQUIVO ORIGINAL: regra_087.gobr
+ID: regra_087
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+    
+time "time campo":
+    vendedores todosdecampo
+
+carteira "carteira televendas":
+    clientes carteirafixa("time televendas")
+    
+carteira "carteira campo":
+    clientes carteirafixa("time campo")
+
+parametros "Regra Padrao da Empresa Customizavel: 14 dias para ativos adimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando ativos para o vendedor e adimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao do Empresa Customizavel: 30 dias para ativos inadimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao do Empresa Customizavel: 30 dias para inativos adimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao do Empresa Customizavel: 60 dias para inativos inadimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando inativos para o vendedor e inadimplentes
+    frequencia de 60 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao do Empresa Customizavel: 30 dias para clientes sem venda (televendas)":
+    da carteira("carteira televendas")
+    quando sem venda
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+### vendedores de campo
+
+parametros "Regra Padrao do Empresa Customizavel: 14 dias para adimplentes (campo)":
+    da carteira("carteira campo")
+    quando adimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao do Empresa Customizavel: 30 dias para clientes inadimplentes (campo)":
+    da carteira("carteira campo")
+    quando inadimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao do Empresa Customizavel: 30 dias para clientes sem venda (campo)":
+    da carteira("carteira campo")
+    quando sem venda
+    frequencia de 30 dias
+    preferencia nos dias uteis
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal desta parametrização é definir prazos de contato e preferências de dias para diferentes tipos de clientes, dependendo do vendedor e da carteira. Isso visa otimizar o tempo de contato e melhorar a eficiência das ações de vendas.
+
+### Público Afetado
+
+- **Vendedores**: Todas as carteiras de televendas e campo.
+- **Clientes**: Todos os clientes incluídos nas carteiras definidas.
+
+### Condições de Aplicação
+
+- As regras são aplicáveis a clientes adimplentes, inadimplentes, inativos adimplentes e inativos inadimplentes.
+- As regras são específicas para carteiras de televendas e carteiras de campo.
+- As regras são personalizadas para cada vendedor, podendo variar dependendo do time de supervisão.
+
+### Comportamento Configurado
+
+- **Televendas**:
+  - **Adimplentes**: Ativos para o vendedor e adimplentes recebem parametrizações de 14 dias.
+  - **Inadimplentes**: Ativos para o vendedor e inadimplentes recebem parametrizações de 30 dias.
+  - **Inativos Adimplentes**: Inativos para o vendedor e adimplentes recebem parametrizações de 30 dias.
+  - **Inativos Inadimplentes**: Inativos para o vendedor e inadimplentes recebem parametrizações de 60 dias.
+  - **Sem Venda**: Sem venda recebem parametrizações de 30 dias.
+  
+- **Campo**:
+  - **Adimplentes**: Adimplentes recebem parametrizações de 14 dias.
+  - **Inadimplentes**: Inadimplentes recebem parametrizações de 30 dias.
+  - **Sem Venda**: Sem venda recebem parametrizações de 30 dias.
+
+### Restrições, Exceções e Observações
+
+- **Restrições**:
+  - **Unicidade de Fonte de Clientes**: Uma carteira só pode ser alimentada por uma única segmentação.
+  - **Separação de Carteiras**: Para evitar conflitos, as carteiras de televendas e campo podem ser separadas.
+  - **Filtragem de Clientes**: É possível combinar múltiplos filtros para restringir a aplicação das regras.
+  - **Parametrização Dinâmica**: É possível ajustar a frequência e preferência de dias com base no histórico do vendedor.
+  - **Alertas**: Alertas podem ser configurados para notificar sobre clientes em ruptura de positivação.
+
+- **Exceções**:
+  - **Clientes em Ruptura**: Clientes em ruptura podem aparecer em várias carteiras, dependendo da configuração.
+  - **Parametrização Personalizada**: As parametrizações podem ser personalizadas para cada vendedor e carteira.
+
+- **Observações**:
+  - **Segurança de Contato**: As parametrizações garantem que os clientes recebam contatos em dias úteis, evitando

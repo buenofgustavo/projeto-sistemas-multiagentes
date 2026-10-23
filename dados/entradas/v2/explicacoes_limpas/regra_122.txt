@@ -1,0 +1,27 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para clientes de diferentes carteiras e segmentações. Ela permite que as operações comerciais personalizem as ações de contato com base em critérios específicos, como adimplemento, inadimplemento, recência de visita, etc.
+2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e administradores de carteiras. As decisões tomadas com base nessas parametrizações afetam diretamente a estratégia de contato e o planejamento de visitas para clientes específicos.
+3. Condições de Aplicação
+
+As parametrizações GoBR são aplicáveis a diferentes carteiras e segmentações de clientes. Elas permitem que as operações comerciais ajustem suas estratégias de acordo com a situação atual dos clientes, como adimplemento, recência de visita, etc.
+4. Comportamento Configurado
+
+- Parametrização de Frequência: Define a frequência com que os clientes devem ser contatados. Por exemplo, clientes inadimplentes podem ser agendados para visitas diárias, enquanto clientes adimplentes podem ser agendados para visitas mensais.
+  
+- Parametrização de Preferência: Define a preferência de dia da semana para as visitas. Por exemplo, clientes inadimplentes podem ser agendados para visitas na segunda e terça-feira, enquanto clientes adimplentes podem ser agendados para visitas na quinta e sexta-feira.
+
+- Remoção de Agendamento: Define que clientes devem ser removidos da agenda. Por exemplo, clientes inadimplentes há mais de 90 dias podem ser removidos da agenda.
+5. Restrições, Exceções e Observações
+
+- Restrição de Regras: Não é possível aplicar múltiplas parametrizações de frequência ou preferência em uma única regra. Isso significa que, por exemplo, você não pode definir que clientes inadimplentes devem ser agendados para visitas diárias e terciais ao mesmo tempo.
+
+- Exclusão de Clientes: Clientes podem ser excluídos de uma carteira específica se forem incluídos em outra carteira. Por exemplo, clientes em ruptura de visita podem ser incluídos tanto na carteira de televendas quanto na carteira do vendedor avulso.
+
+- Segregação de Carteiras: É possível criar carteiras separadas para diferentes objetivos, como carteiras de televendas, carteiras de ruptura de visita e carteiras livres. Isso permite que os clientes sejam distribuídos de maneira eficiente.
+
+- Limitações de Segurança: As parametrizações GoBR são projetadas para garantir que as ações de contato sejam realizadas de forma segura e conforme as políticas da empresa. Isso inclui a verificação de status de vendedores e clientes.
+
+- Ambiguidades e Possíveis Lacunas: Embora o sistema seja robusto, existem possíveis lacunas em termos de como as

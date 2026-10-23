@@ -1,0 +1,102 @@
+ARQUIVO ORIGINAL: regra_244.gobr
+ID: regra_244
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://govendas-team.atlassian.net/browse/CS-34
+version 1.0
+
+time "televendas":
+    vendedores todos ativados
+
+## Regras de não agendamento
+
+parametros "Não agendar filiais":
+    do time("televendas")
+    quando é o cliente filial
+    nao agendar
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+## Regras de agendamento
+
+parametros "Prospect: Cliente potencial":
+    do time("televendas")
+    quando no ciclo de vida prospect com o vendedor
+    frequencia de 14 dias
+
+parametros "Ativado: Fez um pedido e ainda não comprou mais":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 7 dias
+
+parametros "Freq. histórica para Ativo: compra regularmente":
+    do time("televendas")
+    quando ativos para o vendedor
+        e frequencia historica menor que 8 dias
+    frequencia do historico ou no minimo de 5 dias e no maximo de 7 dias
+
+parametros "Estimular a regularidade de compra":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 8 dias e 30 dias
+    frequencia de 14 dias
+
+parametros "Em ruptura: risco de ficar inativo":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 31 dias e 60 dias
+    frequencia de 7 dias
+
+parametros "Inativo: reativar cliente sem compra":
+    do time("televendas")
+    quando fora da recencia de positivacao do vendedor em 60 dias
+    frequencia de 14 dias
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de agendamento e atendimento de clientes de acordo com diferentes perfis e situações comerciais. As regras são direcionadas para vendedores, clientes e cartas de clientes, visando otimizar o uso do tempo e maximizar as chances de conversões.
+
+### 2. Público Afetado
+
+- **Vendedores**: Regras específicas para cada perfil de cliente (prospect, ativo, inativo, etc.) e para diferentes ciclos de vida.
+- **Clientes**: Filtragem de clientes com base em diferentes critérios de atendimento e histórico de compra.
+- **Cartas de Clientes**: Definição de estratégias de atendimento para diferentes carteiras de clientes.
+
+### 3. Condições de Aplicação
+
+As regras de agendamento e atendimento são aplicadas de acordo com o horário e o dia da semana, bem como o histórico de compra e atendimento do cliente. As condições de aplicação incluem:
+
+- **Ciclo de Vida do Cliente**: Prospect, Ativo, Inativo, etc.
+- **Histórico de Compra**: Recência de compra, frequência histórica de compra.
+- **Status do Vendedor**: Ativo, Inativo, etc.
+- **Horário e Dia da Semana**: Frequência de agendamento, preferência de dias da semana.
+
+### 4. Comportamento Configurado
+
+As regras configuram comportamentos específicos para diferentes perfis de clientes e vendedores, como:
+
+- **Prospect**: Frequentemente agendado, com frequência de 14 dias.
+- **Ativo**: Frequentemente agendado, com frequência de 7 dias.
+- **Reativado**: Frequentemente agendado, com frequência de 14 dias.
+- **Inativo**: Frequentemente agendado, com frequência de 14 dias.
+- **Em Ruptura**: Frequentemente agendado, com frequência de 7 dias.
+- **Inativo sem Compra**: Frequentemente agendado, com frequência de 14 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Vendedores**: As regras não aplicam-se a vendedores inativos ou desativados.
+- **Exceções**: Algumas regras podem ser sobrescritas por ajustes finos feitos pelo vendedor ou supervisores.
+- **Observações**: Algumas regras podem ser aplicadas a carteiras específicas ou times, garantindo que os clientes não sejam atendidos simultaneamente por múltiplos times.
+- **Ambiguidades**: Algumas regras podem ser interpretadas de maneira diferente dependendo do contexto, exigindo interpretação cuidadosa.
+- **Lacunas**: Não há regras para clientes que não estão cadastrados no Govendas, ou para clientes com muitos ou poucos clientes.
+
+### Resumo
+
+A parametrização GoBR permite uma gestão eficiente e personalizada de clientes, definindo estratégias de agendamento e atendimento de acordo com

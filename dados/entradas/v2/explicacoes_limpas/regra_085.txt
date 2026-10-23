@@ -1,0 +1,32 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e atendimento aos clientes de uma empresa chamada "Empresa Perola". As regras são direcionadas para clientes inativos, ativos e inadimplentes, definindo a frequência e a preferência de dias para visitas e contatos.
+2. Público Afetado
+
+O público afetado são os clientes da carteira "empresa perola", que são classificados como ativos, inativos, ativos para o vendedor e inadimplentes. Esses clientes receberão parametrizações personalizadas de acordo com suas características e histórico de compra.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas às carteiras de clientes da Empresa Perola. As condições de aplicação incluem:
+
+- Adimplentes: Clientes que não têm compras pendentes.
+- Ativos para o vendedor: Clientes que compraram com um determinado vendedor.
+- Inativos para o vendedor: Clientes que não compraram com um determinado vendedor.
+- Inativos: Clientes que não compraram com a empresa toda.
+- Inativos para a empresa: Clientes que não compraram com nenhum vendedor da empresa.
+- Sem venda ou prospects: Clientes que nunca compraram.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Frequência: Define a periodicidade das visitas, podendo ser diária, semanal, quinzenal ou mensal.
+- Preferência de dias da semana: Define a preferência de visitas em determinados dias da semana, com valores de 0 a 3, onde 0 é o menor valor e 3 é o maior.
+- Parametrização Dinâmica: Permite que os vendedores e supervisores ajustem as parametrizações conforme necessário.
+5. Restrições, Exceções e Observações
+
+- Restrições de Regras: Não é possível combinar a parametrização de frequência com a de preferência de dias na mesma regra que usa `nao agendar`.
+- Exclusão de Clientes: Clientes inativos há 90 dias ou mais são marcados para não aparecerem na agenda (`nao agendar`).
+- Sem Repetição: Clientes que já foram atribuídos a uma carteira anterior não são incluídos nas carteiras seguintes, exceto em carteiras livres.
+- Carteiras Livres: Não causam exclusão de clientes para carteiras subsequentes.
+- Dependências: É possível criar segmentações a partir de múltiplos times e/ou segmentações.
+- Conflitos entre Televendas e Campo: A regra `sem choque na carteira("carteira campo")` evita que a preferência de dias dos televendas coincida com a dos vendedores de campo para os mesmos clientes.
+- Sempre Incluir Clientes Adimplentes: A segmentação auxiliar permite incluir apenas clientes adimplentes na carteira fix

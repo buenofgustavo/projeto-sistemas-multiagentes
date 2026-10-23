@@ -1,0 +1,83 @@
+ARQUIVO ORIGINAL: regra_228.gobr
+ID: regra_228
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/8909314048
+version 1.0
+
+#
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+#
+## Parâmetros de atendimento
+
+parametros "Ative este novo cliente!":
+    do time("televendas")
+    quando no ciclo de vida prospect com o vendedor
+    frequencia de 28 dias
+
+parametros "Cliente ativado!":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 21 dias
+
+parametros "Compra com regularidade! (Curva C)":
+    do time("televendas")
+    quando recencia de positivacao em 90 dias
+        e curva c com a empresa
+    frequencia de 7 dias
+
+parametros "Compra com regularidade! (Curva A e B)":
+    do time("televendas")
+    quando recencia de positivacao em 90 dias
+    frequencia de 14 dias
+
+parametros "Cliente caminhando para inatividade!":
+    do time("televendas")
+    quando recencia de positivacao entre 91 dias e 180 dias
+    frequencia de 28 dias
+
+parametros "Resgatar cliente inativo!":
+    do time("televendas")
+    frequencia de 45 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR visa definir estratégias de atendimento para clientes de acordo com seu ciclo de vida e comportamento de compra. Isso inclui definir a frequência de contato, dias da semana e outros detalhes de rotina de vendas.
+
+### 2. Público Afetado
+
+Este sistema afeta todos os vendedores e supervisores que utilizam o Govendas Assistente de Vendas Inteligente. As regras são aplicadas automaticamente, mas podem ser ajustadas pelos vendedores e supervisores conforme necessário.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente para clientes que não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores. As regras são definidas para clientes específicos, dependendo da carteira, segmentação ou time já definidos.
+
+### 4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento de atendimento para clientes de acordo com as seguintes condições:
+
+- **Ative este novo cliente!**: Define uma parametrização para novos clientes que estão no ciclo de vida prospect.
+- **Cliente ativado!**: Define uma parametrização para clientes que fizeram sua primeira compra.
+- **Compra com regularidade! (Curva C)**: Define uma parametrização para clientes que têm recência de positivacao de 90 dias e estão na curva C da empresa.
+- **Compra com regularidade! (Curva A e B)**: Define uma parametrização para clientes que têm recência de positivacao de 90 dias e estão na curva A ou B da empresa.
+- **Cliente caminhando para inatividade!**: Define uma parametrização para clientes que têm recência de positivacao entre 91 e 180 dias.
+- **Resgatar cliente inativo!**: Define uma parametrização para clientes que estão inativos há mais de 45 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Vendedores**: Um mesmo vendedor pode aparecer em múltiplas linhas `vendedores`, mas será contabilizado apenas uma vez dentro de um mesmo time.
+- **Referências de Times**: Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+- **Filtragem de Clientes**: As regras de filtragem de clientes podem ser combinadas com `e` e `ou`. Por exemplo, `quando adimplentes e ativos para o vendedor`.
+- **Caso de Choque de Carteiras**: A regra `sem choque na carteira` evita que dois times atendam o mesmo cliente no mesmo dia, garantindo que a preferência de dias da semana não seja violada.
+- **Semana Pivot**: A regra `restrito a partir da segunda semana` permite que os clientes só apareçam na agenda a partir da segunda segunda-feira do mês.
+- **Segmentação de Clientes**: É possível usar segmentações para definir clientes específicos para carteiras, como adimplentes ou clientes em ruptura de

@@ -1,0 +1,104 @@
+ARQUIVO ORIGINAL: regra_208.gobr
+ID: regra_208
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://gogeo.proofhub.com/bappswift/#app/todos/project-9580562790/list-270894162472/task-521050479772
+version 1.0
+
+## Definição de times:
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+## Regras de planejamento:
+
+parametros "Não agendar Baixados na Receita":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+parametros "Não agendar bloqueados":
+    do time("televendas")
+    quando bloqueados
+    nao agendar
+
+parametros "Não agendar filiais":
+    do time("televendas")
+    quando e o cliente filial
+    nao agendar
+
+parametros "Ativação de novos":
+    do time("televendas")
+    quando no ciclo de vida prospect com o vendedor
+    frequencia de 7 dias
+
+parametros "Fazer relacionamento com o cliente":
+    do time("televendas")
+    quando unica compra com o vendedor
+    frequencia de 14 dias
+
+parametros "Manter contato com o cliente que comprou no mês":
+    do time("televendas")
+    quando recencia de positivacao no mes
+        e frequencia historica entre 90 dias e 120 dias
+    frequencia de 14 dias
+
+parametros "Manter a regularidade de compra":
+    do time("televendas")
+    quando recencia de positivacao em 30 dias
+    frequencia de 14 dias
+
+parametros "Atuar para o cliente não ficar inativo":
+    do time("televendas")
+    quando recencia de positivacao em 89 dias
+    frequencia de 7 dias
+
+parametros "Resgatar cliente inativo":
+    do time("televendas")
+    quando recencia de positivacao em 120 dias
+    frequencia de 3 dias
+
+parametros "Não mapeados nas regras":
+    do time("televendas")
+    nao agendar
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa criar estratégias de vendas personalizadas para diferentes grupos de clientes, baseando-se em critérios específicos como status de pagamento, histórico de compra, e outros parâmetros comerciais. O objetivo principal é otimizar a utilização do tempo dos vendedores, garantindo que eles atendam a clientes de maneira eficiente e estratégica.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores e supervisores responsáveis pela gestão de clientes, bem como os sistemas de gerenciamento de vendas GoBR. As regras são aplicadas diretamente aos vendedores, determinando quem deve ser agendado e quando, dependendo das condições específicas de cada cliente.
+
+### 3. Condições de Aplicação
+
+As regras de aplicação são definidas de acordo com o status atual do cliente e o histórico de compra. Algumas das condições principais incluem:
+
+- **Não agendar Baixados na Receita**: Clientes cuja situação na Receita Federal está baixada não são agendados.
+- **Não agendar Inadimplentes**: Clientes que estão inadimplentes não são agendados.
+- **Não agendar Bloqueados**: Clientes bloqueados não são agendados.
+- **Não agendar Filiais**: Clientes que são filiais não são agendados.
+- **Ativação de Novos**: Clientes novos que estão no ciclo de vida prospect são agendados com frequência de 7 dias.
+- **Fazer Relacionamento com o Cliente**: Clientes que fizeram sua única compra com um vendedor são agendados com frequência de 14 dias.
+- **Manter Contato com o Cliente que Comprou no Mês**: Clientes que tiveram recência positiva no mês e têm frequência histórica entre 90 e 120 dias são agendados com frequência de 14 dias.
+- **Manter Regularidade de Compra**: Clientes que tiveram recência positiva em 30 dias são agendados com frequência de 14 dias.
+- **Atuar para o Cliente Não Ficar Inativo**: Clientes que tiveram recência positiva em 89 dias são agendados com frequência de 7 dias.
+- **Resgatar Cliente Inativo**: Clientes que tiveram recência positiva em 120 dias são agendados com frequência de 3 dias.
+- **Não Mapeados nas Regras**: Clientes que não se enquadram em nenhuma das condições acima são automaticamente desconsiderados.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado varia conforme a condição específica de cada cliente. Por exemplo:
+
+- **Não agendar** para clientes que estão baixados na Receita Federal, inadimplentes, bloqueados, filiais, ou que não se enquadrem nas condições de ativação de novos, fazer relacionamento com o cliente, manter contato com o cliente que comprou no mês, manter a regularidade de compra, atuar para o cliente não

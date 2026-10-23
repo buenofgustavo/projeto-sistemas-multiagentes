@@ -1,0 +1,109 @@
+ARQUIVO ORIGINAL: regra_200.gobr
+ID: regra_200
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7576564145#__recording_7576564245
+version 1.0
+
+# Definição de Times
+
+time "televendas":
+    vendedores todostelevendas menos("1")
+
+# Parâmetros de agendamento
+
+parametros "Freq. de 21d para 'Prospect: Fazer o primeiro pedido'":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 21 dias
+
+parametros "Freq. de 10d para 'Ativado: Boas vindas ao cliente com primeiro pedido'":
+    do time("televendas")
+    quando unica compra com a empresa
+    frequencia de 10 dias
+
+parametros "Freq. do histórico para 'Alta frequência de compra'":
+    do time("televendas")
+    quando recencia de positivacao em 30 dias
+    frequencia do historico mais 5 dias ou no maximo de 30 dias
+
+parametros "Freq. de 14d para 'Compra regularmente'":
+    do time("televendas")
+    quando recencia de positivacao do vendedor em 30 dias
+    frequencia de 14 dias
+
+parametros "Freq. de 7d para 'Estimular regularidade de compra'":
+    do time("televendas")
+    quando recencia de positivacao entre 31 dias e 60 dias
+    frequencia de 7 dias
+
+parametros "Freq. de 7d para 'Risco de inatividade'":
+    do time("televendas")
+    quando recencia de positivacao entre 61 dias e 90 dias
+    frequencia de 7 dias
+
+parametros "Freq. de 21d para 'Resgate de cliente sem compra' (Inativos)":
+    do time("televendas")
+    frequencia de 21 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+As regras de parametrização GoBR visam definir como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. Isso permite que as equipes de vendas tenham uma guia clara sobre quem atender e quando, facilitando a gestão de tempo e recursos.
+
+### 2. Público Afetado
+
+As regras de parametrização GoBR afetam diretamente os vendedores e supervisores responsáveis por atender os clientes. Elas também afetam os clientes, que são direcionados para atendimento conforme as regras estabelecidas.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente e podem ser sobrescritas pelos ajustes finos dos vendedores e supervisores quando necessário. As regras são aplicadas a clientes que ainda não possuem parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+
+### 4. Comportamento Configurado
+
+#### 4.1. Freq. de 21d para 'Prospect: Fazer o primeiro pedido'
+
+- **Aplicação**: Para clientes que estão no ciclo de vida prospect da empresa.
+- **Frequência**: 21 dias.
+
+#### 4.2. Freq. de 10d para 'Ativado: Boas vindas ao cliente com primeiro pedido'
+
+- **Aplicação**: Após a primeira compra com a empresa.
+- **Frequência**: 10 dias.
+
+#### 4.3. Freq. do histórico para 'Alta frequência de compra'
+
+- **Aplicação**: Para clientes com recência de positivacao de 30 dias.
+- **Frequência**: Mais 5 dias ou no máximo de 30 dias.
+
+#### 4.4. Freq. de 14d para 'Compra regularmente'
+
+- **Aplicação**: Para clientes com recência de positivacao do vendedor de 30 dias.
+- **Frequência**: 14 dias.
+
+#### 4.5. Freq. de 7d para 'Estimular regularidade de compra'
+
+- **Aplicação**: Para clientes com recência de positivacao entre 31 dias e 60 dias.
+- **Frequência**: 7 dias.
+
+#### 4.6. Freq. de 7d para 'Risco de inatividade'
+
+- **Aplicação**: Para clientes com recência de positivacao entre 61 dias e 90 dias.
+- **Frequência**: 7 dias.
+
+#### 4.7. Freq. de 21d para 'Resgate de cliente sem compra' (Inativos)
+
+- **Aplicação**: Para clientes inativos há mais de 21 dias.
+- **Frequência**: 21 dias.
+
+### 5. Restrições, Exceções e Observações
+
+#### 5.1. Restrições
+
+- **Vendedores**: Os vendedores devem estar cadastrados no Govendas.
+- **

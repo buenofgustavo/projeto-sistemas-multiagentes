@@ -1,0 +1,118 @@
+ARQUIVO ORIGINAL: regra_126.gobr
+ID: regra_126
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "ruptura global":
+    vendedores porid("73","196","254","313")
+
+time "time televendas":
+    vendedores todostelevendas ativados menos("73","196","254","313")
+
+time "campo":
+    vendedores todosdecampo ativados
+
+carteira "carteira televendas":
+    clientes carteirafixa("time televendas")
+
+carteira "carteira campo":
+    clientes carteirafixa("campo")
+
+### Regras time ruptura global 
+
+parametros "Regra Padrao da Femac: 14 dias para clientes com mais de 31 dias sem compra com a empresa (ruptura global)":
+    do time("ruptura global")
+    quando inatividade global maior que 31 dias
+    frequencia de 14 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Femac: Não agendar cliente que compraram a menos de 31 dias (ruptura global)":
+    do time("ruptura global")
+    não agendar
+
+### Regras time televendas 
+
+parametros "Regra Padrao da Femac: 14 dias para ativos adimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando ativos para o vendedor e adimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Femac: 21 dias para ativos inadimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 21 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Femac: 30 dias para inativos adimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+        
+parametros "Regra Padrao da Femac: Nao agendar inativos inadimplentes (televendas)":
+    da carteira("carteira televendas")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+
+parametros "Regra Padrao da Femac: 30 dias para clientes sem venda (televendas)":
+    da carteira("carteira televendas")
+    quando sem venda
+    frequencia de 30 dias
+    preferencia nos dias uteis
+
+
+## regras time externo
+parametros "Regra Padrao da Femac - Frequencia de 7 dias para clientes ativos (campo)":
+    da carteira("carteira campo")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+    fixo
+
+parametros "Regra Padrao da Femac - Frequencia de 15 dias para clientes inativos (campo)":
+    da carteira("carteira campo")
+    frequencia de 15 dias
+    fixo
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato com clientes de acordo com diferentes perfis e situações comerciais. As regras são direcionadas para vendedores específicos, carteiras de clientes e períodos de tempo, com o objetivo de otimizar o tempo e recursos de vendas.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores, as carteiras de clientes e os períodos de tempo definidos nas parametrizações. Essas regras são aplicadas para gerar agendas de vendas, parametrizar clientes e disparar alertas, dependendo das condições definidas.
+
+### 3. Condições de Aplicação
+
+As condições de aplicação dessas parametrizações são definidas pelas seguintes regras:
+
+- **Ruptura Global**: Clientes com mais de 31 dias sem compra com a empresa são considerados com ruptura global. As regras definem que esses clientes não devem ser agendados.
+  
+- **Televendas**: Clientes ativos para o vendedor e adimplentes são agendados com frequência de 14 dias, preferindo dias úteis. Clientes inadimplentes são agendados com frequência de 21 dias, também preferindo dias úteis. Clientes inativos adimplentes são agendados com frequência de 30 dias, preferindo dias úteis. Clientes inativos inadimplentes não devem ser agendados.
+
+- **Campo**: Clientes ativos para o vendedor são agendados com frequência de 7 dias, fixo. Clientes inativos são agendados com frequência de 15 dias, fixo.
+
+### 4. Comportamento Configurado
+
+- **Ruptura Global**: Clientes com mais de 31 dias sem compra são considerados com ruptura global e não devem ser agendados.
+
+- **Televendas**: Clientes ativos para o vendedor e adimplentes são agendados com frequência de 14 dias, preferindo dias úteis. Clientes inadimplentes são agendados com frequência de 21 dias, preferindo dias úteis. Clientes inativos adimplentes são agendados com frequência de 30 dias, preferindo dias úteis. Clientes inativos inadimplentes não devem ser agendados.
+
+- **Campo**: Clientes ativos para o vendedor são agendados com frequência de 7 dias, fixo. Clientes inativos são agendados com frequência de 15 dias, fixo.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**:
+  - **Ruptura Global**: Não há restrições específicas mencionadas para clientes que já foram agendados.
+  - **Televendas**: Não há restrições específicas mencionadas para clientes que já foram agendados.
+  - **Campo**: Não há restrições específicas mencionadas para clientes que já foram agendados.
+
+- **Exceções**:
+  - **Ruptura

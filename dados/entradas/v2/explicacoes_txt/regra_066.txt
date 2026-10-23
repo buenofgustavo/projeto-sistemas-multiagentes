@@ -1,0 +1,121 @@
+ARQUIVO ORIGINAL: regra_066.gobr
+ID: regra_066
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time campo":
+    vendedores todosdecampo
+    
+time "time televendas":
+    vendedores todostelevendas
+
+carteira "carteira campo":
+    clientes carteirafixa("time campo")
+    
+carteira "carteira televendas":
+    clientes carteirafixa("time televendas")
+
+#### Parametros televendas
+
+parametros "Regra Padrao da Sul Frios - Customizavel: 7 dias para clientes ativos adimplentes (Internos)":
+    da carteira ("carteira televendas")
+    quando ativos para o vendedor e adimplentes
+    frequencia de 7 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Sul Frios - Customizavel: 14 dias para clientes ativos inadimplentes (Internos)":
+    da carteira ("carteira televendas")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 14 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Sul Frios - Customizavel: 30 dias para clientes inativos adimplentes (Internos)":
+    da carteira ("carteira televendas")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Sul Frios - Customizavel: Nao agendar clientes inativos inadimplentes (Internos)":
+    da carteira ("carteira televendas")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+    
+parametros "Regra Padrao da Sul Frios - Customizavel: Nao agendar clientes sem vendas (Internos)":
+    da carteira ("carteira televendas")
+    quando sem venda
+    nao agendar
+    
+#### Parametros campo
+
+parametros "Regra Padrao da Sul Frios - Customizavel: 7 dias para clientes ativos (Externos)":
+    da carteira ("carteira campo")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Sul Frios - Customizavel: 30 dias para clientes inativos adimplentes (Externos)":
+    da carteira ("carteira campo")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Sul Frios - Customizavel: Nao agendar clientes inativos inadimplentes (Externos)":
+    da carteira ("carteira campo")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+    
+parametros "Regra Padrao da Sul Frios - Customizavel: Nao agendar clientes sem vendas (Externos)":
+    da carteira ("carteira campo")
+    quando sem venda
+    nao agendar
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato com clientes de acordo com diferentes critérios de ativação e adimplência. As regras são aplicadas de forma a personalizar a agenda de contato, preferências de dia da semana, frequência de contato e até mesmo a remoção de clientes da agenda, conforme necessário.
+
+### 2. Público Afetado
+
+Este sistema é direcionado a vendedores, supervisores e assistentes de vendas. O objetivo é otimizar o tempo e a eficiência do contato com os clientes, garantindo que os vendedores tenham uma agenda bem estruturada e priorizada.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- **Categorias de Clientes**: São divididos em "Campo" e "Televendas". As regras específicas para cada categoria são definidas.
+  
+- **Vendedores**: As regras são aplicadas de acordo com o time de vendedores especificado. Por exemplo, vendedores de campo ou televendas.
+
+- **Frequência e Dias da Semana**: As regras definem a frequência de contato (semanal, mensal, etc.) e os dias da semana preferidos para o contato.
+
+- **Adimplência e Inadimplência**: As regras diferenciam entre clientes ativos adimplentes, ativos inadimplentes, inativos adimplentes e inativos inadimplentes, definindo diferentes estratégias de contato.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Parametrização de Frequência**: Define a frequência de contato (semanal, mensal, etc.) com base no tempo desde a última venda ou visita.
+
+- **Preferência de Dias da Semana**: Determina os dias da semana preferidos para o contato.
+
+- **Remoção de Agendamento**: Define que determinados clientes não devem aparecer na agenda.
+
+- **Criação de Carteiras Livres**: Permite que clientes sejam incluídos em várias carteiras, mantendo a flexibilidade de contato.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Carteira**: Um cliente pode estar em apenas uma carteira livre, mas pode aparecer em várias carteiras principais.
+
+- **Exceções de Carteira**: As carteiras livres permitem que clientes sejam incluídos em várias carteiras, mas não excluem a necessidade de seguir as regras de cada carteira principal.
+
+- **Ambiguidades**: Algumas regras podem ser interpretadas de maneira diferente dependendo do contexto, especialmente quando há múltiplas carteiras e times de vendedores.
+
+- **Lacunas**: Não há regras que cobrem todos os cenários possíveis, e algumas situações podem exigir ajustes manuais.
+
+- **Mutuamente Exclusivas**: As regras de parametrização GoBR são mutuamente exclusivas, ou seja, uma

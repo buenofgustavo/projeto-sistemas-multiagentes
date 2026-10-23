@@ -1,0 +1,26 @@
+1. Objetivo Comercial
+
+A parametrização GoBR visa definir como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. O objetivo principal é otimizar a rotina de vendas, garantindo que os vendedores tenham uma agenda eficiente e que os clientes recebam atendimento adequado.
+2. Público Afetado
+
+Este sistema afeta todos os vendedores e supervisores da empresa, bem como os clientes que estão na carteira comercial da empresa. As regras são aplicadas automaticamente pelo sistema GoBR, sem necessidade de intervenção manual.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente para clientes que atendem aos critérios definidos nas regras. As condições de aplicação incluem:
+
+- Clientes Ativos e Inadimplentes: Recebem parametrizações com frequência de 14 dias (quinzenal) ou 30 dias (mensal), dependendo do tipo de adimplência.
+- Clientes Adimplentes e Inativos: Recebem parametrizações com frequência de 7 dias (semanal) ou 14 dias (quinzenal), dependendo do tipo de inadimplência.
+- Clientes Sem Vendas: Recebem parametrizações com frequência de 14 dias (quinzenal).
+4. Comportamento Configurado
+
+As regras GoBR configuram o comportamento dos clientes de acordo com as seguintes condições:
+
+- Frequência: A frequência de visitas pode ser definida como diária, semanal, quinzenal ou mensal.
+- Dias da Semana: Os dias da semana para visitas são definidos como úteis (segunda a sexta), com valores específicos para cada dia.
+- Preferência de Dias: Os clientes podem receber uma preferência de visita em alguns dias da semana, com valores numéricos que indicam a preferência (0 = não visitar, 1 = menor preferência, 2 = preferência normal, 3 = maior preferência).
+- Roteirização: Os clientes podem ser incluídos na otimização de rota de visita presencial (roteirizável) ou marcados como fixos, criando uma restrição mais rígida no uso de frequência e preferência.
+5. Restrições, Exceções e Observações
+
+- Remoção de Agendamento: As parametrizações GoBR podem incluir a remoção de clientes da agenda, mas isso é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias.
+- Parametrização Dinâmica: As parametrizações GoBR podem ser sobrescritas pelos ajustes finos dos vendedores e supervisores, mas elas não sobrepõem a parametrização manual realizada pelo usuário no Govendas.
+- Carteiras Livres: As carteiras livres permitem que clientes apareçam em múltiplas carteiras

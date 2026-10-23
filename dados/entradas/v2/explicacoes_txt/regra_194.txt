@@ -1,0 +1,86 @@
+ARQUIVO ORIGINAL: regra_194.gobr
+ID: regra_194
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+#### Solicitação: https://gogeo.proofhub.com/bapplite/#app/todos/project-9548242112/list-270761555428/task-552627184596
+version 1.0
+
+
+### Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+### Regras de planejamento
+
+parametros "Baixados na Receita Federal":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Prospects (Nunca tirou pedido)":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 7 dias
+
+parametros "Ativo (Com último pedido em até 60d atrás)":
+    do time("televendas")
+    quando recencia de positivacao global em 60 dias
+    frequencia de 14 dias
+
+parametros "Risco de Inatividade (Com pedido entre 60 e 90d atrás)":
+    do time("televendas")
+    quando recencia de positivacao em 90 dias
+    frequencia de 7 dias
+
+parametros "Inativo (Com último pedido há mais de 90d atrás)":
+    do time("televendas")
+    frequencia de 28 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal desta parametrização é definir estratégias de contato e parametrização de clientes para diferentes grupos de vendedores, baseado em suas atividades recentes e históricas. Isso visa otimizar o tempo e recursos de vendas, garantindo que os clientes recebam o suporte adequado e que os vendedores estejam sempre preparados para novas oportunidades.
+
+### Público Afetado
+
+Este pacote de regras afeta todos os vendedores e clientes relacionados aos grupos definidos nas regras. As regras são direcionadas especificamente para vendedores de televendas, vendedores de campo, supervisores e um vendedor avulso. Além disso, as carteiras de clientes são afetadas, incluindo clientes fixos, clientes em ruptura de positivação e clientes em ruptura de visita.
+
+### Condições de Aplicação
+
+As regras são aplicáveis a todos os vendedores e clientes que estão associados aos grupos definidos nas regras. As condições específicas de aplicação incluem:
+
+- **Vendedores de Televendas**: São definidos como todos os vendedores televendas ativados.
+- **Vendedores de Campo**: São todos os vendedores de campo.
+- **Supervisores**: São especificados por ID, como "13", "14" e "1020".
+- **Vendedor Avulso**: É especificado por ID, como "1020".
+
+### Comportamento Configurado
+
+As regras definem comportamentos específicos para diferentes grupos de clientes e vendedores, incluindo:
+
+- **Prospects (Nunca tirou pedido)**: Frequentemente, com uma frequência de 7 dias.
+- **Ativo (Com último pedido em até 60d atrás)**: Frequentemente, com uma frequência de 14 dias.
+- **Risco de Inatividade (Com pedido entre 60 e 90d atrás)**: Sem agendamento.
+- **Inativo (Com último pedido há mais de 90d atrás)**: Sem agendamento.
+
+### Restrições, Exceções e Observações
+
+- **Restrições**: 
+  - Um mesmo vendedor pode aparecer em múltiplas linhas de vendedores, cada uma com suas próprias restrições.
+  - Um vendedor só é contado uma vez, mesmo que apareça em múltiplas linhas de vendedores.
+  - Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+  - Todos os vendedores referenciados devem estar cadastrados no Govendas.
+
+- **Exceções**:
+  - As regras não permitem que um mesmo cliente apareça em múltiplas carteiras simultaneamente.
+  - As carteiras livres permitem que um mesmo cliente apareça em múltiplas carteiras, mas não excluam uma outra.
+
+- **Observações**:
+  - As regras de filtragem de clientes podem ser combinadas com outras condições.
+  - As carteiras livres permitem que um mesmo cliente apareça em múltiplas

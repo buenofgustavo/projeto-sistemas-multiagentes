@@ -1,0 +1,27 @@
+1. Objetivo Comercial
+
+A parametrização GoBR visa organizar e direcionar a agenda de vendas de acordo com critérios comerciais específicos. Isso inclui definir quem deve atender a quem, quando e como, além de controlar a frequência e preferência de dias para visitas.
+2. Público Afetado
+
+Este sistema afeta diretamente os vendedores, supervisores e gestores, permitindo que eles definam estratégias de vendas personalizadas para cada cliente. Também afeta os clientes, que podem ser direcionados a diferentes carteiras com base em suas características comerciais.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a diferentes tipos de clientes e vendedores, dependendo das condições definidas. Por exemplo, algumas regras são aplicáveis apenas a clientes em ruptura, enquanto outras são destinadas a clientes adimplentes. Além disso, as regras podem ser aplicadas a diferentes períodos de tempo, como semanas, meses ou trimestres.
+4. Comportamento Configurado
+
+Os comportamentos configurados incluem:
+
+- Parametrização de Frequência: Define a frequência com que um cliente deve ser visitado, podendo ser diária, semanal, mensal, trimestral, etc.
+- Preferência de Dias da Semana: Determina a preferência de visitas para cada dia da semana, com valores numéricos que variam de 0 a 3.
+- Remoção de Agendamento: Permite marcar clientes para não aparecerem na agenda, como em casos de inadimplência.
+- Segmentações: Criam agrupamentos auxiliares de clientes para fins de parametrização.
+5. Restrições, Exceções e Observações
+
+- Restrições de Vendedores: Algumas regras podem excluir determinados vendedores, como as regras que excluem vendedores com IDs específicos.
+- Exceções de Carteiras: Carteiras livres permitem que clientes sejam incluídos em múltiplas carteiras, mas não removidos do pool de clientes disponíveis.
+- Ambiguidades: Algumas regras podem ser ambíguas, especialmente quando combinadas com outras regras. É importante entender a ordem de aplicação das regras.
+- Limitações de Implementação: Algumas funcionalidades, como a parametrização de intensidade de preferência de dias, ainda estão em desenvolvimento e não estão completamente implementadas.
+- Sobrescrita de Parametrização Manual: As regras GoBR podem sobrescrever parametrizações manualmente feitas pelo usuário, mas apenas em clientes que ainda não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR.
+Resumo
+
+A parametrização GoBR é uma ferramenta poderosa para otimizar a estratégia de vendas, permitindo que os vendedores, supervisores e gestores criem estratégias personalizadas para cada cliente. Entretanto, é crucial entender as restrições e exceções para garantir que

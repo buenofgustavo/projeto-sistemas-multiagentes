@@ -1,0 +1,31 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para clientes de acordo com suas condições comerciais específicas. As regras permitem que os vendedores tenham uma visão personalizada de quem deve ser visitado e quando, com base em critérios como adimplemento, inadimplemento, atividade recente, etc.
+2. Público Afetado
+
+Este sistema afeta diretamente os vendedores e supervisores responsáveis por gerenciar as carteiras de clientes. Também afeta os clientes, que podem ser agendados ou removidos de rotas de acordo com as regras definidas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente conforme as condições definidas. Elas são ativadas quando os clientes atendem aos critérios especificados nas regras. As condições de aplicação incluem:
+
+- Adimplemento: Clientes que pagaram suas dívidas dentro do prazo.
+- Inadimplemento: Clientes que não pagaram suas dívidas dentro do prazo.
+- Atividade Recente: Clientes que compraram ou foram visitados recentemente.
+- Inatividade: Clientes que não compraram ou foram visitados há algum tempo.
+- Sem Venda: Clientes que nunca compraram.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Parametrização de Frequência: Define quanto tempo deve passar entre as visitas a um cliente (por exemplo, 7 dias, 14 dias).
+- Preferência de Dias da Semana: Determina quais dias da semana os vendedores devem visitar os clientes (por exemplo, segunda e terça-feira com maior preferência, quinta e sexta-feira com preferência normal, sábado com menor preferência).
+- Remoção de Agendamento: Define que clientes devem ser removidos da agenda (por exemplo, clientes inativos há 90 dias).
+5. Restrições, Exceções e Observações
+
+- Restrições de Tempo: As regras definem períodos de tempo (por exemplo, 7 dias, 14 dias, 90 dias) que influenciam a parametrização.
+- Exceções: Algumas regras podem ter exceções, como a parametrização de frequência para clientes inativos há 90 dias, que é diferente da parametrização para clientes inativos há mais de 90 dias.
+- Ambiguidades: Algumas regras podem ser ambíguas, como a parametrização de frequência para clientes inativos há 90 dias, que pode ser interpretada de diferentes maneiras dependendo do contexto.
+- Observações: É importante notar que algumas regras podem não ser mutuamente exclusivas, ou seja, um cliente pode estar sujeito a mais de uma regra de parametrização simultaneamente.
+Resumo
+
+A parametrização GoBR permite aos vendedores e supervisores defin

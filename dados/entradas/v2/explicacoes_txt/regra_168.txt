@@ -1,0 +1,157 @@
+ARQUIVO ORIGINAL: regra_168.gobr
+ID: regra_168
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://gogeo.proofhub.com/bapplite/#app/todos/project-9580562790/list-270894162472/task-531336623560
+version 1.0
+
+
+## DEFINIÇÃO DE TIMES
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+
+## CARTEIRAS DE ROTAS POR CIDADE
+
+carteira livre "rota_todo_dia":
+    clientes carteirafixa("televendas")
+    quando nome da cidade igual(
+        "BALNEARIO CAMBORIU","BOMBINHAS","CAMBORIU","ITAJAI","ITAPEMA","PORTO BELO"
+    )
+
+carteira livre "rota_terca":
+    clientes carteirafixa("televendas")
+    quando nome da cidade igual(
+        "CASCAVEL","LAGES","BOM RETIRO","SAO JOAQUIM","BIGUACU","BLUMENAU","BRUSQUE","FLORIANOPOLIS",
+        "GOVERNADOR CELSO RAMOS","GUABIRUBA","IBIRAMA","PALHOCA","POMERODE","RIO DO SUL","SAO JOSE",
+        "TIJUCAS","LUIZ ALVES","GASPAR","INDAIAL","BOTUVERA","ILHOTA","RIO DOS CEDROS"
+    )
+
+carteira livre "rota_quarta":
+    clientes carteirafixa("televendas")
+    quando nome da cidade igual(
+        "IRATI","PONTA GROSSA","FERNANDES PINHEIRO","TEIXEIRA SOARES","ARAUCARIA","CURITIBA",
+        "SAO JOSE DOS PINHAIS","PIRAQUARA","COLOMBO","PINHAIS","CAMPO LARGO","JARAGUA DO SUL",
+        "BALNEARIO BARRA DO SUL","BALNEARIO PICARRAS","CAMPO ALEGRE","JOINVILLE","NAVEGANTES",
+        "PENHA","POUSO REDONDO","CORUPA","GUARAMIRIM","SAO BENTO DO SUL","BARRA VELHA",
+        "SCHROEDER","REBOUÇAS","RIO AZUL"
+    )
+
+carteira livre "rota_quinta":
+    clientes carteirafixa("televendas")
+    quando nome da cidade igual(
+        "BENTO GONCALVES","CACHOEIRINHA","CAMPO BOM","CANOAS","CAPAO DA CANOA","CAXIAS DO SUL",
+        "GRAMADO","NOVO HAMBURGO","PORTO ALEGRE","TORRES","TRES COROAS","XANGRI LA","BIGUACU",
+        "BLUMENAU","COCAL DO SUL","CRICIUMA","BRUSQUE","FORQUILINHAS","GAROPABA","FLORIANOPOLIS",
+        "GOVERNADOR CELSO RAMOS","GUABIRUBA","IMBITUBA","IBIRAMA","PALHOCA","JAGUARUNA","LAGUNA",
+        "POMERODE","RIO DO SUL","SAO JOSE","PRAIA GRANDE","TIJUCAS","LUIZ ALVES","GASPAR",
+        "TUBARAO","INDAIAL","BOTUVERA","ILHOTA","RIO DOS CEDROS"
+    )
+
+carteira livre "rota_sexta":
+    clientes carteirafixa("televendas")
+    quando nome da cidade igual(
+        "GUARATUBA","MATINHOS","ITAPOA","MORRETES","PARANAGUA","ARAUCARIA","CURITIBA",
+        "SAO JOSE DOS PINHAIS","PIRAQUARA","COLOMBO","PINHAIS","CAMPO LARGO",
+        "BALNEARIO BARRA DO SUL","BALNEARIO PICARRAS","CAMPO ALEGRE","JOINVILLE",
+        "SAO FRANCISCO DO SUL","NAVEGANTES","PENHA","POUSO REDONDO","CORUPA",
+        "GUARAMIRIM","SAO BENTO DO SUL","BARRA VELHA","SCHROEDER","BIGUACU",
+        "FLORIANOPOLIS","GOVERNADOR CELSO RAMOS","PALHOCA","SAO JOSE","TIJUCAS"
+    )
+
+
+## PARÂMETROS DE PLANEJAMENTO
+
+parametros "Não agendar baixados na Receita":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Não agendar bloqueados":
+    do time("televendas")
+    quando bloqueados
+    nao agendar
+
+parametros "Rota todo dia -> Agendamento todo dia":
+    da carteira("rota_todo_dia")
+    frequencia diaria()
+    preferencia maior na segunda
+        e maior na terca
+        e maior na quarta
+        e maior na quinta
+        e maior na sexta
+    roteirizavel
+    fixo
+
+parametros "Rota de terça -> Agendamento segunda":
+    da carteira("rota_terca")
+    na segunda
+    frequencia diaria()
+    preferencia maior na segunda
+    roteirizavel
+    fixo
+    
+
+parametros "Rota de quarta -> Agendamento terça":
+    da carteira("rota_quarta")
+    na terca
+    frequencia diaria()
+    preferencia maior na terca
+    roteirizavel
+    fixo
+
+parametros "Rota de quinta -> Agendamento quarta":
+    da carteira("rota_quinta")
+    na quarta
+    frequencia diaria()
+    preferencia maior na quarta
+    roteirizavel
+    fixo
+
+parametros "Rota de sexta -> Agendamento quinta":
+    da carteira("rota_sexta")
+    na quinta
+    frequencia diaria()
+    preferencia maior na quinta
+    roteirizavel
+    fixo
+
+parametros "Não agendar clientes que não se enquadraram nas regras hoje":
+    do time("televendas")
+    nao agendar
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal desta parametrização é otimizar a rotina de vendas para vendedores de diferentes setores, garantindo que eles atendam a uma variedade de clientes conforme suas respectivas carteiras de rotas. As regras definem a frequência, preferência de dias e outros parâmetros de atendimento para cada cliente, ajudando a maximizar o tempo de contato e a eficiência do trabalho.
+
+### Público Afetado
+
+Este sistema afeta diretamente os vendedores de televendas, supervisores, e os vendedores de campo. Também afeta os clientes que são incluídos nessas carteiras de rotas, garantindo que eles sejam atendidos de acordo com as regras estabelecidas.
+
+### Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a todos os clientes que estão na carteira de rotas definida. Elas são específicas para cada carteira de rotas e são aplicadas automaticamente, podendo ser sobrescritas pelos vendedores e supervisores conforme necessário.
+
+### Comportamento Configurado
+
+1. **Parametros "Não agendar baixados na Receita"**: Nenhum agendamento será feito para clientes cuja situação na Receita Federal seja "baixada".
+2. **Parametros "Não agendar bloqueados"**: Nenhum agendamento será feito para clientes bloqueados.
+3. **Parametros "Rota todo dia -> Agendamento todo dia"**: Todos os clientes da carteira "rota_todo_dia" serão agendados diariamente, com maior preferência na segunda, terça, quarta, quinta e sexta-feira.
+4. **Parametros "Rota de terça -> Agendamento segunda"**: Todos os clientes da carteira "rota_terca" serão agendados na segunda-feira, com maior preferência na segunda-feira.
+5. **Parametros "Rota de quarta -> Agendamento terça"**: Todos os clientes da carteira "rota_quarta" serão agendados na terça-feira, com maior preferência na terça-feira.
+6. **Parametros "Rota de quinta -> Agendamento quarta"**: Todos os clientes da carteira "rota_quinta" serão agendados na quarta-feira, com maior preferência na quarta-feira.
+7. **Parametros "Rota de sexta -> Agendamento quinta"**: Todos os clientes da carteira "rota_sexta" serão agendados na quinta-feira, com maior preferência na quinta-feira.
+8. **Parametros "Não agendar clientes que não se enquadraram nas regras hoje"**: Nenhum agendamento será feito para clientes que não se enquadram nas regras definidas para o dia atual.
+
+### Restrições, Exceções e Observações
+
+1. **Restrições**:
+   - As regras de parametrização são aplicáveis apenas a clientes que ainda não têm parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+   - As regras de parametrização não sob

@@ -1,0 +1,129 @@
+ARQUIVO ORIGINAL: regra_101.gobr
+ID: regra_101
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+
+time "time capital":
+	vendedores todosdecampo menos("17","18","13")
+
+time "time interior":
+	vendedores porid("17","18","13")
+
+
+## time televendas
+parametros "Regra Padrao da Propec: Frequencia de 7 dias para clientes ativos (televendas)":
+    do time("time televendas")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+
+parametros "Regra Padrao da Propec: Frequencia de 30 dias para clientes inativos (televendas)":
+    do time("time televendas")
+    quando inativos para o vendedor
+    frequencia de 30 dias
+
+parametros "Regra Padrao da Propec: Frequencia de 7 dias para clientes sem venda (televendas)":
+    do time("time televendas")
+    quando sem venda
+    frequencia de 7 dias
+
+## time capital
+parametros "Regra Padrao da Propec: Frequencia de 7 dias para clientes ativos (regiao metropolitana)":
+    do time("time capital")
+    quando ativos para o vendedor
+    frequencia de 7 dias
+
+parametros "Regra Padrao da Propec: Frequencia de 14 dias para clientes inativos adimplentes (regiao metropolitana)":
+    do time("time capital")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 14 dias
+
+parametros "Regra Padrao da Propec: Nao agendar clientes inativos inadimplentes (regiao metropolitana)":
+    do time("time capital")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+
+parametros "Regra Padrao da Propec: Frequencia de 14 dias para clientes sem venda (regiao metropolitana)":
+    do time("time capital")
+    quando sem venda
+    frequencia de 14 dias
+
+
+## time interior
+parametros "Regra Padrao da Propec: Frequencia de 14 dias para clientes ativos (interior)":
+    do time("time interior")
+    quando ativos para o vendedor
+    frequencia de 14 dias
+
+parametros "Regra Padrao da Propec: Frequencia de 30 dias para clientes inativos adimplentes (interior)":
+    do time("time interior")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 30 dias
+
+parametros "Regra Padrao da Propec: Nao agendar clientes inativos inadimplentes (interior)":
+    do time("time interior")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+
+parametros "Regra Padrao da Propec: Frequencia de 30 dias para clientes sem venda (interior)":
+    do time("time interior")
+    quando sem venda
+    frequencia de 30 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir regras de frequência e comportamento para clientes em diferentes carteiras e segmentações, com base no histórico de vendas e visitas. As regras são aplicadas de acordo com o status atual do cliente (ativo/inativo) e o vendedor responsável.
+
+### 2. Público Afetado
+
+- **Vendedores**: Todos os vendedores, tanto televendas quanto de campo, são afetados pelas regras de parametrização.
+- **Clientes**: Os clientes são classificados em diferentes carteiras e segmentações com base nas regras definidas.
+
+### 3. Condições de Aplicação
+
+- **Time "time televendas"**:
+  - **Regra Padronizada**: Aplica-se a todos os vendedores televendas.
+  - **Frequência de Visita**: 
+    - Ativos: 7 dias
+    - Inativos: 30 dias
+    - Sem Venda: 7 dias
+- **Time "time capital"**:
+  - **Regra Padronizada**: Aplica-se a todos os vendedores de campo menos os de ID 17, 18, e 13.
+  - **Frequência de Visita**:
+    - Ativos: 7 dias
+    - Inativos Adimplentes: 14 dias
+    - Inativos Inadimplentes: Não agendar
+    - Sem Venda: 14 dias
+- **Time "time interior"**:
+  - **Regra Padronizada**: Aplica-se a todos os vendedores de campo com ID 17, 18, e 13.
+  - **Frequência de Visita**:
+    - Ativos: 14 dias
+    - Inativos Adimplentes: 30 dias
+    - Inativos Inadimplentes: Não agendar
+    - Sem Venda: 30 dias
+
+### 4. Comportamento Configurado
+
+- **Parametrização de Frequência**:
+  - **Regra Padronizada**: Define a frequência de visita para clientes ativos, inativos, e sem venda, dependendo do status do cliente e do vendedor.
+- **Não Agendar**:
+  - **Regra Padronizada**: Quando um cliente é inativo e inadimplente, a parametrização define que não deve agendar visitas para esse cliente.
+  
+### 5. Restrições, Exceções e Observações
+
+- **Restrições de Vendedores**:
+  - **Menos("id1", "id2", ...)**: Exclui vendedores com IDs específicos.
+  - **Unicidade por Time**: Um mesmo vendedor só é contado uma vez, mesmo que apareça em múltiplas linhas de vendedores.
+  - **Referências Únicas**: Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+  - **Vendedores Cadastrados**: Todos os vendedores referenciados devem estar cadastrados no Govendas.
+- **Restrições de Cliente**:
+  - **Adimplentes**: Os clientes adimpl

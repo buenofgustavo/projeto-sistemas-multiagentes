@@ -1,0 +1,33 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de vendas específicas para diferentes grupos de vendedores e clientes. Ela permite que as operações comerciais ajustem as agendas e as parametrizações de acordo com o comportamento histórico e atual dos clientes e vendedores.
+2. Público Afetado
+
+Este sistema é direcionado para vendedores e gerentes de vendas responsáveis por definir estratégias de vendas personalizadas. Também abrange os administradores de vendas que precisam configurar e gerenciar as parametrizações de acordo com as necessidades comerciais.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- Vendedores: São definidos em blocos `time` que especificam os vendedores envolvidos. Por exemplo, `time "televendas"` define todos os vendedores televendas, enquanto `time "campo"` define todos os vendedores de campo.
+  
+- Clientes: São definidos em blocos `segmentacao` que especificam critérios de segmentação. Por exemplo, `segmentacao "freq_hist_1a7"` define clientes com frequência histórica entre 1 e 7 dias.
+
+- Parametrizações: São definidas em blocos `parametros` que especificam as ações a serem tomadas com base nas condições anteriores. Por exemplo, `parametros "Não agendar clientes inativos inadimplentes"` define que não devem ser agendados clientes inativos ou inadimplentes.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Não Agendar: Determina que determinados clientes ou vendedores não devem ser incluídos em agendas.
+  
+- Frequência: Define a periodicidade das visitas ou agendamentos, como diária, semanal, quinzenal, etc.
+  
+- Preferência de Dia: Define a preferência de dia para as visitas, como segunda-feira, terça-feira, etc.
+  
+- Remoção de Agendamento: Determina que determinados clientes não devem aparecer na agenda.
+5. Restrições, Exceções e Observações
+
+- Restrições: As regras GoBR permitem que um mesmo vendedor apareça em múltiplos blocos `time`, mas ele só é contado uma vez. Além disso, os nomes dos blocos `time` devem ser únicos.
+
+- Exceções: Algumas regras não foram implementadas, como "cadastrados no Govendas", "não cadastrados no Govendas", "com muitos clientes", "com poucos clientes", "junto a supervisor com poucos vendedores", etc.
+
+- Observações: É importante notar que algumas regras podem ser combinadas com `e` (e.g., `quando recencia de visita entre 10 dias e 90 dias e adimplentes`) e que a inclusão de clientes em uma carteira pode

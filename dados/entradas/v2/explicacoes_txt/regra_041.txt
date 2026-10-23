@@ -1,0 +1,77 @@
+ARQUIVO ORIGINAL: regra_041.gobr
+ID: regra_041
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras para MGR
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de inativos":
+    da carteira("empresa toda")
+    quando inativos para o vendedor
+    frequencia de inativos da empresa
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de ativos":
+    da carteira("empresa toda")
+    quando ativos para o vendedor
+    frequencia de ativos da empresa
+
+parametros "Regra Padrao do goVendas Customizavel: Frequencia de clientes sem vendas":
+    da carteira("empresa toda")
+    quando sem venda
+    frequencia de inativos da empresa
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento e frequência de contato com clientes, especialmente focando em clientes inativos e ativos. Isso permite que as equipes de vendas tenham uma visão clara de quem deve ser visitado e quanto, ajudando a otimizar o tempo e recursos.
+
+### 2. Público Afetado
+
+Este sistema é direcionado para vendedores, supervisores e administradores de vendas. As decisões tomadas com base nessas parametrizações afetam diretamente a estratégia de atendimento e o planejamento de rotas de visitas.
+
+### 3. Condições de Aplicação
+
+As parametrizações GoBR são aplicáveis a todas as carteiras de clientes, independentemente do tipo de cliente (atendidos por televendas, vendedores de campo, supervisores, etc.). Elas são específicas para o período de tempo mencionado ("tempo de inatividade") e para o vendedor específico.
+
+### 4. Comportamento Configurado
+
+#### 4.1. Frequência de Inativos
+
+- **Frequência de Inativos**: Define a frequência com que clientes inativos devem ser visitados. Por exemplo, se a frequência for definida como "semanal", os clientes inativos serão visitados uma vez por semana.
+  
+#### 4.2. Frequência de Ativos
+
+- **Frequência de Ativos**: Similar à anterior, mas para clientes ativos. Por exemplo, se a frequência for definida como "mensal", os clientes ativos serão visitados uma vez por mês.
+
+#### 4.3. Frequência de Clientes Sem Vendas
+
+- **Frequência de Inativos Globais**: Define a frequência com que clientes sem vendas (inativos) devem ser visitados pela empresa toda. Por exemplo, se a frequência for definida como "mensal", todos os clientes inativos da empresa serão visitados uma vez por mês.
+
+### 5. Restrições, Exceções e Observações
+
+#### 5.1. Restrições
+
+- **Restrição de Vendedores**: As parametrizações são aplicáveis apenas aos vendedores específicos mencionados nas regras. Não podem ser aplicadas a outros vendedores.
+  
+- **Restrição de Tempo**: As parametrizações são válidas apenas durante o período de tempo especificado. Após esse período, as parametrizações podem ser alteradas ou removidas.
+
+- **Restrição de Cliente**: As parametrizações não podem ser aplicadas a clientes que já tenham uma parametrização manual definida no sistema Govendas.
+
+#### 5.2. Exceções
+
+- **Exclusão de Vendedores**: Algumas parametrizações podem excluir vendedores específicos de determinadas regras. Por exemplo, se um vendedor for excluído por ID, ele não será afetado pelas parametrizações aplicadas a outro vendedor.
+
+#### 5.3. Observações
+
+- **Ambiguidade**: Algumas regras podem ser interpretadas de maneira diferente dependendo

@@ -1,0 +1,36 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento e gerenciamento de clientes para vendedores de diferentes times, como televendas, supervisores e vendedores avulsos. As regras são direcionadas para identificar clientes em ruptura de positivação e visita, além de clientes inativos há determinado período. Essas regras são utilizadas para personalizar a frequência de contato e a prioridade de atendimento.
+2. Público Afetado
+
+O público afetado são os vendedores, supervisores e gestores, bem como os clientes que estão em ruptura de positivação, visita ou inativos há determinado tempo. As regras são aplicadas para definir a frequência de contato e a prioridade de atendimento desses clientes.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas conforme as seguintes condições:
+
+- Frequência Histórica: A frequência histórica de compra dos clientes é considerada.
+- Recência de Posicionamento: A recência de positivação dos clientes é avaliada.
+- Recência de Visita: A recência de visita dos clientes é considerada.
+- Inatividade: A inatividade dos clientes é avaliada.
+- Tempo de Ruptura: O tempo de ruptura de positivação e visita é determinado.
+4. Comportamento Configurado
+
+Os comportamentos configurados pelas regras GoBR incluem:
+
+- Alertas: Alertas são gerados para vendedores, supervisores e gestores com base no comportamento dos clientes.
+- Carteiras: Carteiras são definidas para incluir clientes específicos com base nas regras de parametrização.
+- Segmentações: Segmentações são criadas para agrupar clientes de maneira auxiliar, permitindo a criação de carteiras com base nessas segmentações.
+5. Restrições, Exceções e Observações
+
+- Restrições:
+  - Unicidade de Vendedores: Um mesmo vendedor pode aparecer em múltiplos times, mas será contabilizado apenas uma vez.
+  - Referências Únicas: Os nomes dos times devem ser distintos entre si no mesmo arquivo.
+  - Vendedores Cadastrados: Todos os vendedores referenciados devem estar cadastrados no Govendas.
+  
+- Exceções:
+  - Repetição de Clientes: Clientes podem aparecer em várias carteiras, mas não serão excluídos de outras carteiras.
+  - Sem Repeição entre Carteiras Normais: Clientes que já foram atribuídos a uma carteira anterior não serão incluídos nas carteiras subsequentes, exceto em carteiras livres.
+  
+- Observações:
+  - Combinação de Filtros: É possível combinar diferentes tipos de ruptura (positivação, visita, inatividade) em uma única regra.
+  - Evitar Regras Excessivas: Cada regra deve ser

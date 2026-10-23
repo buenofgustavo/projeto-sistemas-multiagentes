@@ -1,0 +1,78 @@
+ARQUIVO ORIGINAL: regra_107.gobr
+ID: regra_107
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Regras para Higicop
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+
+carteira "empresa higicop":
+    clientes carteirafixa("empresa toda")
+
+parametros "Regra Padrao da Empresa Customizavel: 15 dias para inativos":
+    da carteira("empresa higicop")
+    quando inativos para o vendedor
+    frequencia quinzenal()
+    preferencia do vendedor
+
+parametros "Regra Padrao da Empresa Customizavel: 15 dias para ativos":
+    da carteira("empresa higicop")
+    quando ativos para o vendedor
+    frequencia quinzenal()
+    preferencia do vendedor
+    
+
+parametros "Regra Padrao da Empresa Customizavel: 15 dias para clientes sem vendas":
+    da carteira("empresa higicop")
+    quando sem vendas
+    frequencia quinzenal()
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de atendimento para clientes da empresa Higicop. As regras permitem que os vendedores definam a frequência e os dias da semana para visitas a clientes ativos, inativos ou sem vendas, com a possibilidade de personalizar essas parametrizações conforme necessário.
+
+### 2. Público Afetado
+
+Este sistema afeta os vendedores e supervisores da empresa Higicop, permitindo que eles definam estratégias de atendimento personalizadas para seus clientes. As regras são aplicadas automaticamente, mas podem ser sobrescritas pelos vendedores e supervisores conforme necessário.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a clientes da carteira Higicop. Elas são definidas para clientes ativos, inativos ou sem vendas, e podem ser personalizadas com frequências e dias específicos de visita.
+
+### 4. Comportamento Configurado
+
+#### 4.1 Regras de Atendimento
+
+- **Regra padrão para clientes ativos:** Clientes ativos recebem visitas com frequência quinzenal, com preferência do vendedor.
+- **Regra padrão para clientes inativos:** Clientes inativos recebem visitas com frequência quinzenal, com preferência do vendedor.
+- **Regra padrão para clientes sem vendas:** Clientes sem vendas recebem visitas com frequência quinzenal, com preferência do vendedor.
+
+#### 4.2 Personalização
+
+- **Personalização de frequência:** As regras podem ser personalizadas para alterar a frequência de visita (por exemplo, de quinzenal para semanal).
+- **Personalização de dias da semana:** As preferências de dias da semana podem ser alteradas para priorizar visitas em certos dias.
+- **Personalização de clientes:** As regras podem ser aplicadas a clientes específicos ou grupos de clientes.
+
+### 5. Restrições, Exceções e Observações
+
+#### 5.1 Restrições
+
+- **Restrição de uso de "nao agendar":** A remoção de agendamento ("nao agendar") é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias na mesma regra.
+  
+- **Restrição de uso de "limpar parametros":** A remoção de parametrizações já aplicadas ("limpar parametros") é uma parametrização exclusiva e não pode ser combinada com outras parametrizações.
+
+#### 5.2 Exceções
+
+- **Exceção para uso de "preferencia":** A preferência de dias da semana pode ser configurada com intensidades diferentes para cada dia da semana, permitindo uma maior flexibilidade na definição de prioridades.
+
+#### 5.3 Observações
+
+- **Observação sobre a remoção de parametrizações:** A remoção de parametrizações já aplicadas ("limpar parametros") é útil para resetar configurações antes de reaplicar

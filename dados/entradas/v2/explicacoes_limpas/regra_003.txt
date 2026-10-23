@@ -1,0 +1,24 @@
+1. Objetivo Comercial
+
+O objetivo principal dessa parametrização GoBR é garantir que os vendedores e televendas atendam adequadamente aos clientes de acordo com as regras estabelecidas. Isso inclui evitar agendamentos desnecessários, manter a frequência de visitas adequada, e garantir que os clientes recebam atendimento conforme suas necessidades específicas.
+2. Público Afetado
+
+O público afetado são os vendedores, televendas, e os clientes dos distribuidores. As regras são aplicadas para determinar quando e como esses clientes devem ser atendidos.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente para determinar a frequência e o comportamento de atendimento para cada cliente. Elas são ativadas automaticamente quando um novo cliente é adicionado à carteira ou quando há mudanças nas condições dos clientes existentes.
+4. Comportamento Configurado
+
+As regras configuram o comportamento de atendimento de acordo com as seguintes condições:
+
+- Não agendar filiais: Os clientes filiais não são agendados.
+- Não agendar clientes com visita do externo na semana anterior: Se o cliente teve uma visita do representante externo na semana anterior, não é agendado.
+- Não agendar clientes com rota programada com o externo nos próximos 7 dias: Se a rota programada com o representante externo está prevista nos próximos 7 dias, o cliente não é agendado.
+- Não agendar clientes com compra em 7 dias atrás: Se o cliente fez uma compra no período de 7 dias atrás, não é agendado.
+- Ative este prospect: nunca tirou pedido: Se o cliente é um prospect e nunca tirou um pedido, ele é ativado.
+- Prospect ativado: fez um pedido e não comprou mais: Se o cliente é um prospect que fez um pedido mas não comprou mais, ele é ativado.
+- Mantenha a regularidade de compra do cliente que teve pedido detectado nos últimos 30 dias e não foi visitado na semana anterior: Se o cliente teve um pedido detectado nos últimos 30 dias e não foi visitado na semana anterior, ele recebe atendimento.
+- Garanta regularidade de compra e relacionamento com este cliente! Seu último pedido foi entre 31d e 60d atrás: Se o cliente teve seu último pedido entre 31 e 60 dias atrás, ele recebe atendimento.
+- Cliente a INATIVAR! Seu último pedido foi entre 61d e 90d atrás: Se o cliente teve seu último pedido entre 61 e 90 dias atrás, ele é considerado inativo.
+- Cliente estava inativo e foi reativado. Restabeleça relacionamento!: Se o cliente estava inativo e foi reativado, ele recebe atendimento.
+- Ative cliente INATIVO: Se o cliente está fora da recencia de positivacao global entre 90 dias, ele

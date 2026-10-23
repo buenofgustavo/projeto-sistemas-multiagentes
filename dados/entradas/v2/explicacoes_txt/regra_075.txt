@@ -1,0 +1,74 @@
+ARQUIVO ORIGINAL: regra_075.gobr
+ID: regra_075
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "time televendas":
+    vendedores todostelevendas
+
+carteira "carteira televendas":
+    clientes carteirafixa("time televendas")
+
+parametros "Regra Padrao da Empresa Customizavel: nao agendar inadimplentes":
+    da carteira("carteira televendas")
+    quando inadimplentes
+    nao agendar
+
+parametros "Regra Padrao da Empresa Customizavel: 7 dias para ativos adimplentes":
+    da carteira("carteira televendas")
+    quando ativos para o vendedor e adimplentes
+    frequencia de 7 dias
+    
+parametros "Regra Padrao da Empresa Customizavel: 14 dias para inativos adimplentes":
+    da carteira("carteira televendas")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 14 dias
+    
+parametros "Regra Padrao da Empresa Customizavel: 14 dias para sem venda":
+    da carteira("carteira televendas")
+    quando sem venda
+    frequencia de 14 dias
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa otimizar a rotina de vendas e visitas de acordo com as necessidades comerciais específicas. As regras definem como os clientes devem ser atendidos, com frequência, dias da semana, roteirização presencial, entre outros aspectos. O objetivo é garantir que os vendedores tenham uma rotina eficiente e produtiva, maximizando o tempo dedicado a clientes relevantes.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores, supervisores e clientes. As regras são aplicadas aos clientes através de carteiras, segmentações e times, sendo que os vendedores e supervisores têm a capacidade de ajustar as parametrizações conforme necessário.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a clientes que estão na carteira fixa, na carteira livre, na carteira de ruptura, na carteira de televendas, na carteira do vendedor avulso e em segmentações. As condições de aplicação incluem:
+
+- **Inadimplentes**: Não agendamento.
+- **Ativos Adimplentes**: Frequência de 7 dias.
+- **Inativos Adimplentes**: Frequência de 14 dias.
+- **Sem Venda**: Frequência de 14 dias.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- **Não Agendar Inadimplentes**: Clientes inadimplentes não são agendados.
+- **Freqüência de Visita**: Clientes ativos para o vendedor são agendados com frequência de 7 dias.
+- **Freqüência de Visita para Inativos Adimplentes**: Clientes inativos adimplentes são agendados com frequência de 14 dias.
+- **Freqüência de Visita para Sem Venda**: Clientes sem venda são agendados com frequência de 14 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrição de Cliente por Segmentação**: Somente um segmento pode ser usado como fonte de clientes para uma carteira.
+- **Exclusão de Vendedores**: Um mesmo vendedor pode aparecer em múltiplos times, mas será contabilizado apenas uma vez.
+- **Parametrização Dinâmica**: É possível combinar parâmetros pré-definidos com ajustes finos dos vendedores e supervisores.
+- **Exclusão de Clientes**: Clientes inativos há 90 dias são marcados para não aparecerem na agenda.
+- **Separação de Carteiras**: Clientes em ruptura são mantidos separadamente em carteiras de ruptura, não misturados com carteiras fixas.
+- **Multiplicidade de Times**: É possível criar múltiplos times com carteiras separadas para controle de exclusividade.
+
+Essas regras permitem uma gestão eficiente e personalizada dos clientes, adaptando-se às necessidades específicas de cada cliente e vendedor.

@@ -1,0 +1,85 @@
+ARQUIVO ORIGINAL: regra_183.gobr
+ID: regra_183
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+# Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/7641730946
+version 1.0
+
+time "televendas":
+    vendedores porid("522","353","519","520","523")
+
+## Regras de não agendamento:
+
+parametros "Não agendar inadimplentes":
+    do time("televendas")
+    quando inadimplentes
+    nao agendar
+
+## Regras de agendamento:
+
+parametros "Freq. de 21d para prospects":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 21 dias
+
+parametros "Freq. do histórico para 'Alta frequência de compra'":
+    do time("televendas")
+    quando ativos para o vendedor
+        e frequencia historica menor que 30 dias
+    frequencia do historico ou no minimo de 5 dias e no maximo de 30 dias
+
+parametros "Freq. de 14d para 'Compra regularmente' (Sem pedido em 30d)":
+    do time("televendas")
+    quando ativos para o vendedor
+        e frequencia historica maior que 30 dias
+    frequencia de 14 dias
+
+parametros "Freq. de 14d para 'Compra regularmente' (Com pedido em 30d)":
+    do time("televendas")
+    quando ativos para o vendedor
+        e frequencia historica maior que 30 dias
+        e atividade do vendedor de 30 dias
+    frequencia de 14 dias
+
+parametros "Freq. de 21 para inativos":
+    do time("televendas")
+    quando no ciclo de vida inativo com a empresa
+    frequencia de 21 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa automatizar a gestão de clientes para vendedores, permitindo que eles se concentrem em estratégias de vendas eficientes. As regras definem como cada cliente deve ser atendido, com qual frequência, em quais dias da semana, se deve ser incluído em rota presencial, etc. Isso ajuda a otimizar o tempo e a energia dos vendedores, garantindo que eles se concentrem em clientes mais relevantes.
+
+### 2. Público Afetado
+
+O público afetado são os vendedores e supervisores que utilizam o sistema GoBR. Eles podem usar essas regras para personalizar a maneira como atendem seus clientes, definindo parâmetros como frequência de visitas, dias preferenciais e preferências de atendimento.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas automaticamente para clientes que não têm parâmetros definidos manualmente no Govendas. Elas são aplicadas para todos os vendedores e supervisores mencionados na regra, exceto para vendedores específicos excluídos.
+
+### 4. Comportamento Configurado
+
+#### Regras de Não Agendamento
+
+- **Inadimplentes**: Não agendam clientes inadimplentes.
+  
+#### Regras de Agendamento
+
+- **Freq. de 21d para Prospects**: Ativos para a empresa com ciclo de vida prospect, com frequência de 21 dias.
+- **Freq. do Histórico para 'Alta Frequência de Compra'**: Ativos para o vendedor com frequência histórica menor que 30 dias, com frequência mínima de 5 dias e máxima de 30 dias.
+- **Freq. de 14d para 'Compra Regularmente' (Sem Pedido em 30d)**: Ativos para o vendedor com frequência histórica maior que 30 dias, sem pedido em 30 dias.
+- **Freq. de 14d para 'Compra Regularmente' (Com Pedido em 30d)**: Ativos para o vendedor com frequência histórica maior que 30 dias e atividade do vendedor em 30 dias, com frequência de 14 dias.
+- **Freq. de 21d para Inativos**: Inativos com ciclo de vida inativo, com frequência de 21 dias.
+
+### 5. Restrições, Exceções e Observações
+
+- **Remoção de Agendamento**: A remoção de agendamento é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias na mesma regra.
+- **Parâmetros Dinâmicos**: É possível combinar parâmetros dinâmicos com outras regras, mas a parametrização GoBR não sobrepõe a parametrização manual realizada pelo usuário no Govendas.
+- **Conflitos entre Times**: A regra "televendas sem choque com campo" evita que o mesmo cliente receba chamadas de ambos os times (televendas e campo

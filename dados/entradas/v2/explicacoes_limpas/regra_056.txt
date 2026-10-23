@@ -1,0 +1,27 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato e agendamento para diferentes tipos de clientes, baseando-se em critérios de atividade e inatividade. As regras permitem personalizar a frequência e a preferência de visitas para diferentes grupos de clientes, como clientes ativos, inativos, adimplentes e prospects.
+2. Público Afetado
+
+Este sistema é direcionado para vendedores e supervisores que trabalham com diferentes carteiras de clientes. Ele permite que eles ajustem estratégias de contato de acordo com o histórico de compra e inatividade dos clientes, além de definir preferências de dia da semana e frequência de visitas.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a diferentes carteiras e segmentações de clientes, como carteiras de televendas, carteiras livres e segmentações de clientes adimplentes. Elas são ativadas através de condições específicas, como a inatividade de clientes, a recência de visitas e a frequência de compra.
+4. Comportamento Configurado
+
+- Regras de Atividade e Inatividade: As regras permitem que clientes ativos, inativos, adimplentes e prospects sejam tratados de maneira diferente. Por exemplo, clientes inativos há mais de 90 dias podem ser parametrizados para receberem visitas mensais.
+  
+- Frequência de Visitas: As regras permitem definir a frequência de visitas, como semanal, mensal ou de acordo com a recência de visitas. Por exemplo, clientes inativos há mais de 90 dias podem receber visitas mensais.
+
+- Preferência de Dia da Semana: As regras também permitem definir a preferência de dia da semana para as visitas. Por exemplo, clientes podem ser parametrizados para receberem visitas preferencialmente na segunda e terça-feira.
+5. Restrições, Exceções e Observações
+
+- Restrições de Cliente: As regras não permitem que clientes sejam excluídos de carteiras. Em vez disso, a exclusão ocorre de forma indireta, pela ordem das carteiras.
+
+- Exclusão de Carteiras: Carteiras livres não causam exclusão de clientes para carteiras subsequentes. Isso significa que clientes que já foram incluídos em uma carteira livre não serão excluídos de carteiras subsequentes.
+
+- Exceções: Algumas regras, como a remoção de agendamento, são exclusivas e não permitem a definição de frequência ou preferência de dias na mesma regra.
+
+- Ambiguidades: É importante notar que algumas regras podem parecer ambíguas, especialmente quando combinadas com múltiplos filtros. Por exemplo, a regra "nao agendar" pode ser aplicada independentemente de outras regras de frequência ou preferência.
+
+- Limitações: Não é possível combinar a remoção de agendamento com a definição

@@ -1,0 +1,24 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir regras específicas para clientes, principalmente relacionadas a quem deve ser visitado e quando, baseando-se em diferentes segmentações e condições de adimplemento. As regras são direcionadas para vendedores de diferentes times (campo e televendas) e para clientes em diferentes situações (prospects, adimplentes, inativos, etc.).
+2. Público Afetado
+
+O público afetado são os vendedores de diferentes times (campo e televendas) e os clientes desses times. As regras definem quem deve ser visitado e quando, dependendo da situação do cliente (prospect, adimplente, inativo, etc.) e da situação do vendedor (ativo, inativo, etc.).
+3. Condições de Aplicação
+
+As regras definidas no arquivo `regra_169.gobr` são aplicáveis a clientes que estão na carteira de televendas e que estão em situação de ruptura de positivação ou inatividade. As regras são aplicadas de acordo com as condições de adimplemento e a frequência de visita.
+4. Comportamento Configurado
+
+- Clientes Prospects: São definidos como clientes que estão na segmentação "televendas ruptura de fornecedor" e na carteira "televendas consumidor", e que estão no ciclo de vida prospect com a empresa. Esses clientes têm uma frequência de 14 dias para serem considerados.
+  
+- Ativos com compra entre 7d e 30d: São clientes que estão na segmentação "televendas ruptura de fornecedor" e na carteira "televendas consumidor", com recência de positivacao global em 30 dias. Esses clientes também têm uma frequência de 14 dias.
+  
+- Ativos com compra entre 30d e 60d: São clientes que estão na segmentação "televendas ruptura de fornecedor" e na carteira "televendas consumidor", com recência de positivacao global em 60 dias. Esses clientes também têm uma frequência de 14 dias.
+  
+- Ativos com compra entre 60d e 90d: São clientes que estão na segmentação "televendas ruptura de fornecedor" e na carteira "televendas consumidor", com recência de positivacao global em 90 dias. Esses clientes também têm uma frequência de 14 dias.
+  
+- Clientes inativos: São clientes que estão na segmentação "televendas ruptura de fornecedor" e na carteira "televendas consumidor", com recência de positivacao global entre 90 dias e 180 dias. Esses clientes também têm uma frequência de 14 dias.
+  
+- Ativos com compra em 7 dias: São clientes que estão no time "televendas" ou "televendas_2" e que têm recência de positivacao global em 7 dias. Esses clientes não devem ser agendados.
+  
+- Não agendar Inad

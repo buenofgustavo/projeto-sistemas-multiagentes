@@ -1,0 +1,80 @@
+ARQUIVO ORIGINAL: regra_224.gobr
+ID: regra_224
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://gogeo.proofhub.com/bapplite/#app/todos/project-9587835621/list-270919671655/task-558845916316
+version 1.0
+
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+## Regras de planejamento
+
+parametros "Não agendar clientes baixados na receita":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Não agendar clientes com data da rota na semana":
+    do time("televendas")
+    quando data da rota na semana
+    nao agendar
+
+parametros "Clientes Prospects":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 14 dias
+
+parametros "Clientes Ativos":
+	do time("televendas")
+	quando recencia de positivacao global em 60 dias
+    frequencia de 7 dias
+
+parametros "Risco de Inatividade":
+    do time("televendas")
+    quando recencia de positivacao global em 90 dias
+    frequencia de 7 dias
+
+parametros "Inativos + 90d":
+    do time("televendas")
+    frequencia de 7 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal dessa parametrização é otimizar a agenda de vendas para diferentes tipos de clientes, garantindo que as visitas e contatos sejam eficientes e produtivos. As regras definem diferentes frequências e prioridades de contato com os clientes, dependendo de seu ciclo de vida e situação atual.
+
+### Público Afetado
+
+O público afetado são os vendedores e a equipe de telemarketing, que utilizam as parametrizações para gerar agendas de trabalho. Essas parametrizações também afetam a carteira de clientes, determinando quem será visitado e quando.
+
+### Condições de Aplicação
+
+As parametrizações definidas no arquivo `regra_224.gobr` são aplicadas automaticamente para clientes específicos, dependendo das condições definidas nas regras. As condições de aplicação incluem:
+
+- **Status na Receita Federal**: Se o cliente estiver marcado como "baixada" na receita federal, ele não será agendado.
+- **Data da Rota na Semana**: Se a data da próxima rota do cliente for na semana seguinte, ele não será agendado.
+- **Ciclo de Vida Prospect**: Se o cliente estiver no ciclo de vida prospect, ele será agendado com uma frequência de 14 dias.
+- **Recência de Posicionamento Global**: Se o cliente tiver uma recência de posicionamento global de 60 dias ou menos, ele será agendado com uma frequência de 7 dias.
+- **Recência de Posicionamento Global Alta**: Se o cliente tiver uma recência de posicionamento global de 90 dias ou mais, ele será agendado com uma frequência de 7 dias e com preferência de visita nos dias úteis.
+- **Clientes Inativos + 90d**: Se o cliente estiver inativo há mais de 90 dias, ele será agendado com uma frequência de 7 dias.
+
+### Comportamento Configurado
+
+O comportamento configurado pelas parametrizações inclui:
+
+- **Não Agendamento**: Quando uma condição específica for atendida, o cliente não será agendado.
+- **Frequência de Visita**: Dependendo da condição, o cliente será agendado com uma frequência de 7 dias (na maioria das situações) ou 30 dias (para clientes inativos há mais de 90 dias).
+- **Preferência de Dia da Semana**: Para clientes inativos há mais de 90 dias, a preferência de visita é definida para os dias úteis (segunda e terça-feira).
+
+### Restrições, Exceções e Observações
+
+- **Restrições de Vendedores**: As parametrizações podem ser aplicadas a diferentes grupos de vendedores, como televendas, vendedores de campo, supervisores, etc., dependendo das regras específicas.
+- **Exceções**: Algumas parametrizações podem ter exceções, como a parametrização "televendas sem choque com campo", que evita conflitos entre televendas e vendedores de

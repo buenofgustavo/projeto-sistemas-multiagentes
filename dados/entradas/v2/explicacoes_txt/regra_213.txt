@@ -1,0 +1,162 @@
+ARQUIVO ORIGINAL: regra_213.gobr
+ID: regra_213
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/8827004263
+version 1.0
+
+#
+## Definição de times
+
+time "time televendas":
+    vendedores todostelevendas ativados
+
+#
+## Definição de carteiras
+
+carteira "carteira_segunda":
+    clientes carteirafixa("time televendas")
+    quando codigo da rota igual("24","523","524","525","526")
+
+carteira "carteira_terca":
+    clientes carteirafixa("time televendas")
+    quando codigo da rota igual("3","4","17","500","512","514","515")
+  
+carteira "carteira_quarta":
+    clientes carteirafixa("time televendas")
+    quando codigo da rota igual("502","530","531")
+   
+carteira "carteira_quinta":
+    clientes carteirafixa("time televendas")
+    quando codigo da rota igual("20","501","504","505","506","508","513","516","527","528")
+
+carteira "carteira_sexta":
+    clientes carteirafixa("time televendas")
+    quando codigo da rota igual("5","19","510","511","521")
+   
+carteira "carteira_curitiba":
+    clientes carteirafixa("time televendas")
+    quando codigo da rota igual("10","11")
+
+#
+## Parâmetros de atendimento
+
+parametros "Não agendar Clientes Filiais":
+    do time("time televendas")
+    quando cliente filial
+    nao agendar
+
+parametros "Clientes Ativos (segunda)":
+    da carteira("carteira_segunda")
+    quando ativos para o vendedor
+    frequencia semanal()
+    preferencia na segunda
+    fixo
+
+parametros "Clientes Inativos (segunda)":
+    da carteira("carteira_segunda")
+    frequencia de 28 dias
+    preferencia na segunda
+    fixo
+
+parametros "Clientes Ativos (terça)":
+    da carteira("carteira_terca")
+    quando ativos para o vendedor
+    frequencia semanal()
+    preferencia na terça   
+    fixo
+
+parametros "Clientes Inativos (terça)":
+    da carteira("carteira_terca")
+    frequencia de 28 dias
+    preferencia na terça
+    fixo
+
+parametros "Clientes Ativos (quarta)":
+    da carteira("carteira_quarta")
+    quando ativos para o vendedor
+    frequencia semanal()
+    preferencia na quarta
+    fixo
+
+parametros "Clientes Inativos (quarta)":
+    da carteira("carteira_quarta")
+    frequencia de 28 dias
+    preferencia na quarta
+    fixo
+
+parametros "Clientes Ativos (quinta)":
+    da carteira("carteira_quinta")
+    quando ativos para o vendedor
+    frequencia semanal()
+    preferencia na quinta
+    fixo
+
+parametros "Clientes Inativos (quinta)":
+    da carteira("carteira_quinta")
+    frequencia de 28 dias
+    preferencia na quinta
+    fixo
+
+parametros "Clientes Ativos (sexta)":
+    da carteira("carteira_sexta")
+    quando ativos para o vendedor
+    frequencia semanal()
+    preferencia na sexta
+    fixo
+    
+parametros "Clientes Inativos (sexta)":
+    da carteira("carteira_sexta")
+    frequencia de 28 dias
+    preferencia na sexta
+    fixo
+
+parametros "Clientes sem dia específico":
+    da carteira("carteira_curitiba")
+    frequencia semanal()
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### Objetivo Comercial
+
+O objetivo principal dessa parametrização é otimizar o tempo de atendimento aos clientes, garantindo que os vendedores tenham uma rotina eficiente de visitas e agendamentos. Isso inclui definir a frequência de visitas, os dias da semana preferidos para atendimento e a prioridade de visitas para cada cliente.
+
+### Público Afetado
+
+O público afetado são os vendedores e supervisores responsáveis pela gestão de carteiras de clientes. Essa parametrização é direcionada para otimizar a rotina de trabalho desses profissionais, garantindo que eles atendam aos clientes de forma eficaz e organizada.
+
+### Condições de Aplicação
+
+As condições de aplicação dessas parametrizações são definidas pelas seguintes regras:
+
+1. **Cadeia de Carteiras**: As carteiras são definidas para diferentes dias da semana, como Segunda, Terça, Quarta, Quinta, Sexta e Curitiba. Cada carteira está associada a um grupo específico de clientes.
+
+2. **Parametrização de Clientes**: Para cada carteira, há parâmetros definidos que determinam a frequência de visitas, a preferência de dias da semana e a remoção de clientes inativos. Por exemplo, clientes inativos há mais de 90 dias são marcados para não aparecerem na agenda.
+
+3. **Exclusão de Clientes Filiais**: Clientes filiais são automaticamente excluídos da agenda.
+
+### Comportamento Configurado
+
+O comportamento configurado é o seguinte:
+
+- **Clientes Ativos e Inativos**: Clientes ativos são visitados com frequência semanal, enquanto clientes inativos são marcados para não aparecerem na agenda.
+- **Preferências de Dias da Semana**: Há preferências definidas para cada dia da semana, com valores numéricos que variam de 0 a 3, onde 0 significa não visitar, 1 é menor preferência, 2 é preferência normal e 3 é maior preferência.
+- **Remoção de Clientes Inativos**: Clientes inativos há mais de 90 dias são removidos da agenda.
+
+### Restrições, Exceções e Observações
+
+1. **Restrições**:
+   - A remoção de clientes inativos é uma parametrização exclusiva e não pode ser combinada com frequência ou preferência de dias na mesma regra.
+   - A parametrização não sobrepõe a parametrização manualmente realizada pelo usuário no Govendas.
+   - A parametrização aplicada pelo GoBR não pode ser sobrescrita por parametrizações manualmente realizadas pelo usuário.
+
+2. **Exceções**:
+   - É possível combinar parâmetros de frequência com preferências de dias da semana, mas não com a remoção de clientes inativos.
+
+3. **Observações**:
+   - A parametrização é aplicada automaticamente e pode ser sobrescrita pelos ajustes finos dos vendedores e supervisores quando necessário.
+   - A parametrização não altera a roteirização de clientes, apenas a frequência

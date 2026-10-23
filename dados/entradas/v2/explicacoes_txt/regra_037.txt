@@ -1,0 +1,57 @@
+ARQUIVO ORIGINAL: regra_037.gobr
+ID: regra_037
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+    
+carteira "carteira":
+    clientes carteirafixa("empresa toda")
+    
+parametros "Regra Padrao da Magnavet - Customizavel: 30 dias para todos os clientes":
+    da carteira("carteira")
+    frequencia de 30 dias
+    preferencia nos dias uteis
+
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir condições de atendimento para clientes específicos, com foco em regras de frequência e preferência de dias úteis. Ela permite personalizar o comportamento de atendimento para diferentes grupos de clientes, ajustando a frequência de contato e a preferência de dias úteis conforme as necessidades comerciais.
+
+### 2. Público Afetado
+
+Este sistema de parametrização é direcionado a vendedores, supervisores e gestores responsáveis por definir estratégias de atendimento aos clientes. As regras são aplicadas a carteiras de clientes, permitindo que diferentes times de vendas tenham comportamentos de atendimento personalizados.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicáveis a carteiras de clientes, onde clientes específicos são agrupados e recebem personalizações de atendimento. As condições de aplicação incluem:
+
+- **Time de Vendedores**: A parametrização é aplicada a carteiras de clientes associadas a um determinado time de vendedores.
+- **Cadeia de Carteiras**: Clientes podem aparecer em múltiplas carteiras, dependendo das regras aplicadas a cada carteira.
+- **Segmentações**: É possível criar segmentações de clientes para fins auxiliares, permitindo que clientes sejam agrupados de maneira flexível.
+
+### 4. Comportamento Configurado
+
+As regras de parametrização GoBR permitem configurar o comportamento de atendimento de acordo com as necessidades comerciais, incluindo:
+
+- **Frequência de Contato**: Personalizar a frequência com que clientes são contatados, podendo ser diariamente, semanalmente, quinzenalmente ou com intervalos específicos.
+- **Preferência de Dias Úteis**: Determinar quais dias da semana os clientes devem ser contatados, com ênfase em dias úteis.
+- **Exclusão de Clientes Inativos**: Marcar clientes inativos para não aparecerem na agenda, garantindo que eles não recebam contatos desnecessários.
+
+### 5. Restrições, Exceções e Observações
+
+- **Exclusão de Clientes Inativos**: Clientes inativos há mais de 90 dias são marcados para não aparecerem na agenda, mas isso não exclui-os do pool de clientes disponíveis.
+- **Sem Choque entre Televendas e Campo**: A regra de sem choque evita que clientes recebam contatos simultaneamente de televendas e campo, garantindo que o cliente seja contatado apenas uma vez por dia.
+- **Personalização Dinâmica**: As parametrizações podem ser personalizadas de forma dinâmica, permitindo que as regras sejam ajustadas conforme necessário.
+- **Limitações de Revisão**: A remoção de parametrizações já aplicadas requer cuidado, pois pode afetar a configuração de outros clientes.
+
+### Observações Importantes
+
+- **Escalabilidade**: As regras são projetadas para serem escaláveis, permitindo que nov

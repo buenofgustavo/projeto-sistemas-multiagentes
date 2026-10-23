@@ -1,0 +1,96 @@
+ARQUIVO ORIGINAL: regra_195.gobr
+ID: regra_195
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+### Solicitação: https://3.basecamp.com/3199393/buckets/26567206/card_tables/cards/8579853969
+version 1.0
+
+## Definição de times
+
+time "televendas":
+    vendedores todostelevendas ativados
+
+## Regras de planejamento
+
+parametros "Não agendar PF":
+    do time("televendas")
+    quando pessoa fisica
+    nao agendar
+
+# Paliativo (vide: https://3.basecamp.com/3199393/buckets/2796880/chats/398760125@7773539991)
+parametros "Não agendar Baixados na Receita":
+    do time("televendas")
+    quando status na receita federal definido como baixada
+    nao agendar
+
+parametros "Não agendar clientes com pedido em 7d":
+    do time("televendas")
+    quando recencia de positivacao em 7 dias
+    nao agendar
+
+parametros "Manter contato com cliente que comprou no mês":
+    do time("televendas")
+    quando recencia de positivacao entre 7 dias e 30 dias
+    frequencia de 21 dias
+
+parametros "Ativação de novos":
+    do time("televendas")
+    quando no ciclo de vida prospect com a empresa
+    frequencia de 14 dias
+
+parametros "Fazer relacionamento com o cliente":
+    do time("televendas")
+    quando unica compra com a empresa
+    frequencia de 21 dias
+
+parametros "Manter a regularidade de compra":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 31 dias e 60 dias
+    frequencia de 21 dias
+
+parametros "Atuar para que o cliente não fique inativo":
+    do time("televendas")
+    quando recencia de positivacao do vendedor entre 61 dias e 90 dias
+    frequencia de 7 dias
+
+parametros "Resgatar o cliente inativo":
+    do time("televendas")
+    frequencia de 14 dias
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa organizar a agenda de vendas de acordo com regras comerciais específicas. Ela permite que as equipes de vendas (televendas, supervisores e vendedores avulsos) tenham uma visão clara de quem deve ser visitado e quando, de acordo com as condições comerciais e as políticas internas do distribuidor.
+
+### 2. Público Afetado
+
+As regras de parametrização GoBR afetam diretamente os vendedores, supervisores e clientes. Elas determinam quem deve ser visitado e quando, bem como a frequência e a preferência de dias para essas visitas.
+
+### 3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas de acordo com as seguintes condições:
+
+- **Vendedores**: São definidos em grupos (times) e têm suas agendas personalizadas com base nas regras especificadas.
+- **Supervisores**: Gerenciam os times de vendedores e podem aplicar regras adicionais.
+- **Clientes**: São filtrados e classificados com base nas regras de parametrização, determinando quem deve ser visitado e quando.
+
+### 4. Comportamento Configurado
+
+O comportamento configurado pelas regras de parametrização GoBR inclui:
+
+- **Não Agendar**: Determina que determinados clientes não devem ser visitados.
+- **Frequência de Visita**: Define a periodicidade das visitas a determinados clientes.
+- **Prioridade de Dias da Semana**: Determina a preferência de dias para visitas, com valores numéricos atribuídos a cada dia da semana.
+- **Ciclo de Vida do Cliente**: Determina a frequência de visitas com base no tempo desde a última compra do cliente.
+- **Recência de Posicionamento**: Determina a frequência de visitas com base no tempo desde a última visita ao cliente.
+- **Status na Receita Federal**: Determina a frequência de visitas com base no status atual do cliente na Receita Federal.
+
+### 5. Restrições, Exceções e Observações
+
+- **Restrições**: As regras de parametrização GoBR permitem que clientes sejam excluídos de visitas (não agendados) se forem PF, se estiverem baixados na Receita Federal, ou se tiverem pedido pendente por mais de 7 dias.
+- **Exceções**: Há exceções para alguns clientes, como aqueles que compraram no mês anterior, que têm apenas uma compra com a empresa, que têm recência de positivação entre 7 e 30 dias, que têm recência de positivação entre 31 e 60 dias, que têm recência de positivação entre 61 e 90 dias, que têm recência de positivação entre 91 e 180 dias, que têm recência de positivação entre 181 e 365 dias, que não tiveram contato nos últimos 14 dias, que não tiveram contato nos últimos

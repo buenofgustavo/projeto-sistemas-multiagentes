@@ -1,0 +1,38 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato com clientes de acordo com suas atividades recentes. As regras permitem que os vendedores tenham uma visão personalizada de quem deve ser visitado e quando, dependendo do tempo desde a última compra ou visita.
+2. Público Afetado
+
+Este sistema é direcionado aos vendedores e supervisores que trabalham com carteiras de clientes. Ele permite que eles personalizem as parametrizações de contato com seus clientes de acordo com as necessidades específicas de cada cliente.
+3. Condições de Aplicação
+
+As parametrizações GoBR são aplicadas a clientes específicos, definidos através de segmentações, carteiras livres ou carteiras fixas. Elas são ativadas quando um cliente atinge um determinado nível de inatividade, definido em dias.
+4. Comportamento Configurado
+4.1 Regras de Atividade e Inatividade
+
+- Regra padrão da empresa: Define a frequência de contato para clientes ativos e inativos, com preferências definidas para determinados dias da semana.
+  
+- Parametrização com preferência de dias úteis: Define a preferência de contato para os dias úteis (segunda a sexta).
+
+- Parametrização com intensidades diferentes por dia: Define a preferência de contato com intensidades diferentes para cada dia da semana.
+
+- Remoção de agendamento: Remove a parametrização de contato para clientes inativos.
+
+- Parâmetros dinâmicos: Adiciona preferências de contato ao parâmetro do vendedor.
+
+- Cascata de fallbacks para frequência: Usa a frequência do vendedor específico, se disponível; se não, usa a frequência configurada por outro vendedor; se não disponível, aplica uma frequência padrão.
+
+- Parametrização com restrição temporal: Define a parametrização para dias úteis, garantindo que ela seja aplicada apenas nos dias úteis.
+
+- Sem choque entre televendas e campo: Evita que clientes recebam contato de ambos os times em um mesmo dia.
+
+- Configuração de semana pivot: Restringe a parametrização para clientes que atingiram um certo nível de inatividade, começando a ser aplicada a partir de uma certa semana do mês.
+
+- Campo roteirizável fixo: Define que os clientes devem ser incluídos na otimização de rota de visita presencial e têm uma parametrização marcada como fixa.
+5. Restrições, Exceções e Observações
+
+- Restrição de Choque: A cláusula `sem choque` evita que clientes recebam contato de dois times em um mesmo dia, garantindo que o cliente receba contato apenas de um time.
+
+- Parametrização Dinâmica: As parametrizações podem ser removidas usando a regra `limpar parametros`, útil para resetar configurações antes de reaplicar regras atualizadas.
+
+- Frequência Fixa: As parametrizações

@@ -1,0 +1,86 @@
+ARQUIVO ORIGINAL: regra_113.gobr
+ID: regra_113
+
+===== PARAMETRIZAÇÃO GOBR =====
+
+
+version 1.0
+
+time "empresa toda":
+    vendedores todos
+    
+carteira "empresa toda":
+    clientes carteirafixa("empresa toda")
+    
+parametros "Regra Padrao da Magalhaes e Massote - Customizavel: 30 dias para clientes sem venda":
+    da carteira("empresa toda")
+    quando sem venda
+    frequencia de 30 dias
+    preferencia nos dias uteis
+
+parametros "Regra Padrao da Magalhaes e Massote - Customizavel: 30 dias para clientes ativos adimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor e adimplentes
+    frequencia de 30 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Magalhaes e Massote - Customizavel: 60 dias para clientes ativos inadimplentes":
+    da carteira("empresa toda")
+    quando ativos para o vendedor e inadimplentes
+    frequencia de 60 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Magalhaes e Massote - Customizavel: 60 dias para clientes inativos adimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e adimplentes
+    frequencia de 60 dias
+    preferencia nos dias uteis
+    
+parametros "Regra Padrao da Magalhaes e Massote - Customizavel: Nao agendar clientes inativos inadimplentes":
+    da carteira("empresa toda")
+    quando inativos para o vendedor e inadimplentes
+    nao agendar
+
+    
+
+
+===== EXPLICAÇÃO DA REGRA DE NEGÓCIO =====
+
+### 1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de contato com clientes de acordo com suas atividades e situação financeira. As regras permitem que os vendedores tenham prioridades específicas em relação aos clientes, baseando-se em critérios como adimplemento, inadimplemento, atividade e inatividade.
+
+### 2. Público Afetado
+
+Este sistema afeta todos os clientes da carteira "empresa toda", independentemente do vendedor específico. As regras são aplicadas de forma a definir a frequência e a preferência de visitas para diferentes grupos de clientes, como ativos adimplentes, ativos inadimplentes, inativos adimplentes e inativos inadimplentes.
+
+### 3. Condições de Aplicação
+
+As regras são aplicadas conforme as seguintes condições:
+
+- **Regra Padronizada da Magalhaes e Massote - Customizável: 30 dias para clientes sem venda**
+  - Aplica-se a clientes que não fizeram compras nos últimos 30 dias.
+  
+- **Regra Padronizada da Magalhaes e Massote - Customizável: 30 dias para clientes ativos adimplentes**
+  - Aplica-se a clientes ativos que estão adimplentes.
+  
+- **Regra Padronizada da Magalhaes e Massote - Customizável: 60 dias para clientes ativos inadimplentes**
+  - Aplica-se a clientes ativos que estão inadimplentes.
+  
+- **Regra Padronizada da Magalhaes e Massote - Customizável: 60 dias para clientes inativos adimplentes**
+  - Aplica-se a clientes inativos que estão adimplentes.
+  
+- **Regra Padronizada da Magalhaes e Massote - Customizável: Não agendar clientes inativos inadimplentes**
+  - Não agendar visitas a clientes inativos que estão inadimplentes.
+
+### 4. Comportamento Configurado
+
+- **Frequência de Visita**: As regras definem a frequência de visitas para diferentes grupos de clientes. Por exemplo, clientes ativos adimplentes têm uma frequência de 30 dias, enquanto clientes inativos inadimplentes não são agendados.
+  
+- **Preferência de Dia da Semana**: Algumas regras incluem preferência de dias úteis para as visitas. Por exemplo, a regra "Regra Padronizada da Magalhaes e Massote - Customizável: 30 dias para clientes ativos adimplentes" define a preferência nos dias úteis.
+
+### 5. Restrições, Exceções e Observações
+
+- **Exclusão de Clientes**: As regras não excluem automaticamente clientes de carteiras. Em vez disso, a ordem das carteiras determina a prioridade de quem será visitado primeiro.
+  
+- **Carteiras Livres**: As carteiras livres permitem que clientes sejam incluídos em múltiplas carteiras, sem exclusão mútua. Por exemplo, clientes em ruptura podem estar em uma carteira

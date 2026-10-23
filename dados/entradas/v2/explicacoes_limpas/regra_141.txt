@@ -1,0 +1,34 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir como os clientes devem ser atendidos de acordo com suas frequências de visita e dias da semana. Isso inclui a definição de frequências específicas para clientes ativos e inativos, bem como a definição de preferências de dias da semana para atendimento.
+2. Público Afetado
+
+Este sistema afeta todos os vendedores e clientes ativos da empresa. As regras são aplicadas automaticamente e podem ser sobrescritas pelos vendedores e supervisores conforme necessário.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas a todos os clientes ativos da empresa, independentemente do vendedor. As condições de aplicação incluem:
+
+- Frequência de Visita: Definidas para clientes ativos e inativos, variando de 7 dias (semanal) a 30 dias (curva C).
+- Dias da Semana: Definidos com preferências numéricas (0 = não visitar, 1 = menor preferência, 2 = preferência normal, 3 = maior preferência).
+4. Comportamento Configurado
+
+As regras configuram o comportamento de atendimento dos clientes de acordo com as seguintes condições:
+
+- Clientes Ativos: São definidos com frequências de visita variando de 7 a 30 dias, dependendo da curva (A, B ou C).
+- Clientes Inativos: São definidos com frequências de visita de 7 a 21 dias, também dependendo da curva (A, B ou C).
+- Prospects: São definidos com uma frequência de visita de 21 dias.
+5. Restrições, Exceções e Observações
+
+- Restrições:
+  - As regras de parametrização GoBR são aplicadas automaticamente e podem ser sobrescritas pelos vendedores e supervisores.
+  - As regras de parametrização GoBR não sobrepõem a parametrização manual realizada pelo usuário no Govendas.
+  - As regras de parametrização GoBR são aplicadas apenas a clientes que ainda não possuem parametrização manual ou que foram parametrizados exclusivamente pelo GoBR em execuções anteriores.
+  
+- Exceções:
+  - Não é possível combinar a parametrização de frequência com a parametrização de dias da semana (preferência de dias da semana).
+  - A remoção de agendamento é uma parametrização exclusiva e não pode ser combinada com a parametrização de frequência ou dias da semana.
+  
+- Observações:
+  - As regras de parametrização GoBR são aplicadas automaticamente e podem ser sobrescritas pelos vendedores e supervisores conforme necessário.
+  - É importante notar que a parametrização GoBR não sobrepõe a parametrização manual realizada pelo usuário no Govendas.
+  - As regras de parametrização GoBR são aplicadas apenas a clientes que ainda não possuem parametrização manual ou

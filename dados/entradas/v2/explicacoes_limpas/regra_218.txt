@@ -1,0 +1,30 @@
+1. Objetivo Comercial
+
+A parametrização GoBR apresentada visa definir estratégias de agendamento e atendimento para clientes de diferentes carteiras e segmentações. Ela permite que as equipes de vendas tenham regras personalizadas aplicadas automaticamente, facilitando a gestão de rotinas de trabalho e otimizando o tempo de contato com os clientes.
+2. Público Afetado
+
+Este sistema é direcionado principalmente para vendedores, supervisores e gestores de vendas. As regras são aplicadas automaticamente aos clientes de diferentes carteiras e segmentações, sendo configuradas por meio de arquivos GoBR.
+3. Condições de Aplicação
+
+As regras de parametrização GoBR são aplicadas conforme as seguintes condições:
+
+- Frequência de Visita: Determina a periodicidade com que um cliente deve ser visitado. Por exemplo, a frequência pode ser definida como diária, semanal, mensal, etc.
+  
+- Dia da Semana: Define a preferência de dia da semana para a visita. Os valores correspondem a uma escala de preferência, onde 0 significa não visitar no dia, 1 é uma preferência baixa, 2 é normal e 3 é a maior preferência.
+
+- Inatividade do Cliente: Determina a frequência com que um cliente deve ser visitado dependendo de seu histórico de inatividade. Por exemplo, clientes inativos há mais de 90 dias podem ser visitados com uma frequência mensal.
+
+- Remoção de Agendamento: Permite remover clientes inativos da agenda de agendamento.
+4. Comportamento Configurado
+
+O comportamento configurado pelas regras GoBR inclui:
+
+- Freq. de 5d para clientes sem compra em 7d: Define que clientes sem compras em 7 dias devem ser visitados com uma frequência de 5 dias.
+- Freq. do histórico para clientes com recência de compra entre 0 e 14d: Define que clientes com recência de compra entre 0 e 14 dias devem ser visitados com frequência do histórico ou até 14 dias.
+- Freq. de 14d para clientes sem compra em 14d: Define que clientes sem compras há 14 dias devem ser visitados com uma frequência de 14 dias.
+- Freq. de 14d para clientes sem pedido: Define que clientes sem pedidos devem ser visitados com uma frequência de 14 dias.
+- Freq. de 14d para clientes com compra em 30d: Define que clientes com compras há 30 dias devem ser visitados com uma frequência de 14 dias.
+- Freq. de 7d para clientes sem compra em 30d: Define que clientes sem compras há 30 dias devem ser visitados com uma frequência de 7 dias.
+5. Restrições, Exceções e Observações
+
+- Restrições de Vendedores: As regras podem ser aplicadas apenas aos vendedores específicos mencionados no arquivo GoBR
