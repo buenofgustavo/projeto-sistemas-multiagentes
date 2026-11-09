@@ -1,4 +1,4 @@
-# Entregas 1 e 2 — GoBR
+# Entregas 1 a 3 — GoBR
 
 ## 1. Descrições comerciais
 
@@ -30,5 +30,40 @@ vetorial é criado no Colab na primeira execução e reutilizado nas seguintes.
 Os resultados precisam ser inspecionados: similaridade não prova que uma regra
 está correta ou completa para uma nova solicitação.
 
-O manual `dados/govendas-rules.pdf` é utilizado no fluxo de geração. Sua
-indexação pertence à terceira entrega e ainda não faz parte deste índice.
+## 3. Indexação do manual e RAG
+
+Execute [indexacao_manual.ipynb](indexacao_manual.ipynb) para criar o índice
+do manual com Docling. Abra [fluxo_rag_gobr.ipynb](fluxo_rag_gobr.ipynb) no
+Colab com GPU. Ele abre os dois índices existentes, busca exemplos de regras
+e páginas do manual e usa o Qwen para propor uma regra GoBR. Execute a
+preparação uma vez por sessão. Para cada nova consulta, edite `pedido` e
+rode só a última célula.
+
+O RAG lê os índices persistidos pelo LlamaIndex e os arquivos `.gobr`
+originais. O `explicacoes.jsonl` pertence à geração de rascunhos, e o
+`chunks.jsonl` é o cache intermediário do indexador do manual.
+
+Os dois caches precisam estar acessíveis na sessão do RAG. O notebook procura
+`gobr_index_cache/explicacoes` e `gobr_index_cache/manual` ao lado do checkout
+(normalmente em `/content/gobr_index_cache` no Colab). Se os índices foram
+gerados em sessões diferentes, execute este trecho no fim de cada notebook
+de indexação, usando `"explicacoes"` ou `"manual"` conforme o notebook.
+
+```python
+from shutil import make_archive
+from google.colab import files
+
+tipo = "explicacoes"  # Use "manual" no notebook do manual.
+zip_cache = make_archive(tipo, "zip", REPO_DIR.parent / "gobr_index_cache", tipo)
+files.download(zip_cache)
+```
+
+Envie os dois ZIPs para `/content` na sessão do RAG e extraia-os antes de
+executar a célula que abre os índices.
+
+```python
+from shutil import unpack_archive
+
+for tipo in ("explicacoes", "manual"):
+    unpack_archive(f"/content/{tipo}.zip", "/content/gobr_index_cache")
+```
