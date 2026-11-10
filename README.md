@@ -35,9 +35,14 @@ está correta ou completa para uma nova solicitação.
 Execute [indexacao_manual.ipynb](indexacao_manual.ipynb) para criar o índice
 do manual com Docling. Abra [fluxo_rag_gobr.ipynb](fluxo_rag_gobr.ipynb) no
 Colab com GPU. Ele abre os dois índices existentes, busca exemplos de regras
-e páginas do manual e usa o Qwen para propor uma regra GoBR. Execute a
-preparação uma vez por sessão. Para cada nova consulta, edite `pedido` e
-rode só a última célula.
+e páginas do manual e envia esse contexto ao Gemini para propor uma regra
+GoBR. No Colab, adicione a chave em **Segredos** como `GEMINI_API_KEY` e
+habilite o acesso do notebook. Fora do Colab, use a variável de ambiente
+de mesmo nome.
+
+Execute a preparação uma vez por sessão. O modelo padrão é
+`gemini-3.8-flash`, configurável em `MODELO_GEMINI`. Para cada nova
+consulta, edite `pedido` e rode só a última célula.
 
 O RAG lê os índices persistidos pelo LlamaIndex e os arquivos `.gobr`
 originais. O `explicacoes.jsonl` pertence à geração de rascunhos, e o
