@@ -88,6 +88,7 @@ def preparar_recursos(repo=None, modelo="gpt-6-luna"):
 
 
 class Estado(TypedDict, total=False):
+    correcoes: int
     pergunta: str
     anexo: bytes
     mime_anexo: str

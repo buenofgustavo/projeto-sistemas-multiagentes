@@ -1,0 +1,22 @@
+{
+  "total": 3,
+  "contagem_status": {
+    "codigo": 3,
+    "esclarecimento": 0,
+    "sem_codigo": 0,
+    "erro": 0
+  },
+  "avaliados_pelo_juiz": 3,
+  "erros_juiz": 0,
+  "contagem_vereditos": {
+    "correto": 3,
+    "parcial": 0,
+    "incorreto": 0,
+    "inconclusivo": 0
+  },
+  "percentual_corretos_total_amostra": 100.0,
+  "percentual_corretos_entre_avaliados": 100.0,
+  "nota_media_0_a_10": 10.0,
+  "quantidade_com_nota": 3,
+  "aviso": "O índice contém as referências avaliadas. Não mede generalização para regras inéditas. O parecer do LLM é uma avaliação estimada, sem execução GoBR."
+}
